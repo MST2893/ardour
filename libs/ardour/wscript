@@ -292,7 +292,15 @@ def options(opt):
 
 def configure(conf):
     if conf.env['build_target'] == 'msvc':
-        conf.find_program('ml64', var='AS')
+        ml64 = os.environ.get('ARDOUR_ML64') or os.environ.get('AS')
+        if not ml64:
+            msvc_ml64 = 'C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/ml64.exe'
+            if os.path.exists(msvc_ml64):
+                ml64 = msvc_ml64
+        if ml64:
+            conf.env['AS'] = [ml64]
+        else:
+            conf.find_program('ml64', var='AS')
 
     conf.load('gas')
     # we don't use hard-coded micro versions with ardour, so hard code it to zero

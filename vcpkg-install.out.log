@@ -1,0 +1,1979 @@
+Detecting compiler hash for triplet x64-windows...
+Compiler found: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe
+The following packages will be built and installed:
+  * asiosdk:x64-windows@2.3.4#2
+    aubio:x64-windows@2024-01-03#1
+    boost-algorithm:x64-windows@1.90.0#1
+  * boost-align:x64-windows@1.90.0#1
+  * boost-any:x64-windows@1.90.0#1
+  * boost-array:x64-windows@1.90.0#1
+  * boost-assert:x64-windows@1.90.0#1
+  * boost-atomic:x64-windows@1.90.0#1
+  * boost-bind:x64-windows@1.90.0#1
+  * boost-chrono:x64-windows@1.90.0#1
+  * boost-circular-buffer:x64-windows@1.90.0#1
+  * boost-cmake:x64-windows@1.90.0#1
+  * boost-concept-check:x64-windows@1.90.0#1
+  * boost-config:x64-windows@1.90.0#1
+  * boost-container:x64-windows@1.90.0#1
+  * boost-container-hash:x64-windows@1.90.0#1
+  * boost-conversion:x64-windows@1.90.0#1
+  * boost-core:x64-windows@1.90.0#1
+  * boost-date-time:x64-windows@1.90.0#1
+  * boost-describe:x64-windows@1.90.0#1
+  * boost-detail:x64-windows@1.90.0#1
+  * boost-dynamic-bitset:x64-windows@1.90.0#1
+  * boost-endian:x64-windows@1.90.0#1
+  * boost-exception:x64-windows@1.90.0#1
+  * boost-function:x64-windows@1.90.0#1
+  * boost-function-types:x64-windows@1.90.0#1
+  * boost-functional:x64-windows@1.90.0#1
+  * boost-fusion:x64-windows@1.90.0#1
+  * boost-headers:x64-windows@1.90.0#1
+  * boost-integer:x64-windows@1.90.0#1
+  * boost-intrusive:x64-windows@1.90.0#1
+  * boost-io:x64-windows@1.90.0#1
+  * boost-iterator:x64-windows@1.90.0#1
+  * boost-lexical-cast:x64-windows@1.90.0#1
+  * boost-math:x64-windows@1.90.0#1
+  * boost-move:x64-windows@1.90.0#1
+  * boost-mp11:x64-windows@1.90.0#1
+  * boost-mpl:x64-windows@1.90.0#1
+    boost-multi-array:x64-windows@1.90.0#1
+  * boost-multi-index:x64-windows@1.90.0#1
+    boost-multiprecision:x64-windows@1.90.0#1
+  * boost-numeric-conversion:x64-windows@1.90.0#1
+  * boost-optional:x64-windows@1.90.0#1
+  * boost-phoenix:x64-windows@1.90.0#1
+    boost-pool:x64-windows@1.90.0#1
+  * boost-predef:x64-windows@1.90.0#1
+  * boost-preprocessor:x64-windows@1.90.0#1
+    boost-property-tree:x64-windows@1.90.0#1
+  * boost-proto:x64-windows@1.90.0#1
+    boost-ptr-container:x64-windows@1.90.0#1
+  * boost-random:x64-windows@1.90.0#1
+  * boost-range:x64-windows@1.90.0#1
+  * boost-ratio:x64-windows@1.90.0#1
+  * boost-regex:x64-windows@1.90.0#1
+  * boost-serialization:x64-windows@1.90.0#1
+  * boost-smart-ptr:x64-windows@1.90.0#1
+  * boost-spirit:x64-windows@1.90.0#1
+  * boost-static-assert:x64-windows@1.90.0#1
+  * boost-system:x64-windows@1.90.0#1
+  * boost-thread:x64-windows@1.90.0#1
+  * boost-throw-exception:x64-windows@1.90.0#1
+    boost-tokenizer:x64-windows@1.90.0#1
+  * boost-tuple:x64-windows@1.90.0#1
+  * boost-type-index:x64-windows@1.90.0#1
+  * boost-type-traits:x64-windows@1.90.0#1
+  * boost-typeof:x64-windows@1.90.0#1
+  * boost-uninstall:x64-windows@1.90.0#1
+  * boost-unordered:x64-windows@1.90.0#1
+  * boost-utility:x64-windows@1.90.0#1
+    boost-uuid:x64-windows@1.90.0#1
+  * boost-variant:x64-windows@1.90.0#1
+  * boost-variant2:x64-windows@1.90.0#1
+  * boost-winapi:x64-windows@1.90.0#1
+  * brotli:x64-windows@1.2.0
+  * bzip2[core,tool]:x64-windows@1.0.8#6
+  * cairo[core,fontconfig,freetype,gobject]:x64-windows@1.18.4#1
+    cppunit:x64-windows@1.15.1#4
+    curl[core,non-http,ssl,sspi]:x64-windows@8.18.0#1
+  * dirent:x64-windows@1.26
+  * expat:x64-windows@2.7.4
+    fftw3[core,threads]:x64-windows@3.3.10#10
+  * fontconfig:x64-windows@2.17.1#1
+  * freetype[brotli,bzip2,core,png,zlib]:x64-windows@2.13.3
+  * fribidi:x64-windows@1.0.16
+    getopt:x64-windows@0#3
+  * getopt-win32:x64-windows@2.42.0
+  * gettext[core,tools]:x64-windows@0.22.5#4
+  * gettext-libintl:x64-windows@0.22.5#4
+    glib:x64-windows@2.86.4
+  * gperf:x64-windows@3.3
+  * harfbuzz[core,freetype]:x64-windows@12.3.2
+    jack2:x64-windows@1.9.22
+    libarchive[bzip2,core,crypto,lz4,lzma,xar,zstd]:x64-windows@3.8.5
+  * libffi:x64-windows@3.5.2
+  * libflac[core,stack-protector]:x64-windows@1.5.0
+  * libiconv:x64-windows@1.18#3
+    liblo:x64-windows@0.34
+  * liblzma:x64-windows@5.8.2#1
+  * libogg:x64-windows@1.3.6#1
+    libpng:x64-windows@1.6.55
+    libsamplerate:x64-windows@0.2.2#1
+    libsndfile[core,external-libs,mpeg]:x64-windows@1.2.2#1
+    libusb:x64-windows@1.0.29#1
+  * libuv:x64-windows@1.52.0
+  * libvorbis:x64-windows@1.3.7#4
+    libwebsockets:x64-windows@4.5.2
+    libxml2[core,iconv,zlib]:x64-windows@2.15.1
+    lilv:x64-windows@0.26.4
+    lv2:x64-windows@1.18.10#1
+  * lz4:x64-windows@1.10.0
+  * mp3lame:x64-windows@3.100#16
+  * mpg123:x64-windows@1.33.4
+  * openssl:x64-windows@3.6.1#2
+  * opus:x64-windows@1.5.2#1
+    pango:x64-windows@1.57.0
+  * pcre2[core,jit,platform-default-features]:x64-windows@10.47
+  * pixman:x64-windows@0.46.4#1
+  * pkgconf:x64-windows@2.5.1#4
+    portaudio[asio,core]:x64-windows@19.7#9
+  * pthread:x64-windows@3.0.0#2
+    pthreads:x64-windows@3.0.0#14
+    rubberband:x64-windows@4.0.0#1
+    serd:x64-windows@0.32.8
+  * sleef[core,dft]:x64-windows@3.9.0#1
+    sord:x64-windows@0.16.22
+    sratom:x64-windows@0.6.22
+    taglib:x64-windows@2.2
+  * utfcpp:x64-windows@4.0.9
+    vamp-sdk:x64-windows@2.10#5
+  * vcpkg-boost:x64-windows@2025-03-29
+  * vcpkg-cmake:x64-windows@2024-04-23
+  * vcpkg-cmake-config:x64-windows@2024-05-23
+  * vcpkg-cmake-get-vars:x64-windows@2025-05-29
+  * vcpkg-make:x64-windows@2026-01-01
+  * vcpkg-msbuild:x64-windows@2023-08-08
+  * vcpkg-pkgconfig-get-modules:x64-windows@2024-04-03
+  * vcpkg-tool-meson:x64-windows@1.9.0#3
+  * yasm[core,tools]:x64-windows@1.3.0#7
+  * zix:x64-windows@0.8.0
+  * zlib:x64-windows@1.3.1
+  * zstd:x64-windows@1.5.7
+Additional packages (*) will be modified to complete this operation.
+Restored 0 package(s) from C:\Users\mattn\AppData\Local\vcpkg\archives in 4.24 ms. Use --debug to see more details.
+Installing 1/141 vcpkg-cmake-config:x64-windows@2024-05-23...
+vcpkg-cmake-config:x64-windows@2024-05-23 package ABI: 24557825f114712a7c109f99e687adaccee2433c5c6338bce82eb2106f8ce178
+Building vcpkg-cmake-config:x64-windows@2024-05-23...
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-cmake-config_x64-windows/share/vcpkg-cmake-config/vcpkg_cmake_config_fixup.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-cmake-config_x64-windows/share/vcpkg-cmake-config/vcpkg-port-config.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-cmake-config_x64-windows/share/vcpkg-cmake-config/copyright
+-- Skipping post-build validation due to VCPKG_POLICY_EMPTY_PACKAGE
+Starting submission of vcpkg-cmake-config:x64-windows@2024-05-23 to 1 binary cache(s) in the background
+Elapsed time to handle vcpkg-cmake-config:x64-windows: 1 s
+Installing 2/141 vcpkg-cmake:x64-windows@2024-04-23...
+vcpkg-cmake:x64-windows@2024-04-23 package ABI: 14d924e179912bd0e59eb717a35054ce309e151bc08b2be8508f638ea60d585c
+Building vcpkg-cmake:x64-windows@2024-04-23...
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-cmake_x64-windows/share/vcpkg-cmake/vcpkg_cmake_configure.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-cmake_x64-windows/share/vcpkg-cmake/vcpkg_cmake_build.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-cmake_x64-windows/share/vcpkg-cmake/vcpkg_cmake_install.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-cmake_x64-windows/share/vcpkg-cmake/vcpkg-port-config.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-cmake_x64-windows/share/vcpkg-cmake/copyright
+-- Performing post-build validation
+Starting submission of vcpkg-cmake:x64-windows@2024-04-23 to 1 binary cache(s) in the background
+Elapsed time to handle vcpkg-cmake:x64-windows: 288 ms
+Completed submission of vcpkg-cmake-config:x64-windows@2024-05-23 to 1 binary cache(s) in 360 ms
+Installing 3/141 aubio:x64-windows@2024-01-03#1...
+aubio:x64-windows@2024-01-03#1 package ABI: 063870e2a14987a1220ed558a2ac06902a3c253706743fbbde18d51b293e7055
+Building aubio:x64-windows@2024-01-03#1...
+-- Note: aubio only supports static library linkage. Building static library.
+Downloading https://github.com/aubio/aubio/archive/152d6819b360c2e7b379ee3f373d444ab3df0895.tar.gz -> aubio-aubio-152d6819b360c2e7b379ee3f373d444ab3df0895.tar.gz
+Successfully downloaded aubio-aubio-152d6819b360c2e7b379ee3f373d444ab3df0895.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/aubio-aubio-152d6819b360c2e7b379ee3f373d444ab3df0895.tar.gz
+-- Applying patch 0001-ffmpeg-deprecated.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/aubio/src/4ab3df0895-49f0d6015a.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/aubio_x64-windows/share/aubio/copyright
+-- Performing post-build validation
+Starting submission of aubio:x64-windows@2024-01-03#1 to 1 binary cache(s) in the background
+Elapsed time to handle aubio:x64-windows: 37 s
+Completed submission of vcpkg-cmake:x64-windows@2024-04-23 to 1 binary cache(s) in 321 ms
+Installing 4/141 vcpkg-boost:x64-windows@2025-03-29...
+vcpkg-boost:x64-windows@2025-03-29 package ABI: 2712cc3745c959ea989168828062614fe03cbbb1cc54f469b609720ca545f54d
+Building vcpkg-boost:x64-windows@2025-03-29...
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-boost_x64-windows/share/vcpkg-boost/usage.in
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-boost_x64-windows/share/vcpkg-boost/boost-install.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-boost_x64-windows/share/vcpkg-boost/vcpkg-port-config.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-boost_x64-windows/share/vcpkg-boost/copyright
+-- Performing post-build validation
+Starting submission of vcpkg-boost:x64-windows@2025-03-29 to 1 binary cache(s) in the background
+Elapsed time to handle vcpkg-boost:x64-windows: 306 ms
+Installing 5/141 boost-uninstall:x64-windows@1.90.0#1...
+boost-uninstall:x64-windows@1.90.0#1 package ABI: 1495db8a6916e0049db7dad79396549e4dd885348091322c0df447f5cabd69a0
+Building boost-uninstall:x64-windows@1.90.0#1...
+-- 
+Please use the following command when you need to remove all boost ports/components:
+    "./vcpkg remove boost-uninstall:x64-windows --recurse"
+
+-- Skipping post-build validation due to VCPKG_POLICY_EMPTY_PACKAGE
+Starting submission of boost-uninstall:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-uninstall:x64-windows: 313 ms
+Installing 6/141 boost-cmake:x64-windows@1.90.0#1...
+boost-cmake:x64-windows@1.90.0#1 package ABI: 936dd44d2e97eab5e0850c103518e276e98c50e0215082d5a116163954771af4
+Building boost-cmake:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/cmake/archive/boost-1.90.0.tar.gz -> boostorg-cmake-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-cmake-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-cmake-boost-1.90.0.tar.gz
+-- Applying patch 0001-vcpkg-build.patch
+-- Applying patch 0002-remove-prefix-and-suffix.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-cmake/src/ost-1.90.0-7084b3f473.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Up-to-date: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-cmake_x64-windows/share/boost/cmake-build
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-cmake_x64-windows/share/boost/cmake-build/BoostFetch.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-cmake_x64-windows/share/boost/cmake-build/BoostInstall.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-cmake_x64-windows/share/boost/cmake-build/BoostMessage.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-cmake_x64-windows/share/boost/cmake-build/BoostRoot.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-cmake_x64-windows/share/boost/cmake-build/BoostTest.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-cmake_x64-windows/share/boost/cmake-build/BoostTestJamfile.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-cmake_x64-windows/share/boost-cmake/vcpkg-port-config.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-cmake_x64-windows/share/boost-cmake/usage
+Downloading https://raw.githubusercontent.com/boostorg/boost/refs/tags/boost-1.90.0/LICENSE_1_0.txt -> boost-1.90.0-LICENSE_1_0.txt
+Successfully downloaded boost-1.90.0-LICENSE_1_0.txt
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-cmake_x64-windows/share/boost-cmake/copyright
+-- Performing post-build validation
+Starting submission of boost-cmake:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-cmake:x64-windows: 4.6 s
+Completed submission of aubio:x64-windows@2024-01-03#1 to 1 binary cache(s) in 1.2 s
+Completed submission of vcpkg-boost:x64-windows@2025-03-29 to 1 binary cache(s) in 743 ms
+Completed submission of boost-uninstall:x64-windows@1.90.0#1 to 1 binary cache(s) in 276 ms
+Installing 7/141 boost-headers:x64-windows@1.90.0#1...
+boost-headers:x64-windows@1.90.0#1 package ABI: 7c146f36a0a300548f45a9835916bcd8336acfbd7e5b145109e47f14d7586a0e
+Building boost-headers:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/headers/archive/boost-1.90.0.tar.gz -> boostorg-headers-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-headers-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-headers-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-headers/src/ost-1.90.0-cba82c0a22.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-headers_x64-windows/share/boost-headers/copyright
+-- Performing post-build validation
+Starting submission of boost-headers:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-headers:x64-windows: 5.9 s
+Completed submission of boost-cmake:x64-windows@1.90.0#1 to 1 binary cache(s) in 261 ms
+Installing 8/141 boost-config:x64-windows@1.90.0#1...
+boost-config:x64-windows@1.90.0#1 package ABI: d4bd89aa66d68f06d59e4473fe8f71cc6b05343209e129924cd626df055563f8
+Building boost-config:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/config/archive/boost-1.90.0.tar.gz -> boostorg-config-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-config-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-config-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-config/src/ost-1.90.0-12347e67c4.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-config_x64-windows/share/boost-config/copyright
+-- Performing post-build validation
+Starting submission of boost-config:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-config:x64-windows: 11 s
+Completed submission of boost-headers:x64-windows@1.90.0#1 to 1 binary cache(s) in 576 ms
+Installing 9/141 boost-assert:x64-windows@1.90.0#1...
+boost-assert:x64-windows@1.90.0#1 package ABI: 6ea7b8a0735d9297f7f3c74ecf8d6b25fcc7ad108e800ca31abda061326e5ed0
+Building boost-assert:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/assert/archive/boost-1.90.0.tar.gz -> boostorg-assert-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-assert-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-assert-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-assert/src/ost-1.90.0-48c99ab941.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-assert_x64-windows/share/boost-assert/copyright
+-- Performing post-build validation
+Starting submission of boost-assert:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-assert:x64-windows: 6.6 s
+Completed submission of boost-config:x64-windows@1.90.0#1 to 1 binary cache(s) in 774 ms
+Installing 10/141 boost-throw-exception:x64-windows@1.90.0#1...
+boost-throw-exception:x64-windows@1.90.0#1 package ABI: 1e68c3adb0354decc074ec35c6441a9a8a9fb2373d067e6449c847476846f61f
+Building boost-throw-exception:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/throw_exception/archive/boost-1.90.0.tar.gz -> boostorg-throw_exception-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-throw_exception-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-throw_exception-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-throw-exception/src/ost-1.90.0-a9b55e045d.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-throw-exception_x64-windows/share/boost-throw-exception/copyright
+-- Performing post-build validation
+Starting submission of boost-throw-exception:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-throw-exception:x64-windows: 6.6 s
+Completed submission of boost-assert:x64-windows@1.90.0#1 to 1 binary cache(s) in 481 ms
+Installing 11/141 boost-predef:x64-windows@1.90.0#1...
+boost-predef:x64-windows@1.90.0#1 package ABI: 493629a868b77aab22f8ae1687fb50e105328864d735c9226b256e69c86cefc7
+Building boost-predef:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/predef/archive/boost-1.90.0.tar.gz -> boostorg-predef-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-predef-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-predef-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-predef/src/ost-1.90.0-8a8e3c9b1e.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-predef_x64-windows/share/boost-predef/copyright
+-- Performing post-build validation
+Starting submission of boost-predef:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-predef:x64-windows: 7 s
+Completed submission of boost-throw-exception:x64-windows@1.90.0#1 to 1 binary cache(s) in 507 ms
+Installing 12/141 boost-mp11:x64-windows@1.90.0#1...
+boost-mp11:x64-windows@1.90.0#1 package ABI: ab2831fe0b46d64d5269e3c2a0ad0fb3b4fd339761b93989569649b81a94d3fc
+Building boost-mp11:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/mp11/archive/boost-1.90.0.tar.gz -> boostorg-mp11-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-mp11-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-mp11-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-mp11/src/ost-1.90.0-544a2037e4.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-mp11_x64-windows/share/boost-mp11/copyright
+-- Performing post-build validation
+Starting submission of boost-mp11:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-mp11:x64-windows: 5.5 s
+Completed submission of boost-predef:x64-windows@1.90.0#1 to 1 binary cache(s) in 528 ms
+Installing 13/141 boost-core:x64-windows@1.90.0#1...
+boost-core:x64-windows@1.90.0#1 package ABI: a282682582e826e06e200ce0c40cbbf17e06d4129054d543de915c373677d1e5
+Building boost-core:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/core/archive/boost-1.90.0.tar.gz -> boostorg-core-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-core-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-core-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-core/src/ost-1.90.0-711a16cc0a.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-core_x64-windows/share/boost-core/copyright
+-- Performing post-build validation
+Starting submission of boost-core:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-core:x64-windows: 6.6 s
+Completed submission of boost-mp11:x64-windows@1.90.0#1 to 1 binary cache(s) in 352 ms
+Installing 14/141 boost-describe:x64-windows@1.90.0#1...
+boost-describe:x64-windows@1.90.0#1 package ABI: f79abd1e5768acd7e46864def7d43836ce6625e335b4d0f8d6528e957c57d7a1
+Building boost-describe:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/describe/archive/boost-1.90.0.tar.gz -> boostorg-describe-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-describe-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-describe-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-describe/src/ost-1.90.0-ac379b77b6.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-describe_x64-windows/share/boost-describe/copyright
+-- Performing post-build validation
+Starting submission of boost-describe:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-describe:x64-windows: 5.9 s
+Completed submission of boost-core:x64-windows@1.90.0#1 to 1 binary cache(s) in 442 ms
+Installing 15/141 boost-container-hash:x64-windows@1.90.0#1...
+boost-container-hash:x64-windows@1.90.0#1 package ABI: 066e0103bbf11cec3ac7de3dc6693e89c114b5cfc3c3f9a5e5460803a8bc5b6d
+Building boost-container-hash:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/container_hash/archive/boost-1.90.0.tar.gz -> boostorg-container_hash-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-container_hash-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-container_hash-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-container-hash/src/ost-1.90.0-ea5929f85f.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-container-hash_x64-windows/share/boost-container-hash/copyright
+-- Performing post-build validation
+Starting submission of boost-container-hash:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-container-hash:x64-windows: 5.1 s
+Completed submission of boost-describe:x64-windows@1.90.0#1 to 1 binary cache(s) in 673 ms
+Installing 16/141 boost-unordered:x64-windows@1.90.0#1...
+boost-unordered:x64-windows@1.90.0#1 package ABI: 03e5724d4764de9613c876a348d6824900ffde0574b97cad97545bbecf215737
+Building boost-unordered:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/unordered/archive/boost-1.90.0.tar.gz -> boostorg-unordered-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-unordered-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-unordered-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-unordered/src/ost-1.90.0-0a90434307.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-unordered_x64-windows/share/boost-unordered/copyright
+-- Performing post-build validation
+Starting submission of boost-unordered:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-unordered:x64-windows: 10 s
+Completed submission of boost-container-hash:x64-windows@1.90.0#1 to 1 binary cache(s) in 325 ms
+Installing 17/141 boost-static-assert:x64-windows@1.90.0#1...
+boost-static-assert:x64-windows@1.90.0#1 package ABI: 7a6e8175022da4ec8666058999fde7f8b105e5c22fb653882fbf25442bc504c4
+Building boost-static-assert:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/static_assert/archive/boost-1.90.0.tar.gz -> boostorg-static_assert-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-static_assert-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-static_assert-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-static-assert/src/ost-1.90.0-100358d51d.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-static-assert_x64-windows/share/boost-static-assert/copyright
+-- Performing post-build validation
+Starting submission of boost-static-assert:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-static-assert:x64-windows: 5.6 s
+Completed submission of boost-unordered:x64-windows@1.90.0#1 to 1 binary cache(s) in 576 ms
+Installing 18/141 boost-type-traits:x64-windows@1.90.0#1...
+boost-type-traits:x64-windows@1.90.0#1 package ABI: 2ae997652778cf39ff3a98ddac25fe049050faeee6311fc476f3d5b9a8217314
+Building boost-type-traits:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/type_traits/archive/boost-1.90.0.tar.gz -> boostorg-type_traits-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-type_traits-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-type_traits-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-type-traits/src/ost-1.90.0-7486f52674.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-type-traits_x64-windows/share/boost-type-traits/copyright
+-- Performing post-build validation
+Starting submission of boost-type-traits:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-type-traits:x64-windows: 11 s
+Completed submission of boost-static-assert:x64-windows@1.90.0#1 to 1 binary cache(s) in 416 ms
+Installing 19/141 boost-tuple:x64-windows@1.90.0#1...
+boost-tuple:x64-windows@1.90.0#1 package ABI: a9ab58d6a46544deb9085e6d9da9646c8b41a1e542eb392494c225edeb171789
+Building boost-tuple:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/tuple/archive/boost-1.90.0.tar.gz -> boostorg-tuple-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-tuple-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-tuple-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-tuple/src/ost-1.90.0-ea34cc3f11.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-tuple_x64-windows/share/boost-tuple/copyright
+-- Performing post-build validation
+Starting submission of boost-tuple:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-tuple:x64-windows: 6.6 s
+Completed submission of boost-type-traits:x64-windows@1.90.0#1 to 1 binary cache(s) in 696 ms
+Installing 20/141 boost-preprocessor:x64-windows@1.90.0#1...
+boost-preprocessor:x64-windows@1.90.0#1 package ABI: d5c742814fa967773620c8422d0bdd0804391fc774ae50f6ee788857801c8dc2
+Building boost-preprocessor:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/preprocessor/archive/boost-1.90.0.tar.gz -> boostorg-preprocessor-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-preprocessor-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-preprocessor-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-preprocessor/src/ost-1.90.0-2f2f4ed921.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-preprocessor_x64-windows/share/boost-preprocessor/copyright
+-- Performing post-build validation
+Starting submission of boost-preprocessor:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-preprocessor:x64-windows: 10 s
+Completed submission of boost-tuple:x64-windows@1.90.0#1 to 1 binary cache(s) in 408 ms
+Installing 21/141 boost-concept-check:x64-windows@1.90.0#1...
+boost-concept-check:x64-windows@1.90.0#1 package ABI: a8686e5baa1eaa9f0bb0371c33b42da853d03f25432b2e294a468740336f1107
+Building boost-concept-check:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/concept_check/archive/boost-1.90.0.tar.gz -> boostorg-concept_check-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-concept_check-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-concept_check-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-concept-check/src/ost-1.90.0-cae984afcf.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-concept-check_x64-windows/share/boost-concept-check/copyright
+-- Performing post-build validation
+Starting submission of boost-concept-check:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-concept-check:x64-windows: 6.2 s
+Completed submission of boost-preprocessor:x64-windows@1.90.0#1 to 1 binary cache(s) in 1.1 s
+Installing 22/141 boost-regex:x64-windows@1.90.0#1...
+boost-regex:x64-windows@1.90.0#1 package ABI: 84bf933c474ec1488c4e8322df705727b7cc62fe323fb3aec3f132cef82f80b6
+Building boost-regex:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/regex/archive/boost-1.90.0.tar.gz -> boostorg-regex-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-regex-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-regex-boost-1.90.0.tar.gz
+-- Applying patch compat.diff
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-regex/src/ost-1.90.0-95464e69d3.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-regex_x64-windows/share/boost-regex/copyright
+-- Performing post-build validation
+Starting submission of boost-regex:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-regex:x64-windows: 11 s
+Completed submission of boost-concept-check:x64-windows@1.90.0#1 to 1 binary cache(s) in 399 ms
+Installing 23/141 boost-io:x64-windows@1.90.0#1...
+boost-io:x64-windows@1.90.0#1 package ABI: 8c393fa9fa3e1f517331dd97b4d94f4aa6f20f4f050c5946be5fdac57765275a
+Building boost-io:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/io/archive/boost-1.90.0.tar.gz -> boostorg-io-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-io-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-io-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-io/src/ost-1.90.0-7e07208475.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-io_x64-windows/share/boost-io/copyright
+-- Performing post-build validation
+Starting submission of boost-io:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-io:x64-windows: 5.3 s
+Completed submission of boost-regex:x64-windows@1.90.0#1 to 1 binary cache(s) in 436 ms
+Installing 24/141 boost-utility:x64-windows@1.90.0#1...
+boost-utility:x64-windows@1.90.0#1 package ABI: 228bad3a807bb68748306f5f75604a78d1a1aa93182def76e1ed1c2c829bf568
+Building boost-utility:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/utility/archive/boost-1.90.0.tar.gz -> boostorg-utility-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-utility-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-utility-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-utility/src/ost-1.90.0-ad6b974697.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-utility_x64-windows/share/boost-utility/copyright
+-- Performing post-build validation
+Starting submission of boost-utility:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-utility:x64-windows: 6.5 s
+Completed submission of boost-io:x64-windows@1.90.0#1 to 1 binary cache(s) in 454 ms
+Installing 25/141 boost-optional:x64-windows@1.90.0#1...
+boost-optional:x64-windows@1.90.0#1 package ABI: d8c7b6cff1fdfad21bcc085d9a8d7c029c41f902154e17347f4fa495c2c0a80a
+Building boost-optional:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/optional/archive/boost-1.90.0.tar.gz -> boostorg-optional-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-optional-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-optional-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-optional/src/ost-1.90.0-a5d7d1c31d.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-optional_x64-windows/share/boost-optional/copyright
+-- Performing post-build validation
+Starting submission of boost-optional:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-optional:x64-windows: 5.7 s
+Completed submission of boost-utility:x64-windows@1.90.0#1 to 1 binary cache(s) in 421 ms
+Installing 26/141 boost-mpl:x64-windows@1.90.0#1...
+boost-mpl:x64-windows@1.90.0#1 package ABI: bd1ea7d29e8c1f5b0d3b2bb0078afadbf9b70044b530cbd0f7993d23de793866
+Building boost-mpl:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/mpl/archive/boost-1.90.0.tar.gz -> boostorg-mpl-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-mpl-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-mpl-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-mpl/src/ost-1.90.0-c5017d0d4d.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-mpl_x64-windows/share/boost-mpl/copyright
+-- Performing post-build validation
+Starting submission of boost-mpl:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-mpl:x64-windows: 19 s
+Completed submission of boost-optional:x64-windows@1.90.0#1 to 1 binary cache(s) in 473 ms
+Installing 27/141 boost-typeof:x64-windows@1.90.0#1...
+boost-typeof:x64-windows@1.90.0#1 package ABI: ea4e4ea0f36004033c20a75d38b60ddc9a12046a161e9aedabd7e4d97263a79f
+Building boost-typeof:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/typeof/archive/boost-1.90.0.tar.gz -> boostorg-typeof-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-typeof-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-typeof-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-typeof/src/ost-1.90.0-5aac027dc0.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-typeof_x64-windows/share/boost-typeof/copyright
+-- Performing post-build validation
+Starting submission of boost-typeof:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-typeof:x64-windows: 6.3 s
+Completed submission of boost-mpl:x64-windows@1.90.0#1 to 1 binary cache(s) in 2.2 s
+Installing 28/141 boost-detail:x64-windows@1.90.0#1...
+boost-detail:x64-windows@1.90.0#1 package ABI: b11b74d644a1a84b0386651284b091ac69ec2683b2c8e98e445906e7d2f408a7
+Building boost-detail:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/detail/archive/boost-1.90.0.tar.gz -> boostorg-detail-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-detail-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-detail-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-detail/src/ost-1.90.0-d4dd7efec8.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-detail_x64-windows/share/boost-detail/copyright
+-- Performing post-build validation
+Starting submission of boost-detail:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-detail:x64-windows: 5.5 s
+Completed submission of boost-typeof:x64-windows@1.90.0#1 to 1 binary cache(s) in 371 ms
+Installing 29/141 boost-function-types:x64-windows@1.90.0#1...
+boost-function-types:x64-windows@1.90.0#1 package ABI: 914c55e88c146f05584518042f9c7a4f08c6147a66f371d1ade0dfe5265a2d33
+Building boost-function-types:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/function_types/archive/boost-1.90.0.tar.gz -> boostorg-function_types-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-function_types-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-function_types-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-function-types/src/ost-1.90.0-863be242f4.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-function-types_x64-windows/share/boost-function-types/copyright
+-- Performing post-build validation
+Starting submission of boost-function-types:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-function-types:x64-windows: 6.6 s
+Completed submission of boost-detail:x64-windows@1.90.0#1 to 1 binary cache(s) in 478 ms
+Installing 30/141 boost-bind:x64-windows@1.90.0#1...
+boost-bind:x64-windows@1.90.0#1 package ABI: 07189fdefb94ebba7ce4eb382bbef438027711c722aad530e26bb58667e43e8c
+Building boost-bind:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/bind/archive/boost-1.90.0.tar.gz -> boostorg-bind-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-bind-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-bind-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-bind/src/ost-1.90.0-13d0668dd9.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-bind_x64-windows/share/boost-bind/copyright
+-- Performing post-build validation
+Starting submission of boost-bind:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-bind:x64-windows: 6.9 s
+Completed submission of boost-function-types:x64-windows@1.90.0#1 to 1 binary cache(s) in 436 ms
+Installing 31/141 boost-function:x64-windows@1.90.0#1...
+boost-function:x64-windows@1.90.0#1 package ABI: 40082a4fc58e80e1789a71edd93df8b73fde5baa54a69cad311bcb087801ef90
+Building boost-function:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/function/archive/boost-1.90.0.tar.gz -> boostorg-function-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-function-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-function-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-function/src/ost-1.90.0-fc93f6d122.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-function_x64-windows/share/boost-function/copyright
+-- Performing post-build validation
+Starting submission of boost-function:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-function:x64-windows: 5.6 s
+Completed submission of boost-bind:x64-windows@1.90.0#1 to 1 binary cache(s) in 364 ms
+Installing 32/141 boost-functional:x64-windows@1.90.0#1...
+boost-functional:x64-windows@1.90.0#1 package ABI: 8aa47b6b7e486fac51f058a927f30044e5a0897630db89e4b1363cc023c9ca28
+Building boost-functional:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/functional/archive/boost-1.90.0.tar.gz -> boostorg-functional-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-functional-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-functional-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-functional/src/ost-1.90.0-ee74ea2d91.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-functional_x64-windows/share/boost-functional/copyright
+-- Performing post-build validation
+Starting submission of boost-functional:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-functional:x64-windows: 6.7 s
+Completed submission of boost-function:x64-windows@1.90.0#1 to 1 binary cache(s) in 514 ms
+Installing 33/141 boost-fusion:x64-windows@1.90.0#1...
+boost-fusion:x64-windows@1.90.0#1 package ABI: 08e1209331feb2fc9e40df78efae7a0002dc0cc9ac01b502681e8f519a754231
+Building boost-fusion:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/fusion/archive/boost-1.90.0.tar.gz -> boostorg-fusion-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-fusion-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-fusion-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-fusion/src/ost-1.90.0-36c06e7524.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-fusion_x64-windows/share/boost-fusion/copyright
+-- Performing post-build validation
+Starting submission of boost-fusion:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-fusion:x64-windows: 16 s
+Completed submission of boost-functional:x64-windows@1.90.0#1 to 1 binary cache(s) in 450 ms
+Installing 34/141 boost-iterator:x64-windows@1.90.0#1...
+boost-iterator:x64-windows@1.90.0#1 package ABI: a871fca8f1c8c592241e4ec0afc55312fc19d98e3c1c8ca761e87028cd2be18c
+Building boost-iterator:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/iterator/archive/boost-1.90.0.tar.gz -> boostorg-iterator-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-iterator-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-iterator-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-iterator/src/ost-1.90.0-dd58b06ecd.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-iterator_x64-windows/share/boost-iterator/copyright
+-- Performing post-build validation
+Starting submission of boost-iterator:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-iterator:x64-windows: 8.2 s
+Completed submission of boost-fusion:x64-windows@1.90.0#1 to 1 binary cache(s) in 2.3 s
+Installing 35/141 boost-smart-ptr:x64-windows@1.90.0#1...
+boost-smart-ptr:x64-windows@1.90.0#1 package ABI: e544f5910a0359196cc7f48e13ae01aad87ca69cfcf0f2a49b5fff0c204c22b5
+Building boost-smart-ptr:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/smart_ptr/archive/boost-1.90.0.tar.gz -> boostorg-smart_ptr-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-smart_ptr-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-smart_ptr-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-smart-ptr/src/ost-1.90.0-ed44268256.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-smart-ptr_x64-windows/share/boost-smart-ptr/copyright
+-- Performing post-build validation
+Starting submission of boost-smart-ptr:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-smart-ptr:x64-windows: 7.3 s
+Completed submission of boost-iterator:x64-windows@1.90.0#1 to 1 binary cache(s) in 484 ms
+Installing 36/141 boost-conversion:x64-windows@1.90.0#1...
+boost-conversion:x64-windows@1.90.0#1 package ABI: eff5c54971cf7e6879a325affaadfe79c6e73df3d37a0e7e43557e202bd89288
+Building boost-conversion:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/conversion/archive/boost-1.90.0.tar.gz -> boostorg-conversion-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-conversion-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-conversion-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-conversion/src/ost-1.90.0-068bb0780f.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-conversion_x64-windows/share/boost-conversion/copyright
+-- Performing post-build validation
+Starting submission of boost-conversion:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-conversion:x64-windows: 6.2 s
+Completed submission of boost-smart-ptr:x64-windows@1.90.0#1 to 1 binary cache(s) in 451 ms
+Installing 37/141 boost-array:x64-windows@1.90.0#1...
+boost-array:x64-windows@1.90.0#1 package ABI: 8a5a717f5f2ae7b1f3fbb00374af79a477c7fc3bd1cf06cea677d9824f624557
+Building boost-array:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/array/archive/boost-1.90.0.tar.gz -> boostorg-array-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-array-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-array-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-array/src/ost-1.90.0-023a44a736.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-array_x64-windows/share/boost-array/copyright
+-- Performing post-build validation
+Starting submission of boost-array:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-array:x64-windows: 6.5 s
+Completed submission of boost-conversion:x64-windows@1.90.0#1 to 1 binary cache(s) in 517 ms
+Installing 38/141 boost-range:x64-windows@1.90.0#1...
+boost-range:x64-windows@1.90.0#1 package ABI: 65149c87c20a871c4815bf8b37e92bc4ad5761c86043c92b44db93668ae077be
+Building boost-range:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/range/archive/boost-1.90.0.tar.gz -> boostorg-range-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-range-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-range-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-range/src/ost-1.90.0-df3a4ebd7b.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-range_x64-windows/share/boost-range/copyright
+-- Performing post-build validation
+Starting submission of boost-range:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-range:x64-windows: 10 s
+Completed submission of boost-array:x64-windows@1.90.0#1 to 1 binary cache(s) in 373 ms
+Installing 39/141 boost-exception:x64-windows@1.90.0#1...
+boost-exception:x64-windows@1.90.0#1 package ABI: e09f0410aac0202d151fe0556d13e63d67f3b418abee1e8eafca9484258b4b28
+Building boost-exception:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/exception/archive/boost-1.90.0.tar.gz -> boostorg-exception-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-exception-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-exception-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-exception/src/ost-1.90.0-e3bd92ec37.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-exception_x64-windows/share/boost-exception/copyright
+-- Performing post-build validation
+Starting submission of boost-exception:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-exception:x64-windows: 7 s
+Completed submission of boost-range:x64-windows@1.90.0#1 to 1 binary cache(s) in 656 ms
+Installing 40/141 boost-algorithm:x64-windows@1.90.0#1...
+boost-algorithm:x64-windows@1.90.0#1 package ABI: 133a82e1710e09e729b9298b09810d0c84158ba3cd76a9b80c755cfd2558dc4d
+Building boost-algorithm:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/algorithm/archive/boost-1.90.0.tar.gz -> boostorg-algorithm-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-algorithm-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-algorithm-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-algorithm/src/ost-1.90.0-b7cd715cba.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-algorithm_x64-windows/share/boost-algorithm/copyright
+-- Performing post-build validation
+Starting submission of boost-algorithm:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-algorithm:x64-windows: 8.2 s
+Completed submission of boost-exception:x64-windows@1.90.0#1 to 1 binary cache(s) in 475 ms
+Installing 41/141 boost-multi-array:x64-windows@1.90.0#1...
+boost-multi-array:x64-windows@1.90.0#1 package ABI: 91d1bd9a70213e38ed9c035cdea279fa27702684e83c347f4f88981e07101267
+Building boost-multi-array:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/multi_array/archive/boost-1.90.0.tar.gz -> boostorg-multi_array-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-multi_array-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-multi_array-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-multi-array/src/ost-1.90.0-ab30e045a6.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-multi-array_x64-windows/share/boost-multi-array/copyright
+-- Performing post-build validation
+Starting submission of boost-multi-array:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-multi-array:x64-windows: 6.5 s
+Completed submission of boost-algorithm:x64-windows@1.90.0#1 to 1 binary cache(s) in 485 ms
+Installing 42/141 boost-winapi:x64-windows@1.90.0#1...
+boost-winapi:x64-windows@1.90.0#1 package ABI: e6442adcf527afd9714d30a173342cd9935390f5e26990234212077caa9ad788
+Building boost-winapi:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/winapi/archive/boost-1.90.0.tar.gz -> boostorg-winapi-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-winapi-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-winapi-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-winapi/src/ost-1.90.0-564381c538.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-winapi_x64-windows/share/boost-winapi/copyright
+-- Performing post-build validation
+Starting submission of boost-winapi:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-winapi:x64-windows: 6.3 s
+Completed submission of boost-multi-array:x64-windows@1.90.0#1 to 1 binary cache(s) in 639 ms
+Installing 43/141 boost-variant2:x64-windows@1.90.0#1...
+boost-variant2:x64-windows@1.90.0#1 package ABI: 65febaa874ed93aa00e7d9fe610ccca097ef02071bbe319b1f5b0662eaab31d4
+Building boost-variant2:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/variant2/archive/boost-1.90.0.tar.gz -> boostorg-variant2-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-variant2-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-variant2-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-variant2/src/ost-1.90.0-976890056e.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-variant2_x64-windows/share/boost-variant2/copyright
+-- Performing post-build validation
+Starting submission of boost-variant2:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-variant2:x64-windows: 5.5 s
+Completed submission of boost-winapi:x64-windows@1.90.0#1 to 1 binary cache(s) in 854 ms
+Installing 44/141 boost-system:x64-windows@1.90.0#1...
+boost-system:x64-windows@1.90.0#1 package ABI: b0f61d6a9faf1374689db718227edf943aaf0cc40da5a329b8743dbcb05db813
+Building boost-system:x64-windows@1.90.0#1...
+CMake Warning at scripts/cmake/vcpkg_buildpath_length_warning.cmake:4 (message):
+  boost-system's buildsystem uses very long paths and may fail on your
+  system.
+
+  We recommend moving vcpkg to a short path such as 'C:\src\vcpkg' or using
+  the subst command.
+Call Stack (most recent call first):
+  buildtrees/versioning_/versions/boost-system/ffa5126f9b2f42c9cc1fd65822916272ba9330ae/portfile.cmake:3 (vcpkg_buildpath_length_warning)
+  scripts/ports.cmake:206 (include)
+
+
+Downloading https://github.com/boostorg/system/archive/boost-1.90.0.tar.gz -> boostorg-system-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-system-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-system-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-system/src/ost-1.90.0-c8c000e811.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-system_x64-windows/share/boost-system/copyright
+-- Performing post-build validation
+Starting submission of boost-system:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-system:x64-windows: 7.4 s
+Completed submission of boost-variant2:x64-windows@1.90.0#1 to 1 binary cache(s) in 425 ms
+Installing 45/141 boost-integer:x64-windows@1.90.0#1...
+boost-integer:x64-windows@1.90.0#1 package ABI: d96f20ec2ea1edee230d2dc42074cf99f175117d7eeb49eb45f3fdac223bc127
+Building boost-integer:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/integer/archive/boost-1.90.0.tar.gz -> boostorg-integer-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-integer-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-integer-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-integer/src/ost-1.90.0-f9cd1d2491.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-integer_x64-windows/share/boost-integer/copyright
+-- Performing post-build validation
+Starting submission of boost-integer:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-integer:x64-windows: 6.7 s
+Completed submission of boost-system:x64-windows@1.90.0#1 to 1 binary cache(s) in 473 ms
+Installing 46/141 boost-dynamic-bitset:x64-windows@1.90.0#1...
+boost-dynamic-bitset:x64-windows@1.90.0#1 package ABI: 572d1b66462ef8b60a758bbff9eaebe7c33409ae8a278bdf53b4df9af2b996f4
+Building boost-dynamic-bitset:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/dynamic_bitset/archive/boost-1.90.0.tar.gz -> boostorg-dynamic_bitset-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-dynamic_bitset-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-dynamic_bitset-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-dynamic-bitset/src/ost-1.90.0-6ac32da3f3.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-dynamic-bitset_x64-windows/share/boost-dynamic-bitset/copyright
+-- Performing post-build validation
+Starting submission of boost-dynamic-bitset:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-dynamic-bitset:x64-windows: 6.1 s
+Completed submission of boost-integer:x64-windows@1.90.0#1 to 1 binary cache(s) in 444 ms
+Installing 47/141 boost-random:x64-windows@1.90.0#1...
+boost-random:x64-windows@1.90.0#1 package ABI: 4eaba34398823c5acb04ef7d536ba9e0e65a25c7059c882d744d59449ea0b783
+Building boost-random:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/random/archive/boost-1.90.0.tar.gz -> boostorg-random-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-random-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-random-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-random/src/ost-1.90.0-db7f8c6578.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-random_x64-windows/share/boost-random/copyright
+-- Performing post-build validation
+Starting submission of boost-random:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-random:x64-windows: 14 s
+Completed submission of boost-dynamic-bitset:x64-windows@1.90.0#1 to 1 binary cache(s) in 500 ms
+Installing 48/141 boost-move:x64-windows@1.90.0#1...
+boost-move:x64-windows@1.90.0#1 package ABI: 9a5a5593d41caf6691f06a30e99fba1a9771e9dacd00490c0fc31d5f2f6d78a1
+Building boost-move:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/move/archive/boost-1.90.0.tar.gz -> boostorg-move-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-move-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-move-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-move/src/ost-1.90.0-0b8fc9ef7a.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-move_x64-windows/share/boost-move/copyright
+-- Performing post-build validation
+Starting submission of boost-move:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-move:x64-windows: 5.7 s
+Completed submission of boost-random:x64-windows@1.90.0#1 to 1 binary cache(s) in 947 ms
+Installing 49/141 boost-intrusive:x64-windows@1.90.0#1...
+boost-intrusive:x64-windows@1.90.0#1 package ABI: 493818336353794a90b9afec1deb009095fc564f76f072798e0c2c104eefcfff
+Building boost-intrusive:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/intrusive/archive/boost-1.90.0.tar.gz -> boostorg-intrusive-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-intrusive-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-intrusive-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-intrusive/src/ost-1.90.0-3e4b015c82.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-intrusive_x64-windows/share/boost-intrusive/copyright
+-- Performing post-build validation
+Starting submission of boost-intrusive:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-intrusive:x64-windows: 5.8 s
+Completed submission of boost-move:x64-windows@1.90.0#1 to 1 binary cache(s) in 430 ms
+Installing 50/141 boost-container:x64-windows@1.90.0#1...
+boost-container:x64-windows@1.90.0#1 package ABI: 229f6530f1efc5990afbaaa3d6cad3ba5c70bb5141e1ecae620c1267861ea28c
+Building boost-container:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/container/archive/boost-1.90.0.tar.gz -> boostorg-container-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-container-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-container-boost-1.90.0.tar.gz
+-- Applying patch posix-threads.diff
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-container/src/ost-1.90.0-ebbe259cd5.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-container_x64-windows/share/boost-container/copyright
+-- Performing post-build validation
+Starting submission of boost-container:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-container:x64-windows: 28 s
+Completed submission of boost-intrusive:x64-windows@1.90.0#1 to 1 binary cache(s) in 564 ms
+Installing 51/141 boost-lexical-cast:x64-windows@1.90.0#1...
+boost-lexical-cast:x64-windows@1.90.0#1 package ABI: abf7fd1e1191fffea8016db7a1366a9c17b65c89c27141211ce1260d1e64d9a5
+Building boost-lexical-cast:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/lexical_cast/archive/boost-1.90.0.tar.gz -> boostorg-lexical_cast-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-lexical_cast-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-lexical_cast-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-lexical-cast/src/ost-1.90.0-c44665342f.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-lexical-cast_x64-windows/share/boost-lexical-cast/copyright
+-- Performing post-build validation
+Starting submission of boost-lexical-cast:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-lexical-cast:x64-windows: 8.4 s
+Completed submission of boost-container:x64-windows@1.90.0#1 to 1 binary cache(s) in 1.8 s
+Installing 52/141 boost-math:x64-windows@1.90.0#1...
+boost-math:x64-windows@1.90.0#1 package ABI: 88dca87a7bf40b2109177333d05088082f840d3715ec0c482a6ea759b808b923
+Building boost-math:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/math/archive/boost-1.90.0.tar.gz -> boostorg-math-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-math-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-math-boost-1.90.0.tar.gz
+-- Applying patch build-old-libs.patch
+-- Applying patch opt-random.diff
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-math/src/ost-1.90.0-1dbdd65e9e.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-math_x64-windows/share/boost-math/copyright
+-- Performing post-build validation
+Starting submission of boost-math:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-math:x64-windows: 34 s
+Completed submission of boost-lexical-cast:x64-windows@1.90.0#1 to 1 binary cache(s) in 441 ms
+Installing 53/141 boost-multiprecision:x64-windows@1.90.0#1...
+boost-multiprecision:x64-windows@1.90.0#1 package ABI: 5551e884d368e25c0589c2e8da1d955419ae2bd20c7e92f8363625e9af31b4db
+Building boost-multiprecision:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/multiprecision/archive/boost-1.90.0.tar.gz -> boostorg-multiprecision-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-multiprecision-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-multiprecision-boost-1.90.0.tar.gz
+-- Applying patch optional-random.diff
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-multiprecision/src/ost-1.90.0-7519abcdc8.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-multiprecision_x64-windows/share/boost-multiprecision/copyright
+-- Performing post-build validation
+Starting submission of boost-multiprecision:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-multiprecision:x64-windows: 10 s
+Completed submission of boost-math:x64-windows@1.90.0#1 to 1 binary cache(s) in 1.4 s
+Installing 54/141 boost-pool:x64-windows@1.90.0#1...
+boost-pool:x64-windows@1.90.0#1 package ABI: 69d709eaa067fdef4087302bc1db3d25a6d95fd15094bc6254cf80c4f6415fa2
+Building boost-pool:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/pool/archive/boost-1.90.0.tar.gz -> boostorg-pool-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-pool-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-pool-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-pool/src/ost-1.90.0-aa847279a9.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-pool_x64-windows/share/boost-pool/copyright
+-- Performing post-build validation
+Starting submission of boost-pool:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-pool:x64-windows: 7.5 s
+Completed submission of boost-multiprecision:x64-windows@1.90.0#1 to 1 binary cache(s) in 575 ms
+Installing 55/141 boost-type-index:x64-windows@1.90.0#1...
+boost-type-index:x64-windows@1.90.0#1 package ABI: b729cade939a9263640baad46bbc346137e56afcc63a838e1d1e75c11603674d
+Building boost-type-index:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/type_index/archive/boost-1.90.0.tar.gz -> boostorg-type_index-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-type_index-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-type_index-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-type-index/src/ost-1.90.0-3a11281bf8.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-type-index_x64-windows/share/boost-type-index/copyright
+-- Performing post-build validation
+Starting submission of boost-type-index:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-type-index:x64-windows: 6.2 s
+Completed submission of boost-pool:x64-windows@1.90.0#1 to 1 binary cache(s) in 460 ms
+Installing 56/141 boost-variant:x64-windows@1.90.0#1...
+boost-variant:x64-windows@1.90.0#1 package ABI: b850aae34f397d5bb3b8624f5d3e6c260db9b3bc14aa857372dd5bb265c66ae8
+Building boost-variant:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/variant/archive/boost-1.90.0.tar.gz -> boostorg-variant-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-variant-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-variant-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-variant/src/ost-1.90.0-af54e8c1f6.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-variant_x64-windows/share/boost-variant/copyright
+-- Performing post-build validation
+Starting submission of boost-variant:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-variant:x64-windows: 5.4 s
+Completed submission of boost-type-index:x64-windows@1.90.0#1 to 1 binary cache(s) in 324 ms
+Installing 57/141 boost-tokenizer:x64-windows@1.90.0#1...
+boost-tokenizer:x64-windows@1.90.0#1 package ABI: 309585640b4bd80822a745b5db2a6d62c7e47204d3a7a424ffb4fdae3e8f87d0
+Building boost-tokenizer:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/tokenizer/archive/boost-1.90.0.tar.gz -> boostorg-tokenizer-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-tokenizer-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-tokenizer-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-tokenizer/src/ost-1.90.0-a2fc8935b6.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-tokenizer_x64-windows/share/boost-tokenizer/copyright
+-- Performing post-build validation
+Starting submission of boost-tokenizer:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-tokenizer:x64-windows: 4.3 s
+Completed submission of boost-variant:x64-windows@1.90.0#1 to 1 binary cache(s) in 453 ms
+Installing 58/141 boost-numeric-conversion:x64-windows@1.90.0#1...
+boost-numeric-conversion:x64-windows@1.90.0#1 package ABI: c0ad6e62bc3a736ef38cce222f873e7f345c83f340bbf38271d1b95d88e9837c
+Building boost-numeric-conversion:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/numeric_conversion/archive/boost-1.90.0.tar.gz -> boostorg-numeric_conversion-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-numeric_conversion-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-numeric_conversion-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-numeric-conversion/src/ost-1.90.0-e32e09cb8f.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-numeric-conversion_x64-windows/share/boost-numeric-conversion/copyright
+-- Performing post-build validation
+Starting submission of boost-numeric-conversion:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-numeric-conversion:x64-windows: 5.4 s
+Completed submission of boost-tokenizer:x64-windows@1.90.0#1 to 1 binary cache(s) in 171 ms
+Installing 59/141 boost-date-time:x64-windows@1.90.0#1...
+boost-date-time:x64-windows@1.90.0#1 package ABI: a00c4ea8dcc4198ddc7e30cf67adcf813bd2563c708c45bfda764e62dd28ebe8
+Building boost-date-time:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/date_time/archive/boost-1.90.0.tar.gz -> boostorg-date_time-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-date_time-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-date_time-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-date-time/src/ost-1.90.0-3c85e5b301.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-date-time_x64-windows/share/boost-date-time/copyright
+-- Performing post-build validation
+Starting submission of boost-date-time:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-date-time:x64-windows: 12 s
+Completed submission of boost-numeric-conversion:x64-windows@1.90.0#1 to 1 binary cache(s) in 416 ms
+Installing 60/141 boost-ratio:x64-windows@1.90.0#1...
+boost-ratio:x64-windows@1.90.0#1 package ABI: 4ea9262815f9fa87d92db24c93ea82011713cf9ea8c4d0e861e305b73407f46f
+Building boost-ratio:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/ratio/archive/boost-1.90.0.tar.gz -> boostorg-ratio-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-ratio-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-ratio-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-ratio/src/ost-1.90.0-9ae5cb24c8.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-ratio_x64-windows/share/boost-ratio/copyright
+-- Performing post-build validation
+Starting submission of boost-ratio:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-ratio:x64-windows: 4.7 s
+Completed submission of boost-date-time:x64-windows@1.90.0#1 to 1 binary cache(s) in 579 ms
+Installing 61/141 boost-chrono:x64-windows@1.90.0#1...
+boost-chrono:x64-windows@1.90.0#1 package ABI: 4d7614039d9e4be5f87c3c61e2a1f91b836bad01c2376d3b5898346a6bc03b8e
+Building boost-chrono:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/chrono/archive/boost-1.90.0.tar.gz -> boostorg-chrono-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-chrono-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-chrono-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-chrono/src/ost-1.90.0-48c8bd7ed0.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-chrono_x64-windows/share/boost-chrono/copyright
+-- Performing post-build validation
+Starting submission of boost-chrono:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-chrono:x64-windows: 20 s
+Completed submission of boost-ratio:x64-windows@1.90.0#1 to 1 binary cache(s) in 168 ms
+Installing 62/141 boost-align:x64-windows@1.90.0#1...
+boost-align:x64-windows@1.90.0#1 package ABI: 4f7ea2a3dbaf08aa65464c2218f97199a2ceca4d94dc56d66f78f074e4836136
+Building boost-align:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/align/archive/boost-1.90.0.tar.gz -> boostorg-align-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-align-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-align-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-align/src/ost-1.90.0-c0f7e0a723.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-align_x64-windows/share/boost-align/copyright
+-- Performing post-build validation
+Starting submission of boost-align:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-align:x64-windows: 7.8 s
+Completed submission of boost-chrono:x64-windows@1.90.0#1 to 1 binary cache(s) in 1.7 s
+Installing 63/141 boost-atomic:x64-windows@1.90.0#1...
+boost-atomic:x64-windows@1.90.0#1 package ABI: dd30b2ff3773de85300acb6082c7baa1a88e9125d2db7000350b2119d31bec4f
+Building boost-atomic:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/atomic/archive/boost-1.90.0.tar.gz -> boostorg-atomic-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-atomic-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-atomic-boost-1.90.0.tar.gz
+-- Applying patch fix-include.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-atomic/src/ost-1.90.0-9d509064e3.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-atomic_x64-windows/share/boost-atomic/copyright
+-- Performing post-build validation
+Starting submission of boost-atomic:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-atomic:x64-windows: 19 s
+Completed submission of boost-align:x64-windows@1.90.0#1 to 1 binary cache(s) in 920 ms
+Installing 64/141 boost-thread:x64-windows@1.90.0#1...
+boost-thread:x64-windows@1.90.0#1 package ABI: 851d9b8ab6e6212f3b26e04c71a8137a80269c3581bb680e21f06831dcf6a7b5
+Building boost-thread:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/thread/archive/boost-1.90.0.tar.gz -> boostorg-thread-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-thread-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-thread-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-thread/src/ost-1.90.0-842ca1f29e.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-thread_x64-windows/share/boost-thread/copyright
+-- Performing post-build validation
+Starting submission of boost-thread:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-thread:x64-windows: 28 s
+Completed submission of boost-atomic:x64-windows@1.90.0#1 to 1 binary cache(s) in 1.4 s
+Installing 65/141 boost-proto:x64-windows@1.90.0#1...
+boost-proto:x64-windows@1.90.0#1 package ABI: a7e0858cb48894190a43de5ee32ffa302743457739687b638f49efda17684520
+Building boost-proto:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/proto/archive/boost-1.90.0.tar.gz -> boostorg-proto-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-proto-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-proto-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-proto/src/ost-1.90.0-81074666da.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-proto_x64-windows/share/boost-proto/copyright
+-- Performing post-build validation
+Starting submission of boost-proto:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-proto:x64-windows: 9.2 s
+Completed submission of boost-thread:x64-windows@1.90.0#1 to 1 binary cache(s) in 1.4 s
+Installing 66/141 boost-phoenix:x64-windows@1.90.0#1...
+boost-phoenix:x64-windows@1.90.0#1 package ABI: c63b5eb1421127d8ebeab1876f67d0c20dd0d967f9c517f8fba6fe98f0f38840
+Building boost-phoenix:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/phoenix/archive/boost-1.90.0.tar.gz -> boostorg-phoenix-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-phoenix-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-phoenix-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-phoenix/src/ost-1.90.0-d14ad022c1.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-phoenix_x64-windows/share/boost-phoenix/copyright
+-- Performing post-build validation
+Starting submission of boost-phoenix:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-phoenix:x64-windows: 11 s
+Completed submission of boost-proto:x64-windows@1.90.0#1 to 1 binary cache(s) in 1.1 s
+Installing 67/141 boost-endian:x64-windows@1.90.0#1...
+boost-endian:x64-windows@1.90.0#1 package ABI: 269122cd8177a918f98db82b421e2afd835027071024cbabcbd15470678f9407
+Building boost-endian:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/endian/archive/boost-1.90.0.tar.gz -> boostorg-endian-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-endian-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-endian-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-endian/src/ost-1.90.0-ca22f680df.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-endian_x64-windows/share/boost-endian/copyright
+-- Performing post-build validation
+Starting submission of boost-endian:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-endian:x64-windows: 7.3 s
+Completed submission of boost-phoenix:x64-windows@1.90.0#1 to 1 binary cache(s) in 1.5 s
+Installing 68/141 boost-spirit:x64-windows@1.90.0#1...
+boost-spirit:x64-windows@1.90.0#1 package ABI: 59fb69c4cc4dc6bc3b4c59fd1e025596ad7bf26eb5c272fb28748921ca238c2e
+Building boost-spirit:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/spirit/archive/boost-1.90.0.tar.gz -> boostorg-spirit-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-spirit-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-spirit-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-spirit/src/ost-1.90.0-8931e23af4.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-spirit_x64-windows/share/boost-spirit/copyright
+-- Performing post-build validation
+Starting submission of boost-spirit:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-spirit:x64-windows: 22 s
+Completed submission of boost-endian:x64-windows@1.90.0#1 to 1 binary cache(s) in 514 ms
+Installing 69/141 boost-serialization:x64-windows@1.90.0#1...
+boost-serialization:x64-windows@1.90.0#1 package ABI: dc25961ab5b6c4f3385d1d37760a890be0015b791b189b4539a4ba9be34a6581
+Building boost-serialization:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/serialization/archive/boost-1.90.0.tar.gz -> boostorg-serialization-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-serialization-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-serialization-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-serialization/src/ost-1.90.0-ff14dd9b7c.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-serialization_x64-windows/share/boost-serialization/copyright
+-- Performing post-build validation
+Starting submission of boost-serialization:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-serialization:x64-windows: 1.4 min
+Completed submission of boost-spirit:x64-windows@1.90.0#1 to 1 binary cache(s) in 2 s
+Installing 70/141 boost-multi-index:x64-windows@1.90.0#1...
+boost-multi-index:x64-windows@1.90.0#1 package ABI: 2670277a5cba7282466514d09bb7510d682606acf7dbba1fb6316b6cfcccacf6
+Building boost-multi-index:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/multi_index/archive/boost-1.90.0.tar.gz -> boostorg-multi_index-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-multi_index-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-multi_index-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-multi-index/src/ost-1.90.0-d7690607c1.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-multi-index_x64-windows/share/boost-multi-index/copyright
+-- Performing post-build validation
+Starting submission of boost-multi-index:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-multi-index:x64-windows: 8.2 s
+Completed submission of boost-serialization:x64-windows@1.90.0#1 to 1 binary cache(s) in 4.2 s
+Installing 71/141 boost-any:x64-windows@1.90.0#1...
+boost-any:x64-windows@1.90.0#1 package ABI: 00aa594f74f356b45af54371d5cccd3fb03a8e833e05174178c9ebb629809961
+Building boost-any:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/any/archive/boost-1.90.0.tar.gz -> boostorg-any-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-any-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-any-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-any/src/ost-1.90.0-3b3c4491de.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-any_x64-windows/share/boost-any/copyright
+-- Performing post-build validation
+Starting submission of boost-any:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-any:x64-windows: 4.3 s
+Completed submission of boost-multi-index:x64-windows@1.90.0#1 to 1 binary cache(s) in 522 ms
+Installing 72/141 boost-property-tree:x64-windows@1.90.0#1...
+boost-property-tree:x64-windows@1.90.0#1 package ABI: bd2e8924b1ac884ddd8a6f9c8bb58cf89988848c4cd638789abc6c921be6bd74
+Building boost-property-tree:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/property_tree/archive/boost-1.90.0.tar.gz -> boostorg-property_tree-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-property_tree-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-property_tree-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-property-tree/src/ost-1.90.0-205d804926.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-property-tree_x64-windows/share/boost-property-tree/copyright
+-- Performing post-build validation
+Starting submission of boost-property-tree:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-property-tree:x64-windows: 9.9 s
+Completed submission of boost-any:x64-windows@1.90.0#1 to 1 binary cache(s) in 181 ms
+Installing 73/141 boost-circular-buffer:x64-windows@1.90.0#1...
+boost-circular-buffer:x64-windows@1.90.0#1 package ABI: d446c149bc6841f9d8227c72c9629db3e8c65fc1f49d5070ae845e7dd7897c87
+Building boost-circular-buffer:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/circular_buffer/archive/boost-1.90.0.tar.gz -> boostorg-circular_buffer-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-circular_buffer-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-circular_buffer-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-circular-buffer/src/ost-1.90.0-e8ba16326a.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-circular-buffer_x64-windows/share/boost-circular-buffer/copyright
+-- Performing post-build validation
+Starting submission of boost-circular-buffer:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-circular-buffer:x64-windows: 5 s
+Completed submission of boost-property-tree:x64-windows@1.90.0#1 to 1 binary cache(s) in 455 ms
+Installing 74/141 boost-ptr-container:x64-windows@1.90.0#1...
+boost-ptr-container:x64-windows@1.90.0#1 package ABI: caeb396fddfe39baef82a3b6b64565fe7f7efb70e84a1a9404b41c57c932a54b
+Building boost-ptr-container:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/ptr_container/archive/boost-1.90.0.tar.gz -> boostorg-ptr_container-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-ptr_container-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-ptr_container-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-ptr-container/src/ost-1.90.0-66157df728.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-ptr-container_x64-windows/share/boost-ptr-container/copyright
+-- Performing post-build validation
+Starting submission of boost-ptr-container:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-ptr-container:x64-windows: 6.3 s
+Completed submission of boost-circular-buffer:x64-windows@1.90.0#1 to 1 binary cache(s) in 367 ms
+Installing 75/141 boost-uuid:x64-windows@1.90.0#1...
+boost-uuid:x64-windows@1.90.0#1 package ABI: 524eb5acafa3d04a26a7f524016f10e9533cff8166b4154d65301975aaf86253
+Building boost-uuid:x64-windows@1.90.0#1...
+Downloading https://github.com/boostorg/uuid/archive/boost-1.90.0.tar.gz -> boostorg-uuid-boost-1.90.0.tar.gz
+Successfully downloaded boostorg-uuid-boost-1.90.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/boostorg-uuid-boost-1.90.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/boost-uuid/src/ost-1.90.0-6a985bdd78.clean
+-- Configuring x64-windows
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/boost-uuid_x64-windows/share/boost-uuid/copyright
+-- Performing post-build validation
+Starting submission of boost-uuid:x64-windows@1.90.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle boost-uuid:x64-windows: 5.9 s
+Completed submission of boost-ptr-container:x64-windows@1.90.0#1 to 1 binary cache(s) in 398 ms
+Installing 76/141 cppunit:x64-windows@1.15.1#4...
+cppunit:x64-windows@1.15.1#4 package ABI: f58db8ed95e9ed24fcb688d1f08e6171a809b0547c4e0b3fa6dc03b700427167
+Building cppunit:x64-windows@1.15.1#4...
+Downloading https://dev-www.libreoffice.org/src/cppunit-1.15.1.tar.gz -> cppunit-1.15.1.tar.gz
+Successfully downloaded cppunit-1.15.1.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/cppunit-1.15.1.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/cppunit/src/cppunit-1-60beb2c90e.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/cppunit_x64-windows/share/cppunit/copyright
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/cppunit_x64-windows/share/cppunit/CppUnitConfig.cmake
+-- Performing post-build validation
+Starting submission of cppunit:x64-windows@1.15.1#4 to 1 binary cache(s) in the background
+Elapsed time to handle cppunit:x64-windows: 1.1 min
+Completed submission of boost-uuid:x64-windows@1.90.0#1 to 1 binary cache(s) in 405 ms
+Installing 77/141 zlib:x64-windows@1.3.1...
+zlib:x64-windows@1.3.1 package ABI: 96b6d48ff851bae8e15133e2eabaf32e0ac726bccc7b1bea5b4fc310e36ebf30
+Building zlib:x64-windows@1.3.1...
+Downloading https://github.com/madler/zlib/archive/v1.3.1.tar.gz -> madler-zlib-v1.3.1.tar.gz
+Successfully downloaded madler-zlib-v1.3.1.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/madler-zlib-v1.3.1.tar.gz
+-- Applying patch 0001-Prevent-invalid-inclusions-when-HAVE_-is-set-to-0.patch
+-- Applying patch 0002-build-static-or-shared-not-both.patch
+-- Applying patch 0003-android-and-mingw-fixes.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/zlib/src/v1.3.1-2e5db616bf.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/zlib_x64-windows/share/zlib/vcpkg-cmake-wrapper.cmake
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/zlib_x64-windows/lib/pkgconfig/zlib.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/zlib_x64-windows/debug/lib/pkgconfig/zlib.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/zlib_x64-windows/share/zlib/copyright
+-- Performing post-build validation
+Starting submission of zlib:x64-windows@1.3.1 to 1 binary cache(s) in the background
+Elapsed time to handle zlib:x64-windows: 30 s
+Completed submission of cppunit:x64-windows@1.15.1#4 to 1 binary cache(s) in 2.5 s
+Installing 78/141 curl[core,non-http,ssl,sspi]:x64-windows@8.18.0#1...
+curl[core,non-http,ssl,sspi]:x64-windows@8.18.0#1 package ABI: b97b6133a025e3c0879db9119f562667b9a00a412e1d775c1e037254a1efade7
+Building curl[core,non-http,ssl,sspi]:x64-windows@8.18.0#1...
+Downloading https://github.com/curl/curl/archive/curl-8_18_0.tar.gz -> curl-curl-curl-8_18_0.tar.gz
+Successfully downloaded curl-curl-curl-8_18_0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/curl-curl-curl-8_18_0.tar.gz
+-- Applying patch dependencies.patch
+-- Applying patch winsock.diff
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/curl/src/url-8_18_0-c0c48377da.clean
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/curl_x64-windows/lib/pkgconfig/libcurl.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/curl_x64-windows/debug/lib/pkgconfig/libcurl.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/curl_x64-windows/share/curl/vcpkg-cmake-wrapper.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/curl_x64-windows/share/curl/usage
+-- Performing post-build validation
+Starting submission of curl[core,non-http,ssl,sspi]:x64-windows@8.18.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle curl:x64-windows: 1.5 min
+Completed submission of zlib:x64-windows@1.3.1 to 1 binary cache(s) in 736 ms
+Installing 79/141 fftw3[core,threads]:x64-windows@3.3.10#10...
+fftw3[core,threads]:x64-windows@3.3.10#10 package ABI: b6ef8aeabbc92935ee29a756e79c36ddd3b8db2d1b34a24e858e5a0607e5e7b2
+Building fftw3[core,threads]:x64-windows@3.3.10#10...
+Downloading https://www.fftw.org/fftw-3.3.10.tar.gz -> fftw-3.3.10.tar.gz
+Successfully downloaded fftw-3.3.10.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/fftw-3.3.10.tar.gz
+-- Applying patch fftw3_arch_fix.patch
+-- Applying patch aligned_malloc.patch
+-- Applying patch bigobj.patch
+-- Applying patch fix-openmp.patch
+-- Applying patch install-subtargets.patch
+-- Applying patch fix-wrong-version.patch
+-- Applying patch neon.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/fftw3/src/fftw-3-29b71c9c47.clean
+-- fftw3...
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- fftw3f...
+CMake Warning at installed/x64-windows/share/vcpkg-cmake/vcpkg_cmake_configure.cmake:19 (message):
+  vcpkg_cmake_configure already called; this function should only be called
+  once.
+Call Stack (most recent call first):
+  buildtrees/versioning_/versions/fftw3/98a1c4076fefe0c03872693b7305204b2db65f2c/portfile.cmake:47 (vcpkg_cmake_configure)
+  scripts/ports.cmake:206 (include)
+
+
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- fftw3l...
+CMake Warning at installed/x64-windows/share/vcpkg-cmake/vcpkg_cmake_configure.cmake:19 (message):
+  vcpkg_cmake_configure already called; this function should only be called
+  once.
+Call Stack (most recent call first):
+  buildtrees/versioning_/versions/fftw3/98a1c4076fefe0c03872693b7305204b2db65f2c/portfile.cmake:47 (vcpkg_cmake_configure)
+  scripts/ports.cmake:206 (include)
+
+
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/fftw3_x64-windows/lib/pkgconfig/fftw3.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/fftw3_x64-windows/lib/pkgconfig/fftw3f.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/fftw3_x64-windows/lib/pkgconfig/fftw3l.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/fftw3_x64-windows/debug/lib/pkgconfig/fftw3.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/fftw3_x64-windows/debug/lib/pkgconfig/fftw3f.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/fftw3_x64-windows/debug/lib/pkgconfig/fftw3l.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/fftw3_x64-windows/share/fftw3/copyright
+-- Performing post-build validation
+Starting submission of fftw3[core,threads]:x64-windows@3.3.10#10 to 1 binary cache(s) in the background
+Elapsed time to handle fftw3:x64-windows: 8.5 min
+Completed submission of curl[core,non-http,ssl,sspi]:x64-windows@8.18.0#1 to 1 binary cache(s) in 1.4 s
+Installing 80/141 getopt-win32:x64-windows@2.42.0...
+getopt-win32:x64-windows@2.42.0 package ABI: 2a4d0c93376527d06f7c239561bf997fc7e702a2fac19b40cec13eeb1326725d
+Building getopt-win32:x64-windows@2.42.0...
+Downloading https://github.com/ludvikjerabek/getopt-win/archive/v2.42.0.tar.gz -> ludvikjerabek-getopt-win-v2.42.0.tar.gz
+Successfully downloaded ludvikjerabek-getopt-win-v2.42.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/ludvikjerabek-getopt-win-v2.42.0.tar.gz
+-- Applying patch static-output-name.diff
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/getopt-win32/src/v2.42.0-2cc521071b.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/getopt-win32_x64-windows/share/unofficial-getopt-win32/unofficial-getopt-win32-config.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/getopt-win32_x64-windows/share/getopt-win32/usage
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/getopt-win32_x64-windows/share/getopt-win32/copyright
+-- Performing post-build validation
+Starting submission of getopt-win32:x64-windows@2.42.0 to 1 binary cache(s) in the background
+Elapsed time to handle getopt-win32:x64-windows: 12 s
+Completed submission of fftw3[core,threads]:x64-windows@3.3.10#10 to 1 binary cache(s) in 2.7 s
+Installing 81/141 getopt:x64-windows@0#3...
+getopt:x64-windows@0#3 package ABI: 1c3cf0ebee7d1181e2323dabd9fb956cdae15a978ac01c84911ac030b8df3afd
+Building getopt:x64-windows@0#3...
+-- Skipping post-build validation due to VCPKG_POLICY_EMPTY_PACKAGE
+Starting submission of getopt:x64-windows@0#3 to 1 binary cache(s) in the background
+Elapsed time to handle getopt:x64-windows: 234 ms
+Installing 82/141 vcpkg-cmake-get-vars:x64-windows@2025-05-29...
+vcpkg-cmake-get-vars:x64-windows@2025-05-29 package ABI: bb124b70b9cf07e62988f5e98c6c946532f91b03c8d2ce103a6890ec8d2cad7e
+Building vcpkg-cmake-get-vars:x64-windows@2025-05-29...
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-cmake-get-vars_x64-windows/share/vcpkg-cmake-get-vars/vcpkg_cmake_get_vars.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-cmake-get-vars_x64-windows/share/vcpkg-cmake-get-vars/cmake_get_vars
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-cmake-get-vars_x64-windows/share/vcpkg-cmake-get-vars/cmake_get_vars/CMakeLists.txt
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-cmake-get-vars_x64-windows/share/vcpkg-cmake-get-vars/cmake-get-vars.cmake.in
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-cmake-get-vars_x64-windows/share/vcpkg-cmake-get-vars/vcpkg-port-config.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-cmake-get-vars_x64-windows/share/vcpkg-cmake-get-vars/copyright
+-- Performing post-build validation
+Starting submission of vcpkg-cmake-get-vars:x64-windows@2025-05-29 to 1 binary cache(s) in the background
+Elapsed time to handle vcpkg-cmake-get-vars:x64-windows: 261 ms
+Completed submission of getopt-win32:x64-windows@2.42.0 to 1 binary cache(s) in 426 ms
+Installing 83/141 vcpkg-tool-meson:x64-windows@1.9.0#3...
+vcpkg-tool-meson:x64-windows@1.9.0#3 package ABI: 24c9ac742508df647d43abddcd62c1cc83ad2ab74b678a615a3f0ccf1412a2ef
+Building vcpkg-tool-meson:x64-windows@1.9.0#3...
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-tool-meson_x64-windows/share/vcpkg-tool-meson/copyright
+Downloading https://github.com/mesonbuild/meson/archive/1.9.0.tar.gz -> meson-1.9.0.tar.gz
+Successfully downloaded meson-1.9.0.tar.gz
+cmake -E tar: warning: skipping symbolic link "meson-1.9.0/test cases/frameworks/35 boost symlinks/boost/lib/boost_python-vc142-mt-gd-x32-0_3.lib" -> "../Cellar/boost-python/0.3.0/lib/boost_python-vc142-mt-gd-x32-0_3.lib".
+cmake -E tar: warning: skipping symbolic link "meson-1.9.0/test cases/frameworks/35 boost symlinks/boost/lib/boost_python-vc142-mt-gd-x64-0_3.lib" -> "../Cellar/boost-python/0.3.0/lib/boost_python-vc142-mt-gd-x64-0_3.lib".
+cmake -E tar: warning: skipping symbolic link "meson-1.9.0/test cases/frameworks/35 boost symlinks/boost/lib/boost_regex-vc142-mt-gd-x32-0_3.lib" -> "../Cellar/boost/0.3.0/lib/boost_regex-vc142-mt-gd-x32-0_3.lib".
+cmake -E tar: warning: skipping symbolic link "meson-1.9.0/test cases/frameworks/35 boost symlinks/boost/lib/boost_regex-vc142-mt-gd-x64-0_3.lib" -> "../Cellar/boost/0.3.0/lib/boost_regex-vc142-mt-gd-x64-0_3.lib".
+cmake -E tar: warning: skipping symbolic link "meson-1.9.0/test cases/frameworks/35 boost symlinks/boost/lib/libboost_python.so.0.3.0" -> "../Cellar/boost-python/0.3.0/lib/libboost_python.so.0.3.0".
+cmake -E tar: warning: skipping symbolic link "meson-1.9.0/test cases/frameworks/35 boost symlinks/boost/lib/libboost_regex.so.0.3.0" -> "../Cellar/boost/0.3.0/lib/libboost_regex.so.0.3.0".
+-- Applying patch C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-tool-meson_x64-windows/share/vcpkg-tool-meson/meson-intl.patch
+-- Applying patch C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-tool-meson_x64-windows/share/vcpkg-tool-meson/adjust-python-dep.patch
+-- Applying patch C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-tool-meson_x64-windows/share/vcpkg-tool-meson/adjust-args.patch
+-- Applying patch C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-tool-meson_x64-windows/share/vcpkg-tool-meson/remove-pkgconfig-specialization.patch
+-- Applying patch C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-tool-meson_x64-windows/share/vcpkg-tool-meson/meson-56879d5.diff
+Downloading https://www.python.org/ftp/python/3.14.2/python-3.14.2-embed-amd64.zip -> python-3.14.2-embed-amd64.zip
+Successfully downloaded python-3.14.2-embed-amd64.zip
+-- Found Python version '3.14.2 at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/python/python-3.14.2-x64-1/python.exe'
+-- Using meson: C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/meson-1.9.0-d1fcc2/meson.py
+-- Performing post-build validation
+Starting submission of vcpkg-tool-meson:x64-windows@1.9.0#3 to 1 binary cache(s) in the background
+Elapsed time to handle vcpkg-tool-meson:x64-windows: 28 s
+Completed submission of getopt:x64-windows@0#3 to 1 binary cache(s) in 179 ms
+Completed submission of vcpkg-cmake-get-vars:x64-windows@2025-05-29 to 1 binary cache(s) in 240 ms
+Installing 84/141 pcre2[core,jit,platform-default-features]:x64-windows@10.47...
+pcre2[core,jit,platform-default-features]:x64-windows@10.47 package ABI: 8db537922326babb2340528d65bcf6cabb7bb99af0d61343a4929f2252e6aa86
+Building pcre2[core,jit,platform-default-features]:x64-windows@10.47...
+Downloading https://github.com/PCRE2Project/pcre2/archive/pcre2-10.47.tar.gz -> PCRE2Project-pcre2-pcre2-10.47.tar.gz
+Successfully downloaded PCRE2Project-pcre2-pcre2-10.47.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/PCRE2Project-pcre2-pcre2-10.47.tar.gz
+-- Applying patch pcre2-10.35_fix-uwp.patch
+-- Applying patch no-static-suffix.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/pcre2/src/cre2-10.47-7b8426e64a.clean
+Downloading https://github.com/zherczeg/sljit/archive/45f910b78c6605ebf5b53d3ec7cb00f2312fe417.tar.gz -> zherczeg-sljit-45f910b78c6605ebf5b53d3ec7cb00f2312fe417.tar.gz
+Successfully downloaded zherczeg-sljit-45f910b78c6605ebf5b53d3ec7cb00f2312fe417.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/zherczeg-sljit-45f910b78c6605ebf5b53d3ec7cb00f2312fe417.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/pcre2/src/f2312fe417-2bbc527107.clean
+-- Configuring x64-windows
+CMake Warning at installed/x64-windows/share/vcpkg-cmake/vcpkg_cmake_configure.cmake:344 (message):
+  The following variables are not used in CMakeLists.txt:
+
+      PCRE2_STATIC_RUNTIME
+
+  Please recheck them and remove the unnecessary options from the
+  `vcpkg_cmake_configure` call.
+
+  If these options should still be passed for whatever reason, please use the
+  `MAYBE_UNUSED_VARIABLES` argument.
+Call Stack (most recent call first):
+  buildtrees/versioning_/versions/pcre2/753cc6dbffbcde00b0c10b8d594108beb320a183/portfile.cmake:34 (vcpkg_cmake_configure)
+  scripts/ports.cmake:206 (include)
+
+
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pcre2_x64-windows/lib/pkgconfig/libpcre2-16.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pcre2_x64-windows/lib/pkgconfig/libpcre2-32.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pcre2_x64-windows/lib/pkgconfig/libpcre2-8.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pcre2_x64-windows/lib/pkgconfig/libpcre2-posix.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pcre2_x64-windows/debug/lib/pkgconfig/libpcre2-16.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pcre2_x64-windows/debug/lib/pkgconfig/libpcre2-32.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pcre2_x64-windows/debug/lib/pkgconfig/libpcre2-8.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pcre2_x64-windows/debug/lib/pkgconfig/libpcre2-posix.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pcre2_x64-windows/share/pcre2/usage
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pcre2_x64-windows/share/pcre2/copyright
+-- Performing post-build validation
+Starting submission of pcre2[core,jit,platform-default-features]:x64-windows@10.47 to 1 binary cache(s) in the background
+Elapsed time to handle pcre2:x64-windows: 1.8 min
+Completed submission of vcpkg-tool-meson:x64-windows@1.9.0#3 to 1 binary cache(s) in 392 ms
+Installing 85/141 libiconv:x64-windows@1.18#3...
+libiconv:x64-windows@1.18#3 package ABI: a74a14f8f55771cf8e888c1038cd2d6561c0cf4101c83e8f6acf79a16281dd81
+Building libiconv:x64-windows@1.18#3...
+Downloading libiconv-1.18.tar.gz, trying https://ftpmirror.gnu.org/gnu/libiconv/libiconv-1.18.tar.gz
+Successfully downloaded libiconv-1.18.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/libiconv-1.18.tar.gz
+-- Applying patch 0002-Config-for-MSVC.patch
+-- Applying patch 0003-Add-export.patch
+-- Applying patch 0004-ModuleFileName.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libiconv/src/v1.18-8006e03beb.clean
+-- Getting CMake variables for x64-windows
+Downloading msys2-autoconf-wrapper-20250528-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/autoconf-wrapper-20250528-1-any.pkg.tar.zst
+Successfully downloaded msys2-autoconf-wrapper-20250528-1-any.pkg.tar.zst
+Downloading msys2-automake-wrapper-20250528-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake-wrapper-20250528-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake-wrapper-20250528-1-any.pkg.tar.zst
+Downloading msys2-binutils-2.45.1-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/binutils-2.45.1-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-binutils-2.45.1-1-x86_64.pkg.tar.zst
+Downloading msys2-libtool-2.5.4-4-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libtool-2.5.4-4-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libtool-2.5.4-4-x86_64.pkg.tar.zst
+Downloading msys2-make-4.4.1-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/make-4.4.1-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-make-4.4.1-2-x86_64.pkg.tar.zst
+Downloading msys2-pkgconf-2.5.1-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/pkgconf-2.5.1-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-pkgconf-2.5.1-1-x86_64.pkg.tar.zst
+Downloading msys2-which-2.23-4-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/which-2.23-4-x86_64.pkg.tar.zst
+Successfully downloaded msys2-which-2.23-4-x86_64.pkg.tar.zst
+Downloading msys2-bash-5.3.009-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/bash-5.3.009-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-bash-5.3.009-1-x86_64.pkg.tar.zst
+Downloading msys2-coreutils-8.32-5-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/coreutils-8.32-5-x86_64.pkg.tar.zst
+Successfully downloaded msys2-coreutils-8.32-5-x86_64.pkg.tar.zst
+Downloading msys2-file-5.46-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/file-5.46-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-file-5.46-2-x86_64.pkg.tar.zst
+Downloading msys2-gawk-5.3.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gawk-5.3.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gawk-5.3.2-1-x86_64.pkg.tar.zst
+Downloading msys2-grep-1~3.0-7-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/grep-1~3.0-7-x86_64.pkg.tar.zst
+Successfully downloaded msys2-grep-1~3.0-7-x86_64.pkg.tar.zst
+Downloading msys2-gzip-1.14-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gzip-1.14-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gzip-1.14-1-x86_64.pkg.tar.zst
+Downloading msys2-diffutils-3.12-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/diffutils-3.12-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-diffutils-3.12-1-x86_64.pkg.tar.zst
+Downloading msys2-sed-4.9-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/sed-4.9-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-sed-4.9-1-x86_64.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Downloading msys2-autoconf2.72-2.72-3-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/autoconf2.72-2.72-3-any.pkg.tar.zst
+Successfully downloaded msys2-autoconf2.72-2.72-3-any.pkg.tar.zst
+Downloading msys2-automake1.16-1.16.5-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake1.16-1.16.5-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake1.16-1.16.5-1-any.pkg.tar.zst
+Downloading msys2-automake1.17-1.17-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake1.17-1.17-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake1.17-1.17-1-any.pkg.tar.zst
+Downloading msys2-automake1.18-1.18.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake1.18-1.18.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake1.18-1.18.1-1-any.pkg.tar.zst
+Downloading msys2-libiconv-1.18-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libiconv-1.18-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libiconv-1.18-1-x86_64.pkg.tar.zst
+Downloading msys2-libintl-0.22.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libintl-0.22.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libintl-0.22.5-1-x86_64.pkg.tar.zst
+Downloading msys2-zlib-1.3.1-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/zlib-1.3.1-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-zlib-1.3.1-1-x86_64.pkg.tar.zst
+Downloading msys2-findutils-4.10.0-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/findutils-4.10.0-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-findutils-4.10.0-2-x86_64.pkg.tar.zst
+Downloading msys2-tar-1.35-3-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/tar-1.35-3-x86_64.pkg.tar.zst
+Successfully downloaded msys2-tar-1.35-3-x86_64.pkg.tar.zst
+Downloading msys2-gmp-6.3.0-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gmp-6.3.0-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gmp-6.3.0-2-x86_64.pkg.tar.zst
+Downloading msys2-gcc-libs-15.2.0-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gcc-libs-15.2.0-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gcc-libs-15.2.0-1-x86_64.pkg.tar.zst
+Downloading msys2-libbz2-1.0.8-4-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libbz2-1.0.8-4-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libbz2-1.0.8-4-x86_64.pkg.tar.zst
+Downloading msys2-liblzma-5.8.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/liblzma-5.8.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-liblzma-5.8.2-1-x86_64.pkg.tar.zst
+Downloading msys2-libzstd-1.5.7-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libzstd-1.5.7-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libzstd-1.5.7-1-x86_64.pkg.tar.zst
+Downloading msys2-libreadline-8.3.003-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libreadline-8.3.003-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libreadline-8.3.003-1-x86_64.pkg.tar.zst
+Downloading msys2-mpfr-4.2.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/mpfr-4.2.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-mpfr-4.2.2-1-x86_64.pkg.tar.zst
+Downloading msys2-libpcre-8.45-5-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libpcre-8.45-5-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libpcre-8.45-5-x86_64.pkg.tar.zst
+Downloading msys2-m4-1.4.19-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/m4-1.4.19-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-m4-1.4.19-2-x86_64.pkg.tar.zst
+Downloading msys2-perl-5.40.3-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/perl-5.40.3-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-perl-5.40.3-1-x86_64.pkg.tar.zst
+Downloading msys2-ncurses-6.5.20240831-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/ncurses-6.5.20240831-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-ncurses-6.5.20240831-2-x86_64.pkg.tar.zst
+Downloading msys2-libxcrypt-4.5.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libxcrypt-4.5.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libxcrypt-4.5.2-1-x86_64.pkg.tar.zst
+-- Applying patch C:/ARDOURCUSTOM/ardour/vcpkg/scripts/cmake/compile_wrapper_consider_clang-cl.patch
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/fe50d45a6f168d59
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+-- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows-dbg
+-- Configuring x64-windows-rel
+-- Building x64-windows-dbg
+-- Installing x64-windows-dbg
+-- Building x64-windows-rel
+-- Installing x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libiconv_x64-windows/share/libiconv/usage
+-- Performing post-build validation
+Starting submission of libiconv:x64-windows@1.18#3 to 1 binary cache(s) in the background
+Elapsed time to handle libiconv:x64-windows: 30 min
+Completed submission of pcre2[core,jit,platform-default-features]:x64-windows@10.47 to 1 binary cache(s) in 1.8 s
+Installing 86/141 vcpkg-make:x64-windows@2026-01-01...
+vcpkg-make:x64-windows@2026-01-01 package ABI: f00304cc1ae7ef753912ff789c37cfdf24abcebb96c13246dfb98b3accc6a163
+Building vcpkg-make:x64-windows@2026-01-01...
+Downloading automake-1.17.tar.gz, trying https://ftpmirror.gnu.org/gnu/automake/automake-1.17.tar.gz
+Successfully downloaded automake-1.17.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/automake-1.17.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/vcpkg-make/src/automake-1-c362683103.clean
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/vcpkg-make/cmake-get-vars_C_CXX-x64-windows.cmake.log
+-- x64-windows autotools triplet: x86_64-pc-mingw32 (from vcpkg)
+-- Performing post-build validation
+Starting submission of vcpkg-make:x64-windows@2026-01-01 to 1 binary cache(s) in the background
+Elapsed time to handle vcpkg-make:x64-windows: 19 s
+Completed submission of libiconv:x64-windows@1.18#3 to 1 binary cache(s) in 1 s
+Installing 87/141 libffi:x64-windows@3.5.2...
+libffi:x64-windows@3.5.2 package ABI: 1013cd7e5e33db9f7d80806e3a8aba2f09c565a934b2ef9a002a718121e69d69
+Building libffi:x64-windows@3.5.2...
+Downloading https://github.com/libffi/libffi/releases/download/v3.5.2/libffi-3.5.2.tar.gz -> libffi-3.5.2.tar.gz
+Successfully downloaded libffi-3.5.2.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/libffi-3.5.2.tar.gz
+-- Applying patch dll-bindir.diff
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libffi/src/libffi-3-c1e5d7d6da.clean
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libffi/cmake-get-vars_ASM_C_CXX-x64-windows.cmake.log
+Downloading msys2-autoconf-wrapper-20250528-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/autoconf-wrapper-20250528-1-any.pkg.tar.zst
+Successfully downloaded msys2-autoconf-wrapper-20250528-1-any.pkg.tar.zst
+Downloading msys2-automake-wrapper-20250528-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake-wrapper-20250528-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake-wrapper-20250528-1-any.pkg.tar.zst
+Downloading msys2-autoconf-archive-2024.10.16-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/autoconf-archive-2024.10.16-1-any.pkg.tar.zst
+Successfully downloaded msys2-autoconf-archive-2024.10.16-1-any.pkg.tar.zst
+Downloading msys2-binutils-2.45.1-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/binutils-2.45.1-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-binutils-2.45.1-1-x86_64.pkg.tar.zst
+Downloading msys2-libtool-2.5.4-4-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libtool-2.5.4-4-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libtool-2.5.4-4-x86_64.pkg.tar.zst
+Downloading msys2-make-4.4.1-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/make-4.4.1-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-make-4.4.1-2-x86_64.pkg.tar.zst
+Downloading msys2-which-2.23-4-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/which-2.23-4-x86_64.pkg.tar.zst
+Successfully downloaded msys2-which-2.23-4-x86_64.pkg.tar.zst
+Downloading msys2-bash-5.3.009-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/bash-5.3.009-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-bash-5.3.009-1-x86_64.pkg.tar.zst
+Downloading msys2-coreutils-8.32-5-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/coreutils-8.32-5-x86_64.pkg.tar.zst
+Successfully downloaded msys2-coreutils-8.32-5-x86_64.pkg.tar.zst
+Downloading msys2-file-5.46-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/file-5.46-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-file-5.46-2-x86_64.pkg.tar.zst
+Downloading msys2-gawk-5.3.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gawk-5.3.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gawk-5.3.2-1-x86_64.pkg.tar.zst
+Downloading msys2-grep-1~3.0-7-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/grep-1~3.0-7-x86_64.pkg.tar.zst
+Successfully downloaded msys2-grep-1~3.0-7-x86_64.pkg.tar.zst
+Downloading msys2-gzip-1.14-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gzip-1.14-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gzip-1.14-1-x86_64.pkg.tar.zst
+Downloading msys2-diffutils-3.12-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/diffutils-3.12-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-diffutils-3.12-1-x86_64.pkg.tar.zst
+Downloading msys2-pkgconf-2.5.1-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/pkgconf-2.5.1-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-pkgconf-2.5.1-1-x86_64.pkg.tar.zst
+Downloading msys2-sed-4.9-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/sed-4.9-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-sed-4.9-1-x86_64.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Downloading msys2-autoconf2.72-2.72-3-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/autoconf2.72-2.72-3-any.pkg.tar.zst
+Successfully downloaded msys2-autoconf2.72-2.72-3-any.pkg.tar.zst
+Downloading msys2-automake1.16-1.16.5-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake1.16-1.16.5-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake1.16-1.16.5-1-any.pkg.tar.zst
+Downloading msys2-automake1.17-1.17-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake1.17-1.17-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake1.17-1.17-1-any.pkg.tar.zst
+Downloading msys2-automake1.18-1.18.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake1.18-1.18.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake1.18-1.18.1-1-any.pkg.tar.zst
+Downloading msys2-libiconv-1.18-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libiconv-1.18-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libiconv-1.18-1-x86_64.pkg.tar.zst
+Downloading msys2-libintl-0.22.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libintl-0.22.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libintl-0.22.5-1-x86_64.pkg.tar.zst
+Downloading msys2-zlib-1.3.1-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/zlib-1.3.1-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-zlib-1.3.1-1-x86_64.pkg.tar.zst
+Downloading msys2-findutils-4.10.0-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/findutils-4.10.0-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-findutils-4.10.0-2-x86_64.pkg.tar.zst
+Downloading msys2-tar-1.35-3-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/tar-1.35-3-x86_64.pkg.tar.zst
+Successfully downloaded msys2-tar-1.35-3-x86_64.pkg.tar.zst
+Downloading msys2-gmp-6.3.0-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gmp-6.3.0-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gmp-6.3.0-2-x86_64.pkg.tar.zst
+Downloading msys2-gcc-libs-15.2.0-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gcc-libs-15.2.0-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gcc-libs-15.2.0-1-x86_64.pkg.tar.zst
+Downloading msys2-libbz2-1.0.8-4-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libbz2-1.0.8-4-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libbz2-1.0.8-4-x86_64.pkg.tar.zst
+Downloading msys2-liblzma-5.8.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/liblzma-5.8.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-liblzma-5.8.2-1-x86_64.pkg.tar.zst
+Downloading msys2-libzstd-1.5.7-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libzstd-1.5.7-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libzstd-1.5.7-1-x86_64.pkg.tar.zst
+Downloading msys2-libreadline-8.3.003-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libreadline-8.3.003-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libreadline-8.3.003-1-x86_64.pkg.tar.zst
+Downloading msys2-mpfr-4.2.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/mpfr-4.2.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-mpfr-4.2.2-1-x86_64.pkg.tar.zst
+Downloading msys2-libpcre-8.45-5-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libpcre-8.45-5-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libpcre-8.45-5-x86_64.pkg.tar.zst
+Downloading msys2-m4-1.4.19-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/m4-1.4.19-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-m4-1.4.19-2-x86_64.pkg.tar.zst
+Downloading msys2-perl-5.40.3-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/perl-5.40.3-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-perl-5.40.3-1-x86_64.pkg.tar.zst
+Downloading msys2-ncurses-6.5.20240831-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/ncurses-6.5.20240831-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-ncurses-6.5.20240831-2-x86_64.pkg.tar.zst
+Downloading msys2-libxcrypt-4.5.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libxcrypt-4.5.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libxcrypt-4.5.2-1-x86_64.pkg.tar.zst
+-- Applying patch C:/ARDOURCUSTOM/ardour/vcpkg/scripts/cmake/compile_wrapper_consider_clang-cl.patch
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/19f68f647e350a23
+Downloading https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.6/LLVM-15.0.6-win64.exe -> LLVM-15.0.6-win64.exe
+Successfully downloaded LLVM-15.0.6-win64.exe
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+-- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows-dbg
+-- Configuring x64-windows-rel
+-- Using cached msys2-autoconf-wrapper-20250528-1-any.pkg.tar.zst
+-- Using cached msys2-automake-wrapper-20250528-1-any.pkg.tar.zst
+-- Using cached msys2-autoconf-archive-2024.10.16-1-any.pkg.tar.zst
+-- Using cached msys2-binutils-2.45.1-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libtool-2.5.4-4-x86_64.pkg.tar.zst
+-- Using cached msys2-make-4.4.1-2-x86_64.pkg.tar.zst
+-- Using cached msys2-which-2.23-4-x86_64.pkg.tar.zst
+-- Using cached msys2-bash-5.3.009-1-x86_64.pkg.tar.zst
+-- Using cached msys2-coreutils-8.32-5-x86_64.pkg.tar.zst
+-- Using cached msys2-file-5.46-2-x86_64.pkg.tar.zst
+-- Using cached msys2-gawk-5.3.2-1-x86_64.pkg.tar.zst
+-- Using cached msys2-grep-1~3.0-7-x86_64.pkg.tar.zst
+-- Using cached msys2-gzip-1.14-1-x86_64.pkg.tar.zst
+-- Using cached msys2-diffutils-3.12-1-x86_64.pkg.tar.zst
+-- Using cached msys2-pkgconf-2.5.1-1-x86_64.pkg.tar.zst
+-- Using cached msys2-sed-4.9-1-x86_64.pkg.tar.zst
+-- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using cached msys2-autoconf2.72-2.72-3-any.pkg.tar.zst
+-- Using cached msys2-automake1.16-1.16.5-1-any.pkg.tar.zst
+-- Using cached msys2-automake1.17-1.17-1-any.pkg.tar.zst
+-- Using cached msys2-automake1.18-1.18.1-1-any.pkg.tar.zst
+-- Using cached msys2-libiconv-1.18-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libintl-0.22.5-1-x86_64.pkg.tar.zst
+-- Using cached msys2-zlib-1.3.1-1-x86_64.pkg.tar.zst
+-- Using cached msys2-findutils-4.10.0-2-x86_64.pkg.tar.zst
+-- Using cached msys2-tar-1.35-3-x86_64.pkg.tar.zst
+-- Using cached msys2-gmp-6.3.0-2-x86_64.pkg.tar.zst
+-- Using cached msys2-gcc-libs-15.2.0-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libbz2-1.0.8-4-x86_64.pkg.tar.zst
+-- Using cached msys2-liblzma-5.8.2-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libzstd-1.5.7-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libreadline-8.3.003-1-x86_64.pkg.tar.zst
+-- Using cached msys2-mpfr-4.2.2-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libpcre-8.45-5-x86_64.pkg.tar.zst
+-- Using cached msys2-m4-1.4.19-2-x86_64.pkg.tar.zst
+-- Using cached msys2-perl-5.40.3-1-x86_64.pkg.tar.zst
+-- Using cached msys2-ncurses-6.5.20240831-2-x86_64.pkg.tar.zst
+-- Using cached msys2-libxcrypt-4.5.2-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/19f68f647e350a23
+-- Building/Installing x64-windows-dbg
+-- Making target 'all' for x64-windows-dbg
+-- Making target 'install' for x64-windows-dbg
+-- Building/Installing x64-windows-rel
+-- Making target 'all' for x64-windows-rel
+-- Making target 'install' for x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libffi_x64-windows/lib/pkgconfig/libffi.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libffi_x64-windows/debug/lib/pkgconfig/libffi.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libffi_x64-windows/share/libffi/usage
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libffi_x64-windows/share/unofficial-libffi/unofficial-libffi-config.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libffi_x64-windows/share/libffi/libffiConfig.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libffi_x64-windows/share/libffi/copyright
+-- Performing post-build validation
+Starting submission of libffi:x64-windows@3.5.2 to 1 binary cache(s) in the background
+Elapsed time to handle libffi:x64-windows: 15 min
+Completed submission of vcpkg-make:x64-windows@2026-01-01 to 1 binary cache(s) in 290 ms
+Installing 88/141 gettext-libintl:x64-windows@0.22.5#4...
+gettext-libintl:x64-windows@0.22.5#4 package ABI: 417f8be473a4945fdbedb46cb479f2c98370592f549ebe7ba8e52ca2e052f593
+Building gettext-libintl:x64-windows@0.22.5#4...
+Downloading gettext-0.22.5.tar.gz, trying https://ftpmirror.gnu.org/gnu/gettext/gettext-0.22.5.tar.gz
+Successfully downloaded gettext-0.22.5.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/gettext-0.22.5.tar.gz
+-- Applying patch uwp.patch
+-- Applying patch 0003-Fix-win-unicode-paths.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/gettext-libintl/src/gettext-0-5775b97cd5.clean
+-- Modifying 'configure' to use fast bash variable expansion
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/gettext-libintl/cmake-get-vars_C_CXX-x64-windows.cmake.log
+Downloading msys2-autoconf-wrapper-20250528-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/autoconf-wrapper-20250528-1-any.pkg.tar.zst
+Successfully downloaded msys2-autoconf-wrapper-20250528-1-any.pkg.tar.zst
+Downloading msys2-automake-wrapper-20250528-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake-wrapper-20250528-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake-wrapper-20250528-1-any.pkg.tar.zst
+Downloading msys2-autoconf-archive-2024.10.16-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/autoconf-archive-2024.10.16-1-any.pkg.tar.zst
+Successfully downloaded msys2-autoconf-archive-2024.10.16-1-any.pkg.tar.zst
+Downloading msys2-binutils-2.45.1-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/binutils-2.45.1-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-binutils-2.45.1-1-x86_64.pkg.tar.zst
+Downloading msys2-libtool-2.5.4-4-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libtool-2.5.4-4-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libtool-2.5.4-4-x86_64.pkg.tar.zst
+Downloading msys2-make-4.4.1-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/make-4.4.1-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-make-4.4.1-2-x86_64.pkg.tar.zst
+Downloading msys2-which-2.23-4-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/which-2.23-4-x86_64.pkg.tar.zst
+Successfully downloaded msys2-which-2.23-4-x86_64.pkg.tar.zst
+Downloading msys2-bash-5.3.009-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/bash-5.3.009-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-bash-5.3.009-1-x86_64.pkg.tar.zst
+Downloading msys2-coreutils-8.32-5-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/coreutils-8.32-5-x86_64.pkg.tar.zst
+Successfully downloaded msys2-coreutils-8.32-5-x86_64.pkg.tar.zst
+Downloading msys2-file-5.46-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/file-5.46-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-file-5.46-2-x86_64.pkg.tar.zst
+Downloading msys2-gawk-5.3.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gawk-5.3.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gawk-5.3.2-1-x86_64.pkg.tar.zst
+Downloading msys2-grep-1~3.0-7-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/grep-1~3.0-7-x86_64.pkg.tar.zst
+Successfully downloaded msys2-grep-1~3.0-7-x86_64.pkg.tar.zst
+Downloading msys2-gzip-1.14-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gzip-1.14-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gzip-1.14-1-x86_64.pkg.tar.zst
+Downloading msys2-diffutils-3.12-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/diffutils-3.12-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-diffutils-3.12-1-x86_64.pkg.tar.zst
+Downloading msys2-pkgconf-2.5.1-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/pkgconf-2.5.1-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-pkgconf-2.5.1-1-x86_64.pkg.tar.zst
+Downloading msys2-sed-4.9-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/sed-4.9-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-sed-4.9-1-x86_64.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Downloading msys2-autoconf2.72-2.72-3-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/autoconf2.72-2.72-3-any.pkg.tar.zst
+Successfully downloaded msys2-autoconf2.72-2.72-3-any.pkg.tar.zst
+Downloading msys2-automake1.16-1.16.5-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake1.16-1.16.5-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake1.16-1.16.5-1-any.pkg.tar.zst
+Downloading msys2-automake1.17-1.17-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake1.17-1.17-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake1.17-1.17-1-any.pkg.tar.zst
+Downloading msys2-automake1.18-1.18.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake1.18-1.18.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake1.18-1.18.1-1-any.pkg.tar.zst
+Downloading msys2-libiconv-1.18-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libiconv-1.18-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libiconv-1.18-1-x86_64.pkg.tar.zst
+Downloading msys2-libintl-0.22.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libintl-0.22.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libintl-0.22.5-1-x86_64.pkg.tar.zst
+Downloading msys2-zlib-1.3.1-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/zlib-1.3.1-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-zlib-1.3.1-1-x86_64.pkg.tar.zst
+Downloading msys2-findutils-4.10.0-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/findutils-4.10.0-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-findutils-4.10.0-2-x86_64.pkg.tar.zst
+Downloading msys2-tar-1.35-3-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/tar-1.35-3-x86_64.pkg.tar.zst
+Successfully downloaded msys2-tar-1.35-3-x86_64.pkg.tar.zst
+Downloading msys2-gmp-6.3.0-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gmp-6.3.0-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gmp-6.3.0-2-x86_64.pkg.tar.zst
+Downloading msys2-gcc-libs-15.2.0-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gcc-libs-15.2.0-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gcc-libs-15.2.0-1-x86_64.pkg.tar.zst
+Downloading msys2-libbz2-1.0.8-4-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libbz2-1.0.8-4-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libbz2-1.0.8-4-x86_64.pkg.tar.zst
+Downloading msys2-liblzma-5.8.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/liblzma-5.8.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-liblzma-5.8.2-1-x86_64.pkg.tar.zst
+Downloading msys2-libzstd-1.5.7-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libzstd-1.5.7-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libzstd-1.5.7-1-x86_64.pkg.tar.zst
+Downloading msys2-libreadline-8.3.003-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libreadline-8.3.003-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libreadline-8.3.003-1-x86_64.pkg.tar.zst
+Downloading msys2-mpfr-4.2.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/mpfr-4.2.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-mpfr-4.2.2-1-x86_64.pkg.tar.zst
+Downloading msys2-libpcre-8.45-5-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libpcre-8.45-5-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libpcre-8.45-5-x86_64.pkg.tar.zst
+Downloading msys2-m4-1.4.19-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/m4-1.4.19-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-m4-1.4.19-2-x86_64.pkg.tar.zst
+Downloading msys2-perl-5.40.3-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/perl-5.40.3-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-perl-5.40.3-1-x86_64.pkg.tar.zst
+Downloading msys2-ncurses-6.5.20240831-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/ncurses-6.5.20240831-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-ncurses-6.5.20240831-2-x86_64.pkg.tar.zst
+Downloading msys2-libxcrypt-4.5.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libxcrypt-4.5.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libxcrypt-4.5.2-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/19f68f647e350a23
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+-- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows-dbg
+-- Configuring x64-windows-rel
+-- Using cached msys2-autoconf-wrapper-20250528-1-any.pkg.tar.zst
+-- Using cached msys2-automake-wrapper-20250528-1-any.pkg.tar.zst
+-- Using cached msys2-autoconf-archive-2024.10.16-1-any.pkg.tar.zst
+-- Using cached msys2-binutils-2.45.1-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libtool-2.5.4-4-x86_64.pkg.tar.zst
+-- Using cached msys2-make-4.4.1-2-x86_64.pkg.tar.zst
+-- Using cached msys2-which-2.23-4-x86_64.pkg.tar.zst
+-- Using cached msys2-bash-5.3.009-1-x86_64.pkg.tar.zst
+-- Using cached msys2-coreutils-8.32-5-x86_64.pkg.tar.zst
+-- Using cached msys2-file-5.46-2-x86_64.pkg.tar.zst
+-- Using cached msys2-gawk-5.3.2-1-x86_64.pkg.tar.zst
+-- Using cached msys2-grep-1~3.0-7-x86_64.pkg.tar.zst
+-- Using cached msys2-gzip-1.14-1-x86_64.pkg.tar.zst
+-- Using cached msys2-diffutils-3.12-1-x86_64.pkg.tar.zst
+-- Using cached msys2-pkgconf-2.5.1-1-x86_64.pkg.tar.zst
+-- Using cached msys2-sed-4.9-1-x86_64.pkg.tar.zst
+-- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using cached msys2-autoconf2.72-2.72-3-any.pkg.tar.zst
+-- Using cached msys2-automake1.16-1.16.5-1-any.pkg.tar.zst
+-- Using cached msys2-automake1.17-1.17-1-any.pkg.tar.zst
+-- Using cached msys2-automake1.18-1.18.1-1-any.pkg.tar.zst
+-- Using cached msys2-libiconv-1.18-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libintl-0.22.5-1-x86_64.pkg.tar.zst
+-- Using cached msys2-zlib-1.3.1-1-x86_64.pkg.tar.zst
+-- Using cached msys2-findutils-4.10.0-2-x86_64.pkg.tar.zst
+-- Using cached msys2-tar-1.35-3-x86_64.pkg.tar.zst
+-- Using cached msys2-gmp-6.3.0-2-x86_64.pkg.tar.zst
+-- Using cached msys2-gcc-libs-15.2.0-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libbz2-1.0.8-4-x86_64.pkg.tar.zst
+-- Using cached msys2-liblzma-5.8.2-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libzstd-1.5.7-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libreadline-8.3.003-1-x86_64.pkg.tar.zst
+-- Using cached msys2-mpfr-4.2.2-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libpcre-8.45-5-x86_64.pkg.tar.zst
+-- Using cached msys2-m4-1.4.19-2-x86_64.pkg.tar.zst
+-- Using cached msys2-perl-5.40.3-1-x86_64.pkg.tar.zst
+-- Using cached msys2-ncurses-6.5.20240831-2-x86_64.pkg.tar.zst
+-- Using cached msys2-libxcrypt-4.5.2-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/19f68f647e350a23
+-- Building/Installing x64-windows-dbg
+-- Making target 'all' for x64-windows-dbg
+-- Making target 'install' for x64-windows-dbg
+-- Building/Installing x64-windows-rel
+-- Making target 'all' for x64-windows-rel
+-- Making target 'install' for x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/gettext-libintl_x64-windows/share/gettext-libintl/copyright
+-- Performing post-build validation
+Starting submission of gettext-libintl:x64-windows@0.22.5#4 to 1 binary cache(s) in the background
+Elapsed time to handle gettext-libintl:x64-windows: 31 min
+Completed submission of libffi:x64-windows@3.5.2 to 1 binary cache(s) in 502 ms
+Installing 89/141 gettext[core,tools]:x64-windows@0.22.5#4...
+gettext[core,tools]:x64-windows@0.22.5#4 package ABI: f2f870df051249bfec3c3167010587057c3730815bc403bf7b8873b465719d3b
+Building gettext[core,tools]:x64-windows@0.22.5#4...
+Downloading gettext-0.22.5.tar.gz, trying https://ftpmirror.gnu.org/gnu/gettext/gettext-0.22.5.tar.gz
+Successfully downloaded gettext-0.22.5.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/gettext-0.22.5.tar.gz
+-- Applying patch assume-modern-darwin.patch
+-- Applying patch uwp.patch
+-- Applying patch rel_path.patch
+-- Applying patch subdirs.patch
+-- Applying patch parallel-gettext-tools.patch
+-- Applying patch config-step-order.patch
+-- Applying patch 0001-xgettext-Fix-some-test-failures-on-MSVC.patch
+-- Applying patch env.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/gettext/src/gettext-0-8aeafea7a1.clean
+Downloading https://github.com/lexxmark/winflexbison/releases/download/v2.5.24/win_flex_bison-2.5.24.zip -> win_flex_bison-2.5.24.zip
+Successfully downloaded win_flex_bison-2.5.24.zip
+-- Modifying build system for less forks
+-- Getting CMake variables for x64-windows
+Downloading msys2-autoconf-wrapper-20250528-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/autoconf-wrapper-20250528-1-any.pkg.tar.zst
+Successfully downloaded msys2-autoconf-wrapper-20250528-1-any.pkg.tar.zst
+Downloading msys2-automake-wrapper-20250528-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake-wrapper-20250528-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake-wrapper-20250528-1-any.pkg.tar.zst
+Downloading msys2-binutils-2.45.1-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/binutils-2.45.1-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-binutils-2.45.1-1-x86_64.pkg.tar.zst
+Downloading msys2-libtool-2.5.4-4-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libtool-2.5.4-4-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libtool-2.5.4-4-x86_64.pkg.tar.zst
+Downloading msys2-make-4.4.1-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/make-4.4.1-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-make-4.4.1-2-x86_64.pkg.tar.zst
+Downloading msys2-pkgconf-2.5.1-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/pkgconf-2.5.1-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-pkgconf-2.5.1-1-x86_64.pkg.tar.zst
+Downloading msys2-which-2.23-4-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/which-2.23-4-x86_64.pkg.tar.zst
+Successfully downloaded msys2-which-2.23-4-x86_64.pkg.tar.zst
+Downloading msys2-gzip-1.14-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gzip-1.14-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gzip-1.14-1-x86_64.pkg.tar.zst
+Downloading msys2-bash-5.3.009-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/bash-5.3.009-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-bash-5.3.009-1-x86_64.pkg.tar.zst
+Downloading msys2-coreutils-8.32-5-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/coreutils-8.32-5-x86_64.pkg.tar.zst
+Successfully downloaded msys2-coreutils-8.32-5-x86_64.pkg.tar.zst
+Downloading msys2-file-5.46-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/file-5.46-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-file-5.46-2-x86_64.pkg.tar.zst
+Downloading msys2-gawk-5.3.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gawk-5.3.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gawk-5.3.2-1-x86_64.pkg.tar.zst
+Downloading msys2-grep-1~3.0-7-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/grep-1~3.0-7-x86_64.pkg.tar.zst
+Successfully downloaded msys2-grep-1~3.0-7-x86_64.pkg.tar.zst
+Downloading msys2-diffutils-3.12-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/diffutils-3.12-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-diffutils-3.12-1-x86_64.pkg.tar.zst
+Downloading msys2-sed-4.9-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/sed-4.9-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-sed-4.9-1-x86_64.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Downloading msys2-autoconf2.72-2.72-3-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/autoconf2.72-2.72-3-any.pkg.tar.zst
+Successfully downloaded msys2-autoconf2.72-2.72-3-any.pkg.tar.zst
+Downloading msys2-automake1.16-1.16.5-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake1.16-1.16.5-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake1.16-1.16.5-1-any.pkg.tar.zst
+Downloading msys2-automake1.17-1.17-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake1.17-1.17-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake1.17-1.17-1-any.pkg.tar.zst
+Downloading msys2-automake1.18-1.18.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/automake1.18-1.18.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-automake1.18-1.18.1-1-any.pkg.tar.zst
+Downloading msys2-libiconv-1.18-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libiconv-1.18-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libiconv-1.18-1-x86_64.pkg.tar.zst
+Downloading msys2-libintl-0.22.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libintl-0.22.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libintl-0.22.5-1-x86_64.pkg.tar.zst
+Downloading msys2-zlib-1.3.1-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/zlib-1.3.1-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-zlib-1.3.1-1-x86_64.pkg.tar.zst
+Downloading msys2-findutils-4.10.0-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/findutils-4.10.0-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-findutils-4.10.0-2-x86_64.pkg.tar.zst
+Downloading msys2-tar-1.35-3-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/tar-1.35-3-x86_64.pkg.tar.zst
+Successfully downloaded msys2-tar-1.35-3-x86_64.pkg.tar.zst
+Downloading msys2-gmp-6.3.0-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gmp-6.3.0-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gmp-6.3.0-2-x86_64.pkg.tar.zst
+Downloading msys2-gcc-libs-15.2.0-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/gcc-libs-15.2.0-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-gcc-libs-15.2.0-1-x86_64.pkg.tar.zst
+Downloading msys2-libbz2-1.0.8-4-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libbz2-1.0.8-4-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libbz2-1.0.8-4-x86_64.pkg.tar.zst
+Downloading msys2-liblzma-5.8.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/liblzma-5.8.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-liblzma-5.8.2-1-x86_64.pkg.tar.zst
+Downloading msys2-libzstd-1.5.7-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libzstd-1.5.7-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libzstd-1.5.7-1-x86_64.pkg.tar.zst
+Downloading msys2-libreadline-8.3.003-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libreadline-8.3.003-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libreadline-8.3.003-1-x86_64.pkg.tar.zst
+Downloading msys2-mpfr-4.2.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/mpfr-4.2.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-mpfr-4.2.2-1-x86_64.pkg.tar.zst
+Downloading msys2-libpcre-8.45-5-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libpcre-8.45-5-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libpcre-8.45-5-x86_64.pkg.tar.zst
+Downloading msys2-m4-1.4.19-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/m4-1.4.19-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-m4-1.4.19-2-x86_64.pkg.tar.zst
+Downloading msys2-perl-5.40.3-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/perl-5.40.3-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-perl-5.40.3-1-x86_64.pkg.tar.zst
+Downloading msys2-ncurses-6.5.20240831-2-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/ncurses-6.5.20240831-2-x86_64.pkg.tar.zst
+Successfully downloaded msys2-ncurses-6.5.20240831-2-x86_64.pkg.tar.zst
+Downloading msys2-libxcrypt-4.5.2-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/libxcrypt-4.5.2-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-libxcrypt-4.5.2-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/fe50d45a6f168d59
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+-- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows-rel
+-- Building x64-windows-rel

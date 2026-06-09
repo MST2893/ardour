@@ -1,0 +1,37 @@
+<!-- SSI fragments/htm_declaration.html_fragment begin -->
+<!--#include virtual="fragments/html_declaration.html_fragment" -->
+<!-- SSI fragments/html_declaration.html_fragment end -->
+
+<a name="devel"><h2>Development</h2></a>
+
+
+<a name="mail"><h3>Mailing List</h3></a>
+
+<p>
+There is a mailing list,
+<a href="http://mail.gnome.org/mailman/listinfo/libsigc-list">libsigc-list@gnome.org</a> for Libsigc++, to serve as
+a design discussion area as well as a place to report bugs.  To subscribe, use the web
+<a href="http://mail.gnome.org/mailman/listinfo/libsigc-list">page</a>.
+Members can post directly, but all other traffic is moderated.
+There is an archive of messages, 
+<a href="http://mail.gnome.org/archives/libsigc-list/">here</a>.
+</p>
+
+<a name="patches"><h3>Patches</h3></a>
+
+<p>
+Patches should be added to GitHub's issue tracker.</p>
+
+<p>
+Open <a href="https://github.com/libsigcplusplus/libsigcplusplus/issues">libsigc++ issues</a>.
+</p>
+
+<a name="git"><h3>Version Control</h3></a>
+
+<p>
+libsigc++ is in the <a href="https://github.com/libsigcplusplus/libsigcplusplus">libsigcplusplus</a> module in GitHub's git repository.
+</p>
+
+<!-- SSI fragments/footer.html_fragment begin -->
+<!--#include virtual="fragments/footer.html_fragment" -->
+<!-- SSI fragments/footer.html_fragment end -->

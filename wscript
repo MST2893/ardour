@@ -272,14 +272,24 @@ def set_version (from_file = False):
     # or, if right at the same rev as a release, MAJOR.MINOR[-rcX]
     #
 
-    parts = sanitize(rev).split ('.', 1)
-    MAJOR = parts[0]
-    other = parts[1].split('-', 1)
-    MINOR = other[0]
-    if len(other) > 1:
-        MICRO = other[1].rsplit('-',1)[0].replace('-','.')
+    rev = sanitize(rev)
+    if re.search(r'^[0-9]+\.[0-9]+', rev) is None:
+        rev = os.environ.get('ARDOUR_VERSION', '8.0.0')
+
+    semver = re.search(r'^([0-9]+)\.([0-9]+)\.([0-9]+)$', rev)
+    if semver:
+        MAJOR = semver.group(1)
+        MINOR = semver.group(2)
+        MICRO = semver.group(3)
     else:
-        MICRO = '0'
+        parts = rev.split ('.', 1)
+        MAJOR = parts[0]
+        other = parts[1].split('-', 1)
+        MINOR = other[0]
+        if len(other) > 1:
+            MICRO = other[1].rsplit('-',1)[0].replace('-','.')
+        else:
+            MICRO = '0'
 
     VERSION = MAJOR + '.' + MINOR + '.' + MICRO
     PROGRAM_VERSION = MAJOR
@@ -974,7 +984,26 @@ def configure(conf):
     if Options.options.dist_target == 'msvc':
         conf.env['MSVC_TARGETS'] = ['x64']
         conf.load('msvc')
-        conf.find_program('llvm-nm', var = 'llvm_nm')
+        llvm_nm = os.environ.get('ARDOUR_LLVM_NM')
+        if not llvm_nm:
+            unity_llvm_nm = 'C:/Program Files/Unity/Hub/Editor/6000.3.10f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/llvm/llvm-nm.exe'
+            if os.path.exists(unity_llvm_nm):
+                llvm_nm = unity_llvm_nm
+        if llvm_nm:
+            conf.env['llvm_nm'] = [llvm_nm]
+        else:
+            conf.find_program('llvm-nm', var = 'llvm_nm')
+        pkg_config = os.environ.get('ARDOUR_PKG_CONFIG') or os.environ.get('PKG_CONFIG')
+        if not pkg_config:
+            vcpkg_pkg_config = os.path.join(os.getcwd(), 'vcpkg', 'installed', 'x64-windows', 'tools', 'pkgconf', 'pkg-config.exe')
+            if os.path.exists(vcpkg_pkg_config):
+                pkg_config = vcpkg_pkg_config
+        if pkg_config:
+            conf.env['PKGCONFIG'] = [pkg_config]
+        if not os.environ.get('PKG_CONFIG_PATH'):
+            vcpkg_pkg_config_path = os.path.join(os.getcwd(), 'vcpkg', 'installed', 'x64-windows', 'lib', 'pkgconfig')
+            if os.path.exists(vcpkg_pkg_config_path):
+                os.environ['PKG_CONFIG_PATH'] = vcpkg_pkg_config_path
         conf.load('gendef', tooldir = 'tools')
 
     if Options.options.debug and not Options.options.keepflags:

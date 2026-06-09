@@ -1,0 +1,173 @@
+Setting top to                           : C:\ARDOURCUSTOM\ardour 
+Setting out to                           : C:\ARDOURCUSTOM\ardour\build 
+Checking for 'msvc' (C compiler)         : C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\HostX64\x64\CL.exe 
+Checking for 'msvc' (C++ compiler)       : C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\HostX64\x64\CL.exe 
+Checking for program 'CL'                : C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\HostX64\x64\CL.exe 
+Checking for program 'CL'                : C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\HostX64\x64\CL.exe 
+Checking for program 'MT'                : C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\\x64\MT.exe 
+
+Global Configuration 
+ * Install prefix                                    : C:/ARDOURCUSTOM/ardour/_install 
+ * Debuggable build                                  : False 
+ * Build documentation                               : False 
+
+Ardour Configuration 
+ * Will build against private GTK dependency stack   : no 
+ * Will rely on libintl built into libc              : yes 
+ * Will build against private Ardour dependency stack : no 
+Checking for boost library >= 1.68                   : yes 
+Checking for 'glib-2.0' >= 2.28                      : yes 
+Checking for 'gthread-2.0' >= 2.2                    : yes 
+Checking for 'glibmm-2.4' >= 2.32.0                  : yes 
+Checking for 'sndfile' >= 1.0.18                     : yes 
+Checking for 'giomm-2.4' >= 2.2                      : yes 
+Checking for 'libcurl' >= 7.55.0                     : yes 
+Checking for 'libarchive' >= 3.0.0                   : yes 
+Checking for 'liblo' >= 0.26                         : yes 
+Checking for 'taglib' >= 1.9                         : yes 
+Checking for 'vamp-sdk' >= 2.1                       : yes 
+Checking for 'vamp-hostsdk' >= 2.1                   : yes 
+Checking for 'rubberband'                            : yes 
+Checking for 'libusb-1.0' >= 1.0.16                  : yes 
+Checking for rubberband >= 3.0.0                     : yes 
+Checking for sndfile RF64=>RIFF support              : Found 
+Checking for int128 support                          : Not found, no int128 support. 
+Checking for clang                                   : no 
+Checking for compiler flags ['/std:c++17']           : yes 
+
+Warning: you are building Ardour with SSE support even though your system does not support these instructions. (This may not be an error, especially if you are a package maintainer)
+Checking for 'fftw3f'                                : yes 
+Checking for library setupapi                        : yes 
+Checking for 'aubio' >= 0.3.2                        : yes 
+Checking for 'aubio' >= 0.4.0                        : yes 
+Checking for 'gobject-2.0'                           : yes 
+Checking for 'gio-2.0' >= 2.2                        : yes 
+Checking for 'libpng'                                : yes 
+Checking for header unistd.h                         : not found 
+Checking for header jpeglib.h                        : yes 
+Checking for 'pango' >= 1.20                         : yes 
+Checking for 'cairo' >= 1.12                         : yes 
+Checking for 'pangocairo'                            : yes 
+Checking for 'gio-windows-2.0'                       : yes 
+Checking for header unistd.h                         : not found 
+Checking for 'gmodule-2.0'                           : yes 
+Checking for header unistd.h                         : not found 
+Checking for 'sigc++-2.0' >= 2.0                     : yes 
+Checking for 'cairomm-1.0' >= 1.8.4                  : yes 
+Checking for 'pangomm-1.4' >= 1.4                    : yes 
+Checking for 'lv2' >= 1.16.0                         : yes 
+Checking for 'libxml-2.0'                            : yes 
+Checking for header execinfo.h                       : not found 
+Checking for header unistd.h                         : not found 
+Checking for function 'posix_memalign' in stdlib.h   : no 
+Checking for function 'getmntent' in mntent.h        : no 
+Checking for function 'localtime_r' in time.h        : no 
+Checking for library ole32                           : yes 
+Checking for 'cppunit' >= 1.12.0                     : not found 
+Checking for header cwiid.h                          : not found 
+You are missing the cwiid headers needed to compile wiimote support
+Checking for 'libwebsockets' >= 2.0.0                : not found 
+Checking for 'jack' >= 1.9.10                        : yes 
+Checking for 'portaudio-2.0' >= 19                   : yes 
+Checking for JACK metadata API                       : ok 
+Checking for header pa_asio.h                        : yes 
+Checking for program 'gas, gcc'                      : C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\ml64.exe 
+Checking for program 'ar'                            : C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\HostX64\x64\LIB.exe 
+Checking for 'lrdf' >= 0.4.0                         : not found 
+Checking for 'samplerate' >= 0.1.0                   : yes 
+Checking for 'lv2' >= 1.2.0                          : yes 
+Checking for 'lv2' >= 1.10.0                         : yes 
+Checking for 'lv2' >= 1.17.2                         : yes 
+Checking for 'lv2' >= 1.18.6                         : yes 
+Checking for 'serd-0' >= 0.14.0                      : yes 
+Checking for 'sord-0' >= 0.8.0                       : yes 
+Checking for 'sratom-0' >= 0.2.0                     : yes 
+Checking for 'lilv-0' >= 0.24.2                      : yes 
+Checking for 'ogg' >= 1.1.2                          : yes 
+Checking for 'flac' >= 1.2.1                         : yes 
+Checking for 'fftw3f' >= 3.3.5                       : yes 
+Checking for header sys/vfs.h                        : not found 
+Checking for header sys/statvfs.h                    : not found 
+Checking for header boost/ptr_container/ptr_list.hpp : yes 
+Checking for library gdi32                           : yes 
+Checking for 'samplerate' >= 0.1.7                   : yes 
+Checking for 'lv2' >= 1.0.0                          : yes 
+Checking for 'cairo' >= 1.12.0                       : yes 
+Checking for 'gthread-2.0' >= 2.10.1                 : yes 
+Checking for 'x11' >= 1.1                            : not found 
+Checking for 'pangoft2' >= 1.36.8                    : yes 
+Checking for 'fontconfig'                            : yes 
+Checking for header unistd.h                         : not found 
+Checking for static libreadline                      : not found 
+Checking for libreadline                             : not found 
+ * build session-utils                               : yes 
+Checking for library gdi32                           : yes 
+ * Build documentation                               : False 
+ * Debuggable build                                  : False 
+ * Export all symbols (backtrace)                    : False 
+ * Install prefix                                    : C:/ARDOURCUSTOM/ardour/_install 
+ * Strict compiler flags                             : [] 
+ * Internal Shared Libraries                         : True 
+ * Use External Libraries                            : False 
+ * Library exports hidden                            : True 
+ * Free/Demo copy                                    : False 
+ * ALSA DBus Reservation                             : False 
+ * Architecture flags                                : None 
+ * ARM NEON support                                  : False 
+ * Aubio                                             : True 
+ * AudioUnits                                        : False 
+ * Build target                                      : msvc 
+ * Canvas Test UI                                    : False 
+ * Beatbox test app                                  : False 
+ * CoreAudio                                         : False 
+ * Debug RT allocations                              : False 
+ * Debug Symbols                                     : False 
+ * Denormal exceptions                               : False 
+ * Dr. Mingw                                         : False 
+ * FLAC                                              : True 
+ * FPU optimization                                  : True 
+ * FPU AVX512F support                               : False 
+ * FPU AVX/FMA support                               : False 
+ * Futex Semaphore                                   : False 
+ * Freedesktop files                                 : False 
+ * G_ENABLE_DEBUG                                    : False 
+ * I/O Priority Set                                  : False 
+ * Libjack linking                                   : weak 
+ * Libjack metadata                                  : True 
+ * Lua Binding Doc                                   : False 
+ * Lua Commandline Tool                              : False 
+ * LV2 UI embedding                                  : True 
+ * LV2 support                                       : True 
+ * LV2 extensions                                    : True 
+ * LXVST support                                     : False 
+ * Mac VST support                                   : False 
+ * NI-Maschine                                       : False 
+ * OGG                                               : True 
+ * Phone home                                        : True 
+ * Program name                                      : Ardour 
+ * Samplerate                                        : True 
+ * PT format                                         : False 
+ * PTW32 Semaphore                                   : False 
+ * Threaded WaveViews                                : True 
+ * Translation                                       : True 
+ * Unit tests                                        : False 
+ * Use LLD linker                                    : False 
+ * VST3 support                                      : True 
+ * Windows VST support                               : True 
+ * Wiimote support                                   : False 
+ * Windows key                                       : Mod4><Super 
+ * PortAudio Backend                                 : True 
+ * CoreAudio/Midi Backend                            : False 
+ * ALSA Backend                                      : False 
+ * Dummy backend                                     : True 
+ * JACK Backend                                      : True 
+ * PulseAudio Backend                                : False 
+ * Buildstack                                        : -system- 
+ * Mac i386 Architecture                             : False 
+ * Mac ppc Architecture                              : False 
+ * Mac arm64 Architecture                            : False 
+ * C compiler flags                                  : ['-IC:\\ARDOURCUSTOM\\ardour', '/nologo', '/nologo', '/nologo', '-DHAVE_RF64_RIFF', '-DPLATFORM_WINDOWS', '-DCOMPILER_MSVC', '-D_USE_MATH_DEFINES', '-DUSE_CAIRO_IMAGE_SURFACE', '-DWAF_BUILD', '/DNDEBUG', '/Ob2', '/MD', '/Gd', '/EHsc', '', '/O2', '/Oi', '/Ot', '/fp:fast', '/GS-', '/Gy', '/Gw', '/GF', '/favor:blend', '', '/nologo', '/FS', '/bigobj', '/FC', '/diagnostics:column', '/Zc:__cplusplus', '/Zc:inline', '/Zc:throwingNew', '/cgthreads8', '-DARCH_X86', '-DBOOST_SYSTEM_NO_DEPRECATED', '-D_ISOC9X_SOURCE', '-D_LARGEFILE64_SOURCE', '-D_FILE_OFFSET_BITS=64', '-DPROGRAM_NAME="Ardour"', '-DPROGRAM_VERSION="8"', '-D_POSIX_C_SOURCE=200809L'] 
+ * C++ compiler flags                                : ['-IC:\\ARDOURCUSTOM\\ardour', '/nologo', '/nologo', '/nologo', '-IC:/ARDOURCUSTOM/ardour/vcpkg/installed/x64-windows/include', '-DHAVE_RF64_RIFF', '-DPLATFORM_WINDOWS', '-DCOMPILER_MSVC', '-D_USE_MATH_DEFINES', '-DUSE_CAIRO_IMAGE_SURFACE', '-DWAF_BUILD', '/DNDEBUG', '/Ob2', '/MD', '/Gd', '/EHsc', '', '/O2', '/Oi', '/Ot', '/fp:fast', '/GS-', '/Gy', '/Gw', '/GF', '/favor:blend', '', '/nologo', '/FS', '/bigobj', '/FC', '/diagnostics:column', '/Zc:__cplusplus', '/Zc:inline', '/Zc:throwingNew', '/cgthreads8', '-DARCH_X86', '-DBOOST_SYSTEM_NO_DEPRECATED', '-D_ISOC9X_SOURCE', '-D_LARGEFILE64_SOURCE', '-D_FILE_OFFSET_BITS=64', '-DPROGRAM_NAME="Ardour"', '-DPROGRAM_VERSION="8"', '/std:c++17', '-D__STDC_LIMIT_MACROS', '-D__STDC_FORMAT_MACROS', '-DCANVAS_DEBUG', '-DBOOST_ERROR_CODE_HEADER_ONLY'] 
+ * Linker flags                                      : ['/nologo', '/MANIFEST', '/nologo', '/MANIFEST', '/nologo', '/MANIFEST', '/guard:cf', '/OPT:REF,ICF'] 
+
+'configure' finished successfully (1m50.691s)

@@ -1,0 +1,5 @@
+<map id="Cairo::ScaledFont" name="Cairo::ScaledFont">
+<area shape="rect" id="node1" title="A ScaledFont is a font scaled to a particular size and device resolution." alt="" coords="105,5,240,32"/>
+<area shape="rect" id="node2" href="$classCairo_1_1FtScaledFont.html" title=" " alt="" coords="5,80,153,107"/>
+<area shape="rect" id="node3" href="$classCairo_1_1Win32ScaledFont.html" title="Scaled Font implementation for Microsoft Windows fonts." alt="" coords="178,80,354,107"/>
+</map>

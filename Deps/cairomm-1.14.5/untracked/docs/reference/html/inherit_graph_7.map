@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classCairo_1_1Pattern.html" title="Cairo::Pattern is the paint with which cairo draws." alt="" coords="5,81,116,108"/>
+<area shape="rect" id="node2" href="$classCairo_1_1Gradient.html" title=" " alt="" coords="183,31,303,57"/>
+<area shape="rect" id="node5" href="$classCairo_1_1SolidPattern.html" title=" " alt="" coords="172,81,315,108"/>
+<area shape="rect" id="node6" href="$classCairo_1_1SurfacePattern.html" title=" " alt="" coords="164,132,323,159"/>
+<area shape="rect" id="node3" href="$classCairo_1_1LinearGradient.html" title=" " alt="" coords="371,5,531,32"/>
+<area shape="rect" id="node4" href="$classCairo_1_1RadialGradient.html" title=" " alt="" coords="371,56,532,83"/>
+</map>

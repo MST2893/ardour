@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classCairo_1_1ScaledFont.html" title="A ScaledFont is a font scaled to a particular size and device resolution." alt="" coords="5,31,140,57"/>
+<area shape="rect" id="node2" href="$classCairo_1_1FtScaledFont.html" title=" " alt="" coords="202,5,350,32"/>
+<area shape="rect" id="node3" href="$classCairo_1_1Win32ScaledFont.html" title="Scaled Font implementation for Microsoft Windows fonts." alt="" coords="188,56,364,83"/>
+</map>

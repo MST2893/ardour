@@ -1,0 +1,4 @@
+<map id="Cairo::GlitzSurface" name="Cairo::GlitzSurface">
+<area shape="rect" id="node1" title="A GlitzSurface provides a way to render to the X Window System using Glitz." alt="" coords="5,80,148,107"/>
+<area shape="rect" id="node2" href="$classCairo_1_1Surface.html" title="A cairo surface represents an image, either as the destination of a drawing operation or as source wh..." alt="" coords="20,5,133,32"/>
+</map>

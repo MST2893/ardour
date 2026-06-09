@@ -1,0 +1,4 @@
+<map id="Cairo::PdfSurface" name="Cairo::PdfSurface">
+<area shape="rect" id="node1" title="A PdfSurface provides a way to render PDF documents from cairo." alt="" coords="5,80,140,107"/>
+<area shape="rect" id="node2" href="$classCairo_1_1Surface.html" title="A cairo surface represents an image, either as the destination of a drawing operation or as source wh..." alt="" coords="16,5,129,32"/>
+</map>

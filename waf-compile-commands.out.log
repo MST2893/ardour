@@ -1,0 +1,17 @@
+Git version: fatal: No names found, cannot describe anything.
+
+Writing revision info to libs/ardour/revision.cc using fatal: No names found, cannot describe anything., 2026-06-02
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building clearlooks-newer
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building libardourvampplugins
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building libardourvamppyin
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building liblua
+Build commands will be stored in build\compile_commands.json
+Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
+Git version: fatal: No names found, cannot describe anything.
+
+Writing revision info to libs/ardour/revision.cc using fatal: No names found, cannot describe anything., 2026-06-02
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building clearlooks-newer
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building libardourvampplugins
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building libardourvamppyin
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building liblua
+Waf: Leaving directory `C:\ARDOURCUSTOM\ardour\build'

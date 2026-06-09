@@ -1,0 +1,8 @@
+<map id="Cairo::FontFace" name="Cairo::FontFace">
+<area shape="rect" id="node1" title="A FontFace represents a particular font at a particular weight, slant, and other characteristic but n..." alt="" coords="5,107,127,133"/>
+<area shape="rect" id="node2" href="$classCairo_1_1FtFontFace.html" title=" " alt="" coords="189,5,324,32"/>
+<area shape="rect" id="node3" href="$classCairo_1_1QuartzFontFace.html" title="The Quartz font backend is primarily used to render text on Apple MacOS X systems." alt="" coords="175,56,339,83"/>
+<area shape="rect" id="node4" href="$classCairo_1_1ToyFontFace.html" title="A simple font face used for the cairo &#39;toy&#39; font API." alt="" coords="185,107,328,133"/>
+<area shape="rect" id="node5" href="$classCairo_1_1UserFontFace.html" title="Font support with font data provided by the user." alt="" coords="181,157,332,184"/>
+<area shape="rect" id="node6" href="$classCairo_1_1Win32FontFace.html" title="Font support for Microsoft Windows." alt="" coords="175,208,338,235"/>
+</map>

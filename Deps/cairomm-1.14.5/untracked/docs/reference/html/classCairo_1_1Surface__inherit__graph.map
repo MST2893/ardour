@@ -1,0 +1,13 @@
+<map id="Cairo::Surface" name="Cairo::Surface">
+<area shape="rect" id="node1" title="A cairo surface represents an image, either as the destination of a drawing operation or as source wh..." alt="" coords="5,233,119,260"/>
+<area shape="rect" id="node2" href="$classCairo_1_1GlitzSurface.html" title="A GlitzSurface provides a way to render to the X Window System using Glitz." alt="" coords="197,5,340,32"/>
+<area shape="rect" id="node3" href="$classCairo_1_1ImageSurface.html" title="Image surfaces provide the ability to render to memory buffers either allocated by cairo or by the ca..." alt="" coords="191,56,346,83"/>
+<area shape="rect" id="node4" href="$classCairo_1_1PdfSurface.html" title="A PdfSurface provides a way to render PDF documents from cairo." alt="" coords="201,107,336,133"/>
+<area shape="rect" id="node5" href="$classCairo_1_1PsSurface.html" title="A PsSurface provides a way to render PostScript documents from cairo." alt="" coords="205,157,333,184"/>
+<area shape="rect" id="node6" href="$classCairo_1_1QuartzSurface.html" title="A QuartzSurface provides a way to render within Apple Mac OS X." alt="" coords="191,208,347,235"/>
+<area shape="rect" id="node7" href="$classCairo_1_1RecordingSurface.html" title="A recording surface is a surface that records all drawing operations at the highest level of the surf..." alt="" coords="179,259,358,285"/>
+<area shape="rect" id="node8" href="$classCairo_1_1SvgSurface.html" title="A SvgSurface provides a way to render Scalable Vector Graphics (SVG) images from cairo." alt="" coords="200,309,337,336"/>
+<area shape="rect" id="node9" href="$classCairo_1_1Win32PrintingSurface.html" title="A multi&#45;page vector surface type for printing on Microsoft Windows." alt="" coords="167,360,371,387"/>
+<area shape="rect" id="node10" href="$classCairo_1_1Win32Surface.html" title="A Win32Surface provides a way to render within Microsoft Windows." alt="" coords="191,411,346,437"/>
+<area shape="rect" id="node11" href="$classCairo_1_1XlibSurface.html" title="An XlibSurface provides a way to render to the X Window System using XLib." alt="" coords="199,461,338,488"/>
+</map>

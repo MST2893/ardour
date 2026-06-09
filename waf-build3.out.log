@@ -1,0 +1,11 @@
+Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
+Git version: fatal: No names found, cannot describe anything.
+
+Writing revision info to libs/ardour/revision.cc using fatal: No names found, cannot describe anything., 2026-06-02
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building clearlooks-newer
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building libardourvampplugins
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building libardourvamppyin
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building liblua
+[1831/1831] Processing ardour.keys: gtk2_ardour\ardour.keys.in gtk2_ardour\mixer.bindings gtk2_ardour\processor_box.bindings gtk2_ardour\step_editing.bindings gtk2_ardour\monitor.bindings gtk2_ardour\trigger.bindings gtk2_ardour\regionfx_box.bindings gtk2_ardour\automation.bindings -> build\gtk2_ardour\ardour.keys
+Waf: Leaving directory `C:\ARDOURCUSTOM\ardour\build'
+'build' finished successfully (10.023s)

@@ -1,0 +1,8 @@
+<map id="Cairo::Pattern" name="Cairo::Pattern">
+<area shape="rect" id="node1" title="Cairo::Pattern is the paint with which cairo draws." alt="" coords="278,5,389,32"/>
+<area shape="rect" id="node2" href="$classCairo_1_1Gradient.html" title=" " alt="" coords="117,80,237,107"/>
+<area shape="rect" id="node5" href="$classCairo_1_1SolidPattern.html" title=" " alt="" coords="262,80,405,107"/>
+<area shape="rect" id="node6" href="$classCairo_1_1SurfacePattern.html" title=" " alt="" coords="429,80,587,107"/>
+<area shape="rect" id="node3" href="$classCairo_1_1LinearGradient.html" title=" " alt="" coords="5,155,165,181"/>
+<area shape="rect" id="node4" href="$classCairo_1_1RadialGradient.html" title=" " alt="" coords="190,155,351,181"/>
+</map>

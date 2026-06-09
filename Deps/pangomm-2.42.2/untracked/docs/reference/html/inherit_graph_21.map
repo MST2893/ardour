@@ -1,0 +1,15 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title="sigc::trackable" alt="" coords="5,183,121,209"/>
+<area shape="rect" id="node2" href="/opt/gnome/share/doc/glibmm-2.4/reference/glibmm-2.4.tag$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase" alt="" coords="169,183,300,209"/>
+<area shape="rect" id="node3" href="/opt/gnome/share/doc/glibmm-2.4/reference/glibmm-2.4.tag$classGlib_1_1Interface.html" title="Glib::Interface" alt="" coords="348,81,463,108"/>
+<area shape="rect" id="node5" href="/opt/gnome/share/doc/glibmm-2.4/reference/glibmm-2.4.tag$classGlib_1_1Object.html" title="Glib::Object" alt="" coords="356,208,455,235"/>
+<area shape="rect" id="node4" href="$classPango_1_1CairoFontMap.html" title="A Pango::CairoFontMap represents the set of fonts available for a particular rendering system..." alt="" coords="511,5,669,32"/>
+<area shape="rect" id="node6" href="$classPango_1_1Context.html" title="A Pango::Context stores global information used to control the itemization process. " alt="" coords="530,56,650,83"/>
+<area shape="rect" id="node7" href="$classPango_1_1Font.html" title="A Pango::Font is used to represent a font in a rendering&#45;system&#45;independent matter. " alt="" coords="541,107,639,133"/>
+<area shape="rect" id="node8" href="$classPango_1_1FontFace.html" title="A Pango::FontFace is used to represent a group of fonts with the same family, slant, weight, width, but varying sizes. " alt="" coords="527,157,653,184"/>
+<area shape="rect" id="node9" href="$classPango_1_1FontFamily.html" title="A Pango::FontFamily is used to represent a family of related font faces. " alt="" coords="520,208,660,235"/>
+<area shape="rect" id="node10" href="$classPango_1_1FontMap.html" title="A Pango::FontMap represents the set of fonts available for a particular rendering system..." alt="" coords="527,259,653,285"/>
+<area shape="rect" id="node11" href="$classPango_1_1Fontset.html" title="A Pango::Fontset is used to represent a set of fonts. " alt="" coords="531,309,649,336"/>
+<area shape="rect" id="node12" href="$classPango_1_1Layout.html" title="A Pango::Layout represents an entire paragraph of text. " alt="" coords="533,360,647,387"/>
+<area shape="rect" id="node13" href="$classPango_1_1Renderer.html" title="Pango::Renderer is a base class that contains the necessary logic for rendering a Pango::Layout or Pa..." alt="" coords="526,411,654,437"/>
+</map>

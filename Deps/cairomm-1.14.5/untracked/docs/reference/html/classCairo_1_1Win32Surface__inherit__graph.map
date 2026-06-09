@@ -1,0 +1,4 @@
+<map id="Cairo::Win32Surface" name="Cairo::Win32Surface">
+<area shape="rect" id="node1" title="A Win32Surface provides a way to render within Microsoft Windows." alt="" coords="5,80,160,107"/>
+<area shape="rect" id="node2" href="$classCairo_1_1Surface.html" title="A cairo surface represents an image, either as the destination of a drawing operation or as source wh..." alt="" coords="26,5,139,32"/>
+</map>

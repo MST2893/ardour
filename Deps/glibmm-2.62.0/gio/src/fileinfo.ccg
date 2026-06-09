@@ -1,0 +1,42 @@
+/* Copyright (C) 2007 The gtkmm Development Team
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#include <gio/gio.h>
+
+namespace Gio
+{
+
+// FileAttributeMatcher
+
+Glib::RefPtr<FileAttributeMatcher>
+FileAttributeMatcher::create(const std::string& attributes)
+{
+  return Glib::wrap(g_file_attribute_matcher_new(attributes.c_str()));
+}
+
+_DEPRECATE_IFDEF_START
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+Glib::TimeVal
+FileInfo::modification_time() const
+{
+  Glib::TimeVal result;
+  g_file_info_get_modification_time(const_cast<GFileInfo*>(gobj()), (GTimeVal*)(&result));
+  return result;
+}
+G_GNUC_END_IGNORE_DEPRECATIONS
+_DEPRECATE_IFDEF_END
+
+} // namespace Gio

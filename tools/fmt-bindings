@@ -35,6 +35,8 @@ GetOptions ("platform=s" => \$platform,
 	    "merge=s" => \$merge_from,
             "html=i" => \$html);
 
+$ARGV[0] =~ s/\\/\//g if defined $ARGV[0];
+
 if ($platform eq "darwin") {
 
     $gtk_modifier_map{'PRIMARY'} = 'Primary'; # GTK supports Primary to allow platform-independent binding to the "primary" modifier, which on OS X is Command

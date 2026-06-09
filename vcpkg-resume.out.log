@@ -1,0 +1,1231 @@
+Detecting compiler hash for triplet x64-windows...
+Compiler found: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe
+The following packages are already installed:
+    aubio:x64-windows@2024-01-03#1
+    boost-algorithm:x64-windows@1.90.0#1
+  * boost-align:x64-windows@1.90.0#1
+  * boost-any:x64-windows@1.90.0#1
+  * boost-array:x64-windows@1.90.0#1
+  * boost-assert:x64-windows@1.90.0#1
+  * boost-atomic:x64-windows@1.90.0#1
+  * boost-bind:x64-windows@1.90.0#1
+  * boost-chrono:x64-windows@1.90.0#1
+  * boost-circular-buffer:x64-windows@1.90.0#1
+  * boost-cmake:x64-windows@1.90.0#1
+  * boost-concept-check:x64-windows@1.90.0#1
+  * boost-config:x64-windows@1.90.0#1
+  * boost-container:x64-windows@1.90.0#1
+  * boost-container-hash:x64-windows@1.90.0#1
+  * boost-conversion:x64-windows@1.90.0#1
+  * boost-core:x64-windows@1.90.0#1
+  * boost-date-time:x64-windows@1.90.0#1
+  * boost-describe:x64-windows@1.90.0#1
+  * boost-detail:x64-windows@1.90.0#1
+  * boost-dynamic-bitset:x64-windows@1.90.0#1
+  * boost-endian:x64-windows@1.90.0#1
+  * boost-exception:x64-windows@1.90.0#1
+  * boost-function:x64-windows@1.90.0#1
+  * boost-function-types:x64-windows@1.90.0#1
+  * boost-functional:x64-windows@1.90.0#1
+  * boost-fusion:x64-windows@1.90.0#1
+  * boost-headers:x64-windows@1.90.0#1
+  * boost-integer:x64-windows@1.90.0#1
+  * boost-intrusive:x64-windows@1.90.0#1
+  * boost-io:x64-windows@1.90.0#1
+  * boost-iterator:x64-windows@1.90.0#1
+  * boost-lexical-cast:x64-windows@1.90.0#1
+  * boost-math:x64-windows@1.90.0#1
+  * boost-move:x64-windows@1.90.0#1
+  * boost-mp11:x64-windows@1.90.0#1
+  * boost-mpl:x64-windows@1.90.0#1
+    boost-multi-array:x64-windows@1.90.0#1
+  * boost-multi-index:x64-windows@1.90.0#1
+    boost-multiprecision:x64-windows@1.90.0#1
+  * boost-numeric-conversion:x64-windows@1.90.0#1
+  * boost-optional:x64-windows@1.90.0#1
+  * boost-phoenix:x64-windows@1.90.0#1
+    boost-pool:x64-windows@1.90.0#1
+  * boost-predef:x64-windows@1.90.0#1
+  * boost-preprocessor:x64-windows@1.90.0#1
+    boost-property-tree:x64-windows@1.90.0#1
+  * boost-proto:x64-windows@1.90.0#1
+    boost-ptr-container:x64-windows@1.90.0#1
+  * boost-random:x64-windows@1.90.0#1
+  * boost-range:x64-windows@1.90.0#1
+  * boost-ratio:x64-windows@1.90.0#1
+  * boost-regex:x64-windows@1.90.0#1
+  * boost-serialization:x64-windows@1.90.0#1
+  * boost-smart-ptr:x64-windows@1.90.0#1
+  * boost-spirit:x64-windows@1.90.0#1
+  * boost-static-assert:x64-windows@1.90.0#1
+  * boost-system:x64-windows@1.90.0#1
+  * boost-thread:x64-windows@1.90.0#1
+  * boost-throw-exception:x64-windows@1.90.0#1
+    boost-tokenizer:x64-windows@1.90.0#1
+  * boost-tuple:x64-windows@1.90.0#1
+  * boost-type-index:x64-windows@1.90.0#1
+  * boost-type-traits:x64-windows@1.90.0#1
+  * boost-typeof:x64-windows@1.90.0#1
+  * boost-uninstall:x64-windows@1.90.0#1
+  * boost-unordered:x64-windows@1.90.0#1
+  * boost-utility:x64-windows@1.90.0#1
+    boost-uuid:x64-windows@1.90.0#1
+  * boost-variant:x64-windows@1.90.0#1
+  * boost-variant2:x64-windows@1.90.0#1
+  * boost-winapi:x64-windows@1.90.0#1
+    cppunit:x64-windows@1.15.1#4
+    curl[core,sspi,ssl,non-http]:x64-windows@8.18.0#1
+    fftw3[core,threads]:x64-windows@3.3.10#10
+    getopt:x64-windows@0#3
+  * getopt-win32:x64-windows@2.42.0
+  * gettext-libintl:x64-windows@0.22.5#4
+  * libffi:x64-windows@3.5.2
+  * libiconv:x64-windows@1.18#3
+  * pcre2[core,platform-default-features,jit]:x64-windows@10.47
+  * vcpkg-boost:x64-windows@2025-03-29
+  * vcpkg-cmake:x64-windows@2024-04-23
+  * vcpkg-cmake-config:x64-windows@2024-05-23
+  * vcpkg-cmake-get-vars:x64-windows@2025-05-29
+  * vcpkg-make:x64-windows@2026-01-01
+  * vcpkg-tool-meson:x64-windows@1.9.0#3
+  * zlib:x64-windows@1.3.1
+The following packages will be built and installed:
+  * asiosdk:x64-windows@2.3.4#2
+  * brotli:x64-windows@1.2.0
+  * bzip2[core,tool]:x64-windows@1.0.8#6
+  * cairo[core,fontconfig,freetype,gobject]:x64-windows@1.18.4#1
+  * dirent:x64-windows@1.26
+  * expat:x64-windows@2.7.4
+  * fontconfig:x64-windows@2.17.1#1
+  * freetype[brotli,bzip2,core,png,zlib]:x64-windows@2.13.3
+  * fribidi:x64-windows@1.0.16
+  * gettext[core,tools]:x64-windows@0.22.5#4
+    glib:x64-windows@2.86.4
+  * gperf:x64-windows@3.3
+  * harfbuzz[core,freetype]:x64-windows@12.3.2
+    jack2:x64-windows@1.9.22
+    libarchive[bzip2,core,crypto,lz4,lzma,xar,zstd]:x64-windows@3.8.5
+  * libflac[core,stack-protector]:x64-windows@1.5.0
+    liblo:x64-windows@0.34
+  * liblzma:x64-windows@5.8.2#1
+  * libogg:x64-windows@1.3.6#1
+    libpng:x64-windows@1.6.55
+    libsamplerate:x64-windows@0.2.2#1
+    libsndfile[core,external-libs,mpeg]:x64-windows@1.2.2#1
+    libusb:x64-windows@1.0.29#1
+  * libuv:x64-windows@1.52.0
+  * libvorbis:x64-windows@1.3.7#4
+    libwebsockets:x64-windows@4.5.2
+    libxml2[core,iconv,zlib]:x64-windows@2.15.1
+    lilv:x64-windows@0.26.4
+    lv2:x64-windows@1.18.10#1
+  * lz4:x64-windows@1.10.0
+  * mp3lame:x64-windows@3.100#16
+  * mpg123:x64-windows@1.33.4
+  * openssl:x64-windows@3.6.1#2
+  * opus:x64-windows@1.5.2#1
+    pango:x64-windows@1.57.0
+  * pixman:x64-windows@0.46.4#1
+  * pkgconf:x64-windows@2.5.1#4
+    portaudio[asio,core]:x64-windows@19.7#9
+  * pthread:x64-windows@3.0.0#2
+    pthreads:x64-windows@3.0.0#14
+    rubberband:x64-windows@4.0.0#1
+    serd:x64-windows@0.32.8
+  * sleef[core,dft]:x64-windows@3.9.0#1
+    sord:x64-windows@0.16.22
+    sratom:x64-windows@0.6.22
+    taglib:x64-windows@2.2
+  * utfcpp:x64-windows@4.0.9
+    vamp-sdk:x64-windows@2.10#5
+  * vcpkg-msbuild:x64-windows@2023-08-08
+  * vcpkg-pkgconfig-get-modules:x64-windows@2024-04-03
+  * yasm[core,tools]:x64-windows@1.3.0#7
+  * zix:x64-windows@0.8.0
+  * zstd:x64-windows@1.5.7
+Additional packages (*) will be modified to complete this operation.
+Restored 0 package(s) from C:\Users\mattn\AppData\Local\vcpkg\archives in 3.56 ms. Use --debug to see more details.
+Installing 1/53 gettext[core,tools]:x64-windows@0.22.5#4...
+gettext[core,tools]:x64-windows@0.22.5#4 package ABI: f2f870df051249bfec3c3167010587057c3730815bc403bf7b8873b465719d3b
+Building gettext[core,tools]:x64-windows@0.22.5#4...
+-- Using cached gettext-0.22.5.tar.gz
+-- Cleaning sources at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/gettext/src/gettext-0-8aeafea7a1.clean. Use --editable to skip cleaning for the packages you specify.
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/gettext-0.22.5.tar.gz
+-- Applying patch assume-modern-darwin.patch
+-- Applying patch uwp.patch
+-- Applying patch rel_path.patch
+-- Applying patch subdirs.patch
+-- Applying patch parallel-gettext-tools.patch
+-- Applying patch config-step-order.patch
+-- Applying patch 0001-xgettext-Fix-some-test-failures-on-MSVC.patch
+-- Applying patch env.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/gettext/src/gettext-0-8aeafea7a1.clean
+-- Modifying build system for less forks
+-- Getting CMake variables for x64-windows
+-- Using cached msys2-autoconf-wrapper-20250528-1-any.pkg.tar.zst
+-- Using cached msys2-automake-wrapper-20250528-1-any.pkg.tar.zst
+-- Using cached msys2-binutils-2.45.1-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libtool-2.5.4-4-x86_64.pkg.tar.zst
+-- Using cached msys2-make-4.4.1-2-x86_64.pkg.tar.zst
+-- Using cached msys2-pkgconf-2.5.1-1-x86_64.pkg.tar.zst
+-- Using cached msys2-which-2.23-4-x86_64.pkg.tar.zst
+-- Using cached msys2-gzip-1.14-1-x86_64.pkg.tar.zst
+-- Using cached msys2-bash-5.3.009-1-x86_64.pkg.tar.zst
+-- Using cached msys2-coreutils-8.32-5-x86_64.pkg.tar.zst
+-- Using cached msys2-file-5.46-2-x86_64.pkg.tar.zst
+-- Using cached msys2-gawk-5.3.2-1-x86_64.pkg.tar.zst
+-- Using cached msys2-grep-1~3.0-7-x86_64.pkg.tar.zst
+-- Using cached msys2-diffutils-3.12-1-x86_64.pkg.tar.zst
+-- Using cached msys2-sed-4.9-1-x86_64.pkg.tar.zst
+-- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using cached msys2-autoconf2.72-2.72-3-any.pkg.tar.zst
+-- Using cached msys2-automake1.16-1.16.5-1-any.pkg.tar.zst
+-- Using cached msys2-automake1.17-1.17-1-any.pkg.tar.zst
+-- Using cached msys2-automake1.18-1.18.1-1-any.pkg.tar.zst
+-- Using cached msys2-libiconv-1.18-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libintl-0.22.5-1-x86_64.pkg.tar.zst
+-- Using cached msys2-zlib-1.3.1-1-x86_64.pkg.tar.zst
+-- Using cached msys2-findutils-4.10.0-2-x86_64.pkg.tar.zst
+-- Using cached msys2-tar-1.35-3-x86_64.pkg.tar.zst
+-- Using cached msys2-gmp-6.3.0-2-x86_64.pkg.tar.zst
+-- Using cached msys2-gcc-libs-15.2.0-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libbz2-1.0.8-4-x86_64.pkg.tar.zst
+-- Using cached msys2-liblzma-5.8.2-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libzstd-1.5.7-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libreadline-8.3.003-1-x86_64.pkg.tar.zst
+-- Using cached msys2-mpfr-4.2.2-1-x86_64.pkg.tar.zst
+-- Using cached msys2-libpcre-8.45-5-x86_64.pkg.tar.zst
+-- Using cached msys2-m4-1.4.19-2-x86_64.pkg.tar.zst
+-- Using cached msys2-perl-5.40.3-1-x86_64.pkg.tar.zst
+-- Using cached msys2-ncurses-6.5.20240831-2-x86_64.pkg.tar.zst
+-- Using cached msys2-libxcrypt-4.5.2-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/fe50d45a6f168d59
+-- Using cached msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+-- Using cached msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows-rel
+-- Building x64-windows-rel
+-- Installing x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/gettext_x64-windows/share/gettext/aclocal/build-to-host.m4
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/gettext_x64-windows/share/gettext/aclocal/gettext.m4
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/gettext_x64-windows/share/gettext/aclocal/iconv.m4
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/gettext_x64-windows/share/gettext/aclocal/intlmacosx.m4
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/gettext_x64-windows/share/gettext/aclocal/nls.m4
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/gettext_x64-windows/share/gettext/aclocal/po.m4
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/gettext_x64-windows/share/gettext/aclocal/progtest.m4
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/gettext_x64-windows/share/gettext/aclocal/host-cpu-c-abi.m4
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/gettext_x64-windows/share/gettext/aclocal/lib-ld.m4
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/gettext_x64-windows/share/gettext/aclocal/lib-link.m4
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/gettext_x64-windows/share/gettext/aclocal/lib-prefix.m4
+-- Skipping post-build validation due to VCPKG_POLICY_EMPTY_PACKAGE
+Starting submission of gettext[core,tools]:x64-windows@0.22.5#4 to 1 binary cache(s) in the background
+Elapsed time to handle gettext:x64-windows: 46 min
+Installing 2/53 dirent:x64-windows@1.26...
+dirent:x64-windows@1.26 package ABI: ec81498e5a52c033f78ef262f4243cfed70d28ceaec6d39eb6106adccbc55bcf
+Building dirent:x64-windows@1.26...
+Downloading https://github.com/tronkko/dirent/archive/1.26.tar.gz -> tronkko-dirent-1.26.tar.gz
+Successfully downloaded tronkko-dirent-1.26.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tronkko-dirent-1.26.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/dirent/src/1.26-15c15b77f8.clean
+-- Up-to-date: C:/ARDOURCUSTOM/ardour/vcpkg/packages/dirent_x64-windows/include
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/dirent_x64-windows/include/dirent.h
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/dirent_x64-windows/share/dirent/copyright
+-- Performing post-build validation
+Starting submission of dirent:x64-windows@1.26 to 1 binary cache(s) in the background
+Elapsed time to handle dirent:x64-windows: 2.1 s
+Completed submission of gettext[core,tools]:x64-windows@0.22.5#4 to 1 binary cache(s) in 1.2 s
+Installing 3/53 glib:x64-windows@2.86.4...
+glib:x64-windows@2.86.4 package ABI: fe8b82c77ba042c1c9fe06fe4e272ef49ff788f6d0e8c28b030d0f7176236c77
+Building glib:x64-windows@2.86.4...
+-- Found Python version '3.14.2 at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/python/python-3.14.2-x64-1/python.exe'
+-- Using meson: C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/meson-1.9.0-d1fcc2/meson.py
+Downloading glib-2.86.4.tar.xz, trying https://download.gnome.org/sources/glib/2.86/glib-2.86.4.tar.xz
+Successfully downloaded glib-2.86.4.tar.xz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/glib-2.86.4.tar.xz
+-- Applying patch use-libiconv-on-windows.patch
+-- Applying patch libintl.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/glib/src/glib-2-78518e5b8a.clean
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows-dbg
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/glib/cmake-get-vars_C_CXX-x64-windows.cmake.log
+-- Configuring x64-windows-dbg done
+-- Configuring x64-windows-rel
+-- Configuring x64-windows-rel done
+-- Package x64-windows-dbg
+-- Package x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/lib/pkgconfig/gio-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/lib/pkgconfig/gio-windows-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/lib/pkgconfig/girepository-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/lib/pkgconfig/glib-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/lib/pkgconfig/gmodule-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/lib/pkgconfig/gmodule-export-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/lib/pkgconfig/gmodule-no-export-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/lib/pkgconfig/gobject-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/lib/pkgconfig/gthread-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/debug/lib/pkgconfig/gio-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/debug/lib/pkgconfig/gio-windows-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/debug/lib/pkgconfig/girepository-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/debug/lib/pkgconfig/glib-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/debug/lib/pkgconfig/gmodule-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/debug/lib/pkgconfig/gmodule-export-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/debug/lib/pkgconfig/gmodule-no-export-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/debug/lib/pkgconfig/gobject-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/debug/lib/pkgconfig/gthread-2.0.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/glib_x64-windows/share/glib/copyright
+-- Performing post-build validation
+Starting submission of glib:x64-windows@2.86.4 to 1 binary cache(s) in the background
+Elapsed time to handle glib:x64-windows: 5.7 min
+Completed submission of dirent:x64-windows@1.26 to 1 binary cache(s) in 101 ms
+Installing 4/53 jack2:x64-windows@1.9.22...
+jack2:x64-windows@1.9.22 package ABI: 5d9fffe83f37ad68e8d6feaf7ac13df1f9ef063f58440f78e50dbffcfc3e7f62
+Building jack2:x64-windows@1.9.22...
+Downloading https://github.com/jackaudio/jack2/archive/v1.9.22.tar.gz -> jackaudio-jack2-v1.9.22.tar.gz
+Successfully downloaded jackaudio-jack2-v1.9.22.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/jackaudio-jack2-v1.9.22.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/jack2/src/v1.9.22-81016f24e4.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/jack2_x64-windows/lib/pkgconfig/jack.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/jack2_x64-windows/debug/lib/pkgconfig/jack.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/jack2_x64-windows/share/jack2/copyright
+-- Performing post-build validation
+Starting submission of jack2:x64-windows@1.9.22 to 1 binary cache(s) in the background
+Elapsed time to handle jack2:x64-windows: 13 s
+Completed submission of glib:x64-windows@2.86.4 to 1 binary cache(s) in 3.5 s
+Installing 5/53 zstd:x64-windows@1.5.7...
+zstd:x64-windows@1.5.7 package ABI: c6cc2dfca88611d2bda780dccc4059b1eb05c2ceea6ae4ffb877e237f0fc2355
+Building zstd:x64-windows@1.5.7...
+Downloading https://github.com/facebook/zstd/archive/v1.5.7.tar.gz -> facebook-zstd-v1.5.7.tar.gz
+Successfully downloaded facebook-zstd-v1.5.7.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/facebook-zstd-v1.5.7.tar.gz
+-- Applying patch no-static-suffix.patch
+-- Applying patch fix-emscripten-and-clang-cl.patch
+-- Applying patch fix-windows-rc-compile.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/zstd/src/v1.5.7-bb6cae2b2e.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/zstd_x64-windows/lib/pkgconfig/libzstd.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/zstd_x64-windows/debug/lib/pkgconfig/libzstd.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/zstd_x64-windows/share/zstd/usage
+-- Performing post-build validation
+Starting submission of zstd:x64-windows@1.5.7 to 1 binary cache(s) in the background
+Elapsed time to handle zstd:x64-windows: 42 s
+Completed submission of jack2:x64-windows@1.9.22 to 1 binary cache(s) in 413 ms
+Installing 6/53 liblzma:x64-windows@5.8.2#1...
+liblzma:x64-windows@5.8.2#1 package ABI: 9facbeff7c6f99dd5cb40d5b6f01613fafee2bd60e962fde4ec058d409fec2ad
+Building liblzma:x64-windows@5.8.2#1...
+Downloading https://github.com/tukaani-project/xz/archive/v5.8.2.tar.gz -> tukaani-project-xz-v5.8.2.tar.gz
+Successfully downloaded tukaani-project-xz-v5.8.2.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tukaani-project-xz-v5.8.2.tar.gz
+-- Applying patch build-tools.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/liblzma/src/v5.8.2-30365c07c3.clean
+-- Configuring x64-windows
+CMake Warning at installed/x64-windows/share/vcpkg-cmake/vcpkg_cmake_configure.cmake:344 (message):
+  The following variables are not used in CMakeLists.txt:
+
+      XZ_SANDBOX
+
+  Please recheck them and remove the unnecessary options from the
+  `vcpkg_cmake_configure` call.
+
+  If these options should still be passed for whatever reason, please use the
+  `MAYBE_UNUSED_VARIABLES` argument.
+Call Stack (most recent call first):
+  buildtrees/versioning_/versions/liblzma/d161ccfe43a06cdb2a32d7a9e9fcbf92d67eb7ab/portfile.cmake:26 (vcpkg_cmake_configure)
+  scripts/ports.cmake:206 (include)
+
+
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/liblzma_x64-windows/lib/pkgconfig/liblzma.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/liblzma_x64-windows/debug/lib/pkgconfig/liblzma.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/liblzma_x64-windows/share/liblzma/copyright
+-- Performing post-build validation
+Starting submission of liblzma:x64-windows@5.8.2#1 to 1 binary cache(s) in the background
+Elapsed time to handle liblzma:x64-windows: 55 s
+Completed submission of zstd:x64-windows@1.5.7 to 1 binary cache(s) in 842 ms
+Installing 7/53 lz4:x64-windows@1.10.0...
+lz4:x64-windows@1.10.0 package ABI: 7dc2eb9adda4cbead1fbd5949b0645b32dc71e5d8498c67890409e57cb2da575
+Building lz4:x64-windows@1.10.0...
+Downloading https://github.com/lz4/lz4/archive/v1.10.0.tar.gz -> lz4-lz4-v1.10.0.tar.gz
+Successfully downloaded lz4-lz4-v1.10.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/lz4-lz4-v1.10.0.tar.gz
+-- Applying patch target-lz4-lz4.diff
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/lz4/src/v1.10.0-61bd08d80e.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/lz4_x64-windows/lib/pkgconfig/liblz4.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/lz4_x64-windows/debug/lib/pkgconfig/liblz4.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/lz4_x64-windows/share/lz4/usage
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/lz4_x64-windows/share/lz4/copyright
+-- Performing post-build validation
+Starting submission of lz4:x64-windows@1.10.0 to 1 binary cache(s) in the background
+Elapsed time to handle lz4:x64-windows: 19 s
+Completed submission of liblzma:x64-windows@5.8.2#1 to 1 binary cache(s) in 570 ms
+Installing 8/53 openssl:x64-windows@3.6.1#2...
+openssl:x64-windows@3.6.1#2 package ABI: c096b1ace59c68872b117cb80b566902f02dbbbe0cc0a397f5f61158b97e6341
+Building openssl:x64-windows@3.6.1#2...
+Downloading https://github.com/openssl/openssl/archive/openssl-3.6.1.tar.gz -> openssl-openssl-openssl-3.6.1.tar.gz
+Successfully downloaded openssl-openssl-openssl-3.6.1.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/openssl-openssl-openssl-3.6.1.tar.gz
+-- Applying patch cmake-config.patch
+-- Applying patch command-line-length.patch
+-- Applying patch script-prefix.patch
+-- Applying patch windows/install-layout.patch
+-- Applying patch windows/install-pdbs.patch
+-- Applying patch windows/install-programs.diff
+-- Applying patch unix/android-cc.patch
+-- Applying patch unix/move-openssldir.patch
+-- Applying patch unix/no-empty-dirs.patch
+-- Applying patch unix/no-static-libs-for-shared.patch
+-- Applying patch fix-mingw-build.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/openssl/src/nssl-3.6.1-c0028aa207.clean
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/openssl/cmake-get-vars_C_CXX-x64-windows.cmake.log
+Downloading https://github.com/StrawberryPerl/Perl-Dist-Strawberry/releases/download/SP_54201_64bit/strawberry-perl-5.42.0.1-64bit-portable.zip -> strawberry-perl-5.42.0.1-64bit-portable.zip
+Successfully downloaded strawberry-perl-5.42.0.1-64bit-portable.zip
+Downloading nasm-3.01-win64.zip, trying https://www.nasm.us/pub/nasm/releasebuilds/3.01/win64/nasm-3.01-win64.zip
+Successfully downloaded nasm-3.01-win64.zip
+-- Getting CMake variables for x64-windows
+Downloading jom_1_1_6.zip, trying https://download.qt.io/official_releases/jom/jom_1_1_6.zip
+Successfully downloaded jom_1_1_6.zip
+-- Prerunning x64-windows-dbg
+-- Building x64-windows-dbg
+-- Prerunning x64-windows-rel
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/openssl_x64-windows/lib/pkgconfig/libcrypto.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/openssl_x64-windows/lib/pkgconfig/libssl.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/openssl_x64-windows/lib/pkgconfig/openssl.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/openssl_x64-windows/debug/lib/pkgconfig/libcrypto.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/openssl_x64-windows/debug/lib/pkgconfig/libssl.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/openssl_x64-windows/debug/lib/pkgconfig/openssl.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/openssl_x64-windows/share/openssl/usage
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/openssl_x64-windows/share/openssl/copyright
+-- Performing post-build validation
+Starting submission of openssl:x64-windows@3.6.1#2 to 1 binary cache(s) in the background
+Elapsed time to handle openssl:x64-windows: 14 min
+Completed submission of lz4:x64-windows@1.10.0 to 1 binary cache(s) in 382 ms
+Installing 9/53 bzip2[core,tool]:x64-windows@1.0.8#6...
+bzip2[core,tool]:x64-windows@1.0.8#6 package ABI: 15a69b50645c1d649f1d83c5487f373bccce4dd4977a3e7fe603b757b9417472
+Building bzip2[core,tool]:x64-windows@1.0.8#6...
+Downloading bzip2-1.0.8.tar.gz, trying https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz
+Successfully downloaded bzip2-1.0.8.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/bzip2-1.0.8.tar.gz
+-- Applying patch fix-import-export-macros.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/bzip2/src/bzip2-1-336d4794a3.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/bzip2_x64-windows/lib/pkgconfig/bzip2.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/bzip2_x64-windows/debug/lib/pkgconfig/bzip2.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/bzip2_x64-windows/share/bzip2/copyright
+-- Performing post-build validation
+Starting submission of bzip2[core,tool]:x64-windows@1.0.8#6 to 1 binary cache(s) in the background
+Elapsed time to handle bzip2:x64-windows: 20 s
+Completed submission of openssl:x64-windows@3.6.1#2 to 1 binary cache(s) in 4.6 s
+Installing 10/53 libarchive[bzip2,core,crypto,lz4,lzma,xar,zstd]:x64-windows@3.8.5...
+libarchive[bzip2,core,crypto,lz4,lzma,xar,zstd]:x64-windows@3.8.5 package ABI: b20dc3790d6030c3321df763a7afe5beeec71aa46381de7f0ff764d3b568d1f6
+Building libarchive[bzip2,core,crypto,lz4,lzma,xar,zstd]:x64-windows@3.8.5...
+Downloading https://github.com/libarchive/libarchive/archive/v3.8.5.tar.gz -> libarchive-libarchive-v3.8.5.tar.gz
+Successfully downloaded libarchive-libarchive-v3.8.5.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/libarchive-libarchive-v3.8.5.tar.gz
+-- Applying patch fix-buildsystem.patch
+-- Applying patch fix-deps.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libarchive/src/v3.8.5-01afe28357.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libarchive_x64-windows/lib/pkgconfig/libarchive.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libarchive_x64-windows/debug/lib/pkgconfig/libarchive.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libarchive_x64-windows/share/libarchive/usage
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libarchive_x64-windows/share/libarchive/copyright
+-- Performing post-build validation
+Starting submission of libarchive[bzip2,core,crypto,lz4,lzma,xar,zstd]:x64-windows@3.8.5 to 1 binary cache(s) in the background
+Elapsed time to handle libarchive:x64-windows: 6.7 min
+Completed submission of bzip2[core,tool]:x64-windows@1.0.8#6 to 1 binary cache(s) in 302 ms
+Installing 11/53 liblo:x64-windows@0.34...
+liblo:x64-windows@0.34 package ABI: 09c445b436ed1b6e7b228b6bb1b40222fd425ad2f0783e4007011464aacbf267
+Building liblo:x64-windows@0.34...
+Downloading https://github.com/radarsat1/liblo/archive/0.34.tar.gz -> radarsat1-liblo-0.34.tar.gz
+Successfully downloaded radarsat1-liblo-0.34.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/radarsat1-liblo-0.34.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/liblo/src/0.34-cb7bdd1220.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/liblo_x64-windows/lib/pkgconfig/liblo.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/liblo_x64-windows/debug/lib/pkgconfig/liblo.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/liblo_x64-windows/share/liblo/copyright
+-- Performing post-build validation
+Starting submission of liblo:x64-windows@0.34 to 1 binary cache(s) in the background
+Elapsed time to handle liblo:x64-windows: 43 s
+Completed submission of libarchive[bzip2,core,crypto,lz4,lzma,xar,zstd]:x64-windows@3.8.5 to 1 binary cache(s) in 780 ms
+Installing 12/53 libpng:x64-windows@1.6.55...
+libpng:x64-windows@1.6.55 package ABI: 158a1ab0fb5e29d2260e4e207f929727709c99ad2d4fd0d52e4387e373a3e9e8
+Building libpng:x64-windows@1.6.55...
+Downloading https://github.com/pnggroup/libpng/archive/v1.6.55.tar.gz -> pnggroup-libpng-v1.6.55.tar.gz
+Successfully downloaded pnggroup-libpng-v1.6.55.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/pnggroup-libpng-v1.6.55.tar.gz
+-- Applying patch cmake.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libpng/src/v1.6.55-30e824c5a8.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libpng_x64-windows/share/png/vcpkg-cmake-wrapper.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libpng_x64-windows/share/libpng/libpng-config.cmake
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libpng_x64-windows/lib/pkgconfig/libpng16.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libpng_x64-windows/debug/lib/pkgconfig/libpng16.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libpng_x64-windows/debug/lib/pkgconfig/libpng.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libpng_x64-windows/lib/pkgconfig/libpng.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libpng_x64-windows/share/libpng/usage
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libpng_x64-windows/share/libpng/copyright
+-- Performing post-build validation
+Starting submission of libpng:x64-windows@1.6.55 to 1 binary cache(s) in the background
+Elapsed time to handle libpng:x64-windows: 21 s
+Completed submission of liblo:x64-windows@0.34 to 1 binary cache(s) in 442 ms
+Installing 13/53 libsamplerate:x64-windows@0.2.2#1...
+libsamplerate:x64-windows@0.2.2#1 package ABI: 7ffee0a90218a64c9baca720150d47be67d8cf8a6fd5ee5323f9340d41dda711
+Building libsamplerate:x64-windows@0.2.2#1...
+Downloading https://github.com/libsndfile/libsamplerate/archive/0.2.2.tar.gz -> libsndfile-libsamplerate-0.2.2.tar.gz
+Successfully downloaded libsndfile-libsamplerate-0.2.2.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/libsndfile-libsamplerate-0.2.2.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libsamplerate/src/0.2.2-01bf3b2d30.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libsamplerate_x64-windows/lib/pkgconfig/samplerate.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libsamplerate_x64-windows/debug/lib/pkgconfig/samplerate.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libsamplerate_x64-windows/share/libsamplerate/copyright
+-- Performing post-build validation
+Starting submission of libsamplerate:x64-windows@0.2.2#1 to 1 binary cache(s) in the background
+Elapsed time to handle libsamplerate:x64-windows: 21 s
+Completed submission of libpng:x64-windows@1.6.55 to 1 binary cache(s) in 430 ms
+Installing 14/53 yasm[core,tools]:x64-windows@1.3.0#7...
+yasm[core,tools]:x64-windows@1.3.0#7 package ABI: 7f37c32a2edeb210edc2feb48e6a1baa6927ba2f167a19a31ae4ed42722a16d3
+Building yasm[core,tools]:x64-windows@1.3.0#7...
+Downloading https://github.com/yasm/yasm/archive/009450c7ad4d425fa5a10ac4bd6efbd25248d823.tar.gz -> yasm-yasm-009450c7ad4d425fa5a10ac4bd6efbd25248d823.tar.gz
+Successfully downloaded yasm-yasm-009450c7ad4d425fa5a10ac4bd6efbd25248d823.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/yasm-yasm-009450c7ad4d425fa5a10ac4bd6efbd25248d823.tar.gz
+-- Applying patch add-feature-tools.patch
+-- Applying patch cmake-4.diff
+-- Applying patch fix-cross-build.patch
+-- Applying patch fix-overlay-pdb.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/yasm/src/d25248d823-5776a3607f.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/yasm_x64-windows/share/yasm/copyright
+-- Performing post-build validation
+Starting submission of yasm[core,tools]:x64-windows@1.3.0#7 to 1 binary cache(s) in the background
+Elapsed time to handle yasm:x64-windows: 1.3 min
+Completed submission of libsamplerate:x64-windows@0.2.2#1 to 1 binary cache(s) in 319 ms
+Installing 15/53 mpg123:x64-windows@1.33.4...
+mpg123:x64-windows@1.33.4 package ABI: b3b63ca7477dae78ccd5b9f4c131f05c6ec5679040f5c5978be560e3c99a1a04
+Building mpg123:x64-windows@1.33.4...
+Downloading mpg123-1.33.4.tar.bz2, trying https://sourceforge.net/projects/mpg123/files/mpg123/1.33.4/mpg123-1.33.4.tar.bz2/download
+Successfully downloaded mpg123-1.33.4.tar.bz2
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/mpg123-1.33.4.tar.bz2
+-- Applying patch have-fpu.diff
+-- Applying patch pkgconfig.diff
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/mpg123/src/-0852196a3c.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/mpg123_x64-windows/lib/pkgconfig/libmpg123.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/mpg123_x64-windows/lib/pkgconfig/libout123.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/mpg123_x64-windows/lib/pkgconfig/libsyn123.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/mpg123_x64-windows/debug/lib/pkgconfig/libmpg123.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/mpg123_x64-windows/debug/lib/pkgconfig/libout123.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/mpg123_x64-windows/debug/lib/pkgconfig/libsyn123.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/mpg123_x64-windows/share/mpg123/copyright
+-- Performing post-build validation
+Starting submission of mpg123:x64-windows@1.33.4 to 1 binary cache(s) in the background
+Elapsed time to handle mpg123:x64-windows: 1.5 min
+Completed submission of yasm[core,tools]:x64-windows@1.3.0#7 to 1 binary cache(s) in 776 ms
+Installing 16/53 pkgconf:x64-windows@2.5.1#4...
+pkgconf:x64-windows@2.5.1#4 package ABI: ca3910716c5f2add7295b73bdb9ebaef409946720c16287f19096c563cf3a98b
+Building pkgconf:x64-windows@2.5.1#4...
+-- Found Python version '3.14.2 at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/python/python-3.14.2-x64-1/python.exe'
+-- Using meson: C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/meson-1.9.0-d1fcc2/meson.py
+Downloading https://github.com/pkgconf/pkgconf/archive/pkgconf-2.5.1.tar.gz -> pkgconf-pkgconf-pkgconf-2.5.1.tar.gz
+Successfully downloaded pkgconf-pkgconf-pkgconf-2.5.1.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/pkgconf-pkgconf-pkgconf-2.5.1.tar.gz
+-- Applying patch 001-unveil-fixes.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/pkgconf/src/conf-2.5.1-5bc6f0da3f.clean
+-- Configuring x64-windows-dbg
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/pkgconf/cmake-get-vars_C_CXX-x64-windows.cmake.log
+-- Configuring x64-windows-dbg done
+-- Configuring x64-windows-rel
+-- Configuring x64-windows-rel done
+-- Package x64-windows-dbg
+-- Package x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pkgconf_x64-windows/lib/pkgconfig/libpkgconf.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pkgconf_x64-windows/debug/lib/pkgconfig/libpkgconf.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pkgconf_x64-windows/share/pkgconf/copyright
+-- Performing post-build validation
+Starting submission of pkgconf:x64-windows@2.5.1#4 to 1 binary cache(s) in the background
+Elapsed time to handle pkgconf:x64-windows: 33 s
+Completed submission of mpg123:x64-windows@1.33.4 to 1 binary cache(s) in 666 ms
+Installing 17/53 vcpkg-pkgconfig-get-modules:x64-windows@2024-04-03...
+vcpkg-pkgconfig-get-modules:x64-windows@2024-04-03 package ABI: a0879ea79fc11836a41ba7f1c4e11b660ab6a39e636f8fdcd01a60b825f4ca50
+Building vcpkg-pkgconfig-get-modules:x64-windows@2024-04-03...
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-pkgconfig-get-modules_x64-windows/share/vcpkg-pkgconfig-get-modules/copyright
+-- Performing post-build validation
+Starting submission of vcpkg-pkgconfig-get-modules:x64-windows@2024-04-03 to 1 binary cache(s) in the background
+Elapsed time to handle vcpkg-pkgconfig-get-modules:x64-windows: 394 ms
+Installing 18/53 vcpkg-msbuild:x64-windows@2023-08-08...
+vcpkg-msbuild:x64-windows@2023-08-08 package ABI: a051cebb83c733d4f021f5f05aabea3b94b907d698cbeafc4d1cd040438a2d18
+Building vcpkg-msbuild:x64-windows@2023-08-08...
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-msbuild_x64-windows/share/vcpkg-msbuild/vcpkg_msbuild.props.in
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-msbuild_x64-windows/share/vcpkg-msbuild/vcpkg_msbuild.targets.in
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-msbuild_x64-windows/share/vcpkg-msbuild/z_vcpkg_msbuild_create_props.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-msbuild_x64-windows/share/vcpkg-msbuild/vcpkg_msbuild_install.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-msbuild_x64-windows/share/vcpkg-msbuild/vcpkg-port-config.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/vcpkg-msbuild_x64-windows/share/vcpkg-msbuild/copyright
+-- Performing post-build validation
+Starting submission of vcpkg-msbuild:x64-windows@2023-08-08 to 1 binary cache(s) in the background
+Elapsed time to handle vcpkg-msbuild:x64-windows: 177 ms
+Completed submission of pkgconf:x64-windows@2.5.1#4 to 1 binary cache(s) in 542 ms
+Installing 19/53 mp3lame:x64-windows@3.100#16...
+mp3lame:x64-windows@3.100#16 package ABI: 52289ebb27f449a0e82b8d9234919bf72f032220847640e6c7eeb387fa5c3a7b
+Building mp3lame:x64-windows@3.100#16...
+Downloading lame-3.100.tar.gz, trying https://sourceforge.net/projects/lame/files/lame/3.100/lame-3.100.tar.gz/download
+Successfully downloaded lame-3.100.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/lame-3.100.tar.gz
+-- Applying patch 00001-msvc-upgrade-solution-up-to-vc11.patch
+-- Applying patch remove_lame_init_old_from_symbol_list.patch
+-- Applying patch add-macos-universal-config.patch
+-- Applying patch fix-mingw-w64-compatibility.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/mp3lame/src/-e61ed25752.clean
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/mp3lame/cmake-get-vars_C_CXX-x64-windows.cmake.log
+-- Building vc_solution/x64_vc11_lame.sln for Release
+-- Building vc_solution/x64_vc11_lame.sln for Debug
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/mp3lame_x64-windows/share/mp3lame/copyright
+-- Performing post-build validation
+Starting submission of mp3lame:x64-windows@3.100#16 to 1 binary cache(s) in the background
+Elapsed time to handle mp3lame:x64-windows: 45 s
+Completed submission of vcpkg-pkgconfig-get-modules:x64-windows@2024-04-03 to 1 binary cache(s) in 102 ms
+Completed submission of vcpkg-msbuild:x64-windows@2023-08-08 to 1 binary cache(s) in 404 ms
+Installing 20/53 opus:x64-windows@1.5.2#1...
+opus:x64-windows@1.5.2#1 package ABI: 0701b2c7c2446baf333314631674c10d38d0d05e9d6bc51c7fba67b95302e230
+Building opus:x64-windows@1.5.2#1...
+Downloading https://github.com/xiph/opus/archive/v1.5.2.tar.gz -> xiph-opus-v1.5.2.tar.gz
+Successfully downloaded xiph-opus-v1.5.2.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/xiph-opus-v1.5.2.tar.gz
+-- Applying patch fix-pkgconfig-version.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/opus/src/v1.5.2-81ed242155.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/opus_x64-windows/lib/pkgconfig/opus.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/opus_x64-windows/debug/lib/pkgconfig/opus.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/opus_x64-windows/share/opus/copyright
+-- Performing post-build validation
+Starting submission of opus:x64-windows@1.5.2#1 to 1 binary cache(s) in the background
+Elapsed time to handle opus:x64-windows: 1.2 min
+Completed submission of mp3lame:x64-windows@3.100#16 to 1 binary cache(s) in 384 ms
+Installing 21/53 libogg:x64-windows@1.3.6#1...
+libogg:x64-windows@1.3.6#1 package ABI: 3de01ef630b1e30dd895e1843b8e55dce2d087c917b026f93e95f7a1d3ffe94d
+Building libogg:x64-windows@1.3.6#1...
+Downloading https://github.com/xiph/ogg/archive/v1.3.6.tar.gz -> xiph-ogg-v1.3.6.tar.gz
+Successfully downloaded xiph-ogg-v1.3.6.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/xiph-ogg-v1.3.6.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libogg/src/v1.3.6-4ad11a7327.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libogg_x64-windows/lib/pkgconfig/ogg.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libogg_x64-windows/debug/lib/pkgconfig/ogg.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libogg_x64-windows/share/libogg/copyright
+-- Performing post-build validation
+Starting submission of libogg:x64-windows@1.3.6#1 to 1 binary cache(s) in the background
+Elapsed time to handle libogg:x64-windows: 34 s
+Completed submission of opus:x64-windows@1.5.2#1 to 1 binary cache(s) in 551 ms
+Installing 22/53 libvorbis:x64-windows@1.3.7#4...
+libvorbis:x64-windows@1.3.7#4 package ABI: e73885e1af7995ff73c831a0d9e11aff22c98af042dbfaf35c92b05832b134fe
+Building libvorbis:x64-windows@1.3.7#4...
+Downloading https://github.com/xiph/vorbis/archive/v1.3.7.tar.gz -> xiph-vorbis-v1.3.7.tar.gz
+Successfully downloaded xiph-vorbis-v1.3.7.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/xiph-vorbis-v1.3.7.tar.gz
+-- Applying patch 0001-Dont-export-vorbisenc-functions.patch
+-- Applying patch 0002-Fixup-pkgconfig-libs.patch
+-- Applying patch 0003-def-mingw-compat.patch
+-- Applying patch 0004-ogg-find-dependency.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libvorbis/src/v1.3.7-c32164610e.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libvorbis_x64-windows/lib/pkgconfig/vorbis.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libvorbis_x64-windows/lib/pkgconfig/vorbisenc.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libvorbis_x64-windows/lib/pkgconfig/vorbisfile.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libvorbis_x64-windows/debug/lib/pkgconfig/vorbis.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libvorbis_x64-windows/debug/lib/pkgconfig/vorbisenc.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libvorbis_x64-windows/debug/lib/pkgconfig/vorbisfile.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libvorbis_x64-windows/share/libvorbis/usage
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libvorbis_x64-windows/share/libvorbis/copyright
+-- Performing post-build validation
+Starting submission of libvorbis:x64-windows@1.3.7#4 to 1 binary cache(s) in the background
+Elapsed time to handle libvorbis:x64-windows: 22 s
+Completed submission of libogg:x64-windows@1.3.6#1 to 1 binary cache(s) in 403 ms
+Installing 23/53 libflac[core,stack-protector]:x64-windows@1.5.0...
+libflac[core,stack-protector]:x64-windows@1.5.0 package ABI: a1979068ce6a14fa72bcf6151f35ab8cc2a546c1dcf75875d4aecdf2877f1826
+Building libflac[core,stack-protector]:x64-windows@1.5.0...
+Downloading https://github.com/xiph/flac/archive/1.5.0.tar.gz -> xiph-flac-1.5.0.tar.gz
+Successfully downloaded xiph-flac-1.5.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/xiph-flac-1.5.0.tar.gz
+-- Applying patch android-cmake.diff
+-- Applying patch fix-compile-options.patch
+-- Applying patch fix-find-threads.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libflac/src/1.5.0-5ec0185c23.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libflac_x64-windows/lib/pkgconfig/flac++.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libflac_x64-windows/lib/pkgconfig/flac.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libflac_x64-windows/debug/lib/pkgconfig/flac++.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libflac_x64-windows/debug/lib/pkgconfig/flac.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libflac_x64-windows/share/libflac/copyright
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libflac_x64-windows/share/libflac/usage
+-- Performing post-build validation
+Starting submission of libflac[core,stack-protector]:x64-windows@1.5.0 to 1 binary cache(s) in the background
+Elapsed time to handle libflac:x64-windows: 1 min
+Completed submission of libvorbis:x64-windows@1.3.7#4 to 1 binary cache(s) in 527 ms
+Installing 24/53 libsndfile[core,external-libs,mpeg]:x64-windows@1.2.2#1...
+libsndfile[core,external-libs,mpeg]:x64-windows@1.2.2#1 package ABI: 6a95088dfa0f8a13e909d6a77be3b424bc8dc0bc533fcbff0dff58e257bc43e2
+Building libsndfile[core,external-libs,mpeg]:x64-windows@1.2.2#1...
+Downloading https://github.com/libsndfile/libsndfile/archive/1.2.2.tar.gz -> libsndfile-libsndfile-1.2.2.tar.gz
+Successfully downloaded libsndfile-libsndfile-1.2.2.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/libsndfile-libsndfile-1.2.2.tar.gz
+-- Applying patch 001-avoid-installing-find-modules.patch
+-- Applying patch mp3lame-static.diff
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libsndfile/src/1.2.2-8c3822e17b.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libsndfile_x64-windows/lib/pkgconfig/sndfile.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libsndfile_x64-windows/debug/lib/pkgconfig/sndfile.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libsndfile_x64-windows/share/libsndfile/copyright
+-- Performing post-build validation
+Starting submission of libsndfile[core,external-libs,mpeg]:x64-windows@1.2.2#1 to 1 binary cache(s) in the background
+Elapsed time to handle libsndfile:x64-windows: 1.6 min
+Completed submission of libflac[core,stack-protector]:x64-windows@1.5.0 to 1 binary cache(s) in 602 ms
+Installing 25/53 libusb:x64-windows@1.0.29#1...
+libusb:x64-windows@1.0.29#1 package ABI: 34530121cf735a5e8c6ad7f780079681202742ec40cc425771bfb83429454642
+Building libusb:x64-windows@1.0.29#1...
+Downloading https://github.com/libusb/libusb/archive/v1.0.29.tar.gz -> libusb-libusb-v1.0.29.tar.gz
+Successfully downloaded libusb-libusb-v1.0.29.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/libusb-libusb-v1.0.29.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libusb/src/v1.0.29-368151ed7b.clean
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libusb/cmake-get-vars_C_CXX-x64-windows.cmake.log
+-- Building msvc/libusb_dll.vcxproj for Release
+-- Building msvc/libusb_dll.vcxproj for Debug
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libusb_x64-windows/include/libusb-1.0/libusb.h
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libusb_x64-windows/lib/pkgconfig/libusb-1.0.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libusb_x64-windows/debug/lib/pkgconfig/libusb-1.0.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libusb_x64-windows/share/libusb/copyright
+-- Performing post-build validation
+Starting submission of libusb:x64-windows@1.0.29#1 to 1 binary cache(s) in the background
+Elapsed time to handle libusb:x64-windows: 28 s
+Completed submission of libsndfile[core,external-libs,mpeg]:x64-windows@1.2.2#1 to 1 binary cache(s) in 678 ms
+Installing 26/53 pthreads:x64-windows@3.0.0#14...
+pthreads:x64-windows@3.0.0#14 package ABI: bd756503317240d88af1d7061d4bc8124e2bc7631fce661488e3f29faa436712
+Building pthreads:x64-windows@3.0.0#14...
+Downloading pthreads4w-code-v3.0.0.zip, trying https://sourceforge.net/projects/pthreads4w/files/pthreads4w-code-v3.0.0.zip/download
+Successfully downloaded pthreads4w-code-v3.0.0.zip
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/pthreads4w-code-v3.0.0.zip
+-- Applying patch fix-arm-macro.patch
+-- Applying patch fix-arm64-version_rc.patch
+-- Applying patch fix-pthread_getname_np.patch
+-- Applying patch fix-install.patch
+-- Applying patch whitespace_in_path.patch
+-- Applying patch use-md.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/pthreads/src/-a9b0a36b2a.clean
+-- Getting CMake variables for x64-windows
+-- Building and installing x64-windows-dbg
+-- Building and installing x64-windows-rel
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pthreads_x64-windows/share/PThreads4W/PThreads4WConfig.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pthreads_x64-windows/share/pthread/vcpkg-cmake-wrapper.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pthreads_x64-windows/share/pthreads/vcpkg-cmake-wrapper.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pthreads_x64-windows/share/PThreads_windows/vcpkg-cmake-wrapper.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pthreads_x64-windows/share/pthreads/copyright
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/pthreads_x64-windows/share/pthreads/usage
+-- Performing post-build validation
+Starting submission of pthreads:x64-windows@3.0.0#14 to 1 binary cache(s) in the background
+Elapsed time to handle pthreads:x64-windows: 1.1 min
+Completed submission of libusb:x64-windows@1.0.29#1 to 1 binary cache(s) in 426 ms
+Installing 27/53 libuv:x64-windows@1.52.0...
+libuv:x64-windows@1.52.0 package ABI: 01c0f78c1602955cf2d298a8e30f9e77444efa96abaedc76ab1e24ef90895465
+Building libuv:x64-windows@1.52.0...
+Downloading https://github.com/libuv/libuv/archive/v1.52.0.tar.gz -> libuv-libuv-v1.52.0.tar.gz
+Successfully downloaded libuv-libuv-v1.52.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/libuv-libuv-v1.52.0.tar.gz
+-- Applying patch fix-build-type.patch
+-- Applying patch ssize_t.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libuv/src/v1.52.0-3db0662d09.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libuv_x64-windows/lib/pkgconfig/libuv.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libuv_x64-windows/debug/lib/pkgconfig/libuv.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libuv_x64-windows/share/libuv/usage
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libuv_x64-windows/share/libuv/copyright
+-- Performing post-build validation
+Starting submission of libuv:x64-windows@1.52.0 to 1 binary cache(s) in the background
+Elapsed time to handle libuv:x64-windows: 55 s
+Completed submission of pthreads:x64-windows@3.0.0#14 to 1 binary cache(s) in 344 ms
+Installing 28/53 libwebsockets:x64-windows@4.5.2...
+libwebsockets:x64-windows@4.5.2 package ABI: 9f8fc92a8063e6c33ac414cf8839fa8b1cfb149740ce291495971a3710264e00
+Building libwebsockets:x64-windows@4.5.2...
+Downloading https://github.com/warmcat/libwebsockets/archive/v4.5.2.tar.gz -> warmcat-libwebsockets-v4.5.2.tar.gz
+Successfully downloaded warmcat-libwebsockets-v4.5.2.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/warmcat-libwebsockets-v4.5.2.tar.gz
+-- Applying patch fix-dependency-libuv.patch
+-- Applying patch fix-build-error.patch
+-- Applying patch export-include-path.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libwebsockets/src/v4.5.2-cab9db4151.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libwebsockets_x64-windows/share/libwebsockets/copyright
+-- Performing post-build validation
+Starting submission of libwebsockets:x64-windows@4.5.2 to 1 binary cache(s) in the background
+Elapsed time to handle libwebsockets:x64-windows: 4.5 min
+Completed submission of libuv:x64-windows@1.52.0 to 1 binary cache(s) in 559 ms
+Installing 29/53 libxml2[core,iconv,zlib]:x64-windows@2.15.1...
+libxml2[core,iconv,zlib]:x64-windows@2.15.1 package ABI: b68242ef208450cc7cf5b2d7909f52d4e0dd3d09072eed86ea6abe98287d80c5
+Building libxml2[core,iconv,zlib]:x64-windows@2.15.1...
+Downloading https://github.com/GNOME/libxml2/archive/v2.15.1.tar.gz -> GNOME-libxml2-v2.15.1.tar.gz
+Successfully downloaded GNOME-libxml2-v2.15.1.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/GNOME-libxml2-v2.15.1.tar.gz
+-- Applying patch cxx-for-icu.diff
+-- Applying patch disable-xml2-config.diff
+-- Applying patch fix_cmakelist.patch
+-- Applying patch fix_ios_compilation.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/libxml2/src/v2.15.1-eb8e27094c.clean
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libxml2_x64-windows/lib/pkgconfig/libxml-2.0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libxml2_x64-windows/debug/lib/pkgconfig/libxml-2.0.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/libxml2_x64-windows/share/libxml2/copyright
+-- Performing post-build validation
+Starting submission of libxml2[core,iconv,zlib]:x64-windows@2.15.1 to 1 binary cache(s) in the background
+Elapsed time to handle libxml2:x64-windows: 1 min
+Completed submission of libwebsockets:x64-windows@4.5.2 to 1 binary cache(s) in 969 ms
+Installing 30/53 zix:x64-windows@0.8.0...
+zix:x64-windows@0.8.0 package ABI: 47b625fc792bed49773281e179a7d8fb63edc372abd16765734e31652ad23418
+Building zix:x64-windows@0.8.0...
+-- Found Python version '3.14.2 at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/python/python-3.14.2-x64-1/python.exe'
+-- Using meson: C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/meson-1.9.0-d1fcc2/meson.py
+Downloading https://github.com/drobilla/zix/archive/v0.8.0.tar.gz -> drobilla-zix-v0.8.0.tar.gz
+Successfully downloaded drobilla-zix-v0.8.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/drobilla-zix-v0.8.0.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/zix/src/v0.8.0-c2db56663c.clean
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows-dbg
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/zix/cmake-get-vars_C_CXX-x64-windows.cmake.log
+-- Configuring x64-windows-dbg done
+-- Configuring x64-windows-rel
+-- Configuring x64-windows-rel done
+-- Package x64-windows-dbg
+-- Package x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/zix_x64-windows/lib/pkgconfig/zix-0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/zix_x64-windows/debug/lib/pkgconfig/zix-0.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/zix_x64-windows/share/zix/copyright
+-- Performing post-build validation
+Starting submission of zix:x64-windows@0.8.0 to 1 binary cache(s) in the background
+Elapsed time to handle zix:x64-windows: 35 s
+Completed submission of libxml2[core,iconv,zlib]:x64-windows@2.15.1 to 1 binary cache(s) in 845 ms
+Installing 31/53 serd:x64-windows@0.32.8...
+serd:x64-windows@0.32.8 package ABI: 6033d2468881d63a11e1e0f057abd793e0fb132c434c31f6636bacdeb43ad597
+Building serd:x64-windows@0.32.8...
+-- Found Python version '3.14.2 at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/python/python-3.14.2-x64-1/python.exe'
+-- Using meson: C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/meson-1.9.0-d1fcc2/meson.py
+Downloading https://gitlab.com/drobilla/serd/-/archive/v0.32.8/serd-v0.32.8.tar.gz -> drobilla-serd-v0.32.8.tar.gz
+Successfully downloaded drobilla-serd-v0.32.8.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/drobilla-serd-v0.32.8.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/serd/src/v0.32.8-4922dfa05e.clean
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows-dbg
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/serd/cmake-get-vars_C_CXX-x64-windows.cmake.log
+-- Configuring x64-windows-dbg done
+-- Configuring x64-windows-rel
+-- Configuring x64-windows-rel done
+-- Package x64-windows-dbg
+-- Package x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/serd_x64-windows/lib/pkgconfig/serd-0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/serd_x64-windows/debug/lib/pkgconfig/serd-0.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/serd_x64-windows/share/serd/copyright
+-- Performing post-build validation
+Starting submission of serd:x64-windows@0.32.8 to 1 binary cache(s) in the background
+Elapsed time to handle serd:x64-windows: 38 s
+Completed submission of zix:x64-windows@0.8.0 to 1 binary cache(s) in 364 ms
+Installing 32/53 sord:x64-windows@0.16.22...
+sord:x64-windows@0.16.22 package ABI: 7203e3280f4c4193d02886be6ae97493ec572a5306db160dc0a555dd9bdfa2a0
+Building sord:x64-windows@0.16.22...
+-- Found Python version '3.14.2 at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/python/python-3.14.2-x64-1/python.exe'
+-- Using meson: C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/meson-1.9.0-d1fcc2/meson.py
+Downloading https://gitlab.com/drobilla/sord/-/archive/v0.16.22/sord-v0.16.22.tar.gz -> drobilla-sord-v0.16.22.tar.gz
+Successfully downloaded drobilla-sord-v0.16.22.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/drobilla-sord-v0.16.22.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/sord/src/v0.16.22-b9273cc5d9.clean
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows-dbg
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/sord/cmake-get-vars_C_CXX-x64-windows.cmake.log
+-- Configuring x64-windows-dbg done
+-- Configuring x64-windows-rel
+-- Configuring x64-windows-rel done
+-- Package x64-windows-dbg
+-- Package x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/sord_x64-windows/lib/pkgconfig/sord-0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/sord_x64-windows/debug/lib/pkgconfig/sord-0.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/sord_x64-windows/share/sord/copyright
+-- Performing post-build validation
+Starting submission of sord:x64-windows@0.16.22 to 1 binary cache(s) in the background
+Elapsed time to handle sord:x64-windows: 44 s
+Completed submission of serd:x64-windows@0.32.8 to 1 binary cache(s) in 359 ms
+Installing 33/53 lv2:x64-windows@1.18.10#1...
+lv2:x64-windows@1.18.10#1 package ABI: ec66989ed5cac3e72c004b6c949d86ac90701b437f3c56180659ebe3a9cb156f
+Building lv2:x64-windows@1.18.10#1...
+-- Found Python version '3.14.2 at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/python/python-3.14.2-x64-1/python.exe'
+-- Using meson: C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/meson-1.9.0-d1fcc2/meson.py
+Downloading https://github.com/lv2/lv2/archive/v1.18.10.tar.gz -> lv2-lv2-v1.18.10.tar.gz
+Successfully downloaded lv2-lv2-v1.18.10.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/lv2-lv2-v1.18.10.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/lv2/src/v1.18.10-2a31b0e9f1.clean
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows-dbg
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/lv2/cmake-get-vars_C_CXX-x64-windows.cmake.log
+-- Configuring x64-windows-dbg done
+-- Configuring x64-windows-rel
+-- Configuring x64-windows-rel done
+-- Package x64-windows-dbg
+-- Package x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/lv2_x64-windows/lib/pkgconfig/lv2.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/lv2_x64-windows/debug/lib/pkgconfig/lv2.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/lv2_x64-windows/share/lv2/lv2-config.cmake
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/lv2_x64-windows/share/lv2/copyright
+-- Performing post-build validation
+Starting submission of lv2:x64-windows@1.18.10#1 to 1 binary cache(s) in the background
+Elapsed time to handle lv2:x64-windows: 28 s
+Completed submission of sord:x64-windows@0.16.22 to 1 binary cache(s) in 399 ms
+Installing 34/53 sratom:x64-windows@0.6.22...
+sratom:x64-windows@0.6.22 package ABI: b048df81092e8b3f585836ab505b16186ec22d5dcd3d7a3aa32134d41e166366
+Building sratom:x64-windows@0.6.22...
+-- Found Python version '3.14.2 at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/python/python-3.14.2-x64-1/python.exe'
+-- Using meson: C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/meson-1.9.0-d1fcc2/meson.py
+Downloading https://gitlab.com/lv2/sratom/-/archive/v0.6.22/sratom-v0.6.22.tar.gz -> lv2-sratom-v0.6.22.tar.gz
+Successfully downloaded lv2-sratom-v0.6.22.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/lv2-sratom-v0.6.22.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/sratom/src/v0.6.22-7897fd6afa.clean
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows-dbg
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/sratom/cmake-get-vars_C_CXX-x64-windows.cmake.log
+-- Configuring x64-windows-dbg done
+-- Configuring x64-windows-rel
+-- Configuring x64-windows-rel done
+-- Package x64-windows-dbg
+-- Package x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/sratom_x64-windows/lib/pkgconfig/sratom-0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/sratom_x64-windows/debug/lib/pkgconfig/sratom-0.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/sratom_x64-windows/share/sratom/copyright
+-- Performing post-build validation
+Starting submission of sratom:x64-windows@0.6.22 to 1 binary cache(s) in the background
+Elapsed time to handle sratom:x64-windows: 35 s
+Completed submission of lv2:x64-windows@1.18.10#1 to 1 binary cache(s) in 892 ms
+Installing 35/53 lilv:x64-windows@0.26.4...
+lilv:x64-windows@0.26.4 package ABI: a8eb040c3d0e940b829327346525bb3d2f4af16366c86adfd3a8ba48dcc4734a
+Building lilv:x64-windows@0.26.4...
+-- Found Python version '3.14.2 at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/python/python-3.14.2-x64-1/python.exe'
+-- Using meson: C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/meson-1.9.0-d1fcc2/meson.py
+Downloading https://gitlab.com/lv2/lilv/-/archive/v0.26.4/lilv-v0.26.4.tar.gz -> lv2-lilv-v0.26.4.tar.gz
+Successfully downloaded lv2-lilv-v0.26.4.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/lv2-lilv-v0.26.4.tar.gz
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/lilv/src/v0.26.4-d2e8b0c31d.clean
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows-dbg
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/lilv/cmake-get-vars_C_CXX-x64-windows.cmake.log
+-- Configuring x64-windows-dbg done
+-- Configuring x64-windows-rel
+-- Configuring x64-windows-rel done
+-- Package x64-windows-dbg
+-- Package x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/lilv_x64-windows/lib/pkgconfig/lilv-0.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/lilv_x64-windows/debug/lib/pkgconfig/lilv-0.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/lilv_x64-windows/share/lilv/copyright
+-- Performing post-build validation
+Starting submission of lilv:x64-windows@0.26.4 to 1 binary cache(s) in the background
+Elapsed time to handle lilv:x64-windows: 36 s
+Completed submission of sratom:x64-windows@0.6.22 to 1 binary cache(s) in 440 ms
+Installing 36/53 brotli:x64-windows@1.2.0...
+brotli:x64-windows@1.2.0 package ABI: 95f98d5e5c2c7d2da8af69b5bbd85c848b745c0b495149d897f6bd408c9f7f98
+Building brotli:x64-windows@1.2.0...
+Downloading https://github.com/google/brotli/archive/v1.2.0.tar.gz -> google-brotli-v1.2.0.tar.gz
+Successfully downloaded google-brotli-v1.2.0.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/google-brotli-v1.2.0.tar.gz
+-- Applying patch install.patch
+-- Applying patch pkgconfig.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/brotli/src/v1.2.0-7af7ca71ad.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/brotli_x64-windows/lib/pkgconfig/libbrotlicommon.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/brotli_x64-windows/lib/pkgconfig/libbrotlidec.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/brotli_x64-windows/lib/pkgconfig/libbrotlienc.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/brotli_x64-windows/debug/lib/pkgconfig/libbrotlicommon.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/brotli_x64-windows/debug/lib/pkgconfig/libbrotlidec.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/brotli_x64-windows/debug/lib/pkgconfig/libbrotlienc.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/brotli_x64-windows/share/brotli/usage
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/brotli_x64-windows/share/brotli/copyright
+-- Performing post-build validation
+Starting submission of brotli:x64-windows@1.2.0 to 1 binary cache(s) in the background
+Elapsed time to handle brotli:x64-windows: 47 s
+Completed submission of lilv:x64-windows@0.26.4 to 1 binary cache(s) in 346 ms
+Installing 37/53 freetype[brotli,bzip2,core,png,zlib]:x64-windows@2.13.3...
+freetype[brotli,bzip2,core,png,zlib]:x64-windows@2.13.3 package ABI: efa4888e29608c236a3d6051731aa738fa2a7cffc7d0c2675c358a7bf54d0c55
+Building freetype[brotli,bzip2,core,png,zlib]:x64-windows@2.13.3...
+Downloading https://gitlab.freedesktop.org//freetype/freetype/-/archive/VER-2-13-3/freetype-VER-2-13-3.tar.gz -> freetype-freetype-VER-2-13-3.tar.gz
+Successfully downloaded freetype-freetype-VER-2-13-3.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/freetype-freetype-VER-2-13-3.tar.gz
+-- Applying patch 0003-Fix-UWP.patch
+-- Applying patch brotli-static.patch
+-- Applying patch bzip2.patch
+-- Applying patch fix-exports.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/freetype/src/VER-2-13-3-8b423a038b.clean
+-- Configuring x64-windows
+-- Building x64-windows-dbg
+-- Building x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/freetype_x64-windows/lib/pkgconfig/freetype2.pc
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/freetype_x64-windows/debug/lib/pkgconfig/freetype2.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/freetype_x64-windows/share/freetype/usage
+-- Performing post-build validation
+Starting submission of freetype[brotli,bzip2,core,png,zlib]:x64-windows@2.13.3 to 1 binary cache(s) in the background
+Elapsed time to handle freetype:x64-windows: 42 s
+Completed submission of brotli:x64-windows@1.2.0 to 1 binary cache(s) in 727 ms
+Installing 38/53 harfbuzz[core,freetype]:x64-windows@12.3.2...
+harfbuzz[core,freetype]:x64-windows@12.3.2 package ABI: 321f3e4d0d270948d9082f4ae229780bb47343ad983be7a211247c3af9d1f9f3
+Building harfbuzz[core,freetype]:x64-windows@12.3.2...
+-- Found Python version '3.14.2 at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/python/python-3.14.2-x64-1/python.exe'
+-- Using meson: C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/meson-1.9.0-d1fcc2/meson.py
+Downloading https://github.com/harfbuzz/harfbuzz/archive/12.3.2.tar.gz -> harfbuzz-harfbuzz-12.3.2.tar.gz
+Successfully downloaded harfbuzz-harfbuzz-12.3.2.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/harfbuzz-harfbuzz-12.3.2.tar.gz
+-- Applying patch fix-win32-build.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/harfbuzz/src/12.3.2-a52e4fc92f.clean
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows-dbg
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/harfbuzz/cmake-get-vars_C_CXX-x64-windows.cmake.log
+-- Configuring x64-windows-dbg done
+-- Configuring x64-windows-rel
+-- Configuring x64-windows-rel done
+-- Package x64-windows-dbg
+-- Package x64-windows-rel
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/harfbuzz_x64-windows/lib/pkgconfig/harfbuzz-subset.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/harfbuzz_x64-windows/lib/pkgconfig/harfbuzz.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/harfbuzz_x64-windows/debug/lib/pkgconfig/harfbuzz-subset.pc
+-- Fixing pkgconfig file: C:/ARDOURCUSTOM/ardour/vcpkg/packages/harfbuzz_x64-windows/debug/lib/pkgconfig/harfbuzz.pc
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/harfbuzz_x64-windows/share/harfbuzz/copyright
+-- Installing: C:/ARDOURCUSTOM/ardour/vcpkg/packages/harfbuzz_x64-windows/share/harfbuzz/usage
+-- Performing post-build validation
+Starting submission of harfbuzz[core,freetype]:x64-windows@12.3.2 to 1 binary cache(s) in the background
+Elapsed time to handle harfbuzz:x64-windows: 7.2 min
+Completed submission of freetype[brotli,bzip2,core,png,zlib]:x64-windows@2.13.3 to 1 binary cache(s) in 915 ms
+Installing 39/53 fribidi:x64-windows@1.0.16...
+fribidi:x64-windows@1.0.16 package ABI: 1fa4fa53d8b2ee2c6ed869451a30b48bfee5296bf3e767b43c140a8533e1f5bb
+Building fribidi:x64-windows@1.0.16...
+-- Found Python version '3.14.2 at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/python/python-3.14.2-x64-1/python.exe'
+-- Using meson: C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/meson-1.9.0-d1fcc2/meson.py
+Downloading https://github.com/fribidi/fribidi/archive/v1.0.16.tar.gz -> fribidi-fribidi-v1.0.16.tar.gz
+Successfully downloaded fribidi-fribidi-v1.0.16.tar.gz
+-- Extracting source C:/ARDOURCUSTOM/ardour/vcpkg/downloads/fribidi-fribidi-v1.0.16.tar.gz
+-- Applying patch meson-crosscompile.patch
+-- Using source at C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/fribidi/src/v1.0.16-f8a9d8c141.clean
+Downloading msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst, trying https://mirror.msys2.org/mingw/mingw64/mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Successfully downloaded msys2-mingw-w64-x86_64-pkgconf-1~2.5.1-1-any.pkg.tar.zst
+Downloading msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst, trying https://mirror.msys2.org/msys/x86_64/msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+Successfully downloaded msys2-msys2-runtime-3.6.5-1-x86_64.pkg.tar.zst
+-- Using msys root at C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/msys2/3e71d1f8e22ab23f
+-- Configuring x64-windows-dbg
+-- Getting CMake variables for x64-windows
+-- Loading CMake variables from C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/fribidi/cmake-get-vars_C_CXX-x64-windows.cmake.log
+CMake Error at scripts/cmake/vcpkg_execute_required_process.cmake:127 (message):
+    Command failed: C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/python/python-3.14.2-x64-1/python.exe -I C:/ARDOURCUSTOM/ardour/vcpkg/downloads/tools/meson-1.9.0-d1fcc2/meson.py setup -Ddocs=false -Dbin=false -Dtests=false --backend ninja --wrap-mode nodownload -Doptimization=plain --native C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/fribidi/meson-x64-windows-dbg.log --libdir lib --pkgconfig.relocatable -Ddebug=true --prefix C:/ARDOURCUSTOM/ardour/vcpkg/packages/fribidi_x64-windows/debug --includedir ../include --pkg-config-path ['C:/ARDOURCUSTOM/ardour/vcpkg/installed/x64-windows/debug/lib/pkgconfig','C:/ARDOURCUSTOM/ardour/vcpkg/installed/x64-windows/share/pkgconfig'] -Dcmake_prefix_path=['C:/ARDOURCUSTOM/ardour/vcpkg/installed/x64-windows/debug','C:/ARDOURCUSTOM/ardour/vcpkg/installed/x64-windows','C:/ARDOURCUSTOM/ardour/vcpkg/installed/x64-windows/share'] C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/fribidi/src/v1.0.16-f8a9d8c141.clean
+    Working Directory: C:/ARDOURCUSTOM/ardour/vcpkg/buildtrees/fribidi/x64-windows-dbg
+    Error code: 1
+    See logs for more information:
+      C:\ARDOURCUSTOM\ardour\vcpkg\buildtrees\fribidi\config-x64-windows-dbg-meson-log.txt.log
+      C:\ARDOURCUSTOM\ardour\vcpkg\buildtrees\fribidi\config-x64-windows-dbg-out.log
+
+Call Stack (most recent call first):
+  installed/x64-windows/share/vcpkg-tool-meson/vcpkg_configure_meson.cmake:484 (vcpkg_execute_required_process)
+  buildtrees/versioning_/versions/fribidi/78a1f18b18748b0e5dec7f2f8451605260f348af/portfile.cmake:19 (vcpkg_configure_meson)
+  scripts/ports.cmake:206 (include)
+
+
+error: building fribidi:x64-windows failed with: BUILD_FAILED
+See https://learn.microsoft.com/vcpkg/troubleshoot/build-failures?WT.mc_id=vcpkg_inproduct_cli for more information.
+Elapsed time to handle fribidi:x64-windows: 17 s
+Please ensure you're using the latest port files with `git pull` and `vcpkg update`.
+Then check for known issues at:
+  https://github.com/microsoft/vcpkg/issues?q=is%3Aissue+is%3Aopen+in%3Atitle+fribidi
+You can submit a new issue at:
+  https://github.com/microsoft/vcpkg/issues/new?title=%5Bfribidi%5D%20build%20error%20on%20x64-windows&body=Copy%20issue%20body%20from%20C%3A%2FARDOURCUSTOM%2Fardour%2Fvcpkg%2Finstalled%2Fvcpkg%2Fissue_body.md
+You can also submit an issue by running (GitHub CLI must be installed):
+  "C:\Program Files\GitHub CLI\gh.exe" issue create -R microsoft/vcpkg --title "[fribidi] Build failure on x64-windows" --body-file C:/ARDOURCUSTOM/ardour/vcpkg/installed/vcpkg/issue_body.md
+Completed submission of harfbuzz[core,freetype]:x64-windows@12.3.2 to 1 binary cache(s) in 7.9 s
