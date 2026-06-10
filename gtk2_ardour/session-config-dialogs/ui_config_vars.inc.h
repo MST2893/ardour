@@ -56,7 +56,11 @@ UI_CONFIG_VARIABLE (bool, highlight_auditioned_clips, "highlight-auditioned-clip
 UI_CONFIG_VARIABLE (bool, default_narrow_ms, "default-narrow_ms", false)
 UI_CONFIG_VARIABLE (bool, name_new_markers, "name-new-markers", false)
 UI_CONFIG_VARIABLE (bool, rubberbanding_snaps_to_grid, "rubberbanding-snaps-to-grid", false)
+#ifdef PLATFORM_WINDOWS
+UI_CONFIG_VARIABLE (int32_t, font_scale, "font-scale", 1024 * ARDOUR_UI_UTILS::guess_default_ui_scale ())
+#else
 UI_CONFIG_VARIABLE (int32_t, font_scale, "font-scale", 102400)
+#endif
 UI_CONFIG_VARIABLE (bool, show_waveforms, "show-waveforms", true)
 UI_CONFIG_VARIABLE (bool, show_waveforms_while_recording, "show-waveforms-while-recording", true)
 UI_CONFIG_VARIABLE (ARDOUR::WaveformScale, waveform_scale, "waveform-scale", Logarithmic)

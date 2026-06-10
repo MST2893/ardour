@@ -31,6 +31,7 @@
 #include "gtk2ardour-config.h"
 #endif
 
+#include <algorithm>
 #include <cctype>
 #include <clocale>
 #include <cmath>
@@ -40,6 +41,13 @@
 #include <sys/stat.h>
 
 #include <boost/algorithm/string.hpp>
+
+#ifdef PLATFORM_WINDOWS
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+#include <windows.h>
+#endif
 
 #include <ytk/gtkpaned.h>
 #include <ytkmm/label.h>
@@ -90,6 +98,29 @@ namespace ARDOUR_UI_UTILS
 
 #ifdef PLATFORM_WINDOWS
 #define random() rand ()
+#endif
+
+#ifdef PLATFORM_WINDOWS
+static int
+windows_system_ui_scale ()
+{
+	HDC hdc = GetDC (NULL);
+	if (!hdc) {
+		return 0;
+	}
+
+	const int dpi_x = GetDeviceCaps (hdc, LOGPIXELSX);
+	const int dpi_y = GetDeviceCaps (hdc, LOGPIXELSY);
+	ReleaseDC (NULL, hdc);
+
+	const int dpi = std::max (dpi_x, dpi_y);
+	if (dpi <= 0) {
+		return 0;
+	}
+
+	const int scale = (int) floor ((dpi * 100.0 / 96.0) + 0.5);
+	return std::max (50, std::min (250, scale));
+}
 #endif
 
 /** Add an element to a menu, settings its sensitivity.
@@ -645,6 +676,13 @@ int
 ARDOUR_UI_UTILS::guess_default_ui_scale ()
 {
 #ifdef __APPLE__
+	return 100;
+#elif defined PLATFORM_WINDOWS
+	const int scale = windows_system_ui_scale ();
+	if (scale > 0) {
+		return scale;
+	}
+
 	return 100;
 #else
 	gint width = 0;

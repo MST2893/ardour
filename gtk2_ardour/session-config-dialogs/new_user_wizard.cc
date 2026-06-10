@@ -71,6 +71,9 @@ using namespace PBD;
 using namespace ARDOUR;
 using namespace ARDOUR_UI_UTILS;
 
+static const int ui_font_scale_values[] = { 100, 125, 150, 175, 200, 250 };
+static const int ui_font_scale_values_count = sizeof (ui_font_scale_values) / sizeof (ui_font_scale_values[0]);
+
 #ifdef __APPLE__
 extern void set_default_cocoa_invalidation (); // cocoacarbon.mm
 #endif
@@ -161,11 +164,10 @@ using the program.</span> \
 	Label* bazmatic = manage (new Label);
 	bazmatic->set_markup (_("<small><i>This can later be changed in Preferences &gt; Appearance.</i></small>"));
 
-	ui_font_scale.append (_("100%"));
-	ui_font_scale.append (_("150%"));
-	ui_font_scale.append (_("200%"));
-	ui_font_scale.append (_("250%"));
-	ui_font_scale.set_active_text (_("100%"));
+	for (int i = 0; i < ui_font_scale_values_count; ++i) {
+		ui_font_scale.append (string_compose (X_("%1%%"), ui_font_scale_values[i]));
+	}
+	ui_font_scale.set_active (0);
 
 	HBox* hbox = manage (new HBox);
 	HBox* cbox = manage (new HBox);
@@ -183,16 +185,17 @@ using the program.</span> \
 	hbox->show ();
 	cbox->show ();
 
-	int ui_scale = guess_default_ui_scale ();
-	if (ui_scale <= 100) {
-		ui_font_scale.set_active (0); // 100%
-	} else if (ui_scale <= 150) {
-		ui_font_scale.set_active (1); // 150%
-	} else if (ui_scale <= 200) {
-		ui_font_scale.set_active (2); // 200%
-	} else {
-		ui_font_scale.set_active (3); // 250%
+	const int ui_scale = guess_default_ui_scale ();
+	int best_row = 0;
+	int best_delta = abs (ui_scale - ui_font_scale_values[0]);
+	for (int i = 1; i < ui_font_scale_values_count; ++i) {
+		const int delta = abs (ui_scale - ui_font_scale_values[i]);
+		if (delta < best_delta) {
+			best_delta = delta;
+			best_row = i;
+		}
 	}
+	ui_font_scale.set_active (best_row);
 	rescale_ui ();
 
 	ui_font_scale.signal_changed ().connect (sigc::mem_fun (*this, &NewUserWizard::rescale_ui));
@@ -215,7 +218,10 @@ NewUserWizard::rescale_ui ()
 	if (rn < 0) {
 		return;
 	}
-	float ui_scale = 100 + rn * 50;
+	if (rn >= ui_font_scale_values_count) {
+		return;
+	}
+	float ui_scale = ui_font_scale_values[rn];
 	UIConfiguration::instance ().set_font_scale (1024 * ui_scale);
 	UIConfiguration::instance ().reset_dpi ();
 }
