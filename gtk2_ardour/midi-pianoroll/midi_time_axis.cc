@@ -1456,6 +1456,8 @@ MidiTimeAxisView::update_control_names ()
 		controls_ebox.set_name (controls_base_unselected_name);
 		time_axis_frame.set_name (controls_base_unselected_name);
 	}
+
+	update_track_header_color ();
 }
 
 void
@@ -1859,4 +1861,3 @@ MidiTimeAxisView::exited ()
 	TimeAxisView::exited();
 	_editor.disable_midi_bindings ();
 }
-

@@ -38,6 +38,7 @@
 #include "ardour/session.h"
 
 #include "pbd/memento_command.h"
+#include "pbd/stateful_diff_command.h"
 
 #include "evoral/Curve.h"
 
@@ -132,6 +133,7 @@ AudioRegionView::AudioRegionView (ArdourCanvas::Container *parent, RouteTimeAxis
 	, _rfx_id (0)
 	, _rdx_param (UINT32_MAX)
 	, _ignore_line_change (false)
+	, _elastic_audio_show_transient_candidates (false)
 {
 }
 
@@ -155,6 +157,7 @@ AudioRegionView::AudioRegionView (ArdourCanvas::Container *parent, RouteTimeAxis
 	, _rfx_id (0)
 	, _rdx_param (UINT32_MAX)
 	, _ignore_line_change (false)
+	, _elastic_audio_show_transient_candidates (false)
 {
 }
 
@@ -177,6 +180,7 @@ AudioRegionView::AudioRegionView (const AudioRegionView& other, std::shared_ptr<
 	, _rfx_id (0)
 	, _rdx_param (UINT32_MAX)
 	, _ignore_line_change (false)
+	, _elastic_audio_show_transient_candidates (other._elastic_audio_show_transient_candidates)
 {
 	init (true);
 }
@@ -340,6 +344,10 @@ AudioRegionView::region_changed (const PropertyChange& what_changed)
 	if (what_changed.contains (ARDOUR::Properties::valid_transients)) {
 		transients_changed ();
 	}
+	if (what_changed.contains (ARDOUR::Properties::elastic_audio)) {
+		invalidate_waveform ();
+		transients_changed ();
+	}
 }
 
 void
@@ -461,18 +469,7 @@ AudioRegionView::region_resized (const PropertyChange& what_changed)
 			}
 		}
 
-		/* hide transient lines that extend beyond the region */
-		list<std::pair<samplepos_t, ArdourCanvas::Line*> >::iterator l;
-		samplepos_t first = _region->first_sample();
-		samplepos_t last = _region->last_sample();
-
-		for (l = feature_lines.begin(); l != feature_lines.end(); ++l) {
-			if (l->first < first || l->first >= last) {
-				l->second->hide();
-			} else {
-				l->second->show();
-			}
-		}
+		transients_changed ();
 	}
 }
 
@@ -499,32 +496,7 @@ AudioRegionView::reset_width_dependent_items (double pixel_width)
 
 	reset_fade_shapes ();
 
-	/* Update feature lines */
-	AnalysisFeatureList analysis_features;
-	_region->transients (analysis_features);
-
-	if (feature_lines.size () != analysis_features.size ()) {
-		cerr << "postponed freature line update.\n"; // XXX
-		// AudioRegionView::transients_changed () will pick up on this
-		return;
-	}
-
-	samplepos_t position = _region->position_sample();
-
-	AnalysisFeatureList::const_iterator i;
-	list<std::pair<samplepos_t, ArdourCanvas::Line*> >::iterator l;
-	double y1;
-	if (_height >= NAME_HIGHLIGHT_THRESH) {
-		y1 = _height - TimeAxisViewItem::NAME_HIGHLIGHT_SIZE - 1;
-	} else {
-		y1 = _height - 1;
-	}
-	for (i = analysis_features.begin(), l = feature_lines.begin(); i != analysis_features.end() && l != feature_lines.end(); ++i, ++l) {
-		float x_pos = trackview.editor().sample_to_pixel ((*i) - position);
-		(*l).first = *i;
-		(*l).second->set (ArdourCanvas::Duple (x_pos, 2.0),
-				  ArdourCanvas::Duple (x_pos, y1));
-	}
+	transients_changed ();
 }
 
 void
@@ -623,20 +595,7 @@ AudioRegionView::set_height (gdouble height)
 
 	reset_fade_shapes ();
 
-	/* Update heights for any feature lines */
-	samplepos_t position = _region->position_sample();
-	list<std::pair<samplepos_t, ArdourCanvas::Line*> >::iterator l;
-	double y1;
-	if (_height >= NAME_HIGHLIGHT_THRESH) {
-		y1 = _height - TimeAxisViewItem::NAME_HIGHLIGHT_SIZE - 1;
-	} else {
-		y1 = _height - 1;
-	}
-	for (l = feature_lines.begin(); l != feature_lines.end(); ++l) {
-		float pos_x = trackview.editor().sample_to_pixel((*l).first - position);
-		(*l).second->set (ArdourCanvas::Duple (pos_x, 2.0),
-				ArdourCanvas::Duple (pos_x, y1));
-	}
+	transients_changed ();
 
 	if (name_text) {
 		name_text->raise_to_top();
@@ -1819,11 +1778,68 @@ AudioRegionView::update_coverage_frame (LayerDisplay d)
 void
 AudioRegionView::transients_changed ()
 {
+	struct FeatureDisplay {
+		FeatureDisplay (samplepos_t s, samplepos_t d, bool a, bool c)
+			: source (s)
+			, display (d)
+			, active (a)
+			, candidate (c)
+		{}
+
+		samplepos_t source;
+		samplepos_t display;
+		bool       active;
+		bool       candidate;
+	};
+
 	AnalysisFeatureList analysis_features;
-	_region->transients (analysis_features);
+	std::vector<AudioRegion::ElasticAudioAnchor> elastic_anchors;
+	std::vector<FeatureDisplay> feature_display;
+
 	samplepos_t position = _region->position_sample();
 	samplepos_t first = _region->first_sample();
 	samplepos_t last = _region->last_sample();
+	const bool elastic = elastic_audio_editing ();
+
+	if (elastic && _elastic_audio_show_transient_candidates) {
+		audio_region()->get_transients (analysis_features);
+	}
+
+	if (elastic) {
+		audio_region()->get_elastic_audio_anchors (elastic_anchors);
+	}
+
+	std::vector<bool> used_elastic_anchor (elastic_anchors.size (), false);
+
+	for (AnalysisFeatureList::const_iterator i = analysis_features.begin (); i != analysis_features.end (); ++i) {
+		bool active_elastic_anchor = false;
+		samplepos_t display_sample = *i;
+
+		if (elastic) {
+			for (size_t a = 0; a != elastic_anchors.size (); ++a) {
+				if (elastic_anchors[a].source == *i) {
+					display_sample = elastic_anchors[a].target;
+					active_elastic_anchor = true;
+					used_elastic_anchor[a] = true;
+					break;
+				}
+			}
+		}
+
+		feature_display.push_back (FeatureDisplay (*i, display_sample, active_elastic_anchor, true));
+	}
+
+	if (elastic) {
+		for (size_t a = 0; a != elastic_anchors.size (); ++a) {
+			if (!used_elastic_anchor[a]) {
+				feature_display.push_back (FeatureDisplay (elastic_anchors[a].source, elastic_anchors[a].target, true, false));
+			}
+		}
+	}
+
+	sort (feature_display.begin (), feature_display.end (), [] (FeatureDisplay const& a, FeatureDisplay const& b) {
+		return a.display < b.display;
+	});
 
 	double y1;
 	if (_height >= NAME_HIGHLIGHT_THRESH) {
@@ -1832,10 +1848,11 @@ AudioRegionView::transients_changed ()
 		y1 = _height - 1;
 	}
 
-	while (feature_lines.size() < analysis_features.size()) {
+	while (feature_lines.size() < feature_display.size()) {
 		ArdourCanvas::Line* canvas_item = new ArdourCanvas::Line(group);
 		CANVAS_DEBUG_NAME (canvas_item, string_compose ("transient group for %1", region()->name()));
 		canvas_item->set_outline_color (UIConfiguration::instance().color ("zero line")); // also in Editor::leave_handler()
+		canvas_item->set_outline_width (2.0);
 
 		canvas_item->set (ArdourCanvas::Duple (-1.0, 2.0),
 				  ArdourCanvas::Duple (1.0, y1));
@@ -1849,19 +1866,18 @@ AudioRegionView::transients_changed ()
 		feature_lines.push_back (make_pair(0, canvas_item));
 	}
 
-	while (feature_lines.size() > analysis_features.size()) {
+	while (feature_lines.size() > feature_display.size()) {
 		ArdourCanvas::Line* line = feature_lines.back().second;
 		feature_lines.pop_back ();
 		delete line;
 	}
 
-	AnalysisFeatureList::const_iterator i;
+	std::vector<FeatureDisplay>::const_iterator i;
 	list<std::pair<samplepos_t, ArdourCanvas::Line*> >::iterator l;
 
-	for (i = analysis_features.begin(), l = feature_lines.begin(); i != analysis_features.end() && l != feature_lines.end(); ++i, ++l) {
-
+	for (i = feature_display.begin(), l = feature_lines.begin(); i != feature_display.end() && l != feature_lines.end(); ++i, ++l) {
 		float *pos = new float;
-		*pos = trackview.editor().sample_to_pixel (*i - position);
+		*pos = trackview.editor().sample_to_pixel (i->display - position);
 
 		(*l).second->set (
 			ArdourCanvas::Duple (*pos, 2.0),
@@ -1869,9 +1885,18 @@ AudioRegionView::transients_changed ()
 			);
 
 		(*l).second->set_data ("position", pos); // is this *modified* (drag?), if not use *i
-		(*l).first = *i;
+		(*l).second->set_data (X_("elastic-candidate"), (elastic && i->candidate) ? this : 0);
+		(*l).second->set_data (X_("elastic-active"), i->active ? this : 0);
+		(*l).first = i->source;
+		if (elastic) {
+			(*l).second->set_outline_color (i->active ? 0xff9f2aff : 0x66b7ffff);
+			(*l).second->set_outline_width (i->active ? 3.0 : 2.0);
+		} else {
+			(*l).second->set_outline_color (UIConfiguration::instance().color ("zero line"));
+			(*l).second->set_outline_width (1.0);
+		}
 
-		if (l->first < first || l->first >= last) {
+		if (i->display < first || i->display >= last) {
 			l->second->hide();
 		} else {
 			l->second->show();
@@ -1917,6 +1942,175 @@ AudioRegionView::remove_transient (float pos)
 			_region->remove_transient ((*l).first);
 			break;
 		}
+	}
+}
+
+bool
+AudioRegionView::elastic_audio_editing () const
+{
+	RouteTimeAxisView const* rtv = dynamic_cast<RouteTimeAxisView const*> (&trackview);
+	return rtv && rtv->elastic_audio_editing ();
+}
+
+bool
+AudioRegionView::elastic_audio_anchor_at (float pos) const
+{
+	return elastic_audio_anchor_source_at (pos) >= 0;
+}
+
+samplepos_t
+AudioRegionView::elastic_audio_anchor_source_at (float pos) const
+{
+	if (!elastic_audio_editing ()) {
+		return -1;
+	}
+
+	for (list<std::pair<samplepos_t, ArdourCanvas::Line*> >::const_iterator l = feature_lines.begin(); l != feature_lines.end(); ++l) {
+		float* line_pos = (float*) l->second->get_data ("position");
+		if (line_pos && rint (pos) == rint (*line_pos) && audio_region()->has_elastic_audio_anchor (l->first)) {
+			return l->first;
+		}
+	}
+
+	return -1;
+}
+
+void
+AudioRegionView::activate_elastic_audio_anchor (float pos)
+{
+	if (!elastic_audio_editing ()) {
+		return;
+	}
+
+	for (list<std::pair<samplepos_t, ArdourCanvas::Line*> >::iterator l = feature_lines.begin(); l != feature_lines.end(); ++l) {
+		float* line_pos = (float*) l->second->get_data ("position");
+		if (!line_pos || rint (pos) != rint (*line_pos)) {
+			continue;
+		}
+
+		std::shared_ptr<AudioRegion> ar = audio_region ();
+		if (ar->has_elastic_audio_anchor (l->first)) {
+			return;
+		}
+
+		const samplepos_t target = trackview.editor().pixel_to_sample (pos) + _region->position_sample ();
+
+		trackview.editor().begin_reversible_command (_("activate elastic audio anchor"));
+		ar->clear_changes ();
+		ar->add_elastic_audio_anchor (l->first, target);
+		trackview.session()->add_command (new StatefulDiffCommand (ar));
+		trackview.editor().commit_reversible_command ();
+		trackview.session()->set_dirty ();
+		return;
+	}
+}
+
+void
+AudioRegionView::create_elastic_audio_anchor (samplepos_t where)
+{
+	if (!elastic_audio_editing () || where < _region->first_sample () || where >= _region->last_sample ()) {
+		return;
+	}
+
+	std::shared_ptr<AudioRegion> ar = audio_region ();
+	if (ar->has_elastic_audio_anchor (where)) {
+		return;
+	}
+
+	trackview.editor().begin_reversible_command (_("create elastic audio anchor"));
+	ar->clear_changes ();
+	ar->add_elastic_audio_anchor (where, where);
+	trackview.session()->add_command (new StatefulDiffCommand (ar));
+	trackview.editor().commit_reversible_command ();
+	trackview.session()->set_dirty ();
+}
+
+void
+AudioRegionView::update_elastic_audio_anchor (samplepos_t source, float new_pos)
+{
+	if (!elastic_audio_editing () || source < 0 || _region->last_sample () <= _region->first_sample ()) {
+		return;
+	}
+
+	std::shared_ptr<AudioRegion> ar = audio_region ();
+	if (!ar->has_elastic_audio_anchor (source)) {
+		return;
+	}
+
+	samplepos_t target = trackview.editor().pixel_to_sample (new_pos) + _region->position_sample ();
+	target = std::max (_region->first_sample (), std::min (_region->last_sample () - 1, target));
+
+	trackview.editor().begin_reversible_command (_("move elastic audio anchor"));
+	ar->clear_changes ();
+	ar->update_elastic_audio_anchor (source, target);
+	trackview.session()->add_command (new StatefulDiffCommand (ar));
+	trackview.editor().commit_reversible_command ();
+	trackview.session()->set_dirty ();
+}
+
+void
+AudioRegionView::remove_elastic_audio_anchor (float pos)
+{
+	if (!elastic_audio_editing ()) {
+		return;
+	}
+
+	for (list<std::pair<samplepos_t, ArdourCanvas::Line*> >::iterator l = feature_lines.begin(); l != feature_lines.end(); ++l) {
+		float* line_pos = (float*) l->second->get_data ("position");
+		if (!line_pos || rint (pos) != rint (*line_pos)) {
+			continue;
+		}
+
+		std::shared_ptr<AudioRegion> ar = audio_region ();
+		if (!ar->has_elastic_audio_anchor (l->first)) {
+			return;
+		}
+
+		trackview.editor().begin_reversible_command (_("remove elastic audio anchor"));
+		ar->clear_changes ();
+		ar->remove_elastic_audio_anchor (l->first);
+		trackview.session()->add_command (new StatefulDiffCommand (ar));
+		trackview.editor().commit_reversible_command ();
+		trackview.session()->set_dirty ();
+		return;
+	}
+}
+
+void
+AudioRegionView::redisplay_transient_features (bool detect_transients)
+{
+	_elastic_audio_show_transient_candidates = detect_transients;
+	transients_changed ();
+}
+
+void
+AudioRegionView::clear_elastic_audio ()
+{
+	_elastic_audio_show_transient_candidates = false;
+
+	std::shared_ptr<AudioRegion> ar = audio_region ();
+	std::vector<AudioRegion::ElasticAudioAnchor> anchors;
+	ar->get_elastic_audio_anchors (anchors);
+
+	if (!anchors.empty ()) {
+		trackview.editor().begin_reversible_command (_("clear elastic audio"));
+		ar->clear_changes ();
+		ar->clear_elastic_audio_anchors ();
+		trackview.session()->add_command (new StatefulDiffCommand (ar));
+		trackview.editor().commit_reversible_command ();
+		trackview.session()->set_dirty ();
+	} else {
+		transients_changed ();
+		invalidate_waveform ();
+	}
+}
+
+void
+AudioRegionView::invalidate_waveform ()
+{
+	ArdourWaveView::WaveView::clear_cache ();
+	for (uint32_t n = 0; n < waves.size(); ++n) {
+		waves[n]->invalidate_image ();
 	}
 }
 

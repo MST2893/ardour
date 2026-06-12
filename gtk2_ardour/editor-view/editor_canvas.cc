@@ -1626,7 +1626,13 @@ Editor::leave_handler (ArdourCanvas::Item* item, GdkEvent*, ItemType item_type)
 	case FeatureLineItem:
 	{
 		ArdourCanvas::Line *line = dynamic_cast<ArdourCanvas::Line *> (item);
-		line->set_outline_color (UIConfiguration::instance().color ("zero line"));
+		if (item->get_data (X_("elastic-active"))) {
+			line->set_outline_color (0xff9f2aff);
+		} else if (item->get_data (X_("elastic-candidate"))) {
+			line->set_outline_color (0x66b7ffff);
+		} else {
+			line->set_outline_color (UIConfiguration::instance().color ("zero line"));
+		}
 	}
 	break;
 

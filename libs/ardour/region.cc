@@ -69,6 +69,7 @@ namespace ARDOUR {
 		PBD::PropertyDescriptor<bool> hidden;
 		PBD::PropertyDescriptor<bool> position_locked;
 		PBD::PropertyDescriptor<bool> valid_transients;
+		PBD::PropertyDescriptor<bool> elastic_audio;
 		PBD::PropertyDescriptor<timepos_t> start;
 		PBD::PropertyDescriptor<timecnt_t> length;
 		PBD::PropertyDescriptor<double> beat;
@@ -164,6 +165,8 @@ Region::make_property_quarks ()
 	DEBUG_TRACE (DEBUG::Properties, string_compose ("quark for position-locked = %1\n", Properties::position_locked.property_id));
 	Properties::valid_transients.property_id = g_quark_from_static_string (X_("valid-transients"));
 	DEBUG_TRACE (DEBUG::Properties, string_compose ("quark for valid-transients = %1\n", Properties::valid_transients.property_id));
+	Properties::elastic_audio.property_id = g_quark_from_static_string (X_("elastic-audio"));
+	DEBUG_TRACE (DEBUG::Properties, string_compose ("quark for elastic-audio = %1\n", Properties::elastic_audio.property_id));
 	Properties::start.property_id = g_quark_from_static_string (X_("start"));
 	DEBUG_TRACE (DEBUG::Properties, string_compose ("quark for start = %1\n", Properties::start.property_id));
 	Properties::length.property_id = g_quark_from_static_string (X_("length"));

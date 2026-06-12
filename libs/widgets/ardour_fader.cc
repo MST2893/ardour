@@ -41,6 +41,15 @@ using namespace ArdourWidgets;
 #define CORNER_OFFSET 1
 #define FADER_RESERVE 6
 
+static bool
+is_mixer_strip_fader (Glib::ustring const& name)
+{
+	return name == "AudioTrackFader" ||
+	       name == "AudioBusFader" ||
+	       name == "MidiTrackFader" ||
+	       name == "SendStripBase";
+}
+
 std::list<ArdourFader::FaderImage*> ArdourFader::_patterns;
 
 ArdourFader::ArdourFader (Gtk::Adjustment& adj, int orientation, int fader_length, int fader_girth)
@@ -239,6 +248,78 @@ void
 ArdourFader::render (Cairo::RefPtr<Cairo::Context> const& ctx, cairo_rectangle_t* area)
 {
 	cairo_t* cr = ctx->cobj();
+	OnExpose();
+	int ds = display_span ();
+	const float w = get_width();
+	const float h = get_height();
+
+	if (_orien == VERT && is_mixer_strip_fader (get_name())) {
+		CairoWidget::set_source_rgb_a (cr, get_parent_bg(), 1);
+		cairo_rectangle (cr, 0, 0, w, h);
+		cairo_fill (cr);
+
+		const double slot_w = std::max (3.0, std::min (5.0, floor (w * 0.18)));
+		const double slot_x = floor ((w - slot_w) * 0.5) + 0.5;
+		const double slot_y = 1.5;
+		const double slot_h = std::max (1.0, h - 3.0);
+
+		cairo_rectangle (cr, slot_x, slot_y, slot_w, slot_h);
+		cairo_set_source_rgba (cr, 0.015, 0.016, 0.016, 1.0);
+		cairo_fill (cr);
+		cairo_rectangle (cr, slot_x + 1.0, slot_y + 1.0, std::max (1.0, slot_w - 2.0), slot_h - 2.0);
+		cairo_set_source_rgba (cr, 0.17, 0.17, 0.16, 1.0);
+		cairo_fill (cr);
+
+		Gdk::Color accent = fg_color (get_state ());
+		cairo_rectangle (cr, slot_x + 1.0, std::max<double> (slot_y + 1.0, ds), std::max (1.0, slot_w - 2.0), std::max<double> (1.0, h - ds - 2.0));
+		cairo_set_source_rgba (cr, accent.get_red_p (), accent.get_green_p (), accent.get_blue_p (), 0.22);
+		cairo_fill (cr);
+
+		if (!(_tweaks & NoShowUnityLine) && _unity_loc > CORNER_RADIUS && _unity_loc < h - CORNER_RADIUS) {
+			cairo_set_line_width (cr, 1.0);
+			cairo_set_source_rgba (cr, 0.92, 0.92, 0.86, 0.55);
+			cairo_move_to (cr, slot_x - 2.0, _unity_loc + CORNER_OFFSET + .5);
+			cairo_line_to (cr, slot_x + slot_w + 2.0, _unity_loc + CORNER_OFFSET + .5);
+			cairo_stroke (cr);
+		}
+
+		const double cap_h = std::max (28.0, std::min (48.0, h * 0.145));
+		const double cap_w = std::max (16.0, std::min<double> (w - 3.0, 28.0));
+		const double cap_x = floor ((w - cap_w) * 0.5) + 0.5;
+		const double cap_y = std::max (2.0, std::min<double> (h - cap_h - 2.0, ds - cap_h * 0.5));
+		cairo_pattern_t* cap_pattern = cairo_pattern_create_linear (0.0, cap_y, 0.0, cap_y + cap_h);
+		cairo_pattern_add_color_stop_rgba (cap_pattern, 0.0, 0.58, 0.58, 0.55, 1.0);
+		cairo_pattern_add_color_stop_rgba (cap_pattern, 0.35, 0.44, 0.44, 0.42, 1.0);
+		cairo_pattern_add_color_stop_rgba (cap_pattern, 1.0, 0.28, 0.28, 0.27, 1.0);
+		Gtkmm2ext::rounded_rectangle (cr, cap_x, cap_y, cap_w, cap_h, 1.5);
+		cairo_set_source (cr, cap_pattern);
+		cairo_fill_preserve (cr);
+		cairo_pattern_destroy (cap_pattern);
+		cairo_set_line_width (cr, 1.0);
+		cairo_set_source_rgba (cr, 0.02, 0.02, 0.02, 0.95);
+		cairo_stroke (cr);
+
+		cairo_set_line_width (cr, 1.0);
+		for (int i = -1; i <= 1; ++i) {
+			const double mark_y = floor (cap_y + cap_h * 0.5 + (i * 5.0)) + 0.5;
+			cairo_set_source_rgba (cr, 0.12, 0.12, 0.12, i == 0 ? 0.75 : 0.45);
+			cairo_move_to (cr, cap_x + 4.0, mark_y);
+			cairo_line_to (cr, cap_x + cap_w - 4.0, mark_y);
+			cairo_stroke (cr);
+			cairo_set_source_rgba (cr, 0.80, 0.80, 0.76, 0.22);
+			cairo_move_to (cr, cap_x + 4.0, mark_y + 1.0);
+			cairo_line_to (cr, cap_x + cap_w - 4.0, mark_y + 1.0);
+			cairo_stroke (cr);
+		}
+
+		if (!get_sensitive()) {
+			Gtkmm2ext::rounded_rectangle (cr, CORNER_OFFSET, CORNER_OFFSET, w-CORNER_SIZE, h-CORNER_SIZE, CORNER_RADIUS);
+			cairo_set_source_rgba (cr, 0.505, 0.517, 0.525, 0.4);
+			cairo_fill (cr);
+		}
+
+		return;
+	}
 
 	if (!_pattern) {
 		create_patterns();
@@ -257,11 +338,6 @@ ArdourFader::render (Cairo::RefPtr<Cairo::Context> const& ctx, cairo_rectangle_t
 		cairo_fill (cr);
 		return;
 	}
-
-	OnExpose();
-	int ds = display_span ();
-	const float w = get_width();
-	const float h = get_height();
 
 	CairoWidget::set_source_rgb_a (cr, get_parent_bg(), 1);
 	cairo_rectangle (cr, 0, 0, w, h);

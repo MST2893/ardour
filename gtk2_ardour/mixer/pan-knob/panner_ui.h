@@ -30,6 +30,7 @@
 #include <ytkmm/arrow.h>
 #include <ytkmm/togglebutton.h>
 #include <ytkmm/button.h>
+#include <ydkmm/color.h>
 
 #include "ardour/session_handle.h"
 
@@ -71,6 +72,7 @@ public:
 	void setup_pan ();
 	void set_available_panners(std::map<std::string,std::string>);
 	void set_send_drawing_mode (bool);
+	void set_background_tint (Gdk::Color const&);
 
 	void effective_pan_display ();
 
@@ -152,5 +154,4 @@ private:
 	std::map<std::string,std::string> _panner_list;
 	bool _suspend_menu_callbacks;
 };
-
 

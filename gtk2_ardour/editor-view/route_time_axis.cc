@@ -28,6 +28,7 @@
 
 #include <cstdlib>
 #include <cassert>
+#include <cmath>
 
 #include <algorithm>
 #include <string>
@@ -64,6 +65,7 @@
 
 #include "canvas/debug.h"
 
+#include "gtkmm2ext/colors.h"
 #include "gtkmm2ext/gtk_ui.h"
 #include "gtkmm2ext/utils.h"
 
@@ -75,6 +77,7 @@
 #include "editor-view/audio_streamview.h"
 #include "platform-support/debug.h"
 #include "app-core/enums_convert.h"
+#include "editor-view/audio_region_view.h"
 #include "editor-view/route_time_axis.h"
 #include "automation/automation_time_axis.h"
 #include "app-core/enums.h"
@@ -106,6 +109,68 @@ using std::list;
 
 sigc::signal<void, bool> RouteTimeAxisView::signal_ctrl_touched;
 
+namespace {
+
+int
+route_axis_px_scale (int px)
+{
+	return std::max (px, (int) rint (px * UIConfiguration::instance().get_ui_scale()));
+}
+
+Gdk::Color
+mix_gdk_color (Gdk::Color const& base, Gdk::Color const& tint, double tint_amount)
+{
+	const double a = std::max (0.0, std::min (1.0, tint_amount));
+	const double b = 1.0 - a;
+	Gdk::Color mixed;
+
+	mixed.set_rgb_p ((base.get_red_p () * b) + (tint.get_red_p () * a),
+	                 (base.get_green_p () * b) + (tint.get_green_p () * a),
+	                 (base.get_blue_p () * b) + (tint.get_blue_p () * a));
+
+	return mixed;
+}
+
+void
+modify_bg_all_states (Gtk::Widget& widget, Gdk::Color const& color)
+{
+	widget.modify_bg (Gtk::STATE_NORMAL, color);
+	widget.modify_bg (Gtk::STATE_ACTIVE, color);
+	widget.modify_bg (Gtk::STATE_PRELIGHT, color);
+	widget.modify_bg (Gtk::STATE_SELECTED, color);
+	widget.modify_bg (Gtk::STATE_INSENSITIVE, color);
+}
+
+void
+modify_fg_all_states (Gtk::Widget& widget, Gdk::Color const& color)
+{
+	widget.modify_fg (Gtk::STATE_NORMAL, color);
+	widget.modify_fg (Gtk::STATE_ACTIVE, color);
+	widget.modify_fg (Gtk::STATE_PRELIGHT, color);
+	widget.modify_fg (Gtk::STATE_SELECTED, color);
+	widget.modify_fg (Gtk::STATE_INSENSITIVE, color);
+}
+
+void
+refresh_elastic_audio_region_view (RegionView* rv, bool detect_transients)
+{
+	AudioRegionView* arv = dynamic_cast<AudioRegionView*> (rv);
+	if (arv) {
+		arv->redisplay_transient_features (detect_transients);
+	}
+}
+
+void
+clear_elastic_audio_region_view (RegionView* rv)
+{
+	AudioRegionView* arv = dynamic_cast<AudioRegionView*> (rv);
+	if (arv) {
+		arv->clear_elastic_audio ();
+	}
+}
+
+} /* namespace */
+
 RouteTimeAxisView::RouteTimeAxisView (PublicEditor& ed, Session* sess, ArdourCanvas::Canvas& canvas)
 	: RouteUI(sess)
 	, StripableTimeAxisView(ed, sess, canvas)
@@ -114,6 +179,7 @@ RouteTimeAxisView::RouteTimeAxisView (PublicEditor& ed, Session* sess, ArdourCan
 	, route_group_button (S_("RTAV|G"))
 	, playlist_button (S_("RTAV|P"))
 	, automation_button (S_("RTAV|A"))
+	, elastic_audio_button (S_("Elastic|E"), ArdourButton::default_elements, true)
 	, automation_action_menu (0)
 	, plugins_submenu_item (0)
 	, route_group_menu (0)
@@ -121,6 +187,7 @@ RouteTimeAxisView::RouteTimeAxisView (PublicEditor& ed, Session* sess, ArdourCan
 	, stacked_menu_item (0)
 	, gm (sess, true, 75, 14)
 	, _ignore_set_layer_display (false)
+	, _elastic_audio_editing (false)
 	, pan_automation_item(NULL)
 {
 	subplugin_menu.set_name ("ArdourContextMenu");
@@ -135,6 +202,15 @@ RouteTimeAxisView::RouteTimeAxisView (PublicEditor& ed, Session* sess, ArdourCan
 	Controllable::ControlTouched.connect (
 			ctrl_touched_connection, invalidator (*this), std::bind (&RouteTimeAxisView::show_touched_automation, this, _1), gui_context ()
     );
+
+	route_color_side_bar.set_visible_window (true);
+	route_color_side_bar.set_size_request (route_axis_px_scale (5), -1);
+	route_color_side_bar.set_name (X_("EditorRouteColorBar"));
+	route_color_side_bar.add_events (Gdk::BUTTON_PRESS_MASK);
+	route_color_side_bar.signal_button_press_event().connect (sigc::mem_fun (*this, &RouteTimeAxisView::controls_ebox_button_press));
+	time_axis_hbox.pack_start (route_color_side_bar, false, false, 0);
+	time_axis_hbox.reorder_child (route_color_side_bar, 0);
+	route_color_side_bar.show ();
 
 	parameter_changed ("editor-stereo-only-meters");
 }
@@ -179,10 +255,12 @@ RouteTimeAxisView::set_route (std::shared_ptr<Route> rt)
 	route_group_button.set_name ("route button");
 	playlist_button.set_name ("route button");
 	automation_button.set_name ("route button");
+	elastic_audio_button.set_name ("route button");
 
 	route_group_button.signal_button_press_event().connect (sigc::mem_fun(*this, &RouteTimeAxisView::route_group_click), false);
 	playlist_button.signal_button_press_event().connect (sigc::mem_fun(*this, &RouteTimeAxisView::playlist_click), false);
 	automation_button.signal_button_press_event().connect (sigc::mem_fun(*this, &RouteTimeAxisView::automation_click), false);
+	elastic_audio_button.signal_button_press_event().connect (sigc::mem_fun(*this, &RouteTimeAxisView::elastic_audio_edit_button_press), false);
 
 	if (is_track()) {
 
@@ -264,6 +342,8 @@ RouteTimeAxisView::set_route (std::shared_ptr<Route> rt)
 		controls_table.attach (route_group_button, 4, 5, 2, 3, Gtk::SHRINK, Gtk::SHRINK, 0, 0);
 		controls_table.attach (gm.get_gain_slider(), 0, 2, 2, 3, Gtk::FILL|Gtk::EXPAND, Gtk::FILL|Gtk::EXPAND, 1, 0);
 	}
+	gm.get_gain_slider().set_no_show_all ();
+	gm.get_gain_slider().hide ();
 
 	set_tooltip(*solo_button,_("Solo"));
 	set_tooltip(*mute_button,_("Mute"));
@@ -274,6 +354,7 @@ RouteTimeAxisView::set_route (std::shared_ptr<Route> rt)
 	rec_enable_button->set_tweaks(ArdourButton::TrackHeader);
 	playlist_button.set_tweaks(ArdourButton::TrackHeader);
 	automation_button.set_tweaks(ArdourButton::TrackHeader);
+	elastic_audio_button.set_tweaks(ArdourButton::TrackHeader);
 	route_group_button.set_tweaks(ArdourButton::TrackHeader);
 
 	if (is_midi_track()) {
@@ -281,6 +362,11 @@ RouteTimeAxisView::set_route (std::shared_ptr<Route> rt)
 	} else {
 		set_tooltip(automation_button, _("Automation"));
 	}
+	set_tooltip (elastic_audio_button, _("Elastic audio editing: double-click transient lines or the waveform to create stretch anchors, drag active anchors, Alt-click active anchors to remove them."));
+
+	bool elastic_audio_enabled = false;
+	get_gui_property (X_("elastic-audio-editing"), elastic_audio_enabled);
+	set_elastic_audio_editing (elastic_audio_enabled, false);
 
 	update_track_number_visibility();
 	route_active_changed();
@@ -297,6 +383,14 @@ RouteTimeAxisView::set_route (std::shared_ptr<Route> rt)
 			controls_table.attach (playlist_button, 0, 1, 2, 3, Gtk::SHRINK, Gtk::SHRINK);
 		} else {
 			controls_table.attach (playlist_button, 2, 3, 2, 3, Gtk::SHRINK, Gtk::SHRINK);
+		}
+	}
+
+	if (is_audio_track()) {
+		if (ARDOUR::Profile->get_mixbus()) {
+			controls_table.attach (elastic_audio_button, 0, 1, 1, 2, Gtk::SHRINK, Gtk::SHRINK);
+		} else {
+			controls_table.attach (elastic_audio_button, 2, 3, 1, 2, Gtk::SHRINK, Gtk::SHRINK);
 		}
 	}
 
@@ -484,6 +578,7 @@ RouteTimeAxisView::route_active_changed ()
 {
 	RouteUI::route_active_changed ();
 	update_track_number_visibility ();
+	update_track_header_color ();
 }
 
 void
@@ -1021,6 +1116,41 @@ RouteTimeAxisView::hide_timestretch ()
 }
 
 void
+RouteTimeAxisView::set_elastic_audio_editing (bool yn, bool detect_transients)
+{
+	if (_elastic_audio_editing == yn) {
+		elastic_audio_button.set_active_state (yn ? Gtkmm2ext::ExplicitActive : Gtkmm2ext::Off);
+		if (yn && _view) {
+			_view->foreach_regionview (sigc::bind (sigc::ptr_fun (&refresh_elastic_audio_region_view), detect_transients));
+		}
+		return;
+	}
+
+	_elastic_audio_editing = yn;
+	set_gui_property (X_("elastic-audio-editing"), yn);
+	elastic_audio_button.set_active_state (yn ? Gtkmm2ext::ExplicitActive : Gtkmm2ext::Off);
+
+	if (_view) {
+		if (yn) {
+			_view->foreach_regionview (sigc::bind (sigc::ptr_fun (&refresh_elastic_audio_region_view), detect_transients));
+		} else {
+			_view->foreach_regionview (sigc::ptr_fun (&clear_elastic_audio_region_view));
+		}
+	}
+}
+
+bool
+RouteTimeAxisView::elastic_audio_edit_button_press (GdkEventButton* ev)
+{
+	if (ev->button != 1 || ev->type != GDK_BUTTON_PRESS || !is_audio_track ()) {
+		return false;
+	}
+
+	set_elastic_audio_editing (!_elastic_audio_editing);
+	return true;
+}
+
+void
 RouteTimeAxisView::show_selection (TimeSelection& ts)
 {
 
@@ -1062,7 +1192,7 @@ RouteTimeAxisView::set_height (uint32_t h, TrackHeightMode m, bool from_idle)
 
 		reset_meter();
 
-		gm.get_gain_slider().show();
+		gm.get_gain_slider().hide();
 		mute_button->show();
 		if (!_route || _route->is_monitor()) {
 			solo_button->hide();
@@ -1077,6 +1207,9 @@ RouteTimeAxisView::set_height (uint32_t h, TrackHeightMode m, bool from_idle)
 
 		if (is_track() && track()->mode() == ARDOUR::Normal) {
 			playlist_button.show();
+		}
+		if (is_audio_track()) {
+			elastic_audio_button.show ();
 		}
 
 	} else {
@@ -1099,6 +1232,7 @@ RouteTimeAxisView::set_height (uint32_t h, TrackHeightMode m, bool from_idle)
 		if (is_track() && track()->mode() == ARDOUR::Normal) {
 			playlist_button.hide ();
 		}
+		elastic_audio_button.hide ();
 
 	}
 
@@ -1122,6 +1256,72 @@ RouteTimeAxisView::route_color_changed ()
 	} else {
 		gm.unset_fader_fg ();
 	}
+
+	update_track_header_color ();
+}
+
+void
+RouteTimeAxisView::selection_display_changed ()
+{
+	update_track_header_color ();
+}
+
+void
+RouteTimeAxisView::update_track_header_color ()
+{
+	if (!_route) {
+		return;
+	}
+
+	Gdk::Color route_color = color ();
+	Gdk::Color base_color;
+	bool failed = false;
+
+	if (is_midi_track()) {
+		Gtkmm2ext::set_color_from_rgba (base_color, UIConfiguration::instance().color (X_("gtk_midi_track"), &failed));
+	} else if (is_audio_track()) {
+		Gtkmm2ext::set_color_from_rgba (base_color, UIConfiguration::instance().color (X_("gtk_audio_track"), &failed));
+	} else {
+		Gtkmm2ext::set_color_from_rgba (base_color, UIConfiguration::instance().color (X_("gtk_audio_bus"), &failed));
+	}
+
+	if (failed) {
+		Glib::RefPtr<Gtk::Style> style = controls_ebox.get_style ();
+		base_color = style ? style->get_bg (Gtk::STATE_NORMAL) : route_color;
+	}
+
+	double tint_amount;
+	if (selected ()) {
+		tint_amount = _route->active () ? 0.48 : 0.28;
+	} else {
+		tint_amount = _route->active () ? 0.22 : 0.12;
+	}
+
+	Gdk::Color header_tint = mix_gdk_color (base_color, route_color, tint_amount);
+	Gdk::Color label_fg;
+	label_fg.set_rgb_p (.93, .93, .93);
+
+	modify_bg_all_states (route_color_side_bar, route_color);
+	modify_bg_all_states (controls_ebox, header_tint);
+	modify_bg_all_states (time_axis_frame, header_tint);
+	modify_bg_all_states (time_axis_hbox, header_tint);
+	modify_bg_all_states (time_axis_vbox, header_tint);
+	modify_bg_all_states (top_hbox, header_tint);
+	modify_bg_all_states (controls_vbox, header_tint);
+	modify_bg_all_states (controls_table, header_tint);
+	modify_bg_all_states (inactive_table, header_tint);
+	modify_fg_all_states (name_label, label_fg);
+	modify_fg_all_states (inactive_label, label_fg);
+
+	route_color_side_bar.queue_draw ();
+	controls_ebox.queue_draw ();
+	time_axis_frame.queue_draw ();
+	time_axis_hbox.queue_draw ();
+	time_axis_vbox.queue_draw ();
+	top_hbox.queue_draw ();
+	controls_vbox.queue_draw ();
+	controls_table.queue_draw ();
+	inactive_table.queue_draw ();
 }
 
 void
@@ -1530,6 +1730,7 @@ RouteTimeAxisView::color_handler ()
 		timestretch_rect->set_fill_color (UIConfiguration::instance().color ("time stretch fill"));
 	}
 
+	update_track_header_color ();
 	reset_meter();
 }
 

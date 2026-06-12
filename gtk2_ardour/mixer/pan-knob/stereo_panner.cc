@@ -23,6 +23,7 @@
 #include <iomanip>
 #include <cstring>
 #include <cmath>
+#include <algorithm>
 
 #include <ytkmm/window.h>
 #include <pangomm/layout.h>
@@ -56,6 +57,132 @@ using namespace ARDOUR_UI_UTILS;
 
 using PBD::Controllable;
 
+namespace {
+
+double
+clamp_unit_interval (double value)
+{
+	return std::max (0.0, std::min (1.0, value));
+}
+
+void
+set_rgba (Cairo::RefPtr<Cairo::Context> const& context, uint32_t color)
+{
+	context->set_source_rgba (UINT_RGBA_R_FLT(color), UINT_RGBA_G_FLT(color), UINT_RGBA_B_FLT(color), UINT_RGBA_A_FLT(color));
+}
+
+std::string
+pro_tools_pan_text (double pos)
+{
+	int const pan = (int) rint ((clamp_unit_interval (pos) - 0.5) * 200.0);
+
+	if (pan < 0) {
+		return string_compose (X_("<%1"), -pan);
+	} else if (pan > 0) {
+		return string_compose (X_("%1>"), pan);
+	}
+
+	return X_("0");
+}
+
+void
+stereo_endpoints (double position, double width, double& left, double& right)
+{
+	left = clamp_unit_interval (position - (width * .5));
+	right = clamp_unit_interval (position + (width * .5));
+}
+
+bool
+valid_stereo_position_width (double position, double width)
+{
+	double right_pos;
+	double left_pos;
+
+	width = std::max (-1.0, std::min (1.0, width));
+	position = clamp_unit_interval (position);
+
+	right_pos = position + (width * .5);
+	left_pos = position - (width * .5);
+
+	if (width < 0.0) {
+		std::swap (right_pos, left_pos);
+	}
+
+	return left_pos >= 0.0 && right_pos <= 1.0;
+}
+
+void
+draw_pro_tools_pan_knob (Cairo::RefPtr<Cairo::Context> const& context, double cx, double cy, double radius, double pos, uint32_t tick_color, bool sensitive)
+{
+	static const double pi = 3.14159265358979323846;
+	double const angle = (-225.0 + (270.0 * clamp_unit_interval (pos))) * (pi / 180.0);
+	double const inner = std::max (1.0, radius - 3.0);
+	Cairo::RefPtr<Cairo::LinearGradient> knob_fill = Cairo::LinearGradient::create (cx, cy - radius, cx, cy + radius);
+
+	knob_fill->add_color_stop_rgb (0.0, .66, .66, .64);
+	knob_fill->add_color_stop_rgb (.48, .27, .27, .26);
+	knob_fill->add_color_stop_rgb (1.0, .08, .08, .08);
+
+	context->save ();
+	context->arc (cx, cy, radius, 0, 2.0 * pi);
+	context->set_source_rgb (.02, .02, .02);
+	context->fill_preserve ();
+	context->set_line_width (1.0);
+	context->set_source_rgb (.70, .70, .66);
+	context->stroke ();
+
+	context->arc (cx, cy, inner, 0, 2.0 * pi);
+	context->set_source (knob_fill);
+	context->fill_preserve ();
+	context->set_line_width (1.0);
+	context->set_source_rgb (.06, .06, .06);
+	context->stroke ();
+
+	context->set_line_width (std::max (1.2, radius * .18));
+	if (sensitive) {
+		set_rgba (context, tick_color);
+	} else {
+		context->set_source_rgb (.48, .48, .48);
+	}
+	context->move_to (cx + cos (angle) * (radius * .20), cy + sin (angle) * (radius * .20));
+	context->line_to (cx + cos (angle) * (radius * .72), cy + sin (angle) * (radius * .72));
+	context->stroke ();
+
+	context->set_line_width (1.0);
+	context->set_source_rgba (1.0, 1.0, 1.0, .25);
+	context->arc (cx - radius * .28, cy - radius * .34, radius * .18, 0, 2.0 * pi);
+	context->stroke ();
+	context->restore ();
+}
+
+void
+draw_pro_tools_pan_display (Cairo::RefPtr<Cairo::Context> const& context, Glib::RefPtr<Pango::Layout> const& layout, double x, double y, double w, double h, std::string const& text, bool sensitive)
+{
+	int tw;
+	int th;
+
+	context->save ();
+	context->rectangle (x, y, w, h);
+	context->set_source_rgb (.015, .025, .015);
+	context->fill_preserve ();
+	context->set_line_width (1.0);
+	context->set_source_rgb (.10, .16, .10);
+	context->stroke ();
+
+	layout->set_text (text);
+	layout->get_pixel_size (tw, th);
+	context->move_to (rint (x + ((w - tw) / 2.0)), rint (y + ((h - th) / 2.0)));
+	if (sensitive) {
+		context->set_source_rgb (.45, 1.0, .05);
+	} else {
+		context->set_source_rgb (.32, .45, .24);
+	}
+	pango_cairo_show_layout (context->cobj(), layout->gobj());
+	context->restore ();
+}
+
+} /* namespace */
+
 StereoPanner::ColorScheme StereoPanner::colors[3];
 
 uint32_t StereoPanner::colors_send_bg;
@@ -77,6 +204,8 @@ StereoPanner::StereoPanner (std::shared_ptr<PannerShell> p)
 	, dragging_right (false)
 	, drag_start_x (0)
 	, last_drag_x (0)
+	, drag_start_y (0)
+	, last_drag_y (0)
 	, accumulated_delta (0)
 	, detented (false)
 	, position_binder (position_control)
@@ -137,31 +266,50 @@ StereoPanner::set_tooltip ()
 	_tooltip.set_tip (buf);
 }
 
+void
+StereoPanner::set_endpoints (double left, double right)
+{
+	left = clamp_unit_interval (left);
+	right = clamp_unit_interval (right);
+
+	double const target_position = (left + right) * .5;
+	double const target_width = right - left;
+	double const current_position = position_control->get_value ();
+	double const current_width = width_control->get_value ();
+
+	_panner->freeze ();
+
+	if (valid_stereo_position_width (target_position, current_width)) {
+		position_control->set_value (target_position, Controllable::NoGroup);
+		width_control->set_value (target_width, Controllable::NoGroup);
+	} else if (valid_stereo_position_width (current_position, target_width)) {
+		width_control->set_value (target_width, Controllable::NoGroup);
+		position_control->set_value (target_position, Controllable::NoGroup);
+	} else {
+		width_control->set_value (0.0, Controllable::NoGroup);
+		position_control->set_value (target_position, Controllable::NoGroup);
+		width_control->set_value (target_width, Controllable::NoGroup);
+	}
+
+	_panner->thaw ();
+}
+
 bool
 StereoPanner::on_expose_event (GdkEventExpose*)
 {
-	Glib::RefPtr<Gdk::Window> win (get_window());
-	Glib::RefPtr<Gdk::GC> gc (get_style()->get_base_gc (get_state()));
 	Cairo::RefPtr<Cairo::Context> context = get_window()->create_cairo_context();
 	Glib::RefPtr<Pango::Layout> layout = Pango::Layout::create(get_pango_context());
 	layout->set_attributes (panner_font_attributes);
 
-	int tw, th;
-	int width, height;
-	const double pos = position_control->get_value (); /* 0..1 */
-	const double swidth = width_control->get_value (); /* -1..+1 */
-	const double fswidth = fabs (swidth);
-	uint32_t o, f, t, b, r;
+	int const width = get_width();
+	int const height = get_height ();
+	double const scale = UIConfiguration::instance().get_ui_scale();
+	double const pos = position_control->get_value (); /* 0..1 */
+	double const swidth = width_control->get_value (); /* -1..+1 */
+	double left_pos;
+	double right_pos;
+	uint32_t f, r;
 	State state;
-
-	width = get_width();
-	height = get_height ();
-
-	const int step_down = rint(height / 3.5);
-	const double corner_radius = 5.0 * UIConfiguration::instance().get_ui_scale();
-	const int lr_box_size = height - 2 * step_down;
-	const int pos_box_size = (int)(rint(step_down * .8)) | 1;
-	const int top_step = step_down - pos_box_size;
 
 	if (swidth == 0.0) {
 		state = Mono;
@@ -171,138 +319,45 @@ StereoPanner::on_expose_event (GdkEventExpose*)
 		state = Normal;
 	}
 
-	o = colors[state].outline;
 	f = colors[state].fill;
-	t = colors[state].text;
-	b = colors[state].background;
 	r = colors[state].rule;
 
-	if (_send_mode) {
-		b = colors_send_bg;
-	}
-
 	if (_panner_shell->bypassed()) {
-		b  = 0x20202040;
 		f  = 0x404040ff;
-		o  = 0x606060ff;
-		t  = 0x606060ff;
 		r  = 0x606060ff;
 	} else if (!_sensitive) {
 		f = 0xa0a0a0ff;
 	}
 
-	/* background */
-
-	context->set_source_rgba (UINT_RGBA_R_FLT(b), UINT_RGBA_G_FLT(b), UINT_RGBA_B_FLT(b), UINT_RGBA_A_FLT(b));
+	Gdk::Color bg_color = get_style()->get_bg (get_state());
+	context->set_source_rgb (bg_color.get_red_p(), bg_color.get_green_p(), bg_color.get_blue_p());
 	cairo_rectangle (context->cobj(), 0, 0, width, height);
-	context->fill_preserve ();
-	context->clip();
-
-	/* the usable width is reduced from the real width, because we need space for
-	   the two halves of LR boxes that will extend past the actual left/right
-	   positions (indicated by the vertical line segment above them).
-	*/
-
-	double usable_width = width - lr_box_size;
-
-	/* compute the centers of the L/R boxes based on the current stereo width */
-
-	if (fmod (usable_width,2.0) == 0) {
-		/* even width, but we need odd, so that there is an exact center.
-		   So, offset cairo by 1, and reduce effective width by 1
-		*/
-		usable_width -= 1.0;
-		context->translate (1.0, 0.0);
-	}
-
-	const double half_lr_box = lr_box_size/2.0;
-	const double center = rint(half_lr_box + (usable_width * pos));
-	const double pan_spread = rint((fswidth * (usable_width-1.0))/2.0);
-	const double left  = center - pan_spread;
-	const double right = center + pan_spread;
-
-	/* center line */
-	context->set_line_width (1.0);
-	context->move_to ((usable_width + lr_box_size)/2.0, 0);
-	context->rel_line_to (0, height);
-	context->set_source_rgba (UINT_RGBA_R_FLT(r), UINT_RGBA_G_FLT(r), UINT_RGBA_B_FLT(r), UINT_RGBA_A_FLT(r));
-	context->stroke ();
-
-	/* compute & draw the line through the box */
-	context->set_line_width (2);
-	context->set_source_rgba (UINT_RGBA_R_FLT(o), UINT_RGBA_G_FLT(o), UINT_RGBA_B_FLT(o), UINT_RGBA_A_FLT(o));
-	context->move_to (left,  top_step + (pos_box_size/2.0) + step_down + 1.0);
-	context->line_to (left,  top_step + (pos_box_size/2.0));
-	context->line_to (right, top_step + (pos_box_size/2.0));
-	context->line_to (right, top_step + (pos_box_size/2.0) + step_down + 1.0);
-	context->stroke ();
-
-	context->set_line_width (1.0);
-
-	/* left box */
-	if (state != Mono) {
-		rounded_rectangle (context, left - half_lr_box,
-				half_lr_box+step_down,
-				lr_box_size, lr_box_size, corner_radius);
-		context->set_source_rgba (UINT_RGBA_R_FLT(f), UINT_RGBA_G_FLT(f), UINT_RGBA_B_FLT(f), UINT_RGBA_A_FLT(f));
-		context->fill_preserve();
-		context->set_source_rgba (UINT_RGBA_R_FLT(o), UINT_RGBA_G_FLT(o), UINT_RGBA_B_FLT(o), UINT_RGBA_A_FLT(o));
-		context->stroke();
-
-		/* add text */
-		context->set_source_rgba (UINT_RGBA_R_FLT(t), UINT_RGBA_G_FLT(t), UINT_RGBA_B_FLT(t), UINT_RGBA_A_FLT(t));
-		if (swidth < 0.0) {
-			layout->set_text (S_("Panner|R"));
-		} else {
-			layout->set_text (S_("Panner|L"));
-		}
-		layout->get_pixel_size(tw, th);
-		context->move_to (rint(left - tw/2), rint(lr_box_size + step_down - th/2));
-		pango_cairo_show_layout (context->cobj(), layout->gobj());
-	}
-
-	/* right box */
-	rounded_rectangle (context, right - half_lr_box,
-			half_lr_box+step_down,
-			lr_box_size, lr_box_size, corner_radius);
-	context->set_source_rgba (UINT_RGBA_R_FLT(f), UINT_RGBA_G_FLT(f), UINT_RGBA_B_FLT(f), UINT_RGBA_A_FLT(f));
-	context->fill_preserve();
-	context->set_source_rgba (UINT_RGBA_R_FLT(o), UINT_RGBA_G_FLT(o), UINT_RGBA_B_FLT(o), UINT_RGBA_A_FLT(o));
-	context->stroke();
-
-	/* add text */
-	context->set_source_rgba (UINT_RGBA_R_FLT(t), UINT_RGBA_G_FLT(t), UINT_RGBA_B_FLT(t), UINT_RGBA_A_FLT(t));
-
-	if (state == Mono) {
-		layout->set_text (S_("Panner|M"));
-	} else {
-		if (swidth < 0.0) {
-			layout->set_text (S_("Panner|L"));
-		} else {
-			layout->set_text (S_("Panner|R"));
-		}
-	}
-	layout->get_pixel_size(tw, th);
-	context->move_to (rint(right - tw/2), rint(lr_box_size + step_down - th/2));
-	pango_cairo_show_layout (context->cobj(), layout->gobj());
-
-	/* draw the central box */
-	context->set_line_width (2.0);
-	context->move_to (center + (pos_box_size/2.0), top_step); /* top right */
-	context->rel_line_to (0.0, pos_box_size); /* lower right */
-	context->rel_line_to (-pos_box_size/2.0, 4.0); /* bottom point */
-	context->rel_line_to (-pos_box_size/2.0, -4.0); /* lower left */
-	context->rel_line_to (0.0, -pos_box_size); /* upper left */
-	context->close_path ();
-
-	if (_sensitive && _send_mode && !_panner_shell->is_linked_to_route()) {
-		f = colors_send_pan;
-	}
-
-	context->set_source_rgba (UINT_RGBA_R_FLT(o), UINT_RGBA_G_FLT(o), UINT_RGBA_B_FLT(o), UINT_RGBA_A_FLT(o));
-	context->stroke_preserve ();
-	context->set_source_rgba (UINT_RGBA_R_FLT(f), UINT_RGBA_G_FLT(f), UINT_RGBA_B_FLT(f), UINT_RGBA_A_FLT(f));
 	context->fill ();
+
+	stereo_endpoints (pos, swidth, left_pos, right_pos);
+
+	double const display_h = std::max (11.0, rint (12.0 * scale));
+	double const radius = std::max (8.0, std::min (std::min (width * .18, (height - display_h - 6.0) * .5), 13.0 * scale));
+	double const cy = rint (2.0 + radius);
+	double const left_cx = rint (width * .30);
+	double const right_cx = rint (width * .70);
+	double const display_w = std::max (25.0, std::min ((width * .5) - 3.0, 32.0 * scale));
+	double const display_y = rint (height - display_h - 1.0);
+	double const left_display_x = rint (left_cx - (display_w * .5));
+	double const right_display_x = rint (right_cx - (display_w * .5));
+	uint32_t tick = (_sensitive && _send_mode && !_panner_shell->is_linked_to_route()) ? colors_send_pan : f;
+	bool sensitive = _sensitive && !_panner_shell->bypassed();
+
+	context->set_line_width (1.0);
+	set_rgba (context, r);
+	context->move_to (rint (width * .5) + .5, 2.0);
+	context->line_to (rint (width * .5) + .5, height - display_h - 2.0);
+	context->stroke ();
+
+	draw_pro_tools_pan_knob (context, left_cx, cy, radius, left_pos, tick, sensitive);
+	draw_pro_tools_pan_knob (context, right_cx, cy, radius, right_pos, tick, sensitive);
+	draw_pro_tools_pan_display (context, layout, left_display_x, display_y, display_w, display_h, pro_tools_pan_text (left_pos), sensitive);
+	draw_pro_tools_pan_display (context, layout, right_display_x, display_y, display_w, display_h, pro_tools_pan_text (right_pos), sensitive);
 
 	return true;
 }
@@ -320,6 +375,8 @@ StereoPanner::on_button_press_event (GdkEventButton* ev)
 
 	drag_start_x = ev->x;
 	last_drag_x = ev->x;
+	drag_start_y = ev->y;
+	last_drag_y = ev->y;
 
 	dragging_position = false;
 	dragging_left = false;
@@ -329,10 +386,8 @@ StereoPanner::on_button_press_event (GdkEventButton* ev)
 	accumulated_delta = 0;
 	detented = false;
 
-	/* Let the binding proxies get first crack at the press event
-	 */
-
-	if (ev->y < 20) {
+	/* Let binding proxies get first crack at explicit binding gestures. */
+	if (ev->y < get_height() / 2) {
 		if (position_binder.button_press_handler (ev)) {
 			return true;
 		}
@@ -347,59 +402,18 @@ StereoPanner::on_button_press_event (GdkEventButton* ev)
 	}
 
 	if (ev->type == GDK_2BUTTON_PRESS) {
-		int width = get_width();
-
 		if (Keyboard::modifier_state_contains (ev->state, Keyboard::TertiaryModifier)) {
 			/* handled by button release */
 			return true;
 		}
 
-		if (ev->y < 20) {
-
-			/* upper section: adjusts position, constrained by width */
-
-			const double w = fabs (width_control->get_value ());
-			const double max_pos = 1.0 - (w/2.0);
-			const double min_pos = w/2.0;
-
-			if (ev->x <= width/3) {
-				/* left side dbl click */
-				if (Keyboard::modifier_state_contains (ev->state, Keyboard::SecondaryModifier)) {
-					/* 2ndary-double click on left, collapse to hard left */
-					width_control->set_value (0, Controllable::NoGroup);
-					position_control->set_value (0, Controllable::NoGroup);
-				} else {
-					position_control->set_value (min_pos, Controllable::NoGroup);
-				}
-			} else if (ev->x > 2*width/3) {
-				if (Keyboard::modifier_state_contains (ev->state, Keyboard::SecondaryModifier)) {
-					/* 2ndary-double click on right, collapse to hard right */
-					width_control->set_value (0, Controllable::NoGroup);
-					position_control->set_value (1.0, Controllable::NoGroup);
-				} else {
-					position_control->set_value (max_pos, Controllable::NoGroup);
-				}
-			} else {
-				position_control->set_value (0.5, Controllable::NoGroup);
-			}
-
+		double left;
+		double right;
+		stereo_endpoints (position_control->get_value(), width_control->get_value(), left, right);
+		if (ev->x < get_width() * .5) {
+			set_endpoints (0.0, right);
 		} else {
-
-			/* lower section: adjusts width, constrained by position */
-
-			const double p = position_control->get_value ();
-			const double max_width = 2.0 * min ((1.0 - p), p);
-
-			if (ev->x <= width/3) {
-				/* left side dbl click */
-				width_control->set_value (max_width, Controllable::NoGroup); // reset width to 100%
-			} else if (ev->x > 2*width/3) {
-				/* right side dbl click */
-				width_control->set_value (-max_width, Controllable::NoGroup); // reset width to inverted 100%
-			} else {
-				/* center dbl click */
-				width_control->set_value (0, Controllable::NoGroup); // collapse width to 0%
-			}
+			set_endpoints (left, 1.0);
 		}
 
 		_dragging = false;
@@ -412,38 +426,13 @@ StereoPanner::on_button_press_event (GdkEventButton* ev)
 			return true;
 		}
 
-		if (ev->y < 20) {
-			/* top section of widget is for position drags */
-			dragging_position = true;
-			StartPositionGesture ();
+		if (ev->x < get_width() * .5) {
+			dragging_left = true;
 		} else {
-			/* lower section is for dragging width */
-
-			double pos = position_control->get_value (); /* 0..1 */
-			double swidth = width_control->get_value (); /* -1..+1 */
-			double fswidth = fabs (swidth);
-			const int lr_box_size = get_height() - 2 * rint(get_height() / 3.5);
-			int usable_width = get_width() - lr_box_size;
-			double center = (lr_box_size/2.0) + (usable_width * pos);
-			int left = lrint (center - (fswidth * usable_width / 2.0)); // center of leftmost box
-			int right = lrint (center +  (fswidth * usable_width / 2.0)); // center of rightmost box
-			const int half_box = lr_box_size/2;
-
-			if (ev->x >= (left - half_box) && ev->x < (left + half_box)) {
-				if (swidth < 0.0) {
-					dragging_right = true;
-				} else {
-					dragging_left = true;
-				}
-			} else if (ev->x >= (right - half_box) && ev->x < (right + half_box)) {
-				if (swidth < 0.0) {
-					dragging_left = true;
-				} else {
-					dragging_right = true;
-				}
-			}
-			StartWidthGesture ();
+			dragging_right = true;
 		}
+		StartPositionGesture ();
+		StartWidthGesture ();
 
 		_dragging = true;
 		_tooltip.target_start_drag ();
@@ -468,6 +457,7 @@ StereoPanner::on_button_release_event (GdkEventButton* ev)
 	}
 
 	bool const dp = dragging_position;
+	bool const endpoint_drag = dragging_left || dragging_right;
 
 	_dragging = false;
 	_tooltip.target_stop_drag ();
@@ -482,6 +472,9 @@ StereoPanner::on_button_release_event (GdkEventButton* ev)
 	} else {
 		if (dp) {
 			StopPositionGesture ();
+		} else if (endpoint_drag) {
+			StopPositionGesture ();
+			StopWidthGesture ();
 		} else {
 			StopWidthGesture ();
 		}
@@ -494,9 +487,9 @@ bool
 StereoPanner::on_scroll_event (GdkEventScroll* ev)
 {
 	double one_degree = 1.0/180.0; // one degree as a number from 0..1, since 180 degrees is the full L/R axis
-	double pv = position_control->get_value(); // 0..1.0 ; 0 = left
-	double wv = width_control->get_value(); // 0..1.0 ; 0 = left
 	double step;
+	double left;
+	double right;
 
 	if (_panner_shell->bypassed()) {
 		return false;
@@ -508,24 +501,24 @@ StereoPanner::on_scroll_event (GdkEventScroll* ev)
 		step = one_degree * 5.0;
 	}
 
+	stereo_endpoints (position_control->get_value(), width_control->get_value(), left, right);
+
 	switch (ev->direction) {
 	case GDK_SCROLL_LEFT:
-		wv += step;
-		width_control->set_value (wv, Controllable::NoGroup);
-		break;
-	case GDK_SCROLL_UP:
-		pv -= step;
-		position_control->set_value (pv, Controllable::NoGroup);
+	case GDK_SCROLL_DOWN:
+		step = -step;
 		break;
 	case GDK_SCROLL_RIGHT:
-		wv -= step;
-		width_control->set_value (wv, Controllable::NoGroup);
-		break;
-	case GDK_SCROLL_DOWN:
-		pv += step;
-		position_control->set_value (pv, Controllable::NoGroup);
+	case GDK_SCROLL_UP:
 		break;
 	}
+
+	if (ev->x < get_width() * .5) {
+		left = clamp_unit_interval (left + step);
+	} else {
+		right = clamp_unit_interval (right + step);
+	}
+	set_endpoints (left, right);
 
 	return true;
 }
@@ -540,76 +533,18 @@ StereoPanner::on_motion_notify_event (GdkEventMotion* ev)
 		return false;
 	}
 
-	const int lr_box_size = get_height() - 2 * rint(get_height() / 3.5);
-	int usable_width = get_width() - lr_box_size;
-	double delta = (ev->x - last_drag_x) / (double) usable_width;
-	double current_width = width_control->get_value ();
-
-	if (dragging_left) {
-		delta = -delta;
-	}
+	double const delta = (last_drag_y - ev->y) / (double) std::max (1, get_height());
+	double left;
+	double right;
+	stereo_endpoints (position_control->get_value(), width_control->get_value(), left, right);
 
 	if (dragging_left || dragging_right) {
-
-		if (Keyboard::modifier_state_contains (ev->state, Keyboard::SecondaryModifier)) {
-
-			/* change width and position in a way that keeps the
-			 * other side in the same place
-			 */
-
-			_panner->freeze ();
-
-			double pv = position_control->get_value();
-
-			if (dragging_left) {
-				position_control->set_value (pv - delta, Controllable::NoGroup);
-			} else {
-				position_control->set_value (pv + delta, Controllable::NoGroup);
-			}
-
-			if (delta > 0.0) {
-				/* delta is positive, so we're about to
-				   increase the width. But we need to increase it
-				   by twice the required value so that the
-				   other side remains in place when we set
-				   the position as well.
-				*/
-				width_control->set_value (current_width + (delta * 2.0), Controllable::NoGroup);
-			} else {
-				width_control->set_value (current_width + delta, Controllable::NoGroup);
-			}
-
-			_panner->thaw ();
-
+		if (dragging_left) {
+			left = clamp_unit_interval (left + delta);
 		} else {
-
-			/* maintain position as invariant as we change the width */
-
-			/* create a detent close to the center */
-
-			if (!detented && fabs (current_width) < 0.02) {
-				detented = true;
-				/* snap to zero */
-				width_control->set_value (0, Controllable::NoGroup);
-			}
-
-			if (detented) {
-
-				accumulated_delta += delta;
-
-				/* have we pulled far enough to escape ? */
-
-				if (fabs (accumulated_delta) >= 0.025) {
-					width_control->set_value (current_width + accumulated_delta, Controllable::NoGroup);
-					detented = false;
-					accumulated_delta = false;
-				}
-
-			} else {
-				/* width needs to change by 2 * delta because both L & R move */
-				width_control->set_value (current_width + (delta * 2.0), Controllable::NoGroup);
-			}
+			right = clamp_unit_interval (right + delta);
 		}
+		set_endpoints (left, right);
 
 	} else if (dragging_position) {
 
@@ -618,6 +553,7 @@ StereoPanner::on_motion_notify_event (GdkEventMotion* ev)
 	}
 
 	last_drag_x = ev->x;
+	last_drag_y = ev->y;
 	return true;
 }
 

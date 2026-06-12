@@ -30,6 +30,7 @@
 #include <ytkmm/table.h>
 #include <ytkmm/button.h>
 #include <ytkmm/box.h>
+#include <ytkmm/eventbox.h>
 #include <ytkmm/menu.h>
 #include <ytkmm/menuitem.h>
 #include <ytkmm/radiomenuitem.h>
@@ -95,6 +96,8 @@ public:
 	void set_height (uint32_t h, TrackHeightMode m = OnlySelf, bool from_idle = false);
 	void show_timestretch (Temporal::timepos_t const & start, Temporal::timepos_t const & end, int layers, int layer);
 	void hide_timestretch ();
+	bool elastic_audio_editing () const { return _elastic_audio_editing; }
+	void set_elastic_audio_editing (bool, bool detect_transients = true);
 	void selection_click (GdkEventButton*);
 	void set_selected_points (PointSelection&);
 	void set_selected_regionviews (RegionSelection&);
@@ -229,6 +232,7 @@ protected:
 
 	bool         playlist_click (GdkEventButton *);
 	void         playlist_changed ();
+	bool         elastic_audio_edit_button_press (GdkEventButton *);
 
 	bool         automation_click (GdkEventButton *);
 
@@ -242,6 +246,8 @@ protected:
 	void create_mute_automation_child (const Evoral::Parameter &, bool);
 	void setup_processor_menu_and_curves ();
 	void route_color_changed ();
+	void selection_display_changed ();
+	void update_track_header_color ();
 	bool can_edit_name() const;
 
 	StreamView*           _view;
@@ -251,7 +257,9 @@ protected:
 	ArdourWidgets::ArdourButton route_group_button;
 	ArdourWidgets::ArdourButton playlist_button;
 	ArdourWidgets::ArdourButton automation_button;
+	ArdourWidgets::ArdourButton elastic_audio_button;
 	ArdourWidgets::ArdourButton number_label;
+	Gtk::EventBox route_color_side_bar;
 
 	Gtk::Menu           subplugin_menu;
 	Gtk::Menu*          automation_action_menu;
@@ -279,6 +287,7 @@ protected:
 	GainMeterBase gm;
 
 	bool _ignore_set_layer_display;
+	bool _elastic_audio_editing;
 	void layer_display_menu_change (Gtk::MenuItem* item);
 	void edit_scale ();
 
@@ -310,4 +319,3 @@ private:
 	PBD::ScopedConnection ctrl_touched_connection;
 	sigc::connection      ctrl_autohide_connection;
 };
-

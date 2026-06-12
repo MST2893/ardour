@@ -24,6 +24,7 @@
 #include <iomanip>
 #include <cstring>
 #include <cmath>
+#include <algorithm>
 
 #include <ytkmm/window.h>
 #include <pangomm/layout.h>
@@ -55,6 +56,106 @@ using namespace ARDOUR_UI_UTILS;
 
 using PBD::Controllable;
 
+namespace {
+
+double
+clamp_unit_interval (double value)
+{
+	return std::max (0.0, std::min (1.0, value));
+}
+
+void
+set_rgba (Cairo::RefPtr<Cairo::Context> const& context, uint32_t color)
+{
+	context->set_source_rgba (UINT_RGBA_R_FLT(color), UINT_RGBA_G_FLT(color), UINT_RGBA_B_FLT(color), UINT_RGBA_A_FLT(color));
+}
+
+std::string
+pro_tools_pan_text (double pos)
+{
+	int const pan = (int) rint ((clamp_unit_interval (pos) - 0.5) * 200.0);
+
+	if (pan < 0) {
+		return string_compose (X_("<%1"), -pan);
+	} else if (pan > 0) {
+		return string_compose (X_("%1>"), pan);
+	}
+
+	return X_("0");
+}
+
+void
+draw_pro_tools_pan_knob (Cairo::RefPtr<Cairo::Context> const& context, double cx, double cy, double radius, double pos, uint32_t tick_color, bool sensitive)
+{
+	static const double pi = 3.14159265358979323846;
+	double const angle = (-225.0 + (270.0 * clamp_unit_interval (pos))) * (pi / 180.0);
+	double const inner = std::max (1.0, radius - 3.0);
+	Cairo::RefPtr<Cairo::LinearGradient> knob_fill = Cairo::LinearGradient::create (cx, cy - radius, cx, cy + radius);
+
+	knob_fill->add_color_stop_rgb (0.0, .66, .66, .64);
+	knob_fill->add_color_stop_rgb (.48, .27, .27, .26);
+	knob_fill->add_color_stop_rgb (1.0, .08, .08, .08);
+
+	context->save ();
+	context->arc (cx, cy, radius, 0, 2.0 * pi);
+	context->set_source_rgb (.02, .02, .02);
+	context->fill_preserve ();
+	context->set_line_width (1.0);
+	context->set_source_rgb (.70, .70, .66);
+	context->stroke ();
+
+	context->arc (cx, cy, inner, 0, 2.0 * pi);
+	context->set_source (knob_fill);
+	context->fill_preserve ();
+	context->set_line_width (1.0);
+	context->set_source_rgb (.06, .06, .06);
+	context->stroke ();
+
+	context->set_line_width (std::max (1.2, radius * .18));
+	if (sensitive) {
+		set_rgba (context, tick_color);
+	} else {
+		context->set_source_rgb (.48, .48, .48);
+	}
+	context->move_to (cx + cos (angle) * (radius * .20), cy + sin (angle) * (radius * .20));
+	context->line_to (cx + cos (angle) * (radius * .72), cy + sin (angle) * (radius * .72));
+	context->stroke ();
+
+	context->set_line_width (1.0);
+	context->set_source_rgba (1.0, 1.0, 1.0, .25);
+	context->arc (cx - radius * .28, cy - radius * .34, radius * .18, 0, 2.0 * pi);
+	context->stroke ();
+	context->restore ();
+}
+
+void
+draw_pro_tools_pan_display (Cairo::RefPtr<Cairo::Context> const& context, Glib::RefPtr<Pango::Layout> const& layout, double x, double y, double w, double h, std::string const& text, bool sensitive)
+{
+	int tw;
+	int th;
+
+	context->save ();
+	context->rectangle (x, y, w, h);
+	context->set_source_rgb (.015, .025, .015);
+	context->fill_preserve ();
+	context->set_line_width (1.0);
+	context->set_source_rgb (.10, .16, .10);
+	context->stroke ();
+
+	layout->set_text (text);
+	layout->get_pixel_size (tw, th);
+	context->move_to (rint (x + ((w - tw) / 2.0)), rint (y + ((h - th) / 2.0)));
+	if (sensitive) {
+		context->set_source_rgb (.45, 1.0, .05);
+	} else {
+		context->set_source_rgb (.32, .45, .24);
+	}
+	pango_cairo_show_layout (context->cobj(), layout->gobj());
+	context->restore ();
+}
+
+} /* namespace */
+
 MonoPanner::ColorScheme MonoPanner::colors;
 bool MonoPanner::have_colors = false;
 
@@ -67,6 +168,8 @@ MonoPanner::MonoPanner (std::shared_ptr<ARDOUR::PannerShell> p)
 	, position_control (_panner->pannable()->pan_azimuth_control)
 	, drag_start_x (0)
 	, last_drag_x (0)
+	, drag_start_y (0)
+	, last_drag_y (0)
 	, accumulated_delta (0)
 	, detented (false)
 	, position_binder (position_control)
@@ -127,154 +230,39 @@ MonoPanner::set_tooltip ()
 bool
 MonoPanner::on_expose_event (GdkEventExpose*)
 {
-	Glib::RefPtr<Gdk::Window> win (get_window());
-	Glib::RefPtr<Gdk::GC> gc (get_style()->get_base_gc (get_state()));
 	Cairo::RefPtr<Cairo::Context> context = get_window()->create_cairo_context();
-
-	int width, height;
-	double pos = position_control->get_value (); /* 0..1 */
-	uint32_t o, f, t, b, pf, po;
-
-	width = get_width();
-	height = get_height ();
-
-	const int step_down = rint(height / 3.5);
-	const int lr_box_size = height - 2 * step_down;
-	const int pos_box_size = (int)(rint(step_down * .8)) | 1;
-	const int top_step = step_down - pos_box_size;
-	const double corner_radius = 5 * UIConfiguration::instance().get_ui_scale();
-
-	o = colors.outline;
-	f = colors.fill;
-	t = colors.text;
-	b = _send_mode ? colors.send_bg : colors.background;
-	pf = (_send_mode && !_panner_shell->is_linked_to_route()) ? colors.send_pan : colors.pos_fill;
-	po = colors.pos_outline;
-
-	if (_panner_shell->bypassed()) {
-		b  = 0x20202040;
-		f  = 0x404040ff;
-		o  = 0x606060ff;
-		po = 0x606060ff;
-		pf = 0x404040ff;
-		t  = 0x606060ff;
-	} else if (!_sensitive) {
-		pf = 0xa0a0a0ff;
-	}
-
-	/* background */
-	context->set_source_rgba (UINT_RGBA_R_FLT(b), UINT_RGBA_G_FLT(b), UINT_RGBA_B_FLT(b), UINT_RGBA_A_FLT(b));
-	context->rectangle (0, 0, width, height);
-	context->fill ();
-
-	double usable_width = width - pos_box_size;
-
-	/* compute the centers of the L/R boxes based on the current stereo width */
-	if (fmod (usable_width,2.0) == 0) {
-		usable_width -= 1.0;
-	}
-	const double half_lr_box = lr_box_size/2.0;
-	const double left = pos_box_size * .5 + half_lr_box; // center of left box
-	const double right = width - pos_box_size * .5 - half_lr_box; // center of right box
-
-	/* center line */
-	context->set_source_rgba (UINT_RGBA_R_FLT(o), UINT_RGBA_G_FLT(o), UINT_RGBA_B_FLT(o), UINT_RGBA_A_FLT(o));
-	context->set_line_width (1.0);
-	context->move_to ((pos_box_size/2.0) + (usable_width/2.0), 0);
-	context->line_to ((pos_box_size/2.0) + (usable_width/2.0), height);
-	context->stroke ();
-
-	context->set_line_width (1.0);
-	/* left box */
-
-	rounded_left_half_rectangle (context,
-			left - half_lr_box + .5,
-			half_lr_box + step_down,
-			lr_box_size, lr_box_size, corner_radius);
-	context->set_source_rgba (UINT_RGBA_R_FLT(f), UINT_RGBA_G_FLT(f), UINT_RGBA_B_FLT(f), UINT_RGBA_A_FLT(f));
-	context->fill_preserve ();
-	context->set_source_rgba (UINT_RGBA_R_FLT(o), UINT_RGBA_G_FLT(o), UINT_RGBA_B_FLT(o), UINT_RGBA_A_FLT(o));
-	context->stroke();
-
-	/* add text */
-	int tw, th;
 	Glib::RefPtr<Pango::Layout> layout = Pango::Layout::create(get_pango_context());
 	layout->set_attributes (panner_font_attributes);
 
-	layout->set_text (S_("Panner|L"));
-	layout->get_pixel_size(tw, th);
-	context->move_to (rint(left - tw/2), rint(lr_box_size + step_down - th/2));
-	context->set_source_rgba (UINT_RGBA_R_FLT(t), UINT_RGBA_G_FLT(t), UINT_RGBA_B_FLT(t), UINT_RGBA_A_FLT(t));
-	pango_cairo_show_layout (context->cobj(), layout->gobj());
+	int const width = get_width();
+	int const height = get_height ();
+	double const scale = UIConfiguration::instance().get_ui_scale();
+	double const pos = position_control->get_value (); /* 0..1 */
+	uint32_t tick = (_send_mode && !_panner_shell->is_linked_to_route()) ? colors.send_pan : colors.pos_fill;
+	bool sensitive = _sensitive;
 
-	/* right box */
-	rounded_right_half_rectangle (context,
-			right - half_lr_box + .5,
-			half_lr_box + step_down,
-			lr_box_size, lr_box_size, corner_radius);
-	context->set_source_rgba (UINT_RGBA_R_FLT(f), UINT_RGBA_G_FLT(f), UINT_RGBA_B_FLT(f), UINT_RGBA_A_FLT(f));
-	context->fill_preserve ();
-	context->set_source_rgba (UINT_RGBA_R_FLT(o), UINT_RGBA_G_FLT(o), UINT_RGBA_B_FLT(o), UINT_RGBA_A_FLT(o));
-	context->stroke();
-
-	/* add text */
-	layout->set_text (S_("Panner|R"));
-	layout->get_pixel_size(tw, th);
-	context->move_to (rint(right - tw/2), rint(lr_box_size + step_down - th/2));
-	context->set_source_rgba (UINT_RGBA_R_FLT(t), UINT_RGBA_G_FLT(t), UINT_RGBA_B_FLT(t), UINT_RGBA_A_FLT(t));
-	pango_cairo_show_layout (context->cobj(), layout->gobj());
-
-	/* 2 lines that connect them both */
-	context->set_line_width (1.0);
-
-	if (_panner_shell->panner_gui_uri() != "http://ardour.org/plugin/panner_balance#ui") {
-		context->set_source_rgba (UINT_RGBA_R_FLT(o), UINT_RGBA_G_FLT(o), UINT_RGBA_B_FLT(o), UINT_RGBA_A_FLT(o));
-		context->move_to (left  + half_lr_box, half_lr_box + step_down);
-		context->line_to (right - half_lr_box, half_lr_box + step_down);
-		context->stroke ();
-
-		context->move_to (left  + half_lr_box, half_lr_box+step_down+lr_box_size);
-		context->line_to (right - half_lr_box, half_lr_box+step_down+lr_box_size);
-		context->stroke ();
-	} else {
-		context->move_to (left  + half_lr_box, half_lr_box+step_down+lr_box_size);
-		context->line_to (left  + half_lr_box, half_lr_box + step_down);
-		context->line_to ((pos_box_size/2.0) + (usable_width/2.0), half_lr_box+step_down+lr_box_size);
-		context->line_to (right - half_lr_box, half_lr_box + step_down);
-		context->line_to (right - half_lr_box, half_lr_box+step_down+lr_box_size);
-		context->close_path();
-
-		context->set_source_rgba (UINT_RGBA_R_FLT(f), UINT_RGBA_G_FLT(f), UINT_RGBA_B_FLT(f), UINT_RGBA_A_FLT(f));
-		context->fill_preserve ();
-		context->set_source_rgba (UINT_RGBA_R_FLT(o), UINT_RGBA_G_FLT(o), UINT_RGBA_B_FLT(o), UINT_RGBA_A_FLT(o));
-		context->stroke ();
+	if (_panner_shell->bypassed()) {
+		tick = 0x606060ff;
+		sensitive = false;
+	} else if (!_sensitive) {
+		tick = 0xa0a0a0ff;
 	}
 
-	/* draw the position indicator */
-	double spos = (pos_box_size/2.0) + (usable_width * pos);
-
-	context->set_line_width (2.0);
-	context->move_to (spos + (pos_box_size/2.0), top_step); /* top right */
-	context->rel_line_to (0.0, pos_box_size); /* lower right */
-	context->rel_line_to (-pos_box_size/2.0, 4.0 * UIConfiguration::instance().get_ui_scale()); /* bottom point */
-	context->rel_line_to (-pos_box_size/2.0, -4.0 * UIConfiguration::instance().get_ui_scale()); /* lower left */
-	context->rel_line_to (0.0, -pos_box_size); /* upper left */
-	context->close_path ();
-
-
-	context->set_source_rgba (UINT_RGBA_R_FLT(po), UINT_RGBA_G_FLT(po), UINT_RGBA_B_FLT(po), UINT_RGBA_A_FLT(po));
-	context->stroke_preserve ();
-	context->set_source_rgba (UINT_RGBA_R_FLT(pf), UINT_RGBA_G_FLT(pf), UINT_RGBA_B_FLT(pf), UINT_RGBA_A_FLT(pf));
+	Gdk::Color bg_color = get_style()->get_bg (get_state());
+	context->set_source_rgb (bg_color.get_red_p(), bg_color.get_green_p(), bg_color.get_blue_p());
+	context->rectangle (0, 0, width, height);
 	context->fill ();
 
-	/* marker line */
-	context->set_line_width (1.0);
-	context->move_to (spos, 1 + top_step + pos_box_size + 4.0 * UIConfiguration::instance().get_ui_scale());
-	context->line_to (spos, half_lr_box + step_down + lr_box_size - 1);
-	context->set_source_rgba (UINT_RGBA_R_FLT(po), UINT_RGBA_G_FLT(po), UINT_RGBA_B_FLT(po), UINT_RGBA_A_FLT(po));
-	context->stroke ();
+	double const display_h = std::max (11.0, rint (12.0 * scale));
+	double const radius = std::max (8.0, std::min (std::min (width * .36, (height - display_h - 6.0) * .5), 13.0 * scale));
+	double const cx = rint (width * .5);
+	double const cy = rint (2.0 + radius);
+	double const display_w = std::max (28.0, std::min (width - 4.0, 42.0 * scale));
+	double const display_x = rint ((width - display_w) * .5);
+	double const display_y = rint (height - display_h - 1.0);
 
-	/* done */
+	draw_pro_tools_pan_knob (context, cx, cy, radius, pos, tick, sensitive);
+	draw_pro_tools_pan_display (context, layout, display_x, display_y, display_w, display_h, pro_tools_pan_text (pos), sensitive);
 
 	return true;
 }
@@ -291,6 +279,8 @@ MonoPanner::on_button_press_event (GdkEventButton* ev)
 
 	drag_start_x = ev->x;
 	last_drag_x = ev->x;
+	drag_start_y = ev->y;
+	last_drag_y = ev->y;
 
 	_dragging = false;
 	_tooltip.target_stop_drag ();
@@ -393,13 +383,13 @@ MonoPanner::on_scroll_event (GdkEventScroll* ev)
 	}
 
 	switch (ev->direction) {
-		case GDK_SCROLL_UP:
 		case GDK_SCROLL_LEFT:
+		case GDK_SCROLL_DOWN:
 			pv -= step;
 			position_control->set_value (pv, Controllable::NoGroup);
 			break;
-		case GDK_SCROLL_DOWN:
 		case GDK_SCROLL_RIGHT:
+		case GDK_SCROLL_UP:
 			pv += step;
 			position_control->set_value (pv, Controllable::NoGroup);
 			break;
@@ -418,8 +408,8 @@ MonoPanner::on_motion_notify_event (GdkEventMotion* ev)
 		return false;
 	}
 
-	int w = get_width();
-	double delta = (ev->x - last_drag_x) / (double) w;
+	int h = get_height();
+	double delta = (last_drag_y - ev->y) / (double) h;
 
 	/* create a detent close to the center, at approx 1/180 deg */
 	if (!detented && fabs (position_control->get_value() - .5) < 0.006) {
@@ -444,6 +434,7 @@ MonoPanner::on_motion_notify_event (GdkEventMotion* ev)
 	}
 
 	last_drag_x = ev->x;
+	last_drag_y = ev->y;
 	return true;
 }
 

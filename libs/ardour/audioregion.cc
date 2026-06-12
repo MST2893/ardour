@@ -536,6 +536,137 @@ AudioRegion::tail () const
 	}
 }
 
+bool
+AudioRegion::elastic_audio_active () const
+{
+	std::vector<ElasticAudioAnchor> anchors;
+	get_elastic_audio_anchors (anchors);
+
+	for (std::vector<ElasticAudioAnchor>::const_iterator i = anchors.begin (); i != anchors.end (); ++i) {
+		if (i->source != i->target) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+double
+AudioRegion::elastic_audio_source_position (std::vector<ElasticAudioAnchor> const& anchors, double target) const
+{
+	struct ElasticPoint {
+		ElasticPoint (double t, double s)
+			: target (t)
+			, source (s)
+		{}
+
+		double target;
+		double source;
+	};
+
+	const double region_start = position_sample ();
+	const double region_end = position_sample () + length_samples ();
+
+	std::vector<ElasticPoint> points;
+	points.push_back (ElasticPoint (region_start, region_start));
+
+	for (std::vector<ElasticAudioAnchor>::const_iterator i = anchors.begin (); i != anchors.end (); ++i) {
+		if (i->source <= region_start || i->source >= region_end || i->target <= region_start || i->target >= region_end) {
+			continue;
+		}
+		points.push_back (ElasticPoint (i->target, i->source));
+	}
+
+	points.push_back (ElasticPoint (region_end, region_end));
+
+	sort (points.begin (), points.end (), [] (ElasticPoint const& a, ElasticPoint const& b) {
+		return a.target < b.target;
+	});
+
+	if (target <= points.front ().target) {
+		return points.front ().source;
+	}
+
+	for (size_t n = 1; n != points.size (); ++n) {
+		if (target <= points[n].target) {
+			const double target_span = points[n].target - points[n - 1].target;
+			if (target_span == 0.0) {
+				return points[n].source;
+			}
+			const double position = (target - points[n - 1].target) / target_span;
+			return points[n - 1].source + ((points[n].source - points[n - 1].source) * position);
+		}
+	}
+
+	return points.back ().source;
+}
+
+samplecnt_t
+AudioRegion::read_elastic_from_sources (SourceList const& srcs, samplecnt_t limit, Sample* buf, samplepos_t pos, samplecnt_t cnt, uint32_t chan_n) const
+{
+	if (cnt <= 0) {
+		return 0;
+	}
+
+	std::vector<ElasticAudioAnchor> anchors;
+	get_elastic_audio_anchors (anchors);
+
+	bool changed = false;
+	for (std::vector<ElasticAudioAnchor>::const_iterator i = anchors.begin (); i != anchors.end (); ++i) {
+		if (i->source != i->target) {
+			changed = true;
+			break;
+		}
+	}
+
+	if (!changed) {
+		return read_from_sources (srcs, limit, buf, pos, cnt, chan_n);
+	}
+
+	std::unique_ptr<double[]> source_positions (new double[cnt]);
+	double min_source = DBL_MAX;
+	double max_source = -DBL_MAX;
+
+	const double region_start = position_sample ();
+	const double region_end = position_sample () + limit;
+
+	for (samplecnt_t n = 0; n != cnt; ++n) {
+		double source = elastic_audio_source_position (anchors, pos + n);
+		source = std::max (region_start, std::min (region_end - 1.0, source));
+		source_positions[n] = source;
+		min_source = std::min (min_source, source);
+		max_source = std::max (max_source, source);
+	}
+
+	samplepos_t read_start = std::max<samplepos_t> (position_sample (), (samplepos_t) floor (min_source) - 1);
+	samplepos_t read_end = std::min<samplepos_t> (position_sample () + limit, (samplepos_t) ceil (max_source) + 2);
+	samplecnt_t read_cnt = read_end - read_start;
+
+	if (read_cnt <= 0) {
+		memset (buf, 0, sizeof (Sample) * cnt);
+		return cnt;
+	}
+
+	std::unique_ptr<Sample[]> source_buffer (new Sample[read_cnt]);
+	if (read_from_sources (srcs, limit, source_buffer.get (), read_start, read_cnt, chan_n) != read_cnt) {
+		return 0;
+	}
+
+	for (samplecnt_t n = 0; n != cnt; ++n) {
+		double rel = source_positions[n] - read_start;
+		samplecnt_t idx = (samplecnt_t) floor (rel);
+		double frac = rel - idx;
+
+		if (idx + 1 >= read_cnt) {
+			buf[n] = source_buffer[read_cnt - 1];
+		} else {
+			buf[n] = (source_buffer[idx] * (1.0 - frac)) + (source_buffer[idx + 1] * frac);
+		}
+	}
+
+	return cnt;
+}
+
 /** @param buf Buffer to put peak data in.
  *  @param npeaks Number of peaks to read (ie the number of PeakDatas in buf)
  *  @param offset Start position, as an offset from the start of this region's source.
@@ -551,8 +682,52 @@ AudioRegion::read_peaks (PeakData *buf, samplecnt_t npeaks, samplecnt_t offset, 
 		return 0;
 	}
 
-	if (audio_source(chan_n)->read_peaks (buf, npeaks, offset, cnt, samples_per_pixel)) {
-		return 0;
+	std::vector<ElasticAudioAnchor> elastic_anchors;
+	get_elastic_audio_anchors (elastic_anchors);
+
+	bool elastic = false;
+	for (std::vector<ElasticAudioAnchor>::const_iterator i = elastic_anchors.begin (); i != elastic_anchors.end (); ++i) {
+		if (i->source != i->target) {
+			elastic = true;
+			break;
+		}
+	}
+
+	if (elastic) {
+		const samplepos_t region_position = position_sample ();
+		const samplepos_t region_start = start_sample ();
+		const samplecnt_t source_length = audio_source (chan_n)->length ().samples ();
+
+		for (samplecnt_t n = 0; n != npeaks; ++n) {
+			const double target_start = region_position + ((double) offset - region_start) + (n * samples_per_pixel);
+			const double target_end = target_start + samples_per_pixel;
+			const double source_start = elastic_audio_source_position (elastic_anchors, target_start);
+			const double source_end = elastic_audio_source_position (elastic_anchors, target_end);
+			const double source_min = std::min (source_start, source_end);
+			const double source_max = std::max (source_start, source_end);
+			samplepos_t source_offset = region_start + (samplepos_t) floor (source_min - region_position);
+			samplecnt_t source_cnt = std::max<samplecnt_t> (1, (samplecnt_t) ceil (source_max - source_min));
+
+			if (source_offset < 0) {
+				source_cnt = std::max<samplecnt_t> (1, source_cnt + source_offset);
+				source_offset = 0;
+			}
+
+			if (source_offset >= source_length) {
+				source_offset = std::max<samplepos_t> (0, source_length - 1);
+				source_cnt = 1;
+			} else if (source_offset + source_cnt > source_length) {
+				source_cnt = std::max<samplecnt_t> (1, source_length - source_offset);
+			}
+
+			if (audio_source (chan_n)->read_peaks (&buf[n], 1, source_offset, source_cnt, source_cnt)) {
+				return 0;
+			}
+		}
+	} else {
+		if (audio_source(chan_n)->read_peaks (buf, npeaks, offset, cnt, samples_per_pixel)) {
+			return 0;
+		}
 	}
 
 	if (_scale_amplitude < 0.f) {
@@ -772,7 +947,7 @@ AudioRegion::read_at (Sample*     buf,
 		/* don't use cache when there are no region FX */
 		if (!have_fx) {
 			cl.release ();
-			if (read_from_sources (_sources, lsamples, mixdown_buffer, pos, n_read, chan_n) != to_read) {
+			if (read_elastic_from_sources (_sources, lsamples, mixdown_buffer, pos, n_read, chan_n) != to_read) {
 				return 0;
 			}
 
@@ -847,7 +1022,7 @@ AudioRegion::read_at (Sample*     buf,
 			 * may need to mix with the existing data.
 			 */
 
-			if (read_from_sources (_sources, lsamples, mixdown_buffer, readat, n_read, chn) != n_read) {
+			if (read_elastic_from_sources (_sources, lsamples, mixdown_buffer, readat, n_read, chn) != n_read) {
 				return 0;
 			}
 
@@ -2137,6 +2312,126 @@ AudioRegion::set_onsets (AnalysisFeatureList& results)
 	_onsets.clear();
 	_onsets = results;
 	send_change (PropertyChange (Properties::valid_transients));
+}
+
+void
+AudioRegion::get_elastic_audio_anchors (std::vector<ElasticAudioAnchor>& anchors) const
+{
+	anchors.clear ();
+
+	XMLNode* node = const_cast<AudioRegion*> (this)->extra_xml (X_("ElasticAudio"));
+	if (!node) {
+		return;
+	}
+
+	XMLNodeList const& children = node->children (X_("Anchor"));
+	for (XMLNodeConstIterator i = children.begin (); i != children.end (); ++i) {
+		ElasticAudioAnchor anchor;
+		if (!(*i)->get_property (X_("source"), anchor.source)) {
+			continue;
+		}
+		if (!(*i)->get_property (X_("target"), anchor.target)) {
+			anchor.target = anchor.source;
+		}
+		anchors.push_back (anchor);
+	}
+
+	sort (anchors.begin (), anchors.end (), [] (ElasticAudioAnchor const& a, ElasticAudioAnchor const& b) {
+		return a.source < b.source;
+	});
+}
+
+bool
+AudioRegion::has_elastic_audio_anchor (samplepos_t source, samplecnt_t tolerance) const
+{
+	std::vector<ElasticAudioAnchor> anchors;
+	get_elastic_audio_anchors (anchors);
+
+	for (std::vector<ElasticAudioAnchor>::const_iterator i = anchors.begin (); i != anchors.end (); ++i) {
+		if (llabs (i->source - source) <= tolerance) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+void
+AudioRegion::add_elastic_audio_anchor (samplepos_t source, samplepos_t target)
+{
+	if (has_elastic_audio_anchor (source)) {
+		update_elastic_audio_anchor (source, target);
+		return;
+	}
+
+	XMLNode* node = extra_xml (X_("ElasticAudio"), true);
+	XMLNode* anchor = new XMLNode (X_("Anchor"));
+	anchor->set_property (X_("source"), source);
+	anchor->set_property (X_("target"), target);
+	node->add_child_nocopy (*anchor);
+
+	_invalidated.exchange (true);
+	send_change (PropertyChange (Properties::elastic_audio));
+}
+
+void
+AudioRegion::update_elastic_audio_anchor (samplepos_t source, samplepos_t target)
+{
+	XMLNode* node = extra_xml (X_("ElasticAudio"), true);
+	XMLNodeList const& children = node->children (X_("Anchor"));
+
+	for (XMLNodeConstIterator i = children.begin (); i != children.end (); ++i) {
+		samplepos_t old_source = 0;
+		if ((*i)->get_property (X_("source"), old_source) && old_source == source) {
+			(*i)->set_property (X_("target"), target);
+			_invalidated.exchange (true);
+			send_change (PropertyChange (Properties::elastic_audio));
+			return;
+		}
+	}
+
+	add_elastic_audio_anchor (source, target);
+}
+
+void
+AudioRegion::remove_elastic_audio_anchor (samplepos_t source, samplecnt_t tolerance)
+{
+	XMLNode* node = extra_xml (X_("ElasticAudio"));
+	if (!node) {
+		return;
+	}
+
+	std::vector<ElasticAudioAnchor> anchors;
+	get_elastic_audio_anchors (anchors);
+
+	node->remove_nodes_and_delete (X_("Anchor"));
+
+	for (std::vector<ElasticAudioAnchor>::const_iterator i = anchors.begin (); i != anchors.end (); ++i) {
+		if (llabs (i->source - source) <= tolerance) {
+			continue;
+		}
+		XMLNode* anchor = new XMLNode (X_("Anchor"));
+		anchor->set_property (X_("source"), i->source);
+		anchor->set_property (X_("target"), i->target);
+		node->add_child_nocopy (*anchor);
+	}
+
+	_invalidated.exchange (true);
+	send_change (PropertyChange (Properties::elastic_audio));
+}
+
+void
+AudioRegion::clear_elastic_audio_anchors ()
+{
+	XMLNode* node = extra_xml (X_("ElasticAudio"));
+	if (!node || node->children (X_("Anchor")).empty ()) {
+		return;
+	}
+
+	node->remove_nodes_and_delete (X_("Anchor"));
+
+	_invalidated.exchange (true);
+	send_change (PropertyChange (Properties::elastic_audio));
 }
 
 void

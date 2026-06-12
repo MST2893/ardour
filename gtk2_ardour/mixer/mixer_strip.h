@@ -188,8 +188,17 @@ private:
 	void hide_clicked();
 	bool width_button_pressed (GdkEventButton *);
 
+	Gtk::VBox           strip_vpacker;
+	Gtk::EventBox       route_color_top_bar;
+	Gtk::EventBox       route_color_bottom_bar;
 	Gtk::Frame          global_frame;
 	Gtk::VBox           global_vpacker;
+	Gtk::EventBox       inserts_header;
+	Gtk::Label          inserts_header_label;
+	Gtk::EventBox       sends_header;
+	Gtk::Label          sends_header_label;
+	Gtk::EventBox       io_header;
+	Gtk::Label          io_header_label;
 
 	ProcessorBox processor_box;
 	GainMeter    gpm;
@@ -218,6 +227,7 @@ private:
 	void comment_button_resized (Gtk::Allocation&);
 
 	ArdourWidgets::ArdourButton midi_input_enable_button;
+	Gtk::VBox io_button_box;
 	Gtk::HBox input_button_box;
 
 	std::string longest_label;
@@ -277,6 +287,7 @@ private:
 
 	Gtk::Style *passthru_style;
 
+	void update_route_color_display ();
 	void route_color_changed ();
 	void show_passthru_color ();
 

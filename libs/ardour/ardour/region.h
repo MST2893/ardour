@@ -68,6 +68,7 @@ namespace Properties {
 	LIBARDOUR_API extern PBD::PropertyDescriptor<bool>              hidden;
 	LIBARDOUR_API extern PBD::PropertyDescriptor<bool>              position_locked;
 	LIBARDOUR_API extern PBD::PropertyDescriptor<bool>              valid_transients; // used for signal only
+	LIBARDOUR_API extern PBD::PropertyDescriptor<bool>              elastic_audio; // used for signal only
 	LIBARDOUR_API extern PBD::PropertyDescriptor<timepos_t>         start;
 	LIBARDOUR_API extern PBD::PropertyDescriptor<timecnt_t>         length;
 	LIBARDOUR_API extern PBD::PropertyDescriptor<timepos_t>         sync_position;

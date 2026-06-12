@@ -54,6 +54,20 @@ using namespace PBD;
 using namespace Gtkmm2ext;
 using namespace Gtk;
 
+namespace {
+
+void
+modify_bg_all_states (Gtk::Widget& widget, Gdk::Color const& color)
+{
+	widget.modify_bg (Gtk::STATE_NORMAL, color);
+	widget.modify_bg (Gtk::STATE_ACTIVE, color);
+	widget.modify_bg (Gtk::STATE_PRELIGHT, color);
+	widget.modify_bg (Gtk::STATE_SELECTED, color);
+	widget.modify_bg (Gtk::STATE_INSENSITIVE, color);
+}
+
+} /* namespace */
+
 PannerUI::PannerUI (Session* s)
 	: _current_nouts (-1)
 	, _current_nins (-1)
@@ -219,6 +233,11 @@ PannerUI::setup_pan ()
 
 	assert (_panshell);
 
+	if (nins == 2 && nouts == 2 && _panshell->panner_gui_uri() == "http://ardour.org/plugin/panner_balance#ui") {
+		_panshell->select_panner_by_uri ("http://ardour.org/plugin/panner_2in2out");
+		return;
+	}
+
 	if (nouts == _current_nouts
 			&& nins == _current_nins
 			&& _current_uri == _panshell->panner_gui_uri()
@@ -256,7 +275,7 @@ PannerUI::setup_pan ()
 		std::shared_ptr<Pannable> pannable = _panner->pannable();
 
 		_stereo_panner = new StereoPanner (_panshell);
-		_stereo_panner->set_size_request (-1, 5 * ceilf(7.f * scale));
+		_stereo_panner->set_size_request (-1, rintf (46.f * scale));
 		_stereo_panner->set_send_drawing_mode (_send_mode);
 		pan_vbox.pack_start (*_stereo_panner, false, false);
 
@@ -292,7 +311,7 @@ PannerUI::setup_pan ()
 
 		_mono_panner->signal_button_release_event().connect (sigc::mem_fun(*this, &PannerUI::pan_button_event));
 
-		_mono_panner->set_size_request (-1, 5 * ceilf(7.f * scale));
+		_mono_panner->set_size_request (-1, rintf (46.f * scale));
 		_mono_panner->set_send_drawing_mode (_send_mode);
 
 		update_pan_sensitive ();
@@ -343,6 +362,28 @@ PannerUI::set_send_drawing_mode (bool onoff)
 		twod_panner->set_send_drawing_mode (onoff);
 	}
 	_send_mode = onoff;
+}
+
+void
+PannerUI::set_background_tint (Gdk::Color const& color)
+{
+	modify_bg_all_states (*this, color);
+	modify_bg_all_states (pan_vbox, color);
+
+	if (_stereo_panner) {
+		modify_bg_all_states (*_stereo_panner, color);
+		_stereo_panner->queue_draw ();
+	}
+
+	if (_mono_panner) {
+		modify_bg_all_states (*_mono_panner, color);
+		_mono_panner->queue_draw ();
+	}
+
+	if (twod_panner) {
+		modify_bg_all_states (*twod_panner, color);
+		twod_panner->queue_draw ();
+	}
 }
 
 void

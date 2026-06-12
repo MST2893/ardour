@@ -77,6 +77,8 @@ private:
 	bool dragging_right;
 	int drag_start_x;
 	int last_drag_x;
+	int drag_start_y;
+	int last_drag_y;
 	double accumulated_delta;
 	bool detented;
 
@@ -84,6 +86,7 @@ private:
 	ArdourWidgets::BindingProxy width_binder;
 
 	void set_tooltip ();
+	void set_endpoints (double left, double right);
 
 	struct ColorScheme {
 		uint32_t outline;
@@ -113,4 +116,3 @@ private:
 	void bypass_handler ();
 	void pannable_handler ();
 };
-

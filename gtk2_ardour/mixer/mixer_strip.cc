@@ -109,6 +109,60 @@ int MixerStrip::_scrollbar_spacer_height = 0;
 
 #define PX_SCALE(px) std::max((float)px, rintf((float)px * UIConfiguration::instance().get_ui_scale()))
 
+namespace {
+
+Gdk::Color
+mix_gdk_color (Gdk::Color const& base, Gdk::Color const& tint, double tint_amount)
+{
+	const double a = std::max (0.0, std::min (1.0, tint_amount));
+	const double b = 1.0 - a;
+	Gdk::Color mixed;
+
+	mixed.set_rgb_p ((base.get_red_p () * b) + (tint.get_red_p () * a),
+	                 (base.get_green_p () * b) + (tint.get_green_p () * a),
+	                 (base.get_blue_p () * b) + (tint.get_blue_p () * a));
+
+	return mixed;
+}
+
+void
+modify_bg_all_states (Gtk::Widget& widget, Gdk::Color const& color)
+{
+	widget.modify_bg (Gtk::STATE_NORMAL, color);
+	widget.modify_bg (Gtk::STATE_ACTIVE, color);
+	widget.modify_bg (Gtk::STATE_PRELIGHT, color);
+	widget.modify_bg (Gtk::STATE_SELECTED, color);
+	widget.modify_bg (Gtk::STATE_INSENSITIVE, color);
+}
+
+void
+modify_fg_all_states (Gtk::Widget& widget, Gdk::Color const& color)
+{
+	widget.modify_fg (Gtk::STATE_NORMAL, color);
+	widget.modify_fg (Gtk::STATE_ACTIVE, color);
+	widget.modify_fg (Gtk::STATE_PRELIGHT, color);
+	widget.modify_fg (Gtk::STATE_SELECTED, color);
+	widget.modify_fg (Gtk::STATE_INSENSITIVE, color);
+}
+
+void
+setup_mixer_section_header (Gtk::EventBox& box, Gtk::Label& label, char const* markup)
+{
+	box.set_visible_window (true);
+	box.set_name ("MixerStripSectionHeader");
+	box.set_size_request (-1, PX_SCALE(15));
+
+	label.set_markup (markup);
+	label.set_alignment (.5, .5);
+	label.set_padding (0, 0);
+	label.set_name ("MixerStripSectionHeaderLabel");
+
+	box.add (label);
+	label.show ();
+}
+
+} /* namespace */
+
 MixerStrip::MixerStrip (Mixer_UI& mx, Session* sess, bool in_mixer)
 	: SessionHandlePtr (sess)
 	, RouteUI (sess)
@@ -208,7 +262,7 @@ MixerStrip::init ()
 	hide_button.set_tweaks (ArdourButton::Square);
 	set_tooltip (&hide_button, _("Hide this mixer strip"));
 
-	input_button_box.set_spacing(2);
+	input_button_box.set_spacing(1);
 	input_button_box.pack_start (input_button, true, true);
 
 	bottom_button_table.attach (gpm.meter_point_button, 1, 2, 0, 1);
@@ -307,9 +361,27 @@ MixerStrip::init ()
 	trim_control.set_no_show_all (true);
 	input_button_box.pack_start (trim_control, false, false);
 
+	io_button_box.set_spacing (1);
+	io_button_box.pack_start (input_button_box, Gtk::PACK_SHRINK);
+	io_button_box.pack_start (output_button, Gtk::PACK_SHRINK);
+
+	setup_mixer_section_header (inserts_header, inserts_header_label, "<span size=\"small\" weight=\"bold\">INSERTOS</span>");
+	setup_mixer_section_header (sends_header, sends_header_label, "<span size=\"small\" weight=\"bold\">ENV&#205;OS</span>");
+	setup_mixer_section_header (io_header, io_header_label, "<span size=\"small\" weight=\"bold\">I/O</span>");
+
+	route_color_top_bar.set_visible_window (true);
+	route_color_top_bar.set_size_request (-1, PX_SCALE(5));
+	route_color_top_bar.set_name ("MixerStripRouteColorBar");
+
+	route_color_bottom_bar.set_visible_window (true);
+	route_color_bottom_bar.set_size_request (-1, PX_SCALE(5));
+	route_color_bottom_bar.set_name ("MixerStripRouteColorBar");
+
+	strip_vpacker.set_spacing (0);
+
 	global_vpacker.set_no_show_all ();
-	global_vpacker.set_border_width (1);
-	global_vpacker.set_spacing (2);
+	global_vpacker.set_border_width (2);
+	global_vpacker.set_spacing (1);
 
 	width_button.set_name ("mixer strip button");
 	hide_button.set_name ("mixer strip button");
@@ -318,9 +390,9 @@ MixerStrip::init ()
 	hide_button.signal_clicked.connect (sigc::mem_fun(*this, &MixerStrip::hide_clicked));
 
 	width_hide_box.set_spacing (2);
-	width_hide_box.pack_start (width_button, false, true);
-	width_hide_box.pack_start (number_label, true, true);
-	width_hide_box.pack_end (hide_button, false, true);
+	width_hide_box.pack_start (width_button, false, false);
+	width_hide_box.pack_start (number_label, false, false);
+	width_hide_box.pack_end (hide_button, false, false);
 
 	number_label.set_text ("-");
 	number_label.set_elements((ArdourButton::Element)(ArdourButton::Edge|ArdourButton::Body|ArdourButton::Text|ArdourButton::Inactive));
@@ -332,22 +404,26 @@ MixerStrip::init ()
 	number_label.set_tweaks (ArdourButton::OccasionalText);
 	set_tooltip (&number_label, _("Double-click to edit the route color.\nRight-click to show the route operations context menu."));
 
+	processor_box.set_size_request (-1, PX_SCALE(190));
+
 	global_vpacker.pack_start (width_hide_box, Gtk::PACK_SHRINK);
-	global_vpacker.pack_start (name_button, Gtk::PACK_SHRINK);
-	global_vpacker.pack_start (input_button_box, Gtk::PACK_SHRINK);
+	global_vpacker.pack_start (inserts_header, Gtk::PACK_SHRINK);
+	global_vpacker.pack_start (processor_box, Gtk::PACK_SHRINK);
+	global_vpacker.pack_start (sends_header, Gtk::PACK_SHRINK);
+	global_vpacker.pack_start (io_header, Gtk::PACK_SHRINK);
+	global_vpacker.pack_start (io_button_box, Gtk::PACK_SHRINK);
 	global_vpacker.pack_start (invert_button_box, Gtk::PACK_SHRINK);
 	global_vpacker.pack_start (_tmaster_widget, Gtk::PACK_SHRINK);
-	global_vpacker.pack_start (processor_box, true, true);
 	global_vpacker.pack_start (panners, Gtk::PACK_SHRINK);
 	global_vpacker.pack_start (rec_mon_table, Gtk::PACK_SHRINK);
 	global_vpacker.pack_start (master_volume_table, Gtk::PACK_SHRINK);
 	global_vpacker.pack_start (solo_iso_table, Gtk::PACK_SHRINK);
 	global_vpacker.pack_start (mute_solo_table, Gtk::PACK_SHRINK);
-	global_vpacker.pack_start (gpm, Gtk::PACK_SHRINK);
+	global_vpacker.pack_start (gpm, true, true);
 	global_vpacker.pack_start (control_slave_ui, Gtk::PACK_SHRINK);
 	global_vpacker.pack_start (bottom_button_table, Gtk::PACK_SHRINK);
-	global_vpacker.pack_start (output_button, Gtk::PACK_SHRINK);
 	global_vpacker.pack_start (_comment_button, Gtk::PACK_SHRINK);
+	global_vpacker.pack_start (name_button, Gtk::PACK_SHRINK);
 
 	midi_input_enable_button.set_size_request (PX_SCALE(19), PX_SCALE(19));
 	midi_input_enable_button.set_name ("midi input button");
@@ -368,7 +444,11 @@ MixerStrip::init ()
 	global_frame.set_shadow_type (Gtk::SHADOW_IN);
 	global_frame.set_name ("BaseFrame");
 
-	add (global_frame);
+	strip_vpacker.pack_start (route_color_top_bar, Gtk::PACK_SHRINK);
+	strip_vpacker.pack_start (global_frame, true, true);
+	strip_vpacker.pack_start (route_color_bottom_bar, Gtk::PACK_SHRINK);
+
+	add (strip_vpacker);
 
 	/* force setting of visible selected status */
 
@@ -758,12 +838,22 @@ MixerStrip::set_route (std::shared_ptr<Route> rt)
 
 	width_button.show();
 	width_hide_box.show();
+	strip_vpacker.show();
+	route_color_top_bar.show();
+	route_color_bottom_bar.show();
+	inserts_header.show();
+	inserts_header_label.show();
+	sends_header.show();
+	sends_header_label.show();
+	io_header.show();
+	io_header_label.show();
 	global_frame.show();
 	global_vpacker.show();
 	mute_solo_table.show();
 	bottom_button_table.show();
 	gpm.show_all ();
 	gpm.meter_point_button.show();
+	io_button_box.show();
 	input_button_box.show_all();
 	output_button.show();
 	name_button.show();
@@ -1060,6 +1150,75 @@ MixerStrip::route_group_changed ()
 			break;
 		}
 	}
+}
+
+void
+MixerStrip::update_route_color_display ()
+{
+	if (!_route) {
+		return;
+	}
+
+	Gdk::Color route_color = color ();
+
+	modify_bg_all_states (route_color_top_bar, route_color);
+	modify_bg_all_states (route_color_bottom_bar, route_color);
+
+	std::string base_color_name;
+	if (_current_delivery && std::dynamic_pointer_cast<Send>(_current_delivery)) {
+		base_color_name = X_("gtk_send_bg");
+	} else if (is_midi_track()) {
+		base_color_name = X_("gtk_midi_track");
+	} else if (is_audio_track()) {
+		base_color_name = X_("gtk_audio_track");
+	} else {
+		base_color_name = X_("gtk_audio_bus");
+	}
+
+	bool failed = false;
+	Gdk::Color base_color;
+	set_color_from_rgba (base_color, UIConfiguration::instance().color (base_color_name, &failed));
+
+	if (failed) {
+		Glib::RefPtr<Gtk::Style> style = get_style ();
+		base_color = style ? style->get_bg (Gtk::STATE_NORMAL) : route_color;
+	}
+
+	Gdk::Color strip_tint = mix_gdk_color (base_color, route_color, _route->active() ? 0.24 : 0.12);
+	Gdk::Color header_bg = mix_gdk_color (strip_tint, route_color, _route->active() ? 0.18 : 0.08);
+	Gdk::Color header_fg;
+	header_fg.set_rgb_p (.92, .92, .92);
+
+	modify_bg_all_states (*this, strip_tint);
+	modify_bg_all_states (global_frame, strip_tint);
+	modify_bg_all_states (global_vpacker, strip_tint);
+	modify_bg_all_states (strip_vpacker, strip_tint);
+	modify_bg_all_states (inserts_header, header_bg);
+	modify_bg_all_states (sends_header, header_bg);
+	modify_bg_all_states (io_header, header_bg);
+	modify_fg_all_states (inserts_header_label, header_fg);
+	modify_fg_all_states (sends_header_label, header_fg);
+	modify_fg_all_states (io_header_label, header_fg);
+	modify_bg_all_states (io_button_box, strip_tint);
+	modify_bg_all_states (input_button_box, strip_tint);
+	modify_bg_all_states (processor_box, strip_tint);
+	modify_bg_all_states (panners, strip_tint);
+	panners.set_background_tint (strip_tint);
+	modify_bg_all_states (rec_mon_table, strip_tint);
+	modify_bg_all_states (master_volume_table, strip_tint);
+	modify_bg_all_states (solo_iso_table, strip_tint);
+	modify_bg_all_states (mute_solo_table, strip_tint);
+	modify_bg_all_states (bottom_button_table, strip_tint);
+	modify_bg_all_states (control_slave_ui, strip_tint);
+	modify_bg_all_states (spacer, strip_tint);
+
+	route_color_top_bar.queue_draw ();
+	route_color_bottom_bar.queue_draw ();
+	inserts_header.queue_draw ();
+	sends_header.queue_draw ();
+	io_header.queue_draw ();
+	global_frame.queue_draw ();
+	queue_draw ();
 }
 
 void
@@ -1535,6 +1694,8 @@ MixerStrip::reset_strip_style ()
 			gpm.set_fader_name ("AudioBusFader");
 		}
 	}
+
+	update_route_color_display ();
 }
 
 

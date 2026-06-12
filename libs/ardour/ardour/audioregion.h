@@ -68,6 +68,11 @@ class PlugInsertBase;
 class LIBARDOUR_API AudioRegion : public Region, public AudioReadable
 {
   public:
+	struct ElasticAudioAnchor {
+		samplepos_t source;
+		samplepos_t target;
+	};
+
 	static void make_property_quarks ();
 
 	~AudioRegion();
@@ -205,6 +210,13 @@ class LIBARDOUR_API AudioRegion : public Region, public AudioReadable
 	void get_transients (AnalysisFeatureList&);
 	void update_transient (samplepos_t old_position, samplepos_t new_position);
 
+	void get_elastic_audio_anchors (std::vector<ElasticAudioAnchor>&) const;
+	bool has_elastic_audio_anchor (samplepos_t source, samplecnt_t tolerance = 0) const;
+	void add_elastic_audio_anchor (samplepos_t source, samplepos_t target);
+	void update_elastic_audio_anchor (samplepos_t source, samplepos_t target);
+	void remove_elastic_audio_anchor (samplepos_t source, samplecnt_t tolerance = 0);
+	void clear_elastic_audio_anchors ();
+
 	AudioIntervalResult find_silence (Sample, samplecnt_t, samplecnt_t, InterThreadInfo&) const;
 
   private:
@@ -222,6 +234,9 @@ class LIBARDOUR_API AudioRegion : public Region, public AudioReadable
 	friend class ::PlaylistReadTest;
 
 	void build_transients ();
+	bool elastic_audio_active () const;
+	double elastic_audio_source_position (std::vector<ElasticAudioAnchor> const&, double target) const;
+	samplecnt_t read_elastic_from_sources (SourceList const &, samplecnt_t, Sample *, samplepos_t, samplecnt_t, uint32_t) const;
 
 	PBD::Property<bool>     _envelope_active;
 	PBD::Property<bool>     _default_fade_in;

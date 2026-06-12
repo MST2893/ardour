@@ -101,6 +101,7 @@ public:
 
 	void region_resized ();
 	void gain_changed ();
+	void invalidate_image ();
 
 	void set_show_zero_line (bool);
 	bool show_zero_line () const;

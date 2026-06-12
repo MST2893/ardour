@@ -283,6 +283,7 @@ protected:
 	virtual bool controls_ebox_button_press (GdkEventButton*);
 	virtual bool controls_ebox_motion (GdkEventMotion*);
 	virtual bool controls_ebox_leave (GdkEventCrossing*);
+	virtual void selection_display_changed () {}
 
 	/** Build the standard LHS control menu.
 	 * Subclasses should extend this method to add their own menu options.
@@ -333,4 +334,3 @@ private:
 
 
 }; /* class TimeAxisView */
-

@@ -547,6 +547,26 @@ Editor::button_press_handler_1 (ArdourCanvas::Item* item, GdkEvent* event, ItemT
 
 	NoteBase* note = NULL;
 
+	if (item_type == FeatureLineItem) {
+		AudioRegionView* arv = reinterpret_cast<AudioRegionView*> (item->get_data ("regionview"));
+		float* pos = (float*) item->get_data ("position");
+		const bool elastic_audio = arv && pos && arv->elastic_audio_editing ();
+
+		if (elastic_audio) {
+			if (Keyboard::modifier_state_contains (event->button.state, Keyboard::SecondaryModifier)) {
+				if (arv->elastic_audio_anchor_at (*pos)) {
+					arv->remove_elastic_audio_anchor (*pos);
+				}
+				return true;
+			}
+
+			if (arv->elastic_audio_anchor_at (*pos)) {
+				_drags->set (new FeatureLineDrag (*this, item, true), event);
+			}
+			return true;
+		}
+	}
+
 	switch (item_type) {
 	case PlayheadCursorItem:
 		_drags->set (new CursorDrag (*this, *_playhead_cursor, true), event);
@@ -863,12 +883,27 @@ Editor::button_press_handler_1 (ArdourCanvas::Item* item, GdkEvent* event, ItemT
 
 			case FeatureLineItem:
 			{
-				if (Keyboard::modifier_state_contains (event->button.state, Keyboard::TertiaryModifier)) {
+				AudioRegionView* arv = reinterpret_cast<AudioRegionView*> (item->get_data ("regionview"));
+				float* pos = (float*) item->get_data ("position");
+				const bool elastic_audio = arv && pos && arv->elastic_audio_editing ();
+
+				if (elastic_audio && Keyboard::modifier_state_contains (event->button.state, Keyboard::SecondaryModifier)) {
+					if (arv->elastic_audio_anchor_at (*pos)) {
+						arv->remove_elastic_audio_anchor (*pos);
+					}
+					return true;
+				}
+
+				if (!elastic_audio && Keyboard::modifier_state_contains (event->button.state, Keyboard::TertiaryModifier)) {
 					remove_transient(item);
 					return true;
 				}
 
-				_drags->set (new FeatureLineDrag (*this, item), event);
+				if (elastic_audio && !arv->elastic_audio_anchor_at (*pos)) {
+					return true;
+				}
+
+				_drags->set (new FeatureLineDrag (*this, item, elastic_audio), event);
 				return true;
 				break;
 			}
@@ -1236,6 +1271,25 @@ Editor::button_press_handler_2 (ArdourCanvas::Item* item, GdkEvent* event, ItemT
 bool
 Editor::button_press_handler (ArdourCanvas::Item* item, GdkEvent* event, ItemType item_type)
 {
+	if (event->type == GDK_2BUTTON_PRESS) {
+		if (item_type == FeatureLineItem) {
+			AudioRegionView* arv = reinterpret_cast<AudioRegionView*> (item->get_data ("regionview"));
+			float* pos = (float*) item->get_data ("position");
+			if (arv && pos && arv->elastic_audio_editing ()) {
+				arv->activate_elastic_audio_anchor (*pos);
+				gdk_pointer_ungrab (GDK_CURRENT_TIME);
+				return true;
+			}
+		} else if (item_type == RegionItem) {
+			AudioRegionView* arv = dynamic_cast<AudioRegionView*> (clicked_regionview);
+			if (arv && arv->elastic_audio_editing ()) {
+				arv->create_elastic_audio_anchor (canvas_event_sample (event));
+				gdk_pointer_ungrab (GDK_CURRENT_TIME);
+				return true;
+			}
+		}
+	}
+
 	if (event->type == GDK_2BUTTON_PRESS) {
 		_drags->mark_double_click ();
 		gdk_pointer_ungrab (GDK_CURRENT_TIME);

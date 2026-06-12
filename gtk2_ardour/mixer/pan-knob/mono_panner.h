@@ -69,6 +69,8 @@ private:
 	PBD::ScopedConnectionList panshell_connections;
 	int drag_start_x;
 	int last_drag_x;
+	int drag_start_y;
+	int last_drag_y;
 	double accumulated_delta;
 	bool detented;
 
@@ -99,4 +101,3 @@ private:
 	void bypass_handler ();
 	void pannable_handler ();
 };
-

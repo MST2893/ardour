@@ -121,6 +121,15 @@ public:
 
 	void update_transient(float old_pos, float new_pos);
 	void remove_transient(float pos);
+	bool elastic_audio_editing () const;
+	bool elastic_audio_anchor_at (float pos) const;
+	samplepos_t elastic_audio_anchor_source_at (float pos) const;
+	void activate_elastic_audio_anchor (float pos);
+	void create_elastic_audio_anchor (samplepos_t where);
+	void update_elastic_audio_anchor (samplepos_t source, float new_pos);
+	void remove_elastic_audio_anchor (float pos);
+	void redisplay_transient_features (bool detect_transients);
+	void clear_elastic_audio ();
 
 	void     set_frame_color ();
 	uint32_t get_fill_color () const;
@@ -217,6 +226,7 @@ protected:
 	void color_handler ();
 
 	void transients_changed();
+	void invalidate_waveform ();
 
 	EditorAutomationLine::VisibleAspects automation_line_visibility () const;
 	void redisplay (bool) {}
@@ -248,7 +258,7 @@ private:
 	PBD::ID  _rfx_id;
 	uint32_t _rdx_param;
 	bool     _ignore_line_change;
+	bool     _elastic_audio_show_transient_candidates;
 
 	PBD::ScopedConnection _region_fx_connection;
 };
-

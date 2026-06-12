@@ -5084,7 +5084,7 @@ LineDrag::aborted (bool)
 	}
 }
 
-FeatureLineDrag::FeatureLineDrag (Editor& e, ArdourCanvas::Item* i)
+FeatureLineDrag::FeatureLineDrag (Editor& e, ArdourCanvas::Item* i, bool elastic_audio)
 	: Drag (e, i, e.time_domain (), e.get_trackview_group())
 	, _line (0)
 	, _arv (0)
@@ -5092,6 +5092,8 @@ FeatureLineDrag::FeatureLineDrag (Editor& e, ArdourCanvas::Item* i)
 	, _cumulative_x_drag (0)
 	, _before (0.0)
 	, _max_x (0)
+	, _elastic_audio (elastic_audio)
+	, _elastic_audio_source (-1)
 {
 	DEBUG_TRACE (DEBUG::Drags, "New FeatureLineDrag\n");
 }
@@ -5117,6 +5119,9 @@ FeatureLineDrag::start_grab (GdkEvent* event, Gdk::Cursor* /*cursor*/)
 	_before = *(float*)_item->get_data ("position");
 
 	_arv = reinterpret_cast<AudioRegionView*> (_item->get_data ("regionview"));
+	if (_elastic_audio) {
+		_elastic_audio_source = _arv->elastic_audio_anchor_source_at (_before);
+	}
 
 	_max_x = editing_context.duration_to_pixels (_arv->get_duration ());
 }
@@ -5154,7 +5159,11 @@ void
 FeatureLineDrag::finished (GdkEvent*, bool)
 {
 	_arv = reinterpret_cast<AudioRegionView*> (_item->get_data ("regionview"));
-	_arv->update_transient (_before, _before);
+	if (_elastic_audio) {
+		_arv->update_elastic_audio_anchor (_elastic_audio_source, _before);
+	} else {
+		_arv->update_transient (_before, _before);
+	}
 }
 
 void

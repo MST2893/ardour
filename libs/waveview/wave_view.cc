@@ -1238,6 +1238,23 @@ WaveView::gain_changed ()
 }
 
 void
+WaveView::invalidate_image ()
+{
+	if (current_request) {
+		current_request->cancel ();
+		current_request.reset ();
+	}
+
+	_image.reset ();
+	reset_cache_group ();
+
+	begin_change ();
+	_draw_image_in_gui_thread = true;
+	set_bbox_dirty ();
+	end_change ();
+}
+
+void
 WaveView::set_zero_color (Color c)
 {
 	if (_props->zero_color != c) {

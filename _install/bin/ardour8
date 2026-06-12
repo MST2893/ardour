@@ -5,7 +5,7 @@
 # and does a few checks before exec'ing the real executable.
 # 
 
-export GTK_PATH=share\ardour8:C:\ARDOURCUSTOM\ardour\_install\lib\ardour8${GTK_PATH:+:$GTK_PATH}
+export GTK_PATH=C:\ARDOURCUSTOM\ardour\_install\etc\ardour8:C:\ARDOURCUSTOM\ardour\_install\lib\ardour8${GTK_PATH:+:$GTK_PATH}
 
 export LD_LIBRARY_PATH=C:\ARDOURCUSTOM\ardour\_install\lib\ardour8${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
 
@@ -44,7 +44,7 @@ fi
 #
 
 export ARDOUR_DATA_PATH=C:\ARDOURCUSTOM\ardour\_install\share\ardour8
-export ARDOUR_CONFIG_PATH=share\ardour8
+export ARDOUR_CONFIG_PATH=C:\ARDOURCUSTOM\ardour\_install\etc\ardour8
 export ARDOUR_DLL_PATH=C:\ARDOURCUSTOM\ardour\_install\lib\ardour8
 
 #

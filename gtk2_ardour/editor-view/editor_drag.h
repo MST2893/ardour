@@ -1283,7 +1283,7 @@ private:
 class FeatureLineDrag : public Drag
 {
 public:
-	FeatureLineDrag (Editor&e, ArdourCanvas::Item *i);
+	FeatureLineDrag (Editor&e, ArdourCanvas::Item *i, bool elastic_audio = false);
 
 	void start_grab (GdkEvent *, Gdk::Cursor* c = 0);
 	void motion (GdkEvent *, bool);
@@ -1300,6 +1300,8 @@ private:
 
 	float _before;
 	uint32_t _max_x;
+	bool _elastic_audio;
+	samplepos_t _elastic_audio_source;
 };
 
 /** Dragging of a rubberband rectangle for selecting things */
