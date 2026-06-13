@@ -55,6 +55,7 @@
 #include "ardour/meter.h"
 #include "ardour/midi_track.h"
 #include "ardour/playlist.h"
+#include "ardour/audioplaylist.h"
 #include "ardour/session_playlists.h"
 #include "ardour/pan_controllable.h"
 #include "ardour/pannable.h"
@@ -84,6 +85,7 @@
 #include "app-core/enums_convert.h"
 #include "editor-view/audio_region_view.h"
 #include "editor-view/route_time_axis.h"
+#include "editor-view/playlist_lane_time_axis.h"
 #include "automation/automation_time_axis.h"
 #include "app-core/enums.h"
 #include "app-core/gui_thread.h"
@@ -176,6 +178,7 @@ RouteTimeAxisView::RouteTimeAxisView (PublicEditor& ed, Session* sess, ArdourCan
 	, playlist_button (S_("RTAV|P"))
 	, automation_button (S_("RTAV|A"))
 	, elastic_audio_button (S_("Elastic|E"), ArdourButton::default_elements, true)
+	, playlist_lanes_button (ArdourButton::Element (ArdourButton::Edge | ArdourButton::Body | ArdourButton::VectorIcon), true)
 	, elastic_audio_menu (0)
 	, automation_action_menu (0)
 	, plugins_submenu_item (0)
@@ -185,6 +188,9 @@ RouteTimeAxisView::RouteTimeAxisView (PublicEditor& ed, Session* sess, ArdourCan
 	, gm (sess, true, 75, 14)
 	, _ignore_set_layer_display (false)
 	, _elastic_audio_mode (ARDOUR::ElasticAudioDisabled)
+	, _playlist_lanes_shown (false)
+	, _playlist_lanes_rebuild_queued (false)
+	, _playlist_lane_height (preset_height (HeightNormal))
 	, pan_automation_item(NULL)
 {
 	subplugin_menu.set_name ("ArdourContextMenu");
@@ -253,11 +259,13 @@ RouteTimeAxisView::set_route (std::shared_ptr<Route> rt)
 	playlist_button.set_name ("route button");
 	automation_button.set_name ("route button");
 	elastic_audio_button.set_name ("route button");
+	playlist_lanes_button.set_name ("route button");
 
 	route_group_button.signal_button_press_event().connect (sigc::mem_fun(*this, &RouteTimeAxisView::route_group_click), false);
 	playlist_button.signal_button_press_event().connect (sigc::mem_fun(*this, &RouteTimeAxisView::playlist_click), false);
 	automation_button.signal_button_press_event().connect (sigc::mem_fun(*this, &RouteTimeAxisView::automation_click), false);
 	elastic_audio_button.signal_button_press_event().connect (sigc::mem_fun(*this, &RouteTimeAxisView::elastic_audio_edit_button_press), false);
+	playlist_lanes_button.signal_button_press_event().connect (sigc::mem_fun(*this, &RouteTimeAxisView::playlist_lanes_click), false);
 
 	if (is_track()) {
 
@@ -278,6 +286,15 @@ RouteTimeAxisView::set_route (std::shared_ptr<Route> rt)
 		/* set playlist button tip to the current playlist, and make it update when it changes */
 		update_playlist_tip ();
 		track()->PlaylistChanged.connect (*this, invalidator (*this), ui_bind(&RouteTimeAxisView::update_playlist_tip, this), gui_context());
+
+		/* keep the Pro-Tools-style lanes in sync when playlists are added or
+		 * the active playlist is switched. Lanes themselves must NOT do this
+		 * (they share the route) or they would recurse.
+		 */
+		if (!is_playlist_lane ()) {
+			track()->PlaylistChanged.connect (*this, invalidator (*this), std::bind (&RouteTimeAxisView::playlists_maybe_changed, this), gui_context());
+			track()->PlaylistAdded.connect (*this, invalidator (*this), std::bind (&RouteTimeAxisView::playlists_maybe_changed, this), gui_context());
+		}
 
 	} else {
 		gm.set_fader_name ("AudioBusFader");
@@ -352,6 +369,7 @@ RouteTimeAxisView::set_route (std::shared_ptr<Route> rt)
 	playlist_button.set_tweaks(ArdourButton::TrackHeader);
 	automation_button.set_tweaks(ArdourButton::TrackHeader);
 	elastic_audio_button.set_tweaks(ArdourButton::TrackHeader);
+	playlist_lanes_button.set_tweaks(ArdourButton::TrackHeader);
 	route_group_button.set_tweaks(ArdourButton::TrackHeader);
 
 	if (is_midi_track()) {
@@ -360,6 +378,9 @@ RouteTimeAxisView::set_route (std::shared_ptr<Route> rt)
 		set_tooltip(automation_button, _("Automation"));
 	}
 	set_tooltip (elastic_audio_button, _("Elastic Audio: click to choose a stretch mode. When enabled, double-click transient lines or the waveform to create stretch anchors, drag active anchors, Alt-click active anchors to remove them."));
+
+	playlist_lanes_button.set_icon (ArdourIcon::TrackWaveform);
+	set_tooltip (playlist_lanes_button, _("Playlists: show every other playlist of this track as an editable lane (Pro-Tools style)"));
 
 	/* restore the elastic audio mode from the regions themselves: their
 	 * mode is serialized in the session (region <ElasticAudio> nodes) and
@@ -408,8 +429,23 @@ RouteTimeAxisView::set_route (std::shared_ptr<Route> rt)
 	if (is_audio_track()) {
 		if (ARDOUR::Profile->get_mixbus()) {
 			controls_table.attach (elastic_audio_button, 0, 1, 1, 2, Gtk::SHRINK, Gtk::SHRINK);
+			controls_table.attach (playlist_lanes_button, 1, 2, 1, 2, Gtk::SHRINK, Gtk::SHRINK);
 		} else {
 			controls_table.attach (elastic_audio_button, 2, 3, 1, 2, Gtk::SHRINK, Gtk::SHRINK);
+			controls_table.attach (playlist_lanes_button, 3, 4, 1, 2, Gtk::SHRINK, Gtk::SHRINK);
+		}
+	}
+
+	/* restore playlist-lanes view state from the session's gui state */
+	if (is_audio_track ()) {
+		uint32_t lh = 0;
+		if (get_gui_property (X_("playlist-lane-height"), lh) && lh > 0) {
+			_playlist_lane_height = lh;
+		}
+		bool show_lanes = false;
+		if (get_gui_property (X_("show-playlist-lanes"), show_lanes) && show_lanes) {
+			/* defer until first idle so the track view is fully built */
+			_playlist_lanes_shown = true;
 		}
 	}
 
@@ -449,7 +485,15 @@ RouteTimeAxisView::set_route (std::shared_ptr<Route> rt)
 
 RouteTimeAxisView::~RouteTimeAxisView ()
 {
-	cleanup_gui_properties ();
+	/* For a secondary view that shares another view's Route (a playlist lane),
+	 * state_id() now resolves to RouteTimeAxisView::state_id() ("rtav <route>")
+	 * because the derived part is already destroyed — that is the PARENT track's
+	 * gui-object-state node. Skip it so we don't wipe the parent's state. The
+	 * lane removes its own (correctly-keyed) node in its destructor.
+	 */
+	if (!_skip_route_state_cleanup) {
+		cleanup_gui_properties ();
+	}
 
 	for (list<ProcessorAutomationInfo*>::iterator i = processor_automation.begin(); i != processor_automation.end(); ++i) {
 		delete *i;
@@ -481,6 +525,14 @@ RouteTimeAxisView::post_construct ()
 	update_diskstream_display ();
 	setup_processor_menu_and_curves ();
 	reset_processor_automation_curves ();
+
+	/* restore Pro-Tools-style playlist lanes if they were shown when the
+	 * session was saved (deferred to here so the track view is fully built).
+	 */
+	if (is_audio_track () && _playlist_lanes_shown && _playlist_lanes.empty ()) {
+		_playlist_lanes_shown = false; /* let show_playlist_lanes() do the work */
+		show_playlist_lanes (true);
+	}
 }
 
 /** Set up the processor menu for the current set of processors, and
@@ -637,6 +689,149 @@ RouteTimeAxisView::playlist_click (GdkEventButton *ev)
 	Gtkmm2ext::anchored_menu_popup(playlist_action_menu, &playlist_button,
 	                               "", 1, ev->time);
 	return true;
+}
+
+bool
+RouteTimeAxisView::playlist_lanes_click (GdkEventButton* ev)
+{
+	if (ev->button != 1) {
+		return true;
+	}
+	toggle_playlist_lanes ();
+	return true;
+}
+
+void
+RouteTimeAxisView::toggle_playlist_lanes ()
+{
+	show_playlist_lanes (!_playlist_lanes_shown);
+}
+
+void
+RouteTimeAxisView::show_playlist_lanes (bool yn)
+{
+	if (!is_audio_track ()) {
+		return;
+	}
+
+	_playlist_lanes_shown = yn;
+	set_gui_property (X_("show-playlist-lanes"), yn);
+	playlist_lanes_button.set_active_state (yn ? Gtkmm2ext::ExplicitActive : Gtkmm2ext::Off);
+
+	if (yn) {
+		rebuild_playlist_lanes ();
+	} else {
+		destroy_playlist_lanes ();
+	}
+
+	request_redraw ();
+}
+
+void
+RouteTimeAxisView::destroy_playlist_lanes ()
+{
+	for (std::vector<std::shared_ptr<PlaylistLaneTimeAxisView> >::iterator i = _playlist_lanes.begin (); i != _playlist_lanes.end (); ++i) {
+		(*i)->set_audition_active (false);
+		(*i)->set_marked_for_display (false);
+		(*i)->hide ();
+		remove_child (*i);
+	}
+	_playlist_lanes.clear ();
+}
+
+void
+RouteTimeAxisView::rebuild_playlist_lanes ()
+{
+	destroy_playlist_lanes ();
+
+	if (!is_audio_track () || !_playlist_lanes_shown) {
+		return;
+	}
+
+	std::shared_ptr<Track> tr = track ();
+	if (!tr) {
+		return;
+	}
+
+	std::shared_ptr<Playlist> active = tr->playlist ();
+
+	std::vector<std::shared_ptr<Playlist> > pls = _session->playlists ()->playlists_for_track (tr);
+
+	/* stable, predictable lane order */
+	std::sort (pls.begin (), pls.end (),
+	           [](std::shared_ptr<Playlist> a, std::shared_ptr<Playlist> b) {
+	               return a->name () < b->name ();
+	           });
+
+	for (std::vector<std::shared_ptr<Playlist> >::const_iterator i = pls.begin (); i != pls.end (); ++i) {
+		if (*i == active) {
+			continue; /* the active playlist is the main row, not a lane */
+		}
+		std::shared_ptr<AudioPlaylist> apl = std::dynamic_pointer_cast<AudioPlaylist> (*i);
+		if (!apl) {
+			continue;
+		}
+
+		std::shared_ptr<PlaylistLaneTimeAxisView> lane (
+			new PlaylistLaneTimeAxisView (_editor, _session, parent_canvas, *this, apl));
+		lane->set_route (_route);
+		lane->set_marked_for_display (true);
+		lane->apply_shared_height (_playlist_lane_height);
+		lane->AuditionToggled.connect (sigc::mem_fun (*this, &RouteTimeAxisView::lane_audition_toggled));
+		lane->LaneResized.connect (sigc::mem_fun (*this, &RouteTimeAxisView::lane_resized));
+
+		add_child (lane);
+		_playlist_lanes.push_back (lane);
+	}
+}
+
+void
+RouteTimeAxisView::lane_audition_toggled (PlaylistLaneTimeAxisView* which, bool want)
+{
+	/* enforce "only one lane auditioned per track": the rest go off */
+	for (std::vector<std::shared_ptr<PlaylistLaneTimeAxisView> >::iterator i = _playlist_lanes.begin (); i != _playlist_lanes.end (); ++i) {
+		(*i)->set_audition_active ((i->get () == which) ? want : false);
+	}
+}
+
+void
+RouteTimeAxisView::lane_resized (uint32_t h)
+{
+	_playlist_lane_height = h;
+	set_gui_property (X_("playlist-lane-height"), h);
+
+	for (std::vector<std::shared_ptr<PlaylistLaneTimeAxisView> >::iterator i = _playlist_lanes.begin (); i != _playlist_lanes.end (); ++i) {
+		(*i)->apply_shared_height (h);
+	}
+}
+
+void
+RouteTimeAxisView::playlists_maybe_changed ()
+{
+	if (!_playlist_lanes_shown || is_playlist_lane ()) {
+		return;
+	}
+	if (_playlist_lanes_rebuild_queued) {
+		return;
+	}
+	/* Defer to idle: this fires from inside playlist signal emission (incl.
+	 * undo/redo). Destroying and recreating lane views synchronously here
+	 * would mutate objects/connections mid-emission and can crash. By idle
+	 * time the playlist set is settled.
+	 */
+	_playlist_lanes_rebuild_queued = true;
+	Glib::signal_idle().connect (sigc::mem_fun (*this, &RouteTimeAxisView::idle_rebuild_playlist_lanes));
+}
+
+bool
+RouteTimeAxisView::idle_rebuild_playlist_lanes ()
+{
+	_playlist_lanes_rebuild_queued = false;
+	if (_playlist_lanes_shown && !is_playlist_lane ()) {
+		rebuild_playlist_lanes ();
+		request_redraw ();
+	}
+	return false; /* one-shot */
 }
 
 bool
@@ -1399,6 +1594,7 @@ RouteTimeAxisView::set_height (uint32_t h, TrackHeightMode m, bool from_idle)
 		}
 		if (is_audio_track()) {
 			elastic_audio_button.show ();
+			playlist_lanes_button.show ();
 		}
 
 	} else {
@@ -1422,6 +1618,7 @@ RouteTimeAxisView::set_height (uint32_t h, TrackHeightMode m, bool from_idle)
 			playlist_button.hide ();
 		}
 		elastic_audio_button.hide ();
+		playlist_lanes_button.hide ();
 
 	}
 

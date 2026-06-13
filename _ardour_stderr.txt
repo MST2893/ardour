@@ -1,0 +1,21 @@
+
+(ardour-8.0.0.exe:10788): Gtk-WARNING **: 11:34:58.062: Unable to locate theme engine in module_path: "clearlooks",
+
+(ardour-8.0.0.exe:10788): Gtk-WARNING **: 11:34:58.065: Unable to locate theme engine in module_path: "clearlooks",
+
+(ardour-8.0.0.exe:10788): Gtk-WARNING **: 11:34:58.070: Unable to locate theme engine in module_path: "clearlooks",
+
+(ardour-8.0.0.exe:10788): Gtk-WARNING **: 11:34:58.073: Unable to locate theme engine in module_path: "clearlooks",
+
+(ardour-8.0.0.exe:10788): Gtk-WARNING **: 11:34:58.122: Unable to locate theme engine in module_path: "clearlooks",
+
+(ardour-8.0.0.exe:10788): Gtk-WARNING **: 11:34:58.124: Unable to locate theme engine in module_path: "clearlooks",
+Set cursor set to default
+Vamp::HostExt::PluginLoader: No library found in Vamp path for plugin "libardourvampplugins:qm-onsetdetector"
+Vamp::HostExt::PluginLoader: No library found in Vamp path for plugin "libardourvampplugins:qm-onsetdetector"
+Vamp::HostExt::PluginLoader: No library found in Vamp path for plugin "libardourvampplugins:qm-onsetdetector"
+Vamp::HostExt::PluginLoader: No library found in Vamp path for plugin "libardourvampplugins:qm-onsetdetector"
+Vamp::HostExt::PluginLoader: No library found in Vamp path for plugin "libardourvampplugins:qm-onsetdetector"
+Vamp::HostExt::PluginLoader: No library found in Vamp path for plugin "libardourvampplugins:qm-onsetdetector"
+Vamp::HostExt::PluginLoader: No library found in Vamp path for plugin "libardourvampplugins:qm-onsetdetector"
+couldn't load font "ArdourMono Ultra-Light Ultra-Condensed Not-Rotated 4.081", falling back to "Sans Ultra-Light Ultra-Condensed Not-Rotated 4.081", expect ugly output.couldn't load font "Sans Ultra-Light Ultra-Condensed Not-Rotated 4.081", falling back to "Sans Not-Rotated 4.081", expect ugly output.couldn't load font "bold ArdourMono Not-Rotated 7", falling back to "Sans Not-Rotated 7", expect ugly output.

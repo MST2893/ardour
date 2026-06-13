@@ -185,7 +185,10 @@ AudioStreamView::redisplay_track ()
 
 	// Add and display views, and flag them as valid
 	if (_trackview.is_audio_track()) {
-		_trackview.track()->playlist()->foreach_region (sigc::hide_return (sigc::mem_fun (*this, &StreamView::add_region_view)));
+		std::shared_ptr<Playlist> pl = displayed_playlist ();
+		if (pl) {
+			pl->foreach_region (sigc::hide_return (sigc::mem_fun (*this, &StreamView::add_region_view)));
+		}
 	}
 
 	// Stack regions by layer, and remove invalid regions
@@ -210,6 +213,13 @@ void
 AudioStreamView::setup_rec_box ()
 {
 	//cerr << _trackview.name() << " streamview SRB region_views.size() = " << region_views.size() << endl;
+
+	/* playlist lanes display an alternate (non-active) playlist and never
+	 * record, so they must not draw record boxes.
+	 */
+	if (has_displayed_playlist_override ()) {
+		return;
+	}
 
 	if (!_trackview.session()->transport_stopped_or_stopping() &&
 	    (_trackview.session()->transport_rolling() || _trackview.session()->get_record_enabled())) {

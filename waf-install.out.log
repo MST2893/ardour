@@ -3,12 +3,12 @@ Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
 *** WARNING: MSVC does not allow symbols to be visible/exported by default while building libardourvampplugins
 *** WARNING: MSVC does not allow symbols to be visible/exported by default while building libardourvamppyin
 *** WARNING: MSVC does not allow symbols to be visible/exported by default while building liblua
-[  73/2011] Linking build\libs\pbd\pbd.dll
+[  73/2012] Linking build\libs\pbd\pbd.dll
    Creando biblioteca libs\pbd\pbd.lib y objeto libs\pbd\pbd.exp
 
-[1794/2011] Processing ardour.keys: gtk2_ardour\ardour.keys.in gtk2_ardour\mixer.bindings gtk2_ardour\processor_box.bindings gtk2_ardour\step_editing.bindings gtk2_ardour\monitor.bindings gtk2_ardour\trigger.bindings gtk2_ardour\regionfx_box.bindings gtk2_ardour\automation.bindings -> build\gtk2_ardour\ardour.keys
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\engines\clearlooks.lib (from build\libs\clearlooks-newer\clearlooks.lib)
+[1795/2012] Processing ardour.keys: gtk2_ardour\ardour.keys.in gtk2_ardour\mixer.bindings gtk2_ardour\processor_box.bindings gtk2_ardour\step_editing.bindings gtk2_ardour\monitor.bindings gtk2_ardour\trigger.bindings gtk2_ardour\regionfx_box.bindings gtk2_ardour\automation.bindings -> build\gtk2_ardour\ardour.keys
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\engines\clearlooks.dll (from build\libs\clearlooks-newer\clearlooks.dll)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\engines\clearlooks.lib (from build\libs\clearlooks-newer\clearlooks.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\hidapi.lib (from build\libs\hidapi\hidapi.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\vamp\ardourvampplugins.dll (from build\libs\vamp-plugins\ardourvampplugins.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\vamp\ardourvampplugins.lib (from build\libs\vamp-plugins\ardourvampplugins.lib)
@@ -18,23 +18,23 @@ Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\aaf.lib (from build\libs\aaf\aaf.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ztk.dll (from build\libs\tk\ztk\ztk.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ztk.lib (from build\libs\tk\ztk\ztk.lib)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ydk.lib (from build\libs\tk\ydk\ydk.lib)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ydk-pixbuf.dll (from build\libs\tk\ydk-pixbuf\ydk-pixbuf.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ydk-pixbuf.lib (from build\libs\tk\ydk-pixbuf\ydk-pixbuf.lib)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ydk-pixbuf.dll (from build\libs\tk\ydk-pixbuf\ydk-pixbuf.dll)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ydk.lib (from build\libs\tk\ydk\ydk.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ydk.dll (from build\libs\tk\ydk\ydk.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ytk.lib (from build\libs\tk\ytk\ytk.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ytk.dll (from build\libs\tk\ytk\ytk.dll)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ytk.lib (from build\libs\tk\ytk\ytk.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ztkmm.dll (from build\libs\tk\ztkmm\ztkmm.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ztkmm.lib (from build\libs\tk\ztkmm\ztkmm.lib)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ydkmm.dll (from build\libs\tk\ydkmm\ydkmm.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ydkmm.lib (from build\libs\tk\ydkmm\ydkmm.lib)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ydkmm.dll (from build\libs\tk\ydkmm\ydkmm.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ytkmm.lib (from build\libs\tk\ytkmm\ytkmm.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ytkmm.dll (from build\libs\tk\ytkmm\ytkmm.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\suil.dll (from build\libs\tk\suil\suil.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\suil.lib (from build\libs\tk\suil\suil.lib)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\suil.dll (from build\libs\tk\suil\suil.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\suil_win_in_gtk2.dll (from build\libs\tk\suil\suil_win_in_gtk2.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\suil_win_in_gtk2.lib (from build\libs\tk\suil\suil_win_in_gtk2.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\chords.txt (from share\chords.txt)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\suil_win_in_gtk2.lib (from build\libs\tk\suil\suil_win_in_gtk2.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\reasonablesynth.lv2\manifest.ttl (from build\libs\LV2\reasonablesynth.lv2\manifest.ttl)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\reasonablesynth.lv2\reasonablesynth.ttl (from build\libs\LV2\reasonablesynth.lv2\reasonablesynth.ttl)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\reasonablesynth.lv2\reasonablesynth.lib (from build\libs\LV2\reasonablesynth.lv2\reasonablesynth.lib)
@@ -43,18 +43,18 @@ Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-comp.lv2\a-comp.ttl (from build\libs\LV2\a-comp.lv2\a-comp.ttl)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-comp.lv2\a-comp#stereo.ttl (from build\libs\LV2\a-comp.lv2\a-comp#stereo.ttl)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-comp.lv2\presets.ttl (from build\libs\LV2\a-comp.lv2\presets.ttl)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-comp.lv2\a-comp.dll (from build\libs\LV2\a-comp.lv2\a-comp.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-comp.lv2\a-comp.lib (from build\libs\LV2\a-comp.lv2\a-comp.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-exp.lv2\manifest.ttl (from build\libs\LV2\a-exp.lv2\manifest.ttl)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-comp.lv2\a-comp.dll (from build\libs\LV2\a-comp.lv2\a-comp.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-exp.lv2\a-exp.ttl (from build\libs\LV2\a-exp.lv2\a-exp.ttl)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-exp.lv2\a-exp.dll (from build\libs\LV2\a-exp.lv2\a-exp.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-exp.lv2\a-exp#stereo.ttl (from build\libs\LV2\a-exp.lv2\a-exp#stereo.ttl)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-exp.lv2\a-exp.lib (from build\libs\LV2\a-exp.lv2\a-exp.lib)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-exp.lv2\a-exp.dll (from build\libs\LV2\a-exp.lv2\a-exp.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-delay.lv2\manifest.ttl (from build\libs\LV2\a-delay.lv2\manifest.ttl)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-delay.lv2\a-delay.ttl (from build\libs\LV2\a-delay.lv2\a-delay.ttl)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-delay.lv2\presets.ttl (from build\libs\LV2\a-delay.lv2\presets.ttl)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-delay.lv2\a-delay.lib (from build\libs\LV2\a-delay.lv2\a-delay.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-delay.lv2\a-delay.dll (from build\libs\LV2\a-delay.lv2\a-delay.dll)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-delay.lv2\a-delay.lib (from build\libs\LV2\a-delay.lv2\a-delay.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-eq.lv2\manifest.ttl (from build\libs\LV2\a-eq.lv2\manifest.ttl)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-eq.lv2\a-eq.ttl (from build\libs\LV2\a-eq.lv2\a-eq.ttl)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-eq.lv2\a-eq.dll (from build\libs\LV2\a-eq.lv2\a-eq.dll)
@@ -63,13 +63,13 @@ Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-reverb.lv2\a-reverb.ttl (from build\libs\LV2\a-reverb.lv2\a-reverb.ttl)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-reverb.lv2\a-reverb.lib (from build\libs\LV2\a-reverb.lv2\a-reverb.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-reverb.lv2\a-reverb.dll (from build\libs\LV2\a-reverb.lv2\a-reverb.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-fluidsynth.lv2\manifest.ttl (from build\libs\LV2\a-fluidsynth.lv2\manifest.ttl)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-fluidsynth.lv2\a-fluidsynth.ttl (from build\libs\LV2\a-fluidsynth.lv2\a-fluidsynth.ttl)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-fluidsynth.lv2\a-fluidsynth.dll (from build\libs\LV2\a-fluidsynth.lv2\a-fluidsynth.dll)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-fluidsynth.lv2\manifest.ttl (from build\libs\LV2\a-fluidsynth.lv2\manifest.ttl)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-fluidsynth.lv2\a-fluidsynth.lib (from build\libs\LV2\a-fluidsynth.lv2\a-fluidsynth.lib)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\LV2\a-fluidsynth.lv2\a-fluidsynth.dll (from build\libs\LV2\a-fluidsynth.lv2\a-fluidsynth.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\export\CD + Ogg_Vorbis + FLAC.preset (from share\export\CD + Ogg_Vorbis + FLAC.preset)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\media\.daw-meta.xml (from share\media\.daw-meta.xml)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\export\CD only.preset (from share\export\CD only.preset)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\media\.daw-meta.xml (from share\media\.daw-meta.xml)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\export\FLAC.preset (from share\export\FLAC.preset)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\media\click-120bpm.flac (from share\media\click-120bpm.flac)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\export\Ogg_Vorbis + FLAC.preset (from share\export\Ogg_Vorbis + FLAC.preset)
@@ -153,9 +153,9 @@ Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\mcp\arturiaMkII.profile (from share\mcp\arturiaMkII.profile)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\mcp\user.profile (from share\mcp\user.profile)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\osc\TTC2.preset (from share\osc\TTC2.preset)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\osc\basic-touchosc.preset (from share\osc\basic-touchosc.preset)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\mcp\artist_control.device (from share\mcp\artist_control.device)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\mcp\artist_mix.device (from share\mcp\artist_mix.device)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\osc\basic-touchosc.preset (from share\osc\basic-touchosc.preset)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\mcp\arturiaMkII.device (from share\mcp\arturiaMkII.device)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\mcp\bcf2000.device (from share\mcp\bcf2000.device)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\mcp\cmc.device (from share\mcp\cmc.device)
@@ -342,242 +342,242 @@ Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_P2000_XL_7_ROM.midnam (from share\patchfiles\E_mu_Systems_P2000_XL_7_ROM.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_P2000_XTREM.midnam (from share\patchfiles\E_mu_Systems_P2000_XTREM.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_P2000_X_Lead.midnam (from share\patchfiles\E_mu_Systems_P2000_X_Lead.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\HiAndLowPass.lua (from share\scripts\HiAndLowPass.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_PK_6.midnam (from share\patchfiles\E_mu_Systems_PK_6.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\a-noise.lua (from share\scripts\a-noise.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Planet_Earth.midnam (from share\patchfiles\E_mu_Systems_Planet_Earth.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\a_dtmf_phone.lua (from share\scripts\a_dtmf_phone.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Planet_Phatt.midnam (from share\patchfiles\E_mu_Systems_Planet_Phatt.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Procussion.midnam (from share\patchfiles\E_mu_Systems_Procussion.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\a_mute.lua (from share\scripts\a_mute.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_ProteusFX.midnam (from share\patchfiles\E_mu_Systems_ProteusFX.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\a_slow_mute.lua (from share\scripts\a_slow_mute.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Proteus_1.midnam (from share\patchfiles\E_mu_Systems_Proteus_1.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\a_stereo_routing.lua (from share\scripts\a_stereo_routing.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Proteus_1_XR.midnam (from share\patchfiles\E_mu_Systems_Proteus_1_XR.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Proteus_1_XR_Orch.midnam (from share\patchfiles\E_mu_Systems_Proteus_1_XR_Orch.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Proteus_1_w_Protologic.midnam (from share\patchfiles\E_mu_Systems_Proteus_1_w_Protologic.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\ab_switch.lua (from share\scripts\ab_switch.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\access_action.lua (from share\scripts\access_action.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Proteus_2.midnam (from share\patchfiles\E_mu_Systems_Proteus_2.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\add_MIDI_monitor.lua (from share\scripts\add_MIDI_monitor.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\add_audio_track.lua (from share\scripts\add_audio_track.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\add_cdmarker.lua (from share\scripts\add_cdmarker.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Proteus_2500.midnam (from share\patchfiles\E_mu_Systems_Proteus_2500.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Proteus_2_XR.midnam (from share\patchfiles\E_mu_Systems_Proteus_2_XR.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\addscopes.lua (from share\scripts\addscopes.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Proteus_3.midnam (from share\patchfiles\E_mu_Systems_Proteus_3.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\amp5.lua (from share\scripts\amp5.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Proteus_3_XR.midnam (from share\patchfiles\E_mu_Systems_Proteus_3_XR.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\avldrums_midimap.lua (from share\scripts\avldrums_midimap.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Proteus_Custom.midnam (from share\patchfiles\E_mu_Systems_Proteus_Custom.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\barlow_arp.lua (from share\scripts\barlow_arp.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_SoundEngine.midnam (from share\patchfiles\E_mu_Systems_SoundEngine.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\blank_midi_region_clone.lua (from share\scripts\blank_midi_region_clone.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_UltraProteus.midnam (from share\patchfiles\E_mu_Systems_UltraProteus.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Vintage_Keys.midnam (from share\patchfiles\E_mu_Systems_Vintage_Keys.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\bounce_replace.lua (from share\scripts\bounce_replace.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Vintage_Pro.midnam (from share\patchfiles\E_mu_Systems_Vintage_Pro.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\brutalize_midi.lua (from share\scripts\brutalize_midi.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_Virtuoso_2000.midnam (from share\patchfiles\E_mu_Systems_Virtuoso_2000.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_Systems_XK_6.midnam (from share\patchfiles\E_mu_Systems_XK_6.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\bypass_all_plugins.lua (from share\scripts\bypass_all_plugins.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\E_mu_XL_1.midnam (from share\patchfiles\E_mu_XL_1.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\collapse_playlists.lua (from share\scripts\collapse_playlists.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Ensoniq_ESQ.midnam (from share\patchfiles\Ensoniq_ESQ.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\create_drum_tracks.lua (from share\scripts\create_drum_tracks.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Ensoniq_KS_32.midnam (from share\patchfiles\Ensoniq_KS_32.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\delete_xrun_markers.lua (from share\scripts\delete_xrun_markers.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Ensoniq_MR_Rack_61_76.midnam (from share\patchfiles\Ensoniq_MR_Rack_61_76.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Ensoniq_SD_1.midnam (from share\patchfiles\Ensoniq_SD_1.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\dm10studio.lua (from share\scripts\dm10studio.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Ensoniq_SQ_1.midnam (from share\patchfiles\Ensoniq_SQ_1.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\duplicate_to_grid.lua (from share\scripts\duplicate_to_grid.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Ensoniq_SQ_1_2_R_.midnam (from share\patchfiles\Ensoniq_SQ_1_2_R_.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\export_mp4chaps.lua (from share\scripts\export_mp4chaps.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\ir_capture.lua (from share\scripts\ir_capture.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Ensoniq_SQ_1_2_R_32.midnam (from share\patchfiles\Ensoniq_SQ_1_2_R_32.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Ensoniq_SQ_R.midnam (from share\patchfiles\Ensoniq_SQ_R.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\jump_to_marker.lua (from share\scripts\jump_to_marker.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Ensoniq_TS_10_12.midnam (from share\patchfiles\Ensoniq_TS_10_12.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Ensoniq_VFX_SD.midnam (from share\patchfiles\Ensoniq_VFX_SD.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Ensoniq_ZR.midnam (from share\patchfiles\Ensoniq_ZR.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Eventide_Eclipse.midnam (from share\patchfiles\Eventide_Eclipse.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\HiAndLowPass.lua (from share\scripts\HiAndLowPass.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Gotharmoon_deMoon.midnam (from share\patchfiles\Gotharmoon_deMoon.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\a-noise.lua (from share\scripts\a-noise.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Johnson_J_Station.midnam (from share\patchfiles\Johnson_J_Station.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\a_dtmf_phone.lua (from share\scripts\a_dtmf_phone.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Jomox_MBase_11.midnam (from share\patchfiles\Jomox_MBase_11.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\a_mute.lua (from share\scripts\a_mute.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kawai_GMega.midnam (from share\patchfiles\Kawai_GMega.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\a_slow_mute.lua (from share\scripts\a_slow_mute.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kawai_K1.midnam (from share\patchfiles\Kawai_K1.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\a_stereo_routing.lua (from share\scripts\a_stereo_routing.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kawai_K11.midnam (from share\patchfiles\Kawai_K11.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\ab_switch.lua (from share\scripts\ab_switch.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_01R_W.midnam (from share\patchfiles\Korg_01R_W.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\access_action.lua (from share\scripts\access_action.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_01_W(fd).midnam (from share\patchfiles\Korg_01_W(fd).midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\add_MIDI_monitor.lua (from share\scripts\add_MIDI_monitor.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_01_W_Pro(X).midnam (from share\patchfiles\Korg_01_W_Pro(X).midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\add_audio_track.lua (from share\scripts\add_audio_track.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_03R_W.midnam (from share\patchfiles\Korg_03R_W.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\add_cdmarker.lua (from share\scripts\add_cdmarker.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_05R_W.midnam (from share\patchfiles\Korg_05R_W.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\addscopes.lua (from share\scripts\addscopes.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_AG_10.midnam (from share\patchfiles\Korg_AG_10.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\amp5.lua (from share\scripts\amp5.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_AG_3.midnam (from share\patchfiles\Korg_AG_3.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\avldrums_midimap.lua (from share\scripts\avldrums_midimap.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_CX3.midnam (from share\patchfiles\Korg_CX3.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\barlow_arp.lua (from share\scripts\barlow_arp.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_C_15_25.midnam (from share\patchfiles\Korg_C_15_25.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\blank_midi_region_clone.lua (from share\scripts\blank_midi_region_clone.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_C_303_505.midnam (from share\patchfiles\Korg_C_303_505.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\bounce_replace.lua (from share\scripts\bounce_replace.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_DW_8000.midnam (from share\patchfiles\Korg_DW_8000.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\brutalize_midi.lua (from share\scripts\brutalize_midi.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_ER_1.midnam (from share\patchfiles\Korg_ER_1.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\bypass_all_plugins.lua (from share\scripts\bypass_all_plugins.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_EX_8000.midnam (from share\patchfiles\Korg_EX_8000.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\collapse_playlists.lua (from share\scripts\collapse_playlists.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Karma.midnam (from share\patchfiles\Korg_Karma.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\create_drum_tracks.lua (from share\scripts\create_drum_tracks.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Kross_2.midnam (from share\patchfiles\Korg_Kross_2.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\delete_xrun_markers.lua (from share\scripts\delete_xrun_markers.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_M1(R).midnam (from share\patchfiles\Korg_M1(R).midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\dm10studio.lua (from share\scripts\dm10studio.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_M3R.midnam (from share\patchfiles\Korg_M3R.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\duplicate_to_grid.lua (from share\scripts\duplicate_to_grid.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_MS2000R.midnam (from share\patchfiles\Korg_MS2000R.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\export_mp4chaps.lua (from share\scripts\export_mp4chaps.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_MicroKORG.midnam (from share\patchfiles\Korg_MicroKORG.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\ir_capture.lua (from share\scripts\ir_capture.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_N1_N5.midnam (from share\patchfiles\Korg_N1_N5.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\jump_to_marker.lua (from share\scripts\jump_to_marker.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_N264.midnam (from share\patchfiles\Korg_N264.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\lfo_automation.lua (from share\scripts\lfo_automation.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Eventide_Eclipse.midnam (from share\patchfiles\Eventide_Eclipse.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Gotharmoon_deMoon.midnam (from share\patchfiles\Gotharmoon_deMoon.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\list_plugins.lua (from share\scripts\list_plugins.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Johnson_J_Station.midnam (from share\patchfiles\Johnson_J_Station.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\ltc_reader.lua (from share\scripts\ltc_reader.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Jomox_MBase_11.midnam (from share\patchfiles\Jomox_MBase_11.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kawai_GMega.midnam (from share\patchfiles\Kawai_GMega.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\metering_point.lua (from share\scripts\metering_point.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kawai_K1.midnam (from share\patchfiles\Kawai_K1.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\midi_cc_to_automation.lua (from share\scripts\midi_cc_to_automation.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kawai_K11.midnam (from share\patchfiles\Kawai_K11.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\midi_remap.lua (from share\scripts\midi_remap.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_01R_W.midnam (from share\patchfiles\Korg_01R_W.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_01_W(fd).midnam (from share\patchfiles\Korg_01_W(fd).midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\midimon.lua (from share\scripts\midimon.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\mixer_screenshot.lua (from share\scripts\mixer_screenshot.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_01_W_Pro(X).midnam (from share\patchfiles\Korg_01_W_Pro(X).midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\mono_to_stereo_pan.lua (from share\scripts\mono_to_stereo_pan.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_03R_W.midnam (from share\patchfiles\Korg_03R_W.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\mute_all_tracks.lua (from share\scripts\mute_all_tracks.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_05R_W.midnam (from share\patchfiles\Korg_05R_W.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_AG_10.midnam (from share\patchfiles\Korg_AG_10.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\new_clean_playlists.lua (from share\scripts\new_clean_playlists.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_AG_3.midnam (from share\patchfiles\Korg_AG_3.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\normalize_all_tracks.lua (from share\scripts\normalize_all_tracks.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_CX3.midnam (from share\patchfiles\Korg_CX3.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\notch_bank.lua (from share\scripts\notch_bank.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_C_15_25.midnam (from share\patchfiles\Korg_C_15_25.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\periodic_backup.lua (from share\scripts\periodic_backup.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\pitch_to_mts.lua (from share\scripts\pitch_to_mts.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_C_303_505.midnam (from share\patchfiles\Korg_C_303_505.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\post_export_save_hook.lua (from share\scripts\post_export_save_hook.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_DW_8000.midnam (from share\patchfiles\Korg_DW_8000.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\preare_record_example.lua (from share\scripts\preare_record_example.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_ER_1.midnam (from share\patchfiles\Korg_ER_1.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\raptor_arp.lua (from share\scripts\raptor_arp.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_EX_8000.midnam (from share\patchfiles\Korg_EX_8000.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\record_now.lua (from share\scripts\record_now.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Karma.midnam (from share\patchfiles\Korg_Karma.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Kross_2.midnam (from share\patchfiles\Korg_Kross_2.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\remove_sysex_from_region.lua (from share\scripts\remove_sysex_from_region.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_M1(R).midnam (from share\patchfiles\Korg_M1(R).midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_M3R.midnam (from share\patchfiles\Korg_M3R.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\remove_unknown_procs.lua (from share\scripts\remove_unknown_procs.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_MS2000R.midnam (from share\patchfiles\Korg_MS2000R.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_MicroKORG.midnam (from share\patchfiles\Korg_MicroKORG.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\reset_mixer.lua (from share\scripts\reset_mixer.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_N1_N5.midnam (from share\patchfiles\Korg_N1_N5.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\reverse_midi.lua (from share\scripts\reverse_midi.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_N264.midnam (from share\patchfiles\Korg_N264.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\rubberband_swing.lua (from share\scripts\rubberband_swing.lua)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_N364.midnam (from share\patchfiles\Korg_N364.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_NS5R.midnam (from share\patchfiles\Korg_NS5R.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\list_plugins.lua (from share\scripts\list_plugins.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_NX5R.midnam (from share\patchfiles\Korg_NX5R.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\ltc_reader.lua (from share\scripts\ltc_reader.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Prophecy.midnam (from share\patchfiles\Korg_Prophecy.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\metering_point.lua (from share\scripts\metering_point.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Radias.midnam (from share\patchfiles\Korg_Radias.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\midi_cc_to_automation.lua (from share\scripts\midi_cc_to_automation.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_T1.midnam (from share\patchfiles\Korg_T1.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\midi_remap.lua (from share\scripts\midi_remap.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\midimon.lua (from share\scripts\midimon.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_TR_Rack.midnam (from share\patchfiles\Korg_TR_Rack.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\mixer_screenshot.lua (from share\scripts\mixer_screenshot.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\mono_to_stereo_pan.lua (from share\scripts\mono_to_stereo_pan.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_TR_Workstation.midnam (from share\patchfiles\Korg_TR_Workstation.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\mute_all_tracks.lua (from share\scripts\mute_all_tracks.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Trinity.midnam (from share\patchfiles\Korg_Trinity.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Trinity_Plus.midnam (from share\patchfiles\Korg_Trinity_Plus.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\new_clean_playlists.lua (from share\scripts\new_clean_playlists.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Trinity_Pro(X).midnam (from share\patchfiles\Korg_Trinity_Pro(X).midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\normalize_all_tracks.lua (from share\scripts\normalize_all_tracks.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Trinity_Track.midnam (from share\patchfiles\Korg_Trinity_Track.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Triton.midnam (from share\patchfiles\Korg_Triton.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\notch_bank.lua (from share\scripts\notch_bank.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Triton_Expansion.midnam (from share\patchfiles\Korg_Triton_Expansion.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\periodic_backup.lua (from share\scripts\periodic_backup.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Triton_Le.midnam (from share\patchfiles\Korg_Triton_Le.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\pitch_to_mts.lua (from share\scripts\pitch_to_mts.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Triton_Rack.midnam (from share\patchfiles\Korg_Triton_Rack.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\post_export_save_hook.lua (from share\scripts\post_export_save_hook.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Triton_Studio.midnam (from share\patchfiles\Korg_Triton_Studio.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\preare_record_example.lua (from share\scripts\preare_record_example.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Volca_Bass.midnam (from share\patchfiles\Korg_Volca_Bass.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\raptor_arp.lua (from share\scripts\raptor_arp.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Volca_Beats.midnam (from share\patchfiles\Korg_Volca_Beats.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\record_now.lua (from share\scripts\record_now.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Volca_Keys.midnam (from share\patchfiles\Korg_Volca_Keys.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\remove_sysex_from_region.lua (from share\scripts\remove_sysex_from_region.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Wavestation_A_D.midnam (from share\patchfiles\Korg_Wavestation_A_D.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\remove_unknown_procs.lua (from share\scripts\remove_unknown_procs.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Wavestation_EX.midnam (from share\patchfiles\Korg_Wavestation_EX.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\reset_mixer.lua (from share\scripts\reset_mixer.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Wavestation_SR.midnam (from share\patchfiles\Korg_Wavestation_SR.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\reverse_midi.lua (from share\scripts\reverse_midi.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_X2_3_3R.midnam (from share\patchfiles\Korg_X2_3_3R.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\rubberband_swing.lua (from share\scripts\rubberband_swing.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_X5(D).midnam (from share\patchfiles\Korg_X5(D).midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_add_sources_to_track.lua (from share\scripts\s_add_sources_to_track.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_X50.midnam (from share\patchfiles\Korg_X50.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_NX5R.midnam (from share\patchfiles\Korg_NX5R.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_chanmap.lua (from share\scripts\s_chanmap.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_X5DR.midnam (from share\patchfiles\Korg_X5DR.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Prophecy.midnam (from share\patchfiles\Korg_Prophecy.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_color_transparency.lua (from share\scripts\s_color_transparency.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Z1.midnam (from share\patchfiles\Korg_Z1.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Radias.midnam (from share\patchfiles\Korg_Radias.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_control_protocols.lua (from share\scripts\s_control_protocols.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_iSeries.midnam (from share\patchfiles\Korg_iSeries.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_T1.midnam (from share\patchfiles\Korg_T1.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_cut_copy_section.lua (from share\scripts\s_cut_copy_section.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_1200_Pro_I.midnam (from share\patchfiles\Kurzweil_1200_Pro_I.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_TR_Rack.midnam (from share\patchfiles\Korg_TR_Rack.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_ducks.lua (from share\scripts\s_ducks.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_1200_Pro_II.midnam (from share\patchfiles\Kurzweil_1200_Pro_II.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_TR_Workstation.midnam (from share\patchfiles\Korg_TR_Workstation.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_fader_automation.lua (from share\scripts\s_fader_automation.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K1200.midnam (from share\patchfiles\Kurzweil_K1200.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Trinity.midnam (from share\patchfiles\Korg_Trinity.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_foreach_track.lua (from share\scripts\s_foreach_track.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2000.midnam (from share\patchfiles\Kurzweil_K2000.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Trinity_Plus.midnam (from share\patchfiles\Korg_Trinity_Plus.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_group_color.lua (from share\scripts\s_group_color.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2000R.midnam (from share\patchfiles\Kurzweil_K2000R.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_import_files.lua (from share\scripts\s_import_files.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Trinity_Pro(X).midnam (from share\patchfiles\Korg_Trinity_Pro(X).midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_plugin_automation.lua (from share\scripts\s_plugin_automation.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2000_Expansion.midnam (from share\patchfiles\Kurzweil_K2000_Expansion.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Trinity_Track.midnam (from share\patchfiles\Korg_Trinity_Track.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_plugin_reorder.lua (from share\scripts\s_plugin_reorder.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Triton.midnam (from share\patchfiles\Korg_Triton.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_pluginutils.lua (from share\scripts\s_pluginutils.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2500X.midnam (from share\patchfiles\Kurzweil_K2500X.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Triton_Expansion.midnam (from share\patchfiles\Korg_Triton_Expansion.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_portengine.lua (from share\scripts\s_portengine.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2500_2600_Expansion.midnam (from share\patchfiles\Kurzweil_K2500_2600_Expansion.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Triton_Le.midnam (from share\patchfiles\Korg_Triton_Le.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_region_envelope.lua (from share\scripts\s_region_envelope.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2600.midnam (from share\patchfiles\Kurzweil_K2600.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2661.midnam (from share\patchfiles\Kurzweil_K2661.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Triton_Rack.midnam (from share\patchfiles\Korg_Triton_Rack.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Triton_Studio.midnam (from share\patchfiles\Korg_Triton_Studio.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_region_gain.lua (from share\scripts\s_region_gain.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2700.midnam (from share\patchfiles\Kurzweil_K2700.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_Mark_12_152.midnam (from share\patchfiles\Kurzweil_Mark_12_152.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Volca_Bass.midnam (from share\patchfiles\Korg_Volca_Bass.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Volca_Beats.midnam (from share\patchfiles\Korg_Volca_Beats.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_region_gain2.lua (from share\scripts\s_region_gain2.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Volca_Keys.midnam (from share\patchfiles\Korg_Volca_Keys.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_region_gain_curve.lua (from share\scripts\s_region_gain_curve.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_Micro_Piano.midnam (from share\patchfiles\Kurzweil_Micro_Piano.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_replaceplugin.lua (from share\scripts\s_replaceplugin.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Wavestation_A_D.midnam (from share\patchfiles\Korg_Wavestation_A_D.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_sections.lua (from share\scripts\s_sections.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_PC2_PC2r_w_Orch.midnam (from share\patchfiles\Kurzweil_PC2_PC2r_w_Orch.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Wavestation_EX.midnam (from share\patchfiles\Korg_Wavestation_EX.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_selection.lua (from share\scripts\s_selection.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_PC3A.midnam (from share\patchfiles\Kurzweil_PC3A.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Wavestation_SR.midnam (from share\patchfiles\Korg_Wavestation_SR.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_set_region_fades.lua (from share\scripts\s_set_region_fades.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_PC88.midnam (from share\patchfiles\Kurzweil_PC88.midnam)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_PC88_MX.midnam (from share\patchfiles\Kurzweil_PC88_MX.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_X2_3_3R.midnam (from share\patchfiles\Korg_X2_3_3R.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_showhide_track.lua (from share\scripts\s_showhide_track.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_PC88_VGM.midnam (from share\patchfiles\Kurzweil_PC88_VGM.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_X5(D).midnam (from share\patchfiles\Korg_X5(D).midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_tempo_map.lua (from share\scripts\s_tempo_map.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_PX_Plus.midnam (from share\patchfiles\Kurzweil_PX_Plus.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_thin_automation.lua (from share\scripts\s_thin_automation.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_SP4.midnam (from share\patchfiles\Kurzweil_SP4.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_X50.midnam (from share\patchfiles\Korg_X50.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_timecode.lua (from share\scripts\s_timecode.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_SP88x.midnam (from share\patchfiles\Kurzweil_SP88x.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_X5DR.midnam (from share\patchfiles\Korg_X5DR.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_track_props.lua (from share\scripts\s_track_props.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_DR_Music_FX_Expansion.midnam (from share\patchfiles\Lexicon_DR_Music_FX_Expansion.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_Z1.midnam (from share\patchfiles\Korg_Z1.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_vamp_plugin_index.lua (from share\scripts\s_vamp_plugin_index.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_Dual_FX_Expansion.midnam (from share\patchfiles\Lexicon_Dual_FX_Expansion.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Korg_iSeries.midnam (from share\patchfiles\Korg_iSeries.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\s_whoami.lua (from share\scripts\s_whoami.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_Dual_Vrb_Expansion.midnam (from share\patchfiles\Lexicon_Dual_Vrb_Expansion.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_1200_Pro_I.midnam (from share\patchfiles\Kurzweil_1200_Pro_I.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\scl_to_mts.lua (from share\scripts\scl_to_mts.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_MPX100.midnam (from share\patchfiles\Lexicon_MPX100.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_1200_Pro_II.midnam (from share\patchfiles\Kurzweil_1200_Pro_II.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\scope.lua (from share\scripts\scope.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_MPX500.midnam (from share\patchfiles\Lexicon_MPX500.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K1200.midnam (from share\patchfiles\Kurzweil_K1200.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\select_every_2nd_region.lua (from share\scripts\select_every_2nd_region.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_MPX_1.midnam (from share\patchfiles\Lexicon_MPX_1.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2000.midnam (from share\patchfiles\Kurzweil_K2000.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\select_regions_at_playhead.lua (from share\scripts\select_regions_at_playhead.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2000R.midnam (from share\patchfiles\Kurzweil_K2000R.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\send_to_bus.lua (from share\scripts\send_to_bus.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_MPX_500.midnam (from share\patchfiles\Lexicon_MPX_500.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2000_Expansion.midnam (from share\patchfiles\Kurzweil_K2000_Expansion.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\session_template_advanced.lua (from share\scripts\session_template_advanced.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_MX200.midnam (from share\patchfiles\Lexicon_MX200.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\session_template_record.lua (from share\scripts\session_template_record.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_MX300.midnam (from share\patchfiles\Lexicon_MX300.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2500X.midnam (from share\patchfiles\Kurzweil_K2500X.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\set_automation_mode.lua (from share\scripts\set_automation_mode.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_PCM_80.midnam (from share\patchfiles\Lexicon_PCM_80.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\set_io_config.lua (from share\scripts\set_io_config.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_PCM_81.midnam (from share\patchfiles\Lexicon_PCM_81.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2500_2600_Expansion.midnam (from share\patchfiles\Kurzweil_K2500_2600_Expansion.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\simple_arp.lua (from share\scripts\simple_arp.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_PCM_90.midnam (from share\patchfiles\Lexicon_PCM_90.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2600.midnam (from share\patchfiles\Kurzweil_K2600.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\singen.lua (from share\scripts\singen.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_PCM_91.midnam (from share\patchfiles\Lexicon_PCM_91.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2661.midnam (from share\patchfiles\Kurzweil_K2661.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\spectrogram.lua (from share\scripts\spectrogram.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_Pitch_FX_Expansion.midnam (from share\patchfiles\Lexicon_Pitch_FX_Expansion.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_K2700.midnam (from share\patchfiles\Kurzweil_K2700.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\split_all_markers.lua (from share\scripts\split_all_markers.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_SMG_Post_FX_Expansion.midnam (from share\patchfiles\Lexicon_SMG_Post_FX_Expansion.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_Mark_12_152.midnam (from share\patchfiles\Kurzweil_Mark_12_152.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\stop_at_marker.lua (from share\scripts\stop_at_marker.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_Bass_POD.midnam (from share\patchfiles\Line_6_Bass_POD.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_Micro_Piano.midnam (from share\patchfiles\Kurzweil_Micro_Piano.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_PC2_PC2r_w_Orch.midnam (from share\patchfiles\Kurzweil_PC2_PC2r_w_Orch.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\store_recall_mixer.lua (from share\scripts\store_recall_mixer.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_Bass_PODxt.midnam (from share\patchfiles\Line_6_Bass_PODxt.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_PC3A.midnam (from share\patchfiles\Kurzweil_PC3A.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\surround_to_stereo.lua (from share\scripts\surround_to_stereo.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_EchoPro.midnam (from share\patchfiles\Line_6_EchoPro.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_PC88.midnam (from share\patchfiles\Kurzweil_PC88.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\tomsloop.lua (from share\scripts\tomsloop.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_FilterPro.midnam (from share\patchfiles\Line_6_FilterPro.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_PC88_MX.midnam (from share\patchfiles\Kurzweil_PC88_MX.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\track_organizer.lua (from share\scripts\track_organizer.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_PC88_VGM.midnam (from share\patchfiles\Kurzweil_PC88_VGM.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\trigger_mixer_scene.lua (from share\scripts\trigger_mixer_scene.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_ModPro.midnam (from share\patchfiles\Line_6_ModPro.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_PX_Plus.midnam (from share\patchfiles\Kurzweil_PX_Plus.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_SP4.midnam (from share\patchfiles\Kurzweil_SP4.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\tx_raw_midi_from_file.lua (from share\scripts\tx_raw_midi_from_file.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Kurzweil_SP88x.midnam (from share\patchfiles\Kurzweil_SP88x.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\vamp_audio_to_midi.lua (from share\scripts\vamp_audio_to_midi.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_POD.midnam (from share\patchfiles\Line_6_POD.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\voice_activate.lua (from share\scripts\voice_activate.lua)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_POD_2_Pro.midnam (from share\patchfiles\Line_6_POD_2_Pro.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_DR_Music_FX_Expansion.midnam (from share\patchfiles\Lexicon_DR_Music_FX_Expansion.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_Dual_FX_Expansion.midnam (from share\patchfiles\Lexicon_Dual_FX_Expansion.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\scripts\x-fade.lua (from share\scripts\x-fade.lua)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_Dual_Vrb_Expansion.midnam (from share\patchfiles\Lexicon_Dual_Vrb_Expansion.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_MPX100.midnam (from share\patchfiles\Lexicon_MPX100.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_MPX500.midnam (from share\patchfiles\Lexicon_MPX500.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_MPX_1.midnam (from share\patchfiles\Lexicon_MPX_1.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_MPX_500.midnam (from share\patchfiles\Lexicon_MPX_500.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_MX200.midnam (from share\patchfiles\Lexicon_MX200.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_MX300.midnam (from share\patchfiles\Lexicon_MX300.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_PCM_80.midnam (from share\patchfiles\Lexicon_PCM_80.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_PCM_81.midnam (from share\patchfiles\Lexicon_PCM_81.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_PCM_90.midnam (from share\patchfiles\Lexicon_PCM_90.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_PCM_91.midnam (from share\patchfiles\Lexicon_PCM_91.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_Pitch_FX_Expansion.midnam (from share\patchfiles\Lexicon_Pitch_FX_Expansion.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Lexicon_SMG_Post_FX_Expansion.midnam (from share\patchfiles\Lexicon_SMG_Post_FX_Expansion.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_Bass_POD.midnam (from share\patchfiles\Line_6_Bass_POD.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_Bass_PODxt.midnam (from share\patchfiles\Line_6_Bass_PODxt.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_EchoPro.midnam (from share\patchfiles\Line_6_EchoPro.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_FilterPro.midnam (from share\patchfiles\Line_6_FilterPro.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_ModPro.midnam (from share\patchfiles\Line_6_ModPro.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_POD.midnam (from share\patchfiles\Line_6_POD.midnam)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_POD_2_Pro.midnam (from share\patchfiles\Line_6_POD_2_Pro.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Line_6_PODxt.midnam (from share\patchfiles\Line_6_PODxt.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\Linn_AdrenaLinn_II.midnam (from share\patchfiles\Linn_AdrenaLinn_II.midnam)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles\MFB_503.midnam (from share\patchfiles\MFB_503.midnam)
@@ -996,14 +996,24 @@ Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\ArdourMono.ttf (from gtk2_ardour\ArdourMono.ttf)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\ArdourSans.ttf (from gtk2_ardour\ArdourSans.ttf)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\act-disabled.png (from gtk2_ardour\icons\act-disabled.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-icon_16px.png (from gtk2_ardour\resources\Ardour-icon_16px.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\add.png (from gtk2_ardour\icons\add.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\hotspots (from gtk2_ardour\icons\cursor_square\hotspots)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-icon_22px.png (from gtk2_ardour\resources\Ardour-icon_22px.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\anchored_trim_left_cursor.png (from gtk2_ardour\icons\anchored_trim_left_cursor.png)
+- install C:\ARDOURCUSTOM\ardour\_install\etc\ardour8\default_ui_config (from build\gtk2_ardour\default_ui_config)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-icon_256px.png (from gtk2_ardour\resources\Ardour-icon_256px.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\anchored_trim_right_cursor.png (from gtk2_ardour\icons\anchored_trim_right_cursor.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-icon_32px.png (from gtk2_ardour\resources\Ardour-icon_32px.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\application-x-ardour_16px.png (from gtk2_ardour\icons\application-x-ardour_16px.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-icon_48px.png (from gtk2_ardour\resources\Ardour-icon_48px.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\application-x-ardour_22px.png (from gtk2_ardour\icons\application-x-ardour_22px.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-icon_512px.png (from gtk2_ardour\resources\Ardour-icon_512px.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\application-x-ardour_32px.png (from gtk2_ardour\icons\application-x-ardour_32px.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\application-x-ardour_48px.png (from gtk2_ardour\icons\application-x-ardour_48px.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-small-splash.png (from gtk2_ardour\resources\Ardour-small-splash.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\ardour-app-icon_osx.png (from gtk2_ardour\icons\ardour-app-icon_osx.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-splash.png (from gtk2_ardour\resources\Ardour-splash.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\ardour-app-icon_osx_mask.png (from gtk2_ardour\icons\ardour-app-icon_osx_mask.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\cc121.png (from gtk2_ardour\icons\cc121.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\chord.png (from gtk2_ardour\icons\chord.png)
@@ -1011,22 +1021,12 @@ Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\computer_keyboard.png (from gtk2_ardour\icons\computer_keyboard.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\computer_keyboard_active.png (from gtk2_ardour\icons\computer_keyboard_active.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\console1.png (from gtk2_ardour\icons\console1.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-icon_16px.png (from gtk2_ardour\resources\Ardour-icon_16px.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\eighthnote.png (from gtk2_ardour\icons\eighthnote.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-icon_22px.png (from gtk2_ardour\resources\Ardour-icon_22px.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\expand_left_right_cursor.png (from gtk2_ardour\icons\expand_left_right_cursor.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\hotspots (from gtk2_ardour\icons\cursor_square\hotspots)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-icon_256px.png (from gtk2_ardour\resources\Ardour-icon_256px.png)
-- install C:\ARDOURCUSTOM\ardour\_install\etc\ardour8\default_ui_config (from build\gtk2_ardour\default_ui_config)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-icon_32px.png (from gtk2_ardour\resources\Ardour-icon_32px.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\expand_up_down_cursor.png (from gtk2_ardour\icons\expand_up_down_cursor.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-icon_48px.png (from gtk2_ardour\resources\Ardour-icon_48px.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\fade_in_cursor.png (from gtk2_ardour\icons\fade_in_cursor.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-icon_512px.png (from gtk2_ardour\resources\Ardour-icon_512px.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\fade_out_cursor.png (from gtk2_ardour\icons\fade_out_cursor.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-small-splash.png (from gtk2_ardour\resources\Ardour-small-splash.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\fadein-constant-power.png (from gtk2_ardour\icons\fadein-constant-power.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\resources\Ardour-splash.png (from gtk2_ardour\resources\Ardour-splash.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\fadein-fast-cut.png (from gtk2_ardour\icons\fadein-fast-cut.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\fadein-linear.png (from gtk2_ardour\icons\fadein-linear.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\fadein-slow-cut.png (from gtk2_ardour\icons\fadein-slow-cut.png)
@@ -1042,49 +1042,49 @@ Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\faderport8-small.png (from gtk2_ardour\icons\faderport8-small.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\favorite-no.png (from gtk2_ardour\icons\favorite-no.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\favorite-yes.png (from gtk2_ardour\icons\favorite-yes.png)
+- install C:\ARDOURCUSTOM\ardour\_install\etc\ardour8\system_config (from system_config)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\ferret_02.png (from gtk2_ardour\icons\ferret_02.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\templates\.stub (from share\templates\.stub)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\forte.png (from gtk2_ardour\icons\forte.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\fortissimo.png (from gtk2_ardour\icons\fortissimo.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\fortississimo.png (from gtk2_ardour\icons\fortississimo.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\adwaita_dark-ardour.colors (from gtk2_ardour\themes\adwaita_dark-ardour.colors)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\grabber.png (from gtk2_ardour\icons\grabber.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\arc-ardour.colors (from gtk2_ardour\themes\arc-ardour.colors)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\blueberry_milk-ardour.colors (from gtk2_ardour\themes\blueberry_milk-ardour.colors)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\grabber_edit_point.png (from gtk2_ardour\icons\grabber_edit_point.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\caineville-ardour.colors (from gtk2_ardour\themes\caineville-ardour.colors)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\captain_light-ardour.colors (from gtk2_ardour\themes\captain_light-ardour.colors)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\grabber_note.png (from gtk2_ardour\icons\grabber_note.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\clear_gray-ardour.colors (from gtk2_ardour\themes\clear_gray-ardour.colors)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\halfnote.png (from gtk2_ardour\icons\halfnote.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\i_beam_cursor.png (from gtk2_ardour\icons\i_beam_cursor.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\launch_control_xl.png (from gtk2_ardour\icons\launch_control_xl.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\launchpad-mini.png (from gtk2_ardour\icons\launchpad-mini.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\launchpad-pro.png (from gtk2_ardour\icons\launchpad-pro.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\launchpad-x.png (from gtk2_ardour\icons\launchpad-x.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\lkmk4.png (from gtk2_ardour\icons\lkmk4.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\lkmk4mini.png (from gtk2_ardour\icons\lkmk4mini.png)
-- install C:\ARDOURCUSTOM\ardour\_install\etc\ardour8\system_config (from system_config)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\mezzforte.png (from gtk2_ardour\icons\mezzforte.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\templates\.stub (from share\templates\.stub)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\adwaita_dark-ardour.colors (from gtk2_ardour\themes\adwaita_dark-ardour.colors)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\mezzoforte.png (from gtk2_ardour\icons\mezzoforte.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\arc-ardour.colors (from gtk2_ardour\themes\arc-ardour.colors)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\mezzopiano.png (from gtk2_ardour\icons\mezzopiano.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\blueberry_milk-ardour.colors (from gtk2_ardour\themes\blueberry_milk-ardour.colors)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\midi-input-active.png (from gtk2_ardour\icons\midi-input-active.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\caineville-ardour.colors (from gtk2_ardour\themes\caineville-ardour.colors)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\midi-input-inactive.png (from gtk2_ardour\icons\midi-input-inactive.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\captain_light-ardour.colors (from gtk2_ardour\themes\captain_light-ardour.colors)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\midi_socket_small.png (from gtk2_ardour\icons\midi_socket_small.png)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\clear_gray-ardour.colors (from gtk2_ardour\themes\clear_gray-ardour.colors)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\midi_sound_notes.png (from gtk2_ardour\icons\midi_sound_notes.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\cubasish-ardour.colors (from gtk2_ardour\themes\cubasish-ardour.colors)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\midi_tool_erase.png (from gtk2_ardour\icons\midi_tool_erase.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\launch_control_xl.png (from gtk2_ardour\icons\launch_control_xl.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\dark-ardour.colors (from gtk2_ardour\themes\dark-ardour.colors)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\midi_tool_pencil.png (from gtk2_ardour\icons\midi_tool_pencil.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\launchpad-mini.png (from gtk2_ardour\icons\launchpad-mini.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\diehard3-ardour.colors (from gtk2_ardour\themes\diehard3-ardour.colors)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\midi_tool_select.png (from gtk2_ardour\icons\midi_tool_select.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\launchpad-pro.png (from gtk2_ardour\icons\launchpad-pro.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\onedark-ardour.colors (from gtk2_ardour\themes\onedark-ardour.colors)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\move_cursor.png (from gtk2_ardour\icons\move_cursor.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\launchpad-x.png (from gtk2_ardour\icons\launchpad-x.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\recbox-ardour.colors (from gtk2_ardour\themes\recbox-ardour.colors)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\mute-disabled.png (from gtk2_ardour\icons\mute-disabled.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\lkmk4.png (from gtk2_ardour\icons\lkmk4.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\unastudia-ardour.colors (from gtk2_ardour\themes\unastudia-ardour.colors)
-- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\mute-enabled.png (from gtk2_ardour\icons\mute-enabled.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\lkmk4mini.png (from gtk2_ardour\icons\lkmk4mini.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\xcolors-ardour.colors (from gtk2_ardour\themes\xcolors-ardour.colors)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\mezzforte.png (from gtk2_ardour\icons\mezzforte.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\mezzoforte.png (from gtk2_ardour\icons\mezzoforte.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\mezzopiano.png (from gtk2_ardour\icons\mezzopiano.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\midi-input-active.png (from gtk2_ardour\icons\midi-input-active.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\midi-input-inactive.png (from gtk2_ardour\icons\midi-input-inactive.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\midi_socket_small.png (from gtk2_ardour\icons\midi_socket_small.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\midi_sound_notes.png (from gtk2_ardour\icons\midi_sound_notes.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\midi_tool_erase.png (from gtk2_ardour\icons\midi_tool_erase.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\midi_tool_pencil.png (from gtk2_ardour\icons\midi_tool_pencil.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\midi_tool_select.png (from gtk2_ardour\icons\midi_tool_select.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\move_cursor.png (from gtk2_ardour\icons\move_cursor.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\mute-disabled.png (from gtk2_ardour\icons\mute-disabled.png)
+- install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\mute-enabled.png (from gtk2_ardour\icons\mute-enabled.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\muted-by-others.png (from gtk2_ardour\icons\muted-by-others.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\padlock_closed.png (from gtk2_ardour\icons\padlock_closed.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\padlock_open.png (from gtk2_ardour\icons\padlock_open.png)
@@ -1141,41 +1141,41 @@ Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\wholenote.png (from gtk2_ardour\icons\wholenote.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\zoom_in_cursor.png (from gtk2_ardour\icons\zoom_in_cursor.png)
 - install C:\ARDOURCUSTOM\ardour\_install\share\ardour8\icons\zoom_out_cursor.png (from gtk2_ardour\icons\zoom_out_cursor.png)
-[1882/2011] Linking build\libs\temporal\temporal.dll
-[1883/2011] Linking build\libs\ptformat\ptformat.dll
-[1884/2011] Linking build\libs\audiographer\audiographer.dll
-[1885/2011] Linking build\libs\gtkmm2ext\gtkmm2ext.dll
-[1886/2011] Linking build\libs\fst\ardour-vst3-scanner.exe
+[1883/2012] Linking build\libs\temporal\temporal.dll
+[1884/2012] Linking build\libs\ptformat\ptformat.dll
+[1885/2012] Linking build\libs\audiographer\audiographer.dll
+[1886/2012] Linking build\libs\gtkmm2ext\gtkmm2ext.dll
+[1887/2012] Linking build\libs\fst\ardour-vst3-scanner.exe
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\pbd.dll (from build\libs\pbd\pbd.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\pbd.lib (from build\libs\pbd\pbd.lib)
++ install C:\ARDOURCUSTOM\ardour\_install\etc\ardour8\ardour.keys (from build\gtk2_ardour\ardour.keys)
    Creando biblioteca libs\ptformat\ptformat.lib y objeto libs\ptformat\ptformat.exp
 
    Creando biblioteca libs\temporal\temporal.lib y objeto libs\temporal\temporal.exp
 
    Creando biblioteca libs\audiographer\audiographer.lib y objeto libs\audiographer\audiographer.exp
 
-+ install C:\ARDOURCUSTOM\ardour\_install\etc\ardour8\ardour.keys (from build\gtk2_ardour\ardour.keys)
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ptformat.dll (from build\libs\ptformat\ptformat.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ptformat.lib (from build\libs\ptformat\ptformat.lib)
-[1892/2011] Linking build\libs\evoral\smf.lib
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\temporal.dll (from build\libs\temporal\temporal.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\temporal.lib (from build\libs\temporal\temporal.lib)
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\audiographer.dll (from build\libs\audiographer\audiographer.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\audiographer.lib (from build\libs\audiographer\audiographer.lib)
    Creando biblioteca C:\ARDOURCUSTOM\ardour\build\libs\fst\ardour-vst3-scanner.lib y objeto C:\ARDOURCUSTOM\ardour\build\libs\fst\ardour-vst3-scanner.exp
 
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ptformat.dll (from build\libs\ptformat\ptformat.dll)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ptformat.lib (from build\libs\ptformat\ptformat.lib)
+[1893/2012] Linking build\libs\evoral\smf.lib
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\temporal.lib (from build\libs\temporal\temporal.lib)
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\temporal.dll (from build\libs\temporal\temporal.dll)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ardour-vst3-scanner.exe (from build\libs\fst\ardour-vst3-scanner.exe)
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\audiographer.dll (from build\libs\audiographer\audiographer.dll)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\audiographer.lib (from build\libs\audiographer\audiographer.lib)
    Creando biblioteca libs\gtkmm2ext\gtkmm2ext.lib y objeto libs\gtkmm2ext\gtkmm2ext.exp
 
-[1898/2011] Linking build\libs\evoral\evoral.dll
-[1899/2011] Linking build\libs\canvas\canvas.dll
-[1900/2011] Linking build\libs\widgets\widgets.dll
+[1899/2012] Linking build\libs\evoral\evoral.dll
+[1900/2012] Linking build\libs\canvas\canvas.dll
+[1901/2012] Linking build\libs\widgets\widgets.dll
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\gtkmm2ext.dll (from build\libs\gtkmm2ext\gtkmm2ext.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\gtkmm2ext.lib (from build\libs\gtkmm2ext\gtkmm2ext.lib)
    Creando biblioteca libs\evoral\evoral.lib y objeto libs\evoral\evoral.exp
 
-[1903/2011] Linking build\libs\midi++2\midipp.dll
-[1904/2011] Linking build\libs\fst\ardour-vst-scanner.exe
+[1904/2012] Linking build\libs\midi++2\midipp.dll
+[1905/2012] Linking build\libs\fst\ardour-vst-scanner.exe
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\evoral.dll (from build\libs\evoral\evoral.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\evoral.lib (from build\libs\evoral\evoral.lib)
    Creando biblioteca libs\canvas\canvas.lib y objeto libs\canvas\canvas.exp
@@ -1186,8 +1186,6 @@ Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\canvas.lib (from build\libs\canvas\canvas.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\widgets.lib (from build\libs\widgets\widgets.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\widgets.dll (from build\libs\widgets\widgets.dll)
-   Creando biblioteca libs\midi++2\midipp.lib y objeto libs\midi++2\midipp.exp
-
    Creando biblioteca C:\ARDOURCUSTOM\ardour\build\libs\fst\ardour-vst-scanner.lib y objeto C:\ARDOURCUSTOM\ardour\build\libs\fst\ardour-vst-scanner.exp
 LINK : warning LNK4217: "fst_load" importa el símbolo "vstwin.c.3.o" definido en "vst2-scanner.cc.2.o" en la función ""bool __cdecl discover_vst2(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,enum ARDOUR::PluginType,class std::vector<struct ARDOUR::VST2Info,class std::allocator<struct ARDOUR::VST2Info> > &,bool)" (?discover_vst2@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@W4PluginType@ARDOUR@@AEAV?$vector@UVST2Info@ARDOUR@@V?$allocator@UVST2Info@ARDOUR@@@std@@@2@_N@Z)"
 LINK : warning LNK4217: "fst_unload" importa el símbolo "vstwin.c.3.o" definido en "vst2-scanner.cc.2.o" en la función ""bool __cdecl discover_vst2(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,enum ARDOUR::PluginType,class std::vector<struct ARDOUR::VST2Info,class std::allocator<struct ARDOUR::VST2Info> > &,bool)" (?discover_vst2@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@W4PluginType@ARDOUR@@AEAV?$vector@UVST2Info@ARDOUR@@V?$allocator@UVST2Info@ARDOUR@@@std@@@2@_N@Z)"
@@ -1196,168 +1194,170 @@ LINK : warning LNK4217: "fst_close" importa el símbolo "vstwin.c.3.o" definido 
 LINK : warning LNK4217: "vststate_init" importa el símbolo "vst2-scanner.cc.2.o" definido en "vstwin.c.3.o" en la función "fst_instantiate"
 LINK : warning LNK4217: "vststate_maybe_set_program" importa el símbolo "vst2-scanner.cc.2.o" definido en "vstwin.c.3.o" en la función "idle_hands"
 
+   Creando biblioteca libs\midi++2\midipp.lib y objeto libs\midi++2\midipp.exp
+
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ardour-vst-scanner.exe (from build\libs\fst\ardour-vst-scanner.exe)
-[1912/2011] Linking build\libs\ardour\luabindings.lib
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\midipp.dll (from build\libs\midi++2\midipp.dll)
+[1913/2012] Linking build\libs\ardour\luabindings.lib
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\midipp.lib (from build\libs\midi++2\midipp.lib)
-[1915/2011] Linking build\libs\ardour\ardour.dll
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\midipp.dll (from build\libs\midi++2\midipp.dll)
+[1916/2012] Linking build\libs\ardour\ardour.dll
    Creando biblioteca libs\\ardour\\ardour.lib y objeto libs\\ardour\\ardour.exp
 LINK : warning LNK4217: "vststate_init" importa el símbolo "vst_state.cc.1.o" definido en "vstwin.c.3.o" en la función "fst_instantiate"
 LINK : warning LNK4217: "vststate_maybe_set_program" importa el símbolo "vst_state.cc.1.o" definido en "vstwin.c.3.o" en la función "idle_hands"
 
-[1916/2011] Linking build\libs\ctrl-interface\control_protocol\ardourcp.dll
-[1917/2011] Linking build\libs\waveview\waveview.dll
-[1918/2011] Linking build\libs\backends\dummy\dummy_audiobackend.dll
-[1919/2011] Linking build\libs\backends\jack\jack_audiobackend.dll
-[1920/2011] Linking build\libs\backends\portaudio\portaudio_callback_backend.dll
+[1917/2012] Linking build\libs\ctrl-interface\control_protocol\ardourcp.dll
+[1918/2012] Linking build\libs\waveview\waveview.dll
+[1919/2012] Linking build\libs\backends\dummy\dummy_audiobackend.dll
+[1920/2012] Linking build\libs\backends\jack\jack_audiobackend.dll
+[1921/2012] Linking build\libs\backends\portaudio\portaudio_callback_backend.dll
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ardour.lib (from build\libs\ardour\ardour.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ardour.dll (from build\libs\ardour\ardour.dll)
    Creando biblioteca libs\ctrl-interface\control_protocol\ardourcp.lib y objeto libs\ctrl-interface\control_protocol\ardourcp.exp
 
    Creando biblioteca libs\backends\dummy\dummy_audiobackend.lib y objeto libs\backends\dummy\dummy_audiobackend.exp
 
-   Creando biblioteca libs\backends\portaudio\portaudio_callback_backend.lib y objeto libs\backends\portaudio\portaudio_callback_backend.exp
-
    Creando biblioteca libs\backends\jack\jack_audiobackend.lib y objeto libs\backends\jack\jack_audiobackend.exp
+
+   Creando biblioteca libs\backends\portaudio\portaudio_callback_backend.lib y objeto libs\backends\portaudio\portaudio_callback_backend.exp
 
    Creando biblioteca libs\waveview\waveview.lib y objeto libs\waveview\waveview.exp
 
-[1923/2011] Linking build\libs\ctrl-interface\midi_surface\ardour_midisurface.dll
-[1924/2011] Linking build\libs\surfaces\generic_midi\ardour_generic_midi.dll
-[1925/2011] Linking build\libs\surfaces\faderport8\ardour_faderport8.dll
-[1926/2011] Linking build\libs\surfaces\faderport8\ardour_faderport16.dll
-[1927/2011] Linking build\libs\surfaces\faderport8\ardour_faderport2.dll
-[1928/2011] Linking build\libs\surfaces\cc121\ardour_cc121.dll
-[1929/2011] Linking build\libs\surfaces\mackie\ardour_mcp.dll
-[1930/2011] Linking build\libs\surfaces\mackie\ardour_ssl_uf8.dll
-[1931/2011] Linking build\libs\surfaces\us2400\ardour_us2400.dll
-[1932/2011] Linking build\libs\surfaces\launch_control_xl\ardour_launch_control_xl.dll
-[1933/2011] Linking build\libs\surfaces\osc\ardour_osc.dll
-[1934/2011] Linking build\libs\surfaces\contourdesign\ardour_contourdesign.dll
-[1935/2011] Linking build\libs\panners\2in2out\pan2in2out.dll
-[1936/2011] Linking build\libs\panners\1in2out\pan1in2out.dll
-[1937/2011] Linking build\libs\panners\vbap\panvbap.dll
-[1938/2011] Linking build\libs\panners\stereobalance\panbalance.dll
+[1924/2012] Linking build\libs\ctrl-interface\midi_surface\ardour_midisurface.dll
+[1925/2012] Linking build\libs\surfaces\generic_midi\ardour_generic_midi.dll
+[1926/2012] Linking build\libs\surfaces\faderport8\ardour_faderport8.dll
+[1927/2012] Linking build\libs\surfaces\faderport8\ardour_faderport16.dll
+[1928/2012] Linking build\libs\surfaces\faderport8\ardour_faderport2.dll
+[1929/2012] Linking build\libs\surfaces\cc121\ardour_cc121.dll
+[1930/2012] Linking build\libs\surfaces\mackie\ardour_mcp.dll
+[1931/2012] Linking build\libs\surfaces\mackie\ardour_ssl_uf8.dll
+[1932/2012] Linking build\libs\surfaces\us2400\ardour_us2400.dll
+[1933/2012] Linking build\libs\surfaces\launch_control_xl\ardour_launch_control_xl.dll
+[1934/2012] Linking build\libs\surfaces\osc\ardour_osc.dll
+[1935/2012] Linking build\libs\surfaces\contourdesign\ardour_contourdesign.dll
+[1936/2012] Linking build\libs\panners\2in2out\pan2in2out.dll
+[1937/2012] Linking build\libs\panners\1in2out\pan1in2out.dll
+[1938/2012] Linking build\libs\panners\vbap\panvbap.dll
+[1939/2012] Linking build\libs\panners\stereobalance\panbalance.dll
    Creando biblioteca libs\ctrl-interface\midi_surface\ardour_midisurface.lib y objeto libs\ctrl-interface\midi_surface\ardour_midisurface.exp
-
-   Creando biblioteca libs\surfaces\generic_midi\ardour_generic_midi.lib y objeto libs\surfaces\generic_midi\ardour_generic_midi.exp
 
    Creando biblioteca libs\surfaces\faderport8\ardour_faderport8.lib y objeto libs\surfaces\faderport8\ardour_faderport8.exp
 
-[1939/2011] Linking build\headless\hardour-8.0.0.exe
-[1940/2011] Linking build\session_utils\ardour8-export.exe
-[1941/2011] Linking build\session_utils\ardour8-new_empty_session.exe
-   Creando biblioteca libs\panners\2in2out\pan2in2out.lib y objeto libs\panners\2in2out\pan2in2out.exp
-
    Creando biblioteca libs\surfaces\cc121\ardour_cc121.lib y objeto libs\surfaces\cc121\ardour_cc121.exp
 
-   Creando biblioteca libs\panners\1in2out\pan1in2out.lib y objeto libs\panners\1in2out\pan1in2out.exp
+   Creando biblioteca libs\surfaces\faderport8\ardour_faderport16.lib y objeto libs\surfaces\faderport8\ardour_faderport16.exp
 
-   Creando biblioteca libs\panners\vbap\panvbap.lib y objeto libs\panners\vbap\panvbap.exp
+   Creando biblioteca libs\surfaces\generic_midi\ardour_generic_midi.lib y objeto libs\surfaces\generic_midi\ardour_generic_midi.exp
 
    Creando biblioteca libs\surfaces\faderport8\ardour_faderport2.lib y objeto libs\surfaces\faderport8\ardour_faderport2.exp
 
-   Creando biblioteca libs\panners\stereobalance\panbalance.lib y objeto libs\panners\stereobalance\panbalance.exp
-
-[1942/2011] Linking build\session_utils\ardour8-new_session.exe
-   Creando biblioteca libs\surfaces\faderport8\ardour_faderport16.lib y objeto libs\surfaces\faderport8\ardour_faderport16.exp
-
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ardourcp.dll (from build\libs\ctrl-interface\control_protocol\ardourcp.dll)
-   Creando biblioteca libs\surfaces\launch_control_xl\ardour_launch_control_xl.lib y objeto libs\surfaces\launch_control_xl\ardour_launch_control_xl.exp
-
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ardourcp.lib (from build\libs\ctrl-interface\control_protocol\ardourcp.lib)
-   Creando biblioteca libs\surfaces\us2400\ardour_us2400.lib y objeto libs\surfaces\us2400\ardour_us2400.exp
-
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\backends\dummy_audiobackend.dll (from build\libs\backends\dummy\dummy_audiobackend.dll)
-   Creando biblioteca libs\surfaces\mackie\ardour_mcp.lib y objeto libs\surfaces\mackie\ardour_mcp.exp
+   Creando biblioteca libs\panners\2in2out\pan2in2out.lib y objeto libs\panners\2in2out\pan2in2out.exp
 
    Creando biblioteca libs\surfaces\contourdesign\ardour_contourdesign.lib y objeto libs\surfaces\contourdesign\ardour_contourdesign.exp
 
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\backends\dummy_audiobackend.lib (from build\libs\backends\dummy\dummy_audiobackend.lib)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\backends\jack_audiobackend.lib (from build\libs\backends\jack\jack_audiobackend.lib)
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\backends\jack_audiobackend.dll (from build\libs\backends\jack\jack_audiobackend.dll)
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\backends\portaudio_callback_backend.dll (from build\libs\backends\portaudio\portaudio_callback_backend.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\backends\portaudio_callback_backend.lib (from build\libs\backends\portaudio\portaudio_callback_backend.lib)
+   Creando biblioteca libs\surfaces\us2400\ardour_us2400.lib y objeto libs\surfaces\us2400\ardour_us2400.exp
+
+   Creando biblioteca libs\surfaces\launch_control_xl\ardour_launch_control_xl.lib y objeto libs\surfaces\launch_control_xl\ardour_launch_control_xl.exp
+
    Creando biblioteca libs\surfaces\mackie\ardour_ssl_uf8.lib y objeto libs\surfaces\mackie\ardour_ssl_uf8.exp
 
+   Creando biblioteca libs\surfaces\mackie\ardour_mcp.lib y objeto libs\surfaces\mackie\ardour_mcp.exp
+
+[1940/2012] Linking build\headless\hardour-8.0.0.exe
    Creando biblioteca libs\surfaces\osc\ardour_osc.lib y objeto libs\surfaces\osc\ardour_osc.exp
 
-[1951/2011] Linking build\gtk2_ardour\ardour-8.0.0.exe
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\waveview.dll (from build\libs\waveview\waveview.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\waveview.lib (from build\libs\waveview\waveview.lib)
-[1954/2011] Linking build\libs\surfaces\faderport\ardour_faderport.dll
-[1955/2011] Linking build\libs\surfaces\console1\ardour_console1.dll
-[1956/2011] Linking build\libs\surfaces\launchpad_pro\ardour_launchpad_pro.dll
-[1957/2011] Linking build\libs\surfaces\launchpad_x\ardour_launchpad_mini.dll
-[1958/2011] Linking build\libs\surfaces\launchpad_x\ardour_launchpad_x.dll
-[1959/2011] Linking build\libs\surfaces\launchkey_4\ardour_launchkey_4.dll
-[1960/2011] Linking build\libs\surfaces\push2\ardour_push2.dll
+[1941/2012] Linking build\gtk2_ardour\ardour-8.0.0.exe
+[1942/2012] Linking build\libs\surfaces\faderport\ardour_faderport.dll
+[1943/2012] Linking build\libs\surfaces\console1\ardour_console1.dll
+   Creando biblioteca libs\panners\vbap\panvbap.lib y objeto libs\panners\vbap\panvbap.exp
+
+[1944/2012] Linking build\libs\surfaces\launchpad_pro\ardour_launchpad_pro.dll
+   Creando biblioteca libs\panners\stereobalance\panbalance.lib y objeto libs\panners\stereobalance\panbalance.exp
+
+[1945/2012] Linking build\libs\surfaces\launchpad_x\ardour_launchpad_mini.dll
+   Creando biblioteca libs\panners\1in2out\pan1in2out.lib y objeto libs\panners\1in2out\pan1in2out.exp
+
+[1946/2012] Linking build\libs\surfaces\launchpad_x\ardour_launchpad_x.dll
+[1947/2012] Linking build\libs\surfaces\launchkey_4\ardour_launchkey_4.dll
+[1948/2012] Linking build\libs\surfaces\push2\ardour_push2.dll
+[1949/2012] Linking build\session_utils\ardour8-export.exe
+[1950/2012] Linking build\session_utils\ardour8-new_empty_session.exe
+[1951/2012] Linking build\session_utils\ardour8-new_session.exe
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ardourcp.dll (from build\libs\ctrl-interface\control_protocol\ardourcp.dll)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ardourcp.lib (from build\libs\ctrl-interface\control_protocol\ardourcp.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ardour_midisurface.lib (from build\libs\ctrl-interface\midi_surface\ardour_midisurface.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ardour_midisurface.dll (from build\libs\ctrl-interface\midi_surface\ardour_midisurface.dll)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_generic_midi.dll (from build\libs\surfaces\generic_midi\ardour_generic_midi.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_generic_midi.lib (from build\libs\surfaces\generic_midi\ardour_generic_midi.lib)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_faderport8.lib (from build\libs\surfaces\faderport8\ardour_faderport8.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_faderport8.dll (from build\libs\surfaces\faderport8\ardour_faderport8.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_faderport16.lib (from build\libs\surfaces\faderport8\ardour_faderport16.lib)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_faderport8.lib (from build\libs\surfaces\faderport8\ardour_faderport8.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_faderport16.dll (from build\libs\surfaces\faderport8\ardour_faderport16.dll)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_faderport16.lib (from build\libs\surfaces\faderport8\ardour_faderport16.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_faderport2.dll (from build\libs\surfaces\faderport8\ardour_faderport2.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_faderport2.lib (from build\libs\surfaces\faderport8\ardour_faderport2.lib)
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_cc121.dll (from build\libs\surfaces\cc121\ardour_cc121.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_cc121.lib (from build\libs\surfaces\cc121\ardour_cc121.lib)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_mcp.lib (from build\libs\surfaces\mackie\ardour_mcp.lib)
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_cc121.dll (from build\libs\surfaces\cc121\ardour_cc121.dll)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_mcp.dll (from build\libs\surfaces\mackie\ardour_mcp.dll)
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_us2400.dll (from build\libs\surfaces\us2400\ardour_us2400.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_us2400.lib (from build\libs\surfaces\us2400\ardour_us2400.lib)
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_launch_control_xl.dll (from build\libs\surfaces\launch_control_xl\ardour_launch_control_xl.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_launch_control_xl.lib (from build\libs\surfaces\launch_control_xl\ardour_launch_control_xl.lib)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_mcp.lib (from build\libs\surfaces\mackie\ardour_mcp.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_ssl_uf8.lib (from build\libs\surfaces\mackie\ardour_ssl_uf8.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_ssl_uf8.dll (from build\libs\surfaces\mackie\ardour_ssl_uf8.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_osc.lib (from build\libs\surfaces\osc\ardour_osc.lib)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_us2400.lib (from build\libs\surfaces\us2400\ardour_us2400.lib)
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_us2400.dll (from build\libs\surfaces\us2400\ardour_us2400.dll)
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_launch_control_xl.dll (from build\libs\surfaces\launch_control_xl\ardour_launch_control_xl.dll)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_launch_control_xl.lib (from build\libs\surfaces\launch_control_xl\ardour_launch_control_xl.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_osc.dll (from build\libs\surfaces\osc\ardour_osc.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_contourdesign.lib (from build\libs\surfaces\contourdesign\ardour_contourdesign.lib)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_osc.lib (from build\libs\surfaces\osc\ardour_osc.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_contourdesign.dll (from build\libs\surfaces\contourdesign\ardour_contourdesign.dll)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_contourdesign.lib (from build\libs\surfaces\contourdesign\ardour_contourdesign.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\panners\pan2in2out.dll (from build\libs\panners\2in2out\pan2in2out.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\panners\pan2in2out.lib (from build\libs\panners\2in2out\pan2in2out.lib)
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\panners\pan1in2out.dll (from build\libs\panners\1in2out\pan1in2out.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\panners\pan1in2out.lib (from build\libs\panners\1in2out\pan1in2out.lib)
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\panners\pan1in2out.dll (from build\libs\panners\1in2out\pan1in2out.dll)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\panners\panvbap.lib (from build\libs\panners\vbap\panvbap.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\panners\panvbap.dll (from build\libs\panners\vbap\panvbap.dll)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\panners\panbalance.dll (from build\libs\panners\stereobalance\panbalance.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\panners\panvbap.lib (from build\libs\panners\vbap\panvbap.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\panners\panbalance.lib (from build\libs\panners\stereobalance\panbalance.lib)
-+ install C:\ARDOURCUSTOM\ardour\_install\bin\ardour8-export.exe (from build\session_utils\ardour8-export.exe)
-+ install C:\ARDOURCUSTOM\ardour\_install\bin\ardour8-new_empty_session.exe (from build\session_utils\ardour8-new_empty_session.exe)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\backends\dummy_audiobackend.lib (from build\libs\backends\dummy\dummy_audiobackend.lib)
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\backends\dummy_audiobackend.dll (from build\libs\backends\dummy\dummy_audiobackend.dll)
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\backends\jack_audiobackend.dll (from build\libs\backends\jack\jack_audiobackend.dll)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\backends\jack_audiobackend.lib (from build\libs\backends\jack\jack_audiobackend.lib)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\backends\portaudio_callback_backend.lib (from build\libs\backends\portaudio\portaudio_callback_backend.lib)
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\backends\portaudio_callback_backend.dll (from build\libs\backends\portaudio\portaudio_callback_backend.dll)
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\waveview.dll (from build\libs\waveview\waveview.dll)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\waveview.lib (from build\libs\waveview\waveview.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\hardour-8.0.0.exe (from build\headless\hardour-8.0.0.exe)
-+ install C:\ARDOURCUSTOM\ardour\_install\bin\ardour8-new_session.exe (from build\session_utils\ardour8-new_session.exe)
    Creando biblioteca libs\surfaces\faderport\ardour_faderport.lib y objeto libs\surfaces\faderport\ardour_faderport.exp
 
-   Creando biblioteca libs\surfaces\console1\ardour_console1.lib y objeto libs\surfaces\console1\ardour_console1.exp
-
    Creando biblioteca libs\surfaces\launchpad_pro\ardour_launchpad_pro.lib y objeto libs\surfaces\launchpad_pro\ardour_launchpad_pro.exp
+
+   Creando biblioteca libs\surfaces\console1\ardour_console1.lib y objeto libs\surfaces\console1\ardour_console1.exp
 
    Creando biblioteca libs\surfaces\launchpad_x\ardour_launchpad_mini.lib y objeto libs\surfaces\launchpad_x\ardour_launchpad_mini.exp
 
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_faderport.dll (from build\libs\surfaces\faderport\ardour_faderport.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_faderport.lib (from build\libs\surfaces\faderport\ardour_faderport.lib)
-   Creando biblioteca libs\surfaces\launchkey_4\ardour_launchkey_4.lib y objeto libs\surfaces\launchkey_4\ardour_launchkey_4.exp
-
    Creando biblioteca libs\surfaces\launchpad_x\ardour_launchpad_x.lib y objeto libs\surfaces\launchpad_x\ardour_launchpad_x.exp
 
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_console1.lib (from build\libs\surfaces\console1\ardour_console1.lib)
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_console1.dll (from build\libs\surfaces\console1\ardour_console1.dll)
+   Creando biblioteca libs\surfaces\launchkey_4\ardour_launchkey_4.lib y objeto libs\surfaces\launchkey_4\ardour_launchkey_4.exp
+
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_launchpad_pro.dll (from build\libs\surfaces\launchpad_pro\ardour_launchpad_pro.dll)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_launchpad_pro.lib (from build\libs\surfaces\launchpad_pro\ardour_launchpad_pro.lib)
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_console1.lib (from build\libs\surfaces\console1\ardour_console1.lib)
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_console1.dll (from build\libs\surfaces\console1\ardour_console1.dll)
++ install C:\ARDOURCUSTOM\ardour\_install\bin\ardour8-export.exe (from build\session_utils\ardour8-export.exe)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_launchpad_mini.lib (from build\libs\surfaces\launchpad_x\ardour_launchpad_mini.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_launchpad_mini.dll (from build\libs\surfaces\launchpad_x\ardour_launchpad_mini.dll)
++ install C:\ARDOURCUSTOM\ardour\_install\bin\ardour8-new_session.exe (from build\session_utils\ardour8-new_session.exe)
++ install C:\ARDOURCUSTOM\ardour\_install\bin\ardour8-new_empty_session.exe (from build\session_utils\ardour8-new_empty_session.exe)
++ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_launchpad_x.dll (from build\libs\surfaces\launchpad_x\ardour_launchpad_x.dll)
    Creando biblioteca libs\surfaces\push2\ardour_push2.lib y objeto libs\surfaces\push2\ardour_push2.exp
 
+- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_launchpad_x.lib (from build\libs\surfaces\launchpad_x\ardour_launchpad_x.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_launchkey_4.lib (from build\libs\surfaces\launchkey_4\ardour_launchkey_4.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_launchkey_4.dll (from build\libs\surfaces\launchkey_4\ardour_launchkey_4.dll)
-+ install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_launchpad_x.dll (from build\libs\surfaces\launchpad_x\ardour_launchpad_x.dll)
-- install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_launchpad_x.lib (from build\libs\surfaces\launchpad_x\ardour_launchpad_x.lib)
 - install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_push2.lib (from build\libs\surfaces\push2\ardour_push2.lib)
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\surfaces\ardour_push2.dll (from build\libs\surfaces\push2\ardour_push2.dll)
    Creando biblioteca C:\\ARDOURCUSTOM\\ardour\\build\\gtk2_ardour\\ardour-8.0.0.lib y objeto C:\\ARDOURCUSTOM\\ardour\\build\\gtk2_ardour\\ardour-8.0.0.exp
 
 + install C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\ardour-8.0.0.exe (from build\gtk2_ardour\ardour-8.0.0.exe)
 Waf: Leaving directory `C:\ARDOURCUSTOM\ardour\build'
-'install' finished successfully (9.849s)
+'install' finished successfully (13.408s)

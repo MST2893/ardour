@@ -14,44 +14,703 @@ Writing revision info to libs/ardour/revision.cc using fatal: No names found, ca
 *** WARNING: MSVC does not allow symbols to be visible/exported by default while building libardourvampplugins
 *** WARNING: MSVC does not allow symbols to be visible/exported by default while building libardourvamppyin
 *** WARNING: MSVC does not allow symbols to be visible/exported by default while building liblua
-[  76/1844] Linking build\libs\pbd\pbd.dll
+[  76/1845] Linking build\libs\pbd\pbd.dll
 libs\pbd\windows_special_dirs.cc.1.o : warning LNK4042: objeto especificado más de una vez; omitidos los sobrantes
 libs\pbd\windows_timer_utils.cc.1.o : warning LNK4042: objeto especificado más de una vez; omitidos los sobrantes
 libs\pbd\windows_mmcss.cc.1.o : warning LNK4042: objeto especificado más de una vez; omitidos los sobrantes
    Creando biblioteca libs\pbd\pbd.lib y objeto libs\pbd\pbd.exp
 
-[1762/1844] Compiling gtk2_ardour\editor-view\route_time_axis.cc
-[1773/1844] Linking build\libs\fst\ardour-vst3-scanner.exe
-[1799/1844] Processing ardour.keys: gtk2_ardour\ardour.keys.in gtk2_ardour\mixer.bindings gtk2_ardour\processor_box.bindings gtk2_ardour\step_editing.bindings gtk2_ardour\monitor.bindings gtk2_ardour\trigger.bindings gtk2_ardour\regionfx_box.bindings gtk2_ardour\automation.bindings -> build\gtk2_ardour\ardour.keys
-[1800/1844] Linking build\libs\temporal\temporal.dll
-   Creando biblioteca C:\ARDOURCUSTOM\ardour\build\libs\fst\ardour-vst3-scanner.lib y objeto C:\ARDOURCUSTOM\ardour\build\libs\fst\ardour-vst3-scanner.exp
+[1405/1845] Compiling gtk2_ardour\mixer\routing\port_matrix_grid.cc
+[1406/1845] Compiling gtk2_ardour\editor-view\mergeable_line.cc
+[1409/1845] Compiling gtk2_ardour\midi-pianoroll\midi_region_view.cc
+[1410/1845] Compiling gtk2_ardour\session-config-dialogs\option_editor.cc
+port_matrix_grid.cc
 
+[1411/1845] Compiling gtk2_ardour\clips-cues-trigger\trigger_page.cc
+mergeable_line.cc
+
+[1412/1845] Compiling gtk2_ardour\mixer\routing\route_processor_selection.cc
+midi_region_view.cc
+
+[1413/1845] Compiling gtk2_ardour\midi-pianoroll\velocity_display.cc
+option_editor.cc
+
+[1415/1845] Compiling gtk2_ardour\mixer\mixer_group_tabs.cc
+route_processor_selection.cc
+
+[1422/1845] Compiling gtk2_ardour\editor-view\region_editor.cc
+trigger_page.cc
+
+[1423/1845] Compiling gtk2_ardour\midi-pianoroll\chord_editor.cc
+velocity_display.cc
+
+[1427/1845] Compiling gtk2_ardour\transport-clocks\big_clock_window.cc
+mixer_group_tabs.cc
+
+[1428/1845] Compiling gtk2_ardour\lua-scripting\luainstance.cc
+chord_editor.cc
+
+[1433/1845] Compiling gtk2_ardour\midi-pianoroll\piano_roll_header.cc
+region_editor.cc
+
+[1435/1845] Compiling gtk2_ardour\session-config-dialogs\quantize_dialog.cc
+big_clock_window.cc
+
+[1436/1845] Compiling gtk2_ardour\app-core\ardour_ui.cc
+piano_roll_header.cc
+
+[1438/1845] Compiling gtk2_ardour\session-config-dialogs\engine_dialog.cc
+quantize_dialog.cc
+
+[1439/1845] Compiling gtk2_ardour\editor-view\editor_tempodisplay.cc
+luainstance.cc
+
+[1442/1845] Compiling gtk2_ardour\editor-view\editor_regions.cc
+ardour_ui.cc
+
+[1444/1845] Compiling gtk2_ardour\editor-view\editor_export_audio.cc
+editor_tempodisplay.cc
+
+[1445/1845] Compiling gtk2_ardour\editor-view\editor_audiotrack.cc
+engine_dialog.cc
+
+[1446/1845] Linking build\libs\temporal\temporal.dll
    Creando biblioteca libs\temporal\temporal.lib y objeto libs\temporal\temporal.exp
 
-[1801/1844] Linking build\libs\ptformat\ptformat.dll
-[1802/1844] Linking build\libs\audiographer\audiographer.dll
+[1447/1845] Linking build\libs\ptformat\ptformat.dll
    Creando biblioteca libs\ptformat\ptformat.lib y objeto libs\ptformat\ptformat.exp
 
-[1803/1844] Linking build\libs\gtkmm2ext\gtkmm2ext.dll
+[1448/1845] Linking build\libs\audiographer\audiographer.dll
    Creando biblioteca libs\audiographer\audiographer.lib y objeto libs\audiographer\audiographer.exp
 
-[1804/1844] Linking build\libs\evoral\smf.lib
+[1449/1845] Linking build\libs\gtkmm2ext\gtkmm2ext.dll
    Creando biblioteca libs\gtkmm2ext\gtkmm2ext.lib y objeto libs\gtkmm2ext\gtkmm2ext.exp
 
-[1805/1844] Linking build\libs\evoral\evoral.dll
-[1806/1844] Linking build\libs\canvas\canvas.dll
-[1807/1844] Linking build\libs\widgets\widgets.dll
-   Creando biblioteca libs\evoral\evoral.lib y objeto libs\evoral\evoral.exp
+[1450/1845] Compiling gtk2_ardour\midi-pianoroll\edit_note_dialog.cc
+editor_regions.cc
 
-[1808/1844] Linking build\libs\midi++2\midipp.dll
-   Creando biblioteca libs\widgets\widgets.lib y objeto libs\widgets\widgets.exp
+[1452/1845] Compiling gtk2_ardour\automation\automation_line.cc
+editor_audiotrack.cc
 
+[1456/1845] Compiling gtk2_ardour\editor-view\vca_time_axis.cc
+editor_export_audio.cc
+
+[1457/1845] Compiling gtk2_ardour\editor-view\axis_view.cc
+edit_note_dialog.cc
+
+[1458/1845] Compiling gtk2_ardour\mixer\vca_master_strip.cc
+automation_line.cc
+
+[1460/1845] Compiling gtk2_ardour\editor-view\audio_streamview.cc
+vca_time_axis.cc
+
+[1464/1845] Compiling gtk2_ardour\editor-view\audio_time_axis.cc
+axis_view.cc
+
+[1465/1845] Compiling gtk2_ardour\app-core\ardour_ui_dependents.cc
+vca_master_strip.cc
+
+[1466/1845] Compiling gtk2_ardour\app-core\ardour_dialog.cc
+audio_streamview.cc
+
+[1469/1845] Compiling gtk2_ardour\editor-view\editor_mouse.cc
+audio_time_axis.cc
+
+[1470/1845] Compiling gtk2_ardour\editor-view\editor_group_tabs.cc
+ardour_ui_dependents.cc
+
+[1474/1845] Compiling gtk2_ardour\session-config-dialogs\recorder_group_tabs.cc
+ardour_dialog.cc
+
+[1477/1845] Compiling gtk2_ardour\import-export-video\simple_export_dialog.cc
+editor_mouse.cc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(303,61): warning C4244: 'inicializando': conversión de '_Ty' a '_Ty2'; posible pérdida de datos
+        with
+        [
+            _Ty=double
+        ]
+        and
+        [
+            _Ty2=int
+        ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(303,61): note: el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+C:\ARDOURCUSTOM\ardour\gtk2_ardour\editor-view\editor_mouse.cc(1054,60): note: Vea la referencia a la creación de una instancia de la función plantilla "std::pair<TimeAxisView *,int>::pair<TimeAxisView*,double,0>(std::pair<TimeAxisView *,double> &&) noexcept" que se está compilando
+C:\ARDOURCUSTOM\ardour\gtk2_ardour\editor-view\editor_mouse.cc(1054,34): note: vea la primera referencia a “std::pair<TimeAxisView *,int>::pair” en “Editor::button_press_handler_1”
+
+[1478/1845] Compiling gtk2_ardour\editor-view\editor_summary.cc
+recorder_group_tabs.cc
+
+[1479/1845] Linking build\libs\evoral\smf.lib
+[1480/1845] Compiling gtk2_ardour\midi-pianoroll\note_base.cc
+editor_group_tabs.cc
+
+[1482/1845] Compiling gtk2_ardour\editor-view\editor_mixer.cc
+simple_export_dialog.cc
+
+[1483/1845] Linking build\libs\canvas\canvas.dll
    Creando biblioteca libs\canvas\canvas.lib y objeto libs\canvas\canvas.exp
 
+[1484/1845] Linking build\libs\widgets\widgets.dll
+   Creando biblioteca libs\widgets\widgets.lib y objeto libs\widgets\widgets.exp
+
+[1485/1845] Compiling gtk2_ardour\mixer\meters-monitoring\monitor_section.cc
+editor_summary.cc
+
+[1486/1845] Compiling gtk2_ardour\midi-pianoroll\midi_trigger_properties_box.cc
+note_base.cc
+
+[1487/1845] Compiling gtk2_ardour\editor-view\region_view.cc
+editor_mixer.cc
+
+[1488/1845] Compiling gtk2_ardour\app-core\ardour_ui3.cc
+monitor_section.cc
+
+[1499/1845] Compiling gtk2_ardour\editor-view\verbose_cursor.cc
+midi_trigger_properties_box.cc
+
+[1501/1845] Compiling gtk2_ardour\import-export-video\sfdb_ui.cc
+region_view.cc
+
+[1503/1845] Compiling gtk2_ardour\editor-view\grid_lines.cc
+ardour_ui3.cc
+
+[1504/1845] Compiling gtk2_ardour\midi-pianoroll\midi_view_background.cc
+verbose_cursor.cc
+
+[1507/1845] Compiling gtk2_ardour\editor-view\editor_keys.cc
+grid_lines.cc
+
+[1508/1845] Compiling gtk2_ardour\transport-clocks\time_info_box.cc
+midi_view_background.cc
+
+[1511/1845] Compiling gtk2_ardour\editor-view\mini_timeline.cc
+sfdb_ui.cc
+
+[1512/1845] Compiling gtk2_ardour\editor-view\streamview.cc
+editor_keys.cc
+
+[1516/1845] Compiling gtk2_ardour\midi-pianoroll\note.cc
+time_info_box.cc
+
+[1517/1845] Linking build\libs\evoral\evoral.dll
+   Creando biblioteca libs\evoral\evoral.lib y objeto libs\evoral\evoral.exp
+
+[1518/1845] Compiling gtk2_ardour\editor-view\selection_properties_box.cc
+streamview.cc
+
+[1519/1845] Compiling gtk2_ardour\clips-cues-trigger\cue_editor.cc
+mini_timeline.cc
+
+[1520/1845] Compiling gtk2_ardour\mixer\mixer_strip.cc
+note.cc
+
+[1523/1845] Compiling gtk2_ardour\editor-view\track_record_axis.cc
+selection_properties_box.cc
+
+[1524/1845] Compiling gtk2_ardour\midi-pianoroll\pianoroll_background.cc
+cue_editor.cc
+
+[1526/1845] Compiling gtk2_ardour\app-core\ardour_ui_mixer.cc
+mixer_strip.cc
+
+[1527/1845] Compiling gtk2_ardour\plugins\processor_box.cc
+track_record_axis.cc
+
+[1530/1845] Compiling gtk2_ardour\midi-pianoroll\patch_change.cc
+pianoroll_background.cc
+
+[1531/1845] Compiling gtk2_ardour\editor-view\route_time_axis.cc
+ardour_ui_mixer.cc
+
+[1536/1845] Compiling gtk2_ardour\app-core\application_bar.cc
+patch_change.cc
+
+[1537/1845] Compiling gtk2_ardour\transport-clocks\audio_clock.cc
+processor_box.cc
+
+[1538/1845] Compiling gtk2_ardour\app-core\ardour_ui_aaf.cc
+route_time_axis.cc
+
+[1541/1845] Compiling gtk2_ardour\midi-pianoroll\step_editor.cc
+application_bar.cc
+
+[1542/1845] Compiling gtk2_ardour\mixer\meters-monitoring\meter_strip.cc
+audio_clock.cc
+
+[1543/1845] Compiling gtk2_ardour\midi-pianoroll\pianoroll.cc
+step_editor.cc
+
+[1545/1845] Linking build\libs\midi++2\midipp.dll
    Creando biblioteca libs\midi++2\midipp.lib y objeto libs\midi++2\midipp.exp
 
-[1809/1844] Linking build\libs\fst\ardour-vst-scanner.exe
-[1810/1844] Linking build\libs\ardour\luabindings.lib
+[1546/1845] Compiling gtk2_ardour\editor-view\editing_context.cc
+ardour_ui_aaf.cc
+
+[1550/1845] Compiling gtk2_ardour\midi-pianoroll\chord_box.cc
+meter_strip.cc
+
+[1555/1845] Compiling gtk2_ardour\editor-view\ghostregion.cc
+pianoroll.cc
+
+[1559/1845] Compiling gtk2_ardour\import-export-video\strip_export_dialog.cc
+chord_box.cc
+
+[1560/1845] Compiling gtk2_ardour\editor-view\midi_streamview.cc
+ghostregion.cc
+
+[1561/1845] Compiling gtk2_ardour\editor-view\editor_sections.cc
+editing_context.cc
+
+[1563/1845] Compiling gtk2_ardour\editor-view\control_point.cc
+strip_export_dialog.cc
+
+[1564/1845] Compiling gtk2_ardour\editor-view\stripable_time_axis.cc
+midi_streamview.cc
+
+[1565/1845] Compiling gtk2_ardour\shared-ui\time_fx_dialog.cc
+editor_sections.cc
+
+[1567/1845] Compiling gtk2_ardour\import-export-video\video_image_frame.cc
+control_point.cc
+
+[1568/1845] Compiling gtk2_ardour\editor-view\time_axis_view_item.cc
+stripable_time_axis.cc
+
+[1570/1845] Compiling gtk2_ardour\shared-ui\rhythm_ferret.cc
+time_fx_dialog.cc
+
+[1571/1845] Compiling gtk2_ardour\midi-pianoroll\pianoroll_window.cc
+video_image_frame.cc
+
+[1574/1845] Compiling gtk2_ardour\midi-pianoroll\sys_ex.cc
+time_axis_view_item.cc
+
+[1575/1845] Linking build\libs\ardour\luabindings.lib
+[1576/1845] Compiling gtk2_ardour\editor-view\group_tabs.cc
+rhythm_ferret.cc
+
+[1580/1845] Compiling gtk2_ardour\app-core\ardour_ui_options.cc
+pianoroll_window.cc
+
+[1581/1845] Compiling gtk2_ardour\app-core\ardour_ui_ed.cc
+sys_ex.cc
+
+[1585/1845] Compiling gtk2_ardour\clips-cues-trigger\trigger_ui.cc
+group_tabs.cc
+
+[1586/1845] Compiling gtk2_ardour\editor-view\editor_section_box.cc
+ardour_ui_options.cc
+
+[1587/1845] Compiling gtk2_ardour\editor-view\tempo_map_change.cc
+ardour_ui_ed.cc
+
+[1595/1845] Compiling gtk2_ardour\midi-pianoroll\pianoroll_automation_line.cc
+editor_section_box.cc
+
+[1596/1845] Compiling gtk2_ardour\editor-view\audio_region_view.cc
+tempo_map_change.cc
+
+[1597/1845] Compiling gtk2_ardour\editor-view\track_selection.cc
+trigger_ui.cc
+
+[1599/1845] Compiling gtk2_ardour\app-core\utils.cc
+pianoroll_automation_line.cc
+
+[1600/1845] Compiling gtk2_ardour\editor-view\selection_memento.cc
+track_selection.cc
+
+[1601/1845] Compiling gtk2_ardour\editor-view\editor_canvas_events.cc
+audio_region_view.cc
+
+[1602/1845] Compiling gtk2_ardour\editor-view\editor_vsummary.cc
+utils.cc
+
+[1603/1845] Compiling gtk2_ardour\editor-view\editor_route_groups.cc
+selection_memento.cc
+
+[1606/1845] Compiling gtk2_ardour\mixer\mixer_ui.cc
+editor_canvas_events.cc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(303,61): warning C4244: 'inicializando': conversión de '_Ty' a '_Ty2'; posible pérdida de datos
+        with
+        [
+            _Ty=double
+        ]
+        and
+        [
+            _Ty2=int
+        ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(303,61): note: el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+C:\ARDOURCUSTOM\ardour\gtk2_ardour\editor-view\editor_canvas_events.cc(98,69): note: Vea la referencia a la creación de una instancia de la función plantilla "std::pair<TimeAxisView *,int>::pair<TimeAxisView*,double,0>(std::pair<TimeAxisView *,double> &&) noexcept" que se está compilando
+C:\ARDOURCUSTOM\ardour\gtk2_ardour\editor-view\editor_canvas_events.cc(98,43): note: vea la primera referencia a “std::pair<TimeAxisView *,int>::pair” en “Editor::track_canvas_scroll”
+
+[1608/1845] Linking build\libs\ardour\ardour.dll
+editor_vsummary.cc
+
+[1609/1845] Compiling gtk2_ardour\editor-view\playlist_lane_time_axis.cc
+   Creando biblioteca libs\\ardour\\ardour.lib y objeto libs\\ardour\\ardour.exp
+LINK : warning LNK4217: "vststate_init" importa el símbolo "vst_state.cc.1.o" definido en "vstwin.c.3.o" en la función "fst_instantiate"
+LINK : warning LNK4217: "vststate_maybe_set_program" importa el símbolo "vst_state.cc.1.o" definido en "vstwin.c.3.o" en la función "idle_hands"
+
+[1610/1845] Compiling gtk2_ardour\app-core\ardour_ui_video.cc
+editor_route_groups.cc
+
+[1611/1845] Compiling gtk2_ardour\mixer\routing\port_group.cc
+playlist_lane_time_axis.cc
+
+[1612/1845] Compiling gtk2_ardour\app-core\keyboard.cc
+ardour_ui_video.cc
+
+[1613/1845] Compiling gtk2_ardour\editor-view\region_list_base.cc
+port_group.cc
+
+[1614/1845] Compiling gtk2_ardour\midi-pianoroll\pianoroll_velocity.cc
+mixer_ui.cc
+
+[1615/1845] Compiling gtk2_ardour\editor-view\audio_trigger_properties_box.cc
+keyboard.cc
+
+[1617/1845] Compiling gtk2_ardour\import-export-video\analysis_window.cc
+pianoroll_velocity.cc
+
+[1618/1845] Compiling gtk2_ardour\midi-pianoroll\velocity_ghost_region.cc
+audio_trigger_properties_box.cc
+
+[1619/1845] Compiling gtk2_ardour\editor-view\editor.cc
+region_list_base.cc
+
+[1620/1845] Compiling gtk2_ardour\session-config-dialogs\rta_window.cc
+analysis_window.cc
+
+[1624/1845] Compiling gtk2_ardour\shared-ui\prh.cc
+velocity_ghost_region.cc
+
+[1625/1845] Compiling gtk2_ardour\editor-view\time_axis_view.cc
+rta_window.cc
+
+[1628/1845] Compiling gtk2_ardour\import-export-video\video_timeline.cc
+prh.cc
+
+[1629/1845] Linking build\libs\ctrl-interface\control_protocol\ardourcp.dll
+   Creando biblioteca libs\ctrl-interface\control_protocol\ardourcp.lib y objeto libs\ctrl-interface\control_protocol\ardourcp.exp
+
+[1630/1845] Linking build\libs\waveview\waveview.dll
+   Creando biblioteca libs\waveview\waveview.lib y objeto libs\waveview\waveview.exp
+
+[1631/1845] Linking build\libs\backends\dummy\dummy_audiobackend.dll
+   Creando biblioteca libs\backends\dummy\dummy_audiobackend.lib y objeto libs\backends\dummy\dummy_audiobackend.exp
+
+[1632/1845] Linking build\libs\backends\jack\jack_audiobackend.dll
+   Creando biblioteca libs\backends\jack\jack_audiobackend.lib y objeto libs\backends\jack\jack_audiobackend.exp
+
+editor.cc
+
+[1633/1845] Linking build\libs\backends\portaudio\portaudio_callback_backend.dll
+[1634/1845] Compiling gtk2_ardour\mixer\foldback_strip.cc
+   Creando biblioteca libs\backends\portaudio\portaudio_callback_backend.lib y objeto libs\backends\portaudio\portaudio_callback_backend.exp
+
+[1635/1845] Compiling gtk2_ardour\editor-view\editor_rulers.cc
+time_axis_view.cc
+C:\ARDOURCUSTOM\ardour\gtk2_ardour\editor-view\time_axis_view.cc(467,23): warning C4804: '>': uso no seguro del tipo 'bool' en la operación
+C:\ARDOURCUSTOM\ardour\gtk2_ardour\editor-view\time_axis_view.cc(549,10): warning C4305: 'return': truncamiento de 'int' a 'bool'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(303,61): warning C4244: 'inicializando': conversión de '_Ty' a '_Ty2'; posible pérdida de datos
+        with
+        [
+            _Ty=double
+        ]
+        and
+        [
+            _Ty2=int
+        ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(303,61): note: el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+C:\ARDOURCUSTOM\ardour\gtk2_ardour\editor-view\time_axis_view.cc(1336,67): note: Vea la referencia a la creación de una instancia de la función plantilla "std::pair<TimeAxisView *,int>::pair<TimeAxisView*,double,0>(std::pair<TimeAxisView *,double> &&) noexcept" que se está compilando
+C:\ARDOURCUSTOM\ardour\gtk2_ardour\editor-view\time_axis_view.cc(1336,41): note: vea la primera referencia a “std::pair<TimeAxisView *,int>::pair” en “TimeAxisView::covers_y_position”
+
+[1636/1845] Compiling gtk2_ardour\clips-cues-trigger\trigger_strip.cc
+video_timeline.cc
+
+[1638/1845] Compiling gtk2_ardour\editor-view\region_selection.cc
+editor_rulers.cc
+
+[1641/1845] Compiling gtk2_ardour\clips-cues-trigger\triggerbox_ui.cc
+foldback_strip.cc
+
+[1642/1845] Compiling gtk2_ardour\editor-view\editor_markers.cc
+trigger_strip.cc
+
+[1643/1845] Compiling gtk2_ardour\editor-view\editor_cursors.cc
+region_selection.cc
+
+[1644/1845] Compiling gtk2_ardour\editor-view\editor_selection.cc
+editor_cursors.cc
+
+[1645/1845] Compiling gtk2_ardour\mixer\routing\io_button.cc
+editor_markers.cc
+
+[1646/1845] Linking build\libs\ctrl-interface\midi_surface\ardour_midisurface.dll
+triggerbox_ui.cc
+
+[1647/1845] Linking build\libs\surfaces\generic_midi\ardour_generic_midi.dll
+   Creando biblioteca libs\ctrl-interface\midi_surface\ardour_midisurface.lib y objeto libs\ctrl-interface\midi_surface\ardour_midisurface.exp
+
+   Creando biblioteca libs\surfaces\generic_midi\ardour_generic_midi.lib y objeto libs\surfaces\generic_midi\ardour_generic_midi.exp
+
+[1648/1845] Linking build\libs\surfaces\faderport8\ardour_faderport8.dll
+[1649/1845] Linking build\libs\surfaces\faderport8\ardour_faderport16.dll
+   Creando biblioteca libs\surfaces\faderport8\ardour_faderport8.lib y objeto libs\surfaces\faderport8\ardour_faderport8.exp
+
+   Creando biblioteca libs\surfaces\faderport8\ardour_faderport16.lib y objeto libs\surfaces\faderport8\ardour_faderport16.exp
+
+[1650/1845] Linking build\libs\surfaces\faderport\ardour_faderport.dll
+[1651/1845] Linking build\libs\surfaces\faderport8\ardour_faderport2.dll
+   Creando biblioteca libs\surfaces\faderport\ardour_faderport.lib y objeto libs\surfaces\faderport\ardour_faderport.exp
+
+   Creando biblioteca libs\surfaces\faderport8\ardour_faderport2.lib y objeto libs\surfaces\faderport8\ardour_faderport2.exp
+
+[1652/1845] Linking build\libs\surfaces\cc121\ardour_cc121.dll
+[1653/1845] Linking build\libs\surfaces\mackie\ardour_mcp.dll
+   Creando biblioteca libs\surfaces\cc121\ardour_cc121.lib y objeto libs\surfaces\cc121\ardour_cc121.exp
+
+[1654/1845] Linking build\libs\surfaces\mackie\ardour_ssl_uf8.dll
+   Creando biblioteca libs\surfaces\mackie\ardour_mcp.lib y objeto libs\surfaces\mackie\ardour_mcp.exp
+
+[1655/1845] Linking build\libs\surfaces\us2400\ardour_us2400.dll
+   Creando biblioteca libs\surfaces\mackie\ardour_ssl_uf8.lib y objeto libs\surfaces\mackie\ardour_ssl_uf8.exp
+
+   Creando biblioteca libs\surfaces\us2400\ardour_us2400.lib y objeto libs\surfaces\us2400\ardour_us2400.exp
+
+[1656/1845] Linking build\libs\surfaces\launch_control_xl\ardour_launch_control_xl.dll
+[1658/1845] Linking build\libs\surfaces\osc\ardour_osc.dll
+   Creando biblioteca libs\surfaces\launch_control_xl\ardour_launch_control_xl.lib y objeto libs\surfaces\launch_control_xl\ardour_launch_control_xl.exp
+
+[1659/1845] Linking build\libs\surfaces\console1\ardour_console1.dll
+   Creando biblioteca libs\surfaces\osc\ardour_osc.lib y objeto libs\surfaces\osc\ardour_osc.exp
+
+[1660/1845] Linking build\libs\surfaces\launchpad_pro\ardour_launchpad_pro.dll
+   Creando biblioteca libs\surfaces\console1\ardour_console1.lib y objeto libs\surfaces\console1\ardour_console1.exp
+
+[1661/1845] Linking build\libs\surfaces\launchpad_x\ardour_launchpad_mini.dll
+   Creando biblioteca libs\surfaces\launchpad_pro\ardour_launchpad_pro.lib y objeto libs\surfaces\launchpad_pro\ardour_launchpad_pro.exp
+
+[1662/1845] Linking build\libs\surfaces\launchpad_x\ardour_launchpad_x.dll
+   Creando biblioteca libs\surfaces\launchpad_x\ardour_launchpad_mini.lib y objeto libs\surfaces\launchpad_x\ardour_launchpad_mini.exp
+
+[1663/1845] Linking build\libs\surfaces\launchkey_4\ardour_launchkey_4.dll
+   Creando biblioteca libs\surfaces\launchpad_x\ardour_launchpad_x.lib y objeto libs\surfaces\launchpad_x\ardour_launchpad_x.exp
+
+[1664/1845] Linking build\libs\surfaces\push2\ardour_push2.dll
+   Creando biblioteca libs\surfaces\launchkey_4\ardour_launchkey_4.lib y objeto libs\surfaces\launchkey_4\ardour_launchkey_4.exp
+
+[1665/1845] Linking build\libs\surfaces\contourdesign\ardour_contourdesign.dll
+   Creando biblioteca libs\surfaces\push2\ardour_push2.lib y objeto libs\surfaces\push2\ardour_push2.exp
+
+[1666/1845] Linking build\libs\panners\2in2out\pan2in2out.dll
+   Creando biblioteca libs\surfaces\contourdesign\ardour_contourdesign.lib y objeto libs\surfaces\contourdesign\ardour_contourdesign.exp
+
+   Creando biblioteca libs\panners\2in2out\pan2in2out.lib y objeto libs\panners\2in2out\pan2in2out.exp
+
+[1667/1845] Linking build\libs\panners\1in2out\pan1in2out.dll
+[1668/1845] Linking build\libs\panners\vbap\panvbap.dll
+   Creando biblioteca libs\panners\1in2out\pan1in2out.lib y objeto libs\panners\1in2out\pan1in2out.exp
+
+   Creando biblioteca libs\panners\vbap\panvbap.lib y objeto libs\panners\vbap\panvbap.exp
+
+[1669/1845] Linking build\libs\panners\stereobalance\panbalance.dll
+[1670/1845] Compiling gtk2_ardour\editor-view\automation_region_view.cc
+   Creando biblioteca libs\panners\stereobalance\panbalance.lib y objeto libs\panners\stereobalance\panbalance.exp
+
+[1671/1845] Compiling gtk2_ardour\lua-scripting\luadialog.cc
+editor_selection.cc
+
+[1672/1845] Compiling gtk2_ardour\editor-view\editor_actions.cc
+io_button.cc
+
+[1674/1845] Compiling gtk2_ardour\app-core\ardour_ui_keys.cc
+automation_region_view.cc
+
+[1682/1845] Compiling gtk2_ardour\mixer\routing\route_params_ui.cc
+luadialog.cc
+
+[1683/1845] Compiling gtk2_ardour\automation\automation_text_entry.cc
+ardour_ui_keys.cc
+
+[1684/1845] Compiling gtk2_ardour\editor-view\route_list_base.cc
+automation_text_entry.cc
+
+[1692/1845] Compiling gtk2_ardour\editor-view\region_gain_line.cc
+route_params_ui.cc
+
+[1693/1845] Compiling gtk2_ardour\editor-view\tempo_curve.cc
+editor_actions.cc
+
+[1694/1845] Compiling gtk2_ardour\editor-view\audio_region_editor.cc
+route_list_base.cc
+
+[1695/1845] Compiling gtk2_ardour\editor-view\editor_automation_line.cc
+region_gain_line.cc
+
+[1696/1845] Compiling gtk2_ardour\clips-cues-trigger\trigger_master.cc
+tempo_curve.cc
+
+[1697/1845] Compiling gtk2_ardour\mixer\meters-monitoring\meterbridge.cc
+audio_region_editor.cc
+
+[1699/1845] Compiling gtk2_ardour\editor-view\public_editor.cc
+editor_automation_line.cc
+
+[1704/1845] Compiling gtk2_ardour\editor-view\editor_audio_import.cc
+public_editor.cc
+
+[1707/1845] Compiling gtk2_ardour\editor-view\region_layering_order_editor.cc
+trigger_master.cc
+
+[1708/1845] Compiling gtk2_ardour\midi-pianoroll\midi_view.cc
+meterbridge.cc
+
+[1713/1845] Compiling gtk2_ardour\editor-view\marker.cc
+editor_audio_import.cc
+
+[1717/1845] Compiling gtk2_ardour\mixer\meters-monitoring\level_meter.cc
+region_layering_order_editor.cc
+
+[1718/1845] Compiling gtk2_ardour\mixer\routing\route_properties_box.cc
+marker.cc
+
+[1719/1845] Compiling gtk2_ardour\mixer\routing\io_plugin_window.cc
+midi_view.cc
+
+[1720/1845] Compiling gtk2_ardour\midi-pianoroll\pianoroll_midi_view.cc
+level_meter.cc
+
+[1727/1845] Compiling gtk2_ardour\app-core\ardour_window.cc
+route_properties_box.cc
+
+[1730/1845] Compiling gtk2_ardour\midi-pianoroll\midi_export_dialog.cc
+io_plugin_window.cc
+
+[1731/1845] Compiling gtk2_ardour\import-export-video\video_monitor.cc
+pianoroll_midi_view.cc
+
+[1732/1845] Compiling gtk2_ardour\session-config-dialogs\insert_remove_time_dialog.cc
+ardour_window.cc
+
+[1737/1845] Compiling gtk2_ardour\editor-view\stripable_colorpicker.cc
+midi_export_dialog.cc
+
+[1738/1845] Compiling gtk2_ardour\editor-view\automation_streamview.cc
+video_monitor.cc
+
+[1739/1845] Compiling gtk2_ardour\shared-ui\prh_base.cc
+insert_remove_time_dialog.cc
+
+[1740/1845] Compiling gtk2_ardour\editor-view\editor_videotimeline.cc
+stripable_colorpicker.cc
+
+[1745/1845] Compiling gtk2_ardour\editor-view\editor_pt_import.cc
+automation_streamview.cc
+
+[1746/1845] Compiling gtk2_ardour\editor-view\track_view_list.cc
+prh_base.cc
+
+[1747/1845] Compiling gtk2_ardour\editor-view\editor_timefx.cc
+editor_videotimeline.cc
+
+[1748/1845] Compiling gtk2_ardour\app-core\keyeditor.cc
+track_view_list.cc
+
+[1750/1845] Compiling gtk2_ardour\midi-pianoroll\midi_time_axis.cc
+editor_pt_import.cc
+
+[1751/1845] Compiling gtk2_ardour\editor-view\editor_drag.cc
+editor_timefx.cc
+
+[1752/1845] Compiling gtk2_ardour\editor-view\playlist_selector.cc
+keyeditor.cc
+
+[1753/1845] Compiling gtk2_ardour\app-core\ardour_ui2.cc
+midi_time_axis.cc
+
+[1758/1845] Compiling gtk2_ardour\mixer\pan-knob\panner2d.cc
+playlist_selector.cc
+
+[1759/1845] Compiling gtk2_ardour\import-export-video\fft_graph.cc
+editor_drag.cc
+C:\ARDOURCUSTOM\ardour\gtk2_ardour\editor-view\editor_drag.cc(1715,9): warning C4068: pragma "GCC" desconocida
+
+[1760/1845] Compiling gtk2_ardour\app-core\ardour_ui_dialogs.cc
+ardour_ui2.cc
+
+[1761/1845] Compiling gtk2_ardour\app-core\ardour_ui_startup.cc
+panner2d.cc
+
+[1763/1845] Compiling gtk2_ardour\midi-pianoroll\step_entry.cc
+fft_graph.cc
+
+[1764/1845] Compiling gtk2_ardour\editor-view\audio_clip_editor.cc
+ardour_ui_dialogs.cc
+
+[1765/1845] Compiling gtk2_ardour\app-core\ardour_ui_session.cc
+ardour_ui_startup.cc
+
+[1766/1845] Compiling gtk2_ardour\editor-view\editor_sources.cc
+step_entry.cc
+
+[1770/1845] Compiling gtk2_ardour\automation\automation_time_axis.cc
+audio_clip_editor.cc
+
+[1771/1845] Compiling gtk2_ardour\mixer\surround_strip.cc
+editor_sources.cc
+
+[1774/1845] Compiling gtk2_ardour\editor-view\selection.cc
+ardour_ui_session.cc
+
+[1776/1845] Compiling gtk2_ardour\lua-scripting\luawindow.cc
+automation_time_axis.cc
+
+[1778/1845] Compiling gtk2_ardour\transport-clocks\main_clock.cc
+surround_strip.cc
+
+[1779/1845] Compiling gtk2_ardour\shared-ui\location_ui.cc
+selection.cc
+
+[1782/1845] Compiling gtk2_ardour\mixer\meters-monitoring\gain_meter.cc
+luawindow.cc
+
+[1784/1845] Compiling gtk2_ardour\app-core\floating_text_entry.cc
+main_clock.cc
+C:\ARDOURCUSTOM\ardour\gtk2_ardour\transport-clocks\main_clock.cc(62,21): warning C4566: el carácter representado por el nombre de carácter universal '\u0394' no se puede representar en la página de códigos actual (1252)
+
+[1785/1845] Compiling gtk2_ardour\editor-view\editor_ops.cc
+location_ui.cc
+
+[1786/1845] Compiling gtk2_ardour\editor-view\slot_properties_box.cc
+floating_text_entry.cc
+
+[1790/1845] Compiling gtk2_ardour\plugins\plugin_ui.cc
+gain_meter.cc
+
+[1792/1845] Compiling gtk2_ardour\session-config-dialogs\rc_option_editor.cc
+slot_properties_box.cc
+
+[1793/1845] Compiling gtk2_ardour\import-export-video\export_dialog.cc
+editor_ops.cc
+
+[1796/1845] Compiling gtk2_ardour\session-config-dialogs\recorder_ui.cc
+plugin_ui.cc
+
+[1797/1845] Compiling gtk2_ardour\session-config-dialogs\duplicate_routes_dialog.cc
+export_dialog.cc
+
+[1834/1845] Compiling gtk2_ardour\clips-cues-trigger\cuebox_ui.cc
+duplicate_routes_dialog.cc
+
+[1835/1845] Linking build\headless\hardour-8.0.0.exe
+[1836/1845] Linking build\session_utils\ardour8-export.exe
+[1837/1845] Linking build\session_utils\ardour8-new_empty_session.exe
+[1838/1845] Linking build\session_utils\ardour8-new_session.exe
+[1839/1845] Linking build\libs\fst\ardour-vst3-scanner.exe
+   Creando biblioteca C:\ARDOURCUSTOM\ardour\build\libs\fst\ardour-vst3-scanner.lib y objeto C:\ARDOURCUSTOM\ardour\build\libs\fst\ardour-vst3-scanner.exp
+
+[1840/1845] Linking build\libs\fst\ardour-vst-scanner.exe
    Creando biblioteca C:\ARDOURCUSTOM\ardour\build\libs\fst\ardour-vst-scanner.lib y objeto C:\ARDOURCUSTOM\ardour\build\libs\fst\ardour-vst-scanner.exp
 LINK : warning LNK4217: "fst_load" importa el símbolo "vstwin.c.3.o" definido en "vst2-scanner.cc.2.o" en la función ""bool __cdecl discover_vst2(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,enum ARDOUR::PluginType,class std::vector<struct ARDOUR::VST2Info,class std::allocator<struct ARDOUR::VST2Info> > &,bool)" (?discover_vst2@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@W4PluginType@ARDOUR@@AEAV?$vector@UVST2Info@ARDOUR@@V?$allocator@UVST2Info@ARDOUR@@@std@@@2@_N@Z)"
 LINK : warning LNK4217: "fst_unload" importa el símbolo "vstwin.c.3.o" definido en "vst2-scanner.cc.2.o" en la función ""bool __cdecl discover_vst2(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,enum ARDOUR::PluginType,class std::vector<struct ARDOUR::VST2Info,class std::allocator<struct ARDOUR::VST2Info> > &,bool)" (?discover_vst2@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@W4PluginType@ARDOUR@@AEAV?$vector@UVST2Info@ARDOUR@@V?$allocator@UVST2Info@ARDOUR@@@std@@@2@_N@Z)"
@@ -60,103 +719,36 @@ LINK : warning LNK4217: "fst_close" importa el símbolo "vstwin.c.3.o" definido 
 LINK : warning LNK4217: "vststate_init" importa el símbolo "vst2-scanner.cc.2.o" definido en "vstwin.c.3.o" en la función "fst_instantiate"
 LINK : warning LNK4217: "vststate_maybe_set_program" importa el símbolo "vst2-scanner.cc.2.o" definido en "vstwin.c.3.o" en la función "idle_hands"
 
-[1811/1844] Linking build\libs\ardour\ardour.dll
-   Creando biblioteca libs\\ardour\\ardour.lib y objeto libs\\ardour\\ardour.exp
-LINK : warning LNK4217: "vststate_init" importa el símbolo "vst_state.cc.1.o" definido en "vstwin.c.3.o" en la función "fst_instantiate"
-LINK : warning LNK4217: "vststate_maybe_set_program" importa el símbolo "vst_state.cc.1.o" definido en "vstwin.c.3.o" en la función "idle_hands"
+[1841/1845] Compiling gtk2_ardour\editor-view\route_ui.cc
+recorder_ui.cc
 
-[1812/1844] Linking build\libs\ctrl-interface\control_protocol\ardourcp.dll
-[1813/1844] Linking build\libs\waveview\waveview.dll
-[1814/1844] Linking build\libs\backends\dummy\dummy_audiobackend.dll
-   Creando biblioteca libs\backends\dummy\dummy_audiobackend.lib y objeto libs\backends\dummy\dummy_audiobackend.exp
+[1842/1845] Compiling gtk2_ardour\automation\midi_automation_line.cc
+cuebox_ui.cc
 
-   Creando biblioteca libs\ctrl-interface\control_protocol\ardourcp.lib y objeto libs\ctrl-interface\control_protocol\ardourcp.exp
+[1843/1845] Compiling gtk2_ardour\editor-view\editor_canvas.cc
+midi_automation_line.cc
 
-   Creando biblioteca libs\waveview\waveview.lib y objeto libs\waveview\waveview.exp
+[1844/1845] Processing ardour.keys: gtk2_ardour\ardour.keys.in gtk2_ardour\mixer.bindings gtk2_ardour\processor_box.bindings gtk2_ardour\step_editing.bindings gtk2_ardour\monitor.bindings gtk2_ardour\trigger.bindings gtk2_ardour\regionfx_box.bindings gtk2_ardour\automation.bindings -> build\gtk2_ardour\ardour.keys
+route_ui.cc
 
-[1815/1844] Linking build\libs\backends\jack\jack_audiobackend.dll
-[1816/1844] Linking build\libs\backends\portaudio\portaudio_callback_backend.dll
-[1817/1844] Linking build\libs\ctrl-interface\midi_surface\ardour_midisurface.dll
-   Creando biblioteca libs\backends\portaudio\portaudio_callback_backend.lib y objeto libs\backends\portaudio\portaudio_callback_backend.exp
+editor_canvas.cc
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(303,61): warning C4244: 'inicializando': conversión de '_Ty' a '_Ty2'; posible pérdida de datos
+        with
+        [
+            _Ty=double
+        ]
+        and
+        [
+            _Ty2=int
+        ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(303,61): note: el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+C:\ARDOURCUSTOM\ardour\gtk2_ardour\editor-view\editor_canvas.cc(454,68): note: Vea la referencia a la creación de una instancia de la función plantilla "std::pair<TimeAxisView *,int>::pair<TimeAxisView*,double,0>(std::pair<TimeAxisView *,double> &&) noexcept" que se está compilando
+C:\ARDOURCUSTOM\ardour\gtk2_ardour\editor-view\editor_canvas.cc(454,42): note: vea la primera referencia a “std::pair<TimeAxisView *,int>::pair” en “Editor::drop_paths_part_two”
 
-   Creando biblioteca libs\ctrl-interface\midi_surface\ardour_midisurface.lib y objeto libs\ctrl-interface\midi_surface\ardour_midisurface.exp
+rc_option_editor.cc
 
-   Creando biblioteca libs\backends\jack\jack_audiobackend.lib y objeto libs\backends\jack\jack_audiobackend.exp
-
-[1818/1844] Linking build\libs\surfaces\generic_midi\ardour_generic_midi.dll
-[1819/1844] Linking build\libs\surfaces\faderport8\ardour_faderport8.dll
-[1820/1844] Linking build\libs\surfaces\faderport8\ardour_faderport16.dll
-   Creando biblioteca libs\surfaces\generic_midi\ardour_generic_midi.lib y objeto libs\surfaces\generic_midi\ardour_generic_midi.exp
-
-   Creando biblioteca libs\surfaces\faderport8\ardour_faderport8.lib y objeto libs\surfaces\faderport8\ardour_faderport8.exp
-
-   Creando biblioteca libs\surfaces\faderport8\ardour_faderport16.lib y objeto libs\surfaces\faderport8\ardour_faderport16.exp
-
-[1821/1844] Linking build\libs\surfaces\faderport\ardour_faderport.dll
-[1822/1844] Linking build\libs\surfaces\faderport8\ardour_faderport2.dll
-[1823/1844] Linking build\libs\surfaces\cc121\ardour_cc121.dll
-   Creando biblioteca libs\surfaces\faderport\ardour_faderport.lib y objeto libs\surfaces\faderport\ardour_faderport.exp
-
-   Creando biblioteca libs\surfaces\faderport8\ardour_faderport2.lib y objeto libs\surfaces\faderport8\ardour_faderport2.exp
-
-[1824/1844] Linking build\libs\surfaces\mackie\ardour_mcp.dll
-[1825/1844] Linking build\libs\surfaces\mackie\ardour_ssl_uf8.dll
-   Creando biblioteca libs\surfaces\cc121\ardour_cc121.lib y objeto libs\surfaces\cc121\ardour_cc121.exp
-
-[1826/1844] Linking build\libs\surfaces\us2400\ardour_us2400.dll
-   Creando biblioteca libs\surfaces\mackie\ardour_mcp.lib y objeto libs\surfaces\mackie\ardour_mcp.exp
-
-   Creando biblioteca libs\surfaces\mackie\ardour_ssl_uf8.lib y objeto libs\surfaces\mackie\ardour_ssl_uf8.exp
-
-[1827/1844] Linking build\libs\surfaces\launch_control_xl\ardour_launch_control_xl.dll
-[1828/1844] Linking build\libs\surfaces\osc\ardour_osc.dll
-   Creando biblioteca libs\surfaces\us2400\ardour_us2400.lib y objeto libs\surfaces\us2400\ardour_us2400.exp
-
-[1829/1844] Linking build\libs\surfaces\console1\ardour_console1.dll
-   Creando biblioteca libs\surfaces\launch_control_xl\ardour_launch_control_xl.lib y objeto libs\surfaces\launch_control_xl\ardour_launch_control_xl.exp
-
-   Creando biblioteca libs\surfaces\osc\ardour_osc.lib y objeto libs\surfaces\osc\ardour_osc.exp
-
-[1830/1844] Linking build\libs\surfaces\launchpad_pro\ardour_launchpad_pro.dll
-[1831/1844] Linking build\libs\surfaces\launchpad_x\ardour_launchpad_mini.dll
-   Creando biblioteca libs\surfaces\console1\ardour_console1.lib y objeto libs\surfaces\console1\ardour_console1.exp
-
-[1832/1844] Linking build\libs\surfaces\launchpad_x\ardour_launchpad_x.dll
-   Creando biblioteca libs\surfaces\launchpad_pro\ardour_launchpad_pro.lib y objeto libs\surfaces\launchpad_pro\ardour_launchpad_pro.exp
-
-   Creando biblioteca libs\surfaces\launchpad_x\ardour_launchpad_mini.lib y objeto libs\surfaces\launchpad_x\ardour_launchpad_mini.exp
-
-[1833/1844] Linking build\libs\surfaces\launchkey_4\ardour_launchkey_4.dll
-   Creando biblioteca libs\surfaces\launchpad_x\ardour_launchpad_x.lib y objeto libs\surfaces\launchpad_x\ardour_launchpad_x.exp
-
-[1834/1844] Linking build\libs\surfaces\push2\ardour_push2.dll
-[1835/1844] Linking build\libs\surfaces\contourdesign\ardour_contourdesign.dll
-   Creando biblioteca libs\surfaces\launchkey_4\ardour_launchkey_4.lib y objeto libs\surfaces\launchkey_4\ardour_launchkey_4.exp
-
-[1836/1844] Linking build\libs\panners\2in2out\pan2in2out.dll
-   Creando biblioteca libs\surfaces\contourdesign\ardour_contourdesign.lib y objeto libs\surfaces\contourdesign\ardour_contourdesign.exp
-
-   Creando biblioteca libs\surfaces\push2\ardour_push2.lib y objeto libs\surfaces\push2\ardour_push2.exp
-
-[1837/1844] Linking build\libs\panners\1in2out\pan1in2out.dll
-   Creando biblioteca libs\panners\2in2out\pan2in2out.lib y objeto libs\panners\2in2out\pan2in2out.exp
-
-[1838/1844] Linking build\libs\panners\vbap\panvbap.dll
-[1839/1844] Linking build\libs\panners\stereobalance\panbalance.dll
-   Creando biblioteca libs\panners\1in2out\pan1in2out.lib y objeto libs\panners\1in2out\pan1in2out.exp
-
-   Creando biblioteca libs\panners\vbap\panvbap.lib y objeto libs\panners\vbap\panvbap.exp
-
-[1840/1844] Linking build\headless\hardour-8.0.0.exe
-   Creando biblioteca libs\panners\stereobalance\panbalance.lib y objeto libs\panners\stereobalance\panbalance.exp
-
-[1841/1844] Linking build\session_utils\ardour8-export.exe
-[1842/1844] Linking build\session_utils\ardour8-new_empty_session.exe
-[1843/1844] Linking build\session_utils\ardour8-new_session.exe
-route_time_axis.cc
-
-[1844/1844] Linking build\gtk2_ardour\ardour-8.0.0.exe
+[1845/1845] Linking build\gtk2_ardour\ardour-8.0.0.exe
    Creando biblioteca C:\\ARDOURCUSTOM\\ardour\\build\\gtk2_ardour\\ardour-8.0.0.lib y objeto C:\\ARDOURCUSTOM\\ardour\\build\\gtk2_ardour\\ardour-8.0.0.exp
 
 Waf: Leaving directory `C:\ARDOURCUSTOM\ardour\build'
-'build' finished successfully (20.961s)
+'build' finished successfully (15m46.671s)

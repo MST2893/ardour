@@ -242,6 +242,40 @@ StreamView::display_track (std::shared_ptr<Track> tr)
 	tr->PlaylistChanged.connect (playlist_switched_connection, invalidator (*this), std::bind (&StreamView::playlist_switched, this, std::weak_ptr<Track> (tr)), gui_context());
 }
 
+std::shared_ptr<Playlist>
+StreamView::displayed_playlist () const
+{
+	if (_displayed_playlist) {
+		return _displayed_playlist;
+	}
+	if (_trackview.is_track()) {
+		return _trackview.track()->playlist();
+	}
+	return std::shared_ptr<Playlist> ();
+}
+
+void
+StreamView::set_displayed_playlist (std::shared_ptr<Playlist> pl)
+{
+	if (_displayed_playlist == pl) {
+		return;
+	}
+
+	_displayed_playlist = pl;
+
+	/* When pinned to a specific playlist (a lane), stop following the
+	 * track's active-playlist switches; the parent track manages the lane's
+	 * lifecycle instead.
+	 */
+	if (_displayed_playlist) {
+		playlist_switched_connection.disconnect ();
+	}
+
+	if (_trackview.is_track()) {
+		playlist_switched (std::weak_ptr<Track> (_trackview.track()));
+	}
+}
+
 void
 StreamView::layer_regions()
 {
@@ -307,8 +341,9 @@ StreamView::playlist_layered (std::weak_ptr<Track> wtr)
 	}
 
 	/* update layers count and the y positions and heights of our regions */
-	if (tr->playlist()) {
-		_layers = tr->playlist()->top_layer() + 1;
+	std::shared_ptr<Playlist> dpl = displayed_playlist ();
+	if (dpl) {
+		_layers = dpl->top_layer() + 1;
 	}
 
 	if (_layer_display == Stacked) {
@@ -335,21 +370,30 @@ StreamView::playlist_switched (std::weak_ptr<Track> wtr)
 	playlist_connections.drop_connections ();
 	undisplay_track ();
 
+	/* the playlist we actually display may be the track's active playlist,
+	 * or an alternate one pinned via set_displayed_playlist() (a lane).
+	 */
+	std::shared_ptr<Playlist> pl = displayed_playlist ();
+
+	if (!pl) {
+		return;
+	}
+
 	/* draw it */
-	tr->playlist()->freeze();
+	pl->freeze();
 	redisplay_track ();
-	tr->playlist()->thaw();
+	pl->thaw();
 	/* update layers count and the y positions and heights of our regions */
-	_layers = tr->playlist()->top_layer() + 1;
+	_layers = pl->top_layer() + 1;
 	update_contents_height ();
 	update_coverage_frame ();
 
 	/* catch changes */
 
-	tr->playlist()->LayeringChanged.connect (playlist_connections, invalidator (*this), std::bind (&StreamView::playlist_layered, this, std::weak_ptr<Track> (tr)), gui_context());
-	tr->playlist()->RegionAdded.connect (playlist_connections, invalidator (*this), std::bind (&StreamView::add_region_view, this, _1), gui_context());
-	tr->playlist()->RegionRemoved.connect (playlist_connections, invalidator (*this), std::bind (&StreamView::remove_region_view, this, _1), gui_context());
-	tr->playlist()->ContentsChanged.connect (playlist_connections, invalidator (*this), std::bind (&StreamView::update_coverage_frame, this), gui_context());
+	pl->LayeringChanged.connect (playlist_connections, invalidator (*this), std::bind (&StreamView::playlist_layered, this, std::weak_ptr<Track> (tr)), gui_context());
+	pl->RegionAdded.connect (playlist_connections, invalidator (*this), std::bind (&StreamView::add_region_view, this, _1), gui_context());
+	pl->RegionRemoved.connect (playlist_connections, invalidator (*this), std::bind (&StreamView::remove_region_view, this, _1), gui_context());
+	pl->ContentsChanged.connect (playlist_connections, invalidator (*this), std::bind (&StreamView::update_coverage_frame, this), gui_context());
 }
 
 void

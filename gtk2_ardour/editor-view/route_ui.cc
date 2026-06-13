@@ -147,7 +147,7 @@ RouteUI::RouteUI (ARDOUR::Session* sess)
 
 RouteUI::~RouteUI()
 {
-	if (_route) {
+	if (_route && !_skip_route_state_cleanup) {
 		ARDOUR_UI::instance()->gui_object_state->remove_node (route_state_id());
 		StripableColorDialog* scd = _route->active_color_picker();
 		if (scd) {
@@ -185,6 +185,7 @@ void
 RouteUI::init ()
 {
 	self_destruct = true;
+	_skip_route_state_cleanup = false;
 	_playlist_selector = 0;
 	mute_menu = 0;
 	solo_menu = 0;

@@ -233,6 +233,11 @@ protected:
 	PBD::ScopedConnectionList route_connections;
 	PBD::ScopedConnectionList send_connections;
 	bool                      self_destruct;
+	/* set by secondary views that SHARE another view's Route (e.g. Pro-Tools
+	 * playlist lanes) so ~RouteUI does not tear down route-wide GUI state the
+	 * primary view still owns (gui-object-state node, color picker, comment).
+	 */
+	bool                      _skip_route_state_cleanup;
 
 	void init ();
 	void reset ();

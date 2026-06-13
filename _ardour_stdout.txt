@@ -1,0 +1,23 @@
+Ardour8.0.0 (built using fatal: No names found, cannot describe anything.)
+Ardour: [INFO]: MMCSS Initialized
+Ardour: [INFO]: Your system is configured to limit Ardour to 2048 open files
+Ardour: [INFO]: Loading system configuration file C:\ARDOURCUSTOM\ardour\_install\share\ardour8\system_config
+Ardour: [INFO]: Loading user configuration file C:\Users\mattn\AppData\Local\Ardour8\config
+Ardour: [INFO]: CPU vendor: GenuineIntel
+Ardour: [INFO]: AVX capable processor
+Ardour: [INFO]: AVX with FMA capable processor
+Ardour: [INFO]: CPU brand: 12th Gen Intel(R) Core(TM) i5-1240P
+Ardour: [INFO]: No H/W specific optimizations in use
+Ardour: [WARNING]: VST scanner app (ardour-vst-scanner) not found in path C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\fst;C:\ARDOURCUSTOM\ardour\_install\bin
+Ardour: [WARNING]: VST3 scanner app (ardour-vst3-scanner) not found in path C:\ARDOURCUSTOM\ardour\_install\lib\ardour8\fst;C:\ARDOURCUSTOM\ardour\_install\bin
+Ardour: [INFO]: Loading plugin meta data file C:\ARDOURCUSTOM\ardour\_install\share\ardour8\plugin_metadata\plugin_tags
+Ardour: [INFO]: Loading plugin statistics file C:\Users\mattn\AppData\Local\Ardour8\plugin_metadata\plugin_stats
+Ardour: [INFO]: Loading 470 MIDI patches from C:\ARDOURCUSTOM\ardour\_install\share\ardour8\patchfiles
+Ardour: [INFO]: Loading default ui configuration file C:\ARDOURCUSTOM\ardour\_install\share\ardour8\default_ui_config
+Ardour: [INFO]: Loading user ui configuration file C:\Users\mattn\AppData\Local\Ardour8\ui_config
+Ardour: [INFO]: Loading color file C:\ARDOURCUSTOM\ardour\_install\share\ardour8\themes\dark-ardour.colors
+Ardour: [INFO]: Loading ui configuration file C:\ARDOURCUSTOM\ardour\_install\share\ardour8\clearlooks.rc
+Ardour: [INFO]: Loading bindings from C:\ARDOURCUSTOM\ardour\_install\share\ardour8\ardour.keys
+Loading ui configuration file C:\ARDOURCUSTOM\ardour\_install\share\ardour8\clearlooks.rc
+Ardour: [INFO]: Detecting Audio/MIDI Devices
+Announcement is: Version 9.7 has been released. Update at https://ardour.org/download

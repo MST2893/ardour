@@ -25,7 +25,9 @@
 #pragma once
 
 #include <list>
+#include <memory>
 #include <set>
+#include <vector>
 
 #include <ytkmm/table.h>
 #include <ytkmm/button.h>
@@ -74,6 +76,7 @@ class EditorAutomationLine;
 class TimeSelection;
 class RouteGroupMenu;
 class ItemCounts;
+class PlaylistLaneTimeAxisView;
 
 class RouteTimeAxisView : public RouteUI, public StripableTimeAxisView
 {
@@ -100,6 +103,13 @@ public:
 	bool elastic_audio_editing () const { return _elastic_audio_mode != ARDOUR::ElasticAudioDisabled; }
 	ARDOUR::ElasticAudioMode elastic_audio_mode () const { return _elastic_audio_mode; }
 	void set_elastic_audio_mode (ARDOUR::ElasticAudioMode, bool apply_to_regions = true);
+
+	/* Pro-Tools-style playlist lanes: show every other (non-active) playlist
+	 * of this track as an editable lane beneath the main track view.
+	 */
+	void toggle_playlist_lanes ();
+	void show_playlist_lanes (bool);
+	bool playlist_lanes_shown () const { return _playlist_lanes_shown; }
 	void selection_click (GdkEventButton*);
 	void set_selected_points (PointSelection&);
 	void set_selected_regionviews (RegionSelection&);
@@ -261,6 +271,7 @@ protected:
 	ArdourWidgets::ArdourButton playlist_button;
 	ArdourWidgets::ArdourButton automation_button;
 	ArdourWidgets::ArdourButton elastic_audio_button;
+	ArdourWidgets::ArdourButton playlist_lanes_button;
 	ArdourWidgets::ArdourButton number_label;
 	Gtk::EventBox route_color_side_bar;
 
@@ -292,6 +303,21 @@ protected:
 
 	bool _ignore_set_layer_display;
 	ARDOUR::ElasticAudioMode _elastic_audio_mode;
+
+	/* playlist lanes (Pro-Tools-style "Playlists view") */
+	std::vector<std::shared_ptr<PlaylistLaneTimeAxisView> > _playlist_lanes;
+	bool     _playlist_lanes_shown;
+	bool     _playlist_lanes_rebuild_queued;
+	uint32_t _playlist_lane_height;
+	bool     playlist_lanes_click (GdkEventButton*);
+	void     rebuild_playlist_lanes ();
+	void     destroy_playlist_lanes ();
+	void     lane_audition_toggled (PlaylistLaneTimeAxisView*, bool);
+	void     lane_resized (uint32_t);
+	void     playlists_maybe_changed ();   /* track playlist added/switched */
+	bool     idle_rebuild_playlist_lanes (); /* deferred, one-shot */
+	virtual bool is_playlist_lane () const { return false; }
+
 	void build_elastic_audio_menu ();
 	void clear_elastic_audio_anchors ();
 	std::vector<std::shared_ptr<ARDOUR::AudioRegion> > track_audio_regions () const;

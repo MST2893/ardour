@@ -174,6 +174,17 @@ public:
 	void playlist_modified ();
 	int use_playlist (DataType, std::shared_ptr<Playlist>, bool set_orig = true);
 	int find_and_use_playlist (DataType, PBD::ID const &);
+
+	/* Pro-Tools-style lane "solo": make the disk reader read an alternate
+	 * playlist (so it is heard) WITHOUT changing the track's active/edited
+	 * playlist (_playlists[dt]). Purely transient: not serialized, does not
+	 * mark the session dirty. Pass a null/empty playlist or call
+	 * clear_audition_playlist() to restore the real playlist.
+	 */
+	int set_audition_playlist (std::shared_ptr<Playlist>);
+	void clear_audition_playlist ();
+	std::shared_ptr<Playlist> audition_playlist () const { return _audition_playlist; }
+	bool auditioning_playlist () const { return (bool) _audition_playlist; }
 	int use_copy_playlist ();
 	int use_new_playlist (DataType);
 	int use_default_new_playlist () {
@@ -197,6 +208,7 @@ protected:
 	void update_input_meter ();
 
 	std::shared_ptr<Playlist>   _playlists[DataType::num_types];
+	std::shared_ptr<Playlist>   _audition_playlist; /* lane-solo override for the disk reader; null = none */
 	std::optional<MeterPoint> _saved_meter_point;
 	bool                        _record_prepared;
 	TrackMode                   _mode;

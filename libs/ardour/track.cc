@@ -773,6 +773,13 @@ Track::use_playlist (DataType dt, std::shared_ptr<Playlist> p, bool set_orig)
 {
 	int ret;
 
+	/* switching the active playlist invalidates any transient lane-solo
+	 * audition (the reader is about to be repointed at the new playlist).
+	 */
+	if (dt == data_type ()) {
+		_audition_playlist.reset ();
+	}
+
 	if ((ret = _disk_reader->use_playlist (dt, p)) == 0) {
 		if ((ret = _disk_writer->use_playlist (dt, p)) == 0) {
 			if (set_orig) {
@@ -824,6 +831,51 @@ Track::use_playlist (DataType dt, std::shared_ptr<Playlist> p, bool set_orig)
 	PlaylistChanged (); /* EMIT SIGNAL */
 
 	return ret;
+}
+
+int
+Track::set_audition_playlist (std::shared_ptr<Playlist> p)
+{
+	DataType dt = data_type ();
+
+	/* nothing to audition, or auditioning the real playlist: just clear */
+	if (!p || p == _playlists[dt]) {
+		clear_audition_playlist ();
+		return 0;
+	}
+
+	/* Point ONLY the disk reader at the alternate playlist so it is heard.
+	 * Deliberately do NOT touch _playlists[dt] (the active/edited playlist),
+	 * the disk writer, the orig-track-id, dirty state or PlaylistChanged.
+	 */
+	int ret = _disk_reader->use_playlist (dt, p);
+
+	if (ret == 0) {
+		_audition_playlist = p;
+		/* flush the reader's buffers so what we hear comes from the new
+		 * playlist immediately. NB: qualify the enum value, since the
+		 * unqualified name is shadowed by the Track::PlaylistChanged signal.
+		 */
+		_disk_reader->set_pending_overwrite (ARDOUR::PlaylistChanged);
+	}
+
+	return ret;
+}
+
+void
+Track::clear_audition_playlist ()
+{
+	if (!_audition_playlist) {
+		return;
+	}
+
+	_audition_playlist.reset ();
+
+	/* restore the reader to the real, active playlist and refill */
+	if (_playlists[data_type()]) {
+		_disk_reader->use_playlist (data_type(), _playlists[data_type()]);
+		_disk_reader->set_pending_overwrite (ARDOUR::PlaylistChanged);
+	}
 }
 
 int

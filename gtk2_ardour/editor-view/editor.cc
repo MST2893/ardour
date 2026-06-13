@@ -106,6 +106,7 @@
 #include "editor-view/audio_region_view.h"
 #include "editor-view/audio_streamview.h"
 #include "editor-view/audio_time_axis.h"
+#include "editor-view/playlist_lane_time_axis.h"
 #include "automation/automation_time_axis.h"
 #include "app-core/bundle_manager.h"
 #include "midi-pianoroll/chord_box.h"
@@ -4874,6 +4875,16 @@ Editor::timeaxisview_deleted (TimeAxisView *tv)
 	ENSURE_GUI_THREAD (*this, &Editor::timeaxisview_deleted, tv);
 
 	if (dynamic_cast<AutomationTimeAxisView*> (tv)) {
+		selection->remove (tv);
+		return;
+	}
+
+	/* Pro-Tools-style playlist lanes are child views that share their parent
+	 * track's route. Destroying one (toggling the lanes view off, or rebuilding
+	 * after a playlist change) must NOT be treated as the track itself going
+	 * away, which would disturb the editor-mixer strip and track selection.
+	 */
+	if (dynamic_cast<PlaylistLaneTimeAxisView*> (tv)) {
 		selection->remove (tv);
 		return;
 	}

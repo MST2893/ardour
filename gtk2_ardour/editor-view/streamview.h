@@ -42,6 +42,7 @@ namespace Gdk {
 
 namespace ARDOUR {
 	class Crossfade;
+	class Playlist;
 	class Region;
 	class Route;
 	class Source;
@@ -136,6 +137,16 @@ public:
 	virtual void playlist_layered (std::weak_ptr<ARDOUR::Track>);
 	void update_coverage_frame ();
 
+	/* Pro-Tools-style playlist lanes: a StreamView normally shows its
+	 * track's active playlist. Setting a displayed playlist override makes
+	 * it show an arbitrary (alternate) playlist of the same track instead,
+	 * so a lane can display/edit a non-active playlist. Passing a null
+	 * playlist reverts to following the track's active playlist.
+	 */
+	void set_displayed_playlist (std::shared_ptr<ARDOUR::Playlist>);
+	std::shared_ptr<ARDOUR::Playlist> displayed_playlist () const;
+	bool has_displayed_playlist_override () const { return (bool) _displayed_playlist; }
+
 	sigc::signal<void, RegionView*> RegionViewAdded;
 	sigc::signal<void> RegionViewRemoved;
 	/** Emitted when the height of regions has changed */
@@ -187,6 +198,9 @@ protected:
 
 	PBD::ScopedConnectionList playlist_connections;
 	PBD::ScopedConnection playlist_switched_connection;
+
+	/* when non-null, show this playlist instead of the track's active one */
+	std::shared_ptr<ARDOUR::Playlist> _displayed_playlist;
 
 	ARDOUR::layer_t _layers;
 	LayerDisplay    _layer_display;
