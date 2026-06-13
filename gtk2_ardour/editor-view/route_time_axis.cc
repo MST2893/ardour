@@ -485,6 +485,12 @@ RouteTimeAxisView::set_route (std::shared_ptr<Route> rt)
 
 RouteTimeAxisView::~RouteTimeAxisView ()
 {
+	/* Cancel any pending idle rebuild before anything else — if the callback
+	 * fires after 'this' is partially destroyed it will crash (0xC0000005).
+	 */
+	_playlist_lanes_idle_connection.disconnect ();
+	destroy_playlist_lanes ();
+
 	/* For a secondary view that shares another view's Route (a playlist lane),
 	 * state_id() now resolves to RouteTimeAxisView::state_id() ("rtav <route>")
 	 * because the derived part is already destroyed — that is the PARENT track's
@@ -820,7 +826,12 @@ RouteTimeAxisView::playlists_maybe_changed ()
 	 * time the playlist set is settled.
 	 */
 	_playlist_lanes_rebuild_queued = true;
-	Glib::signal_idle().connect (sigc::mem_fun (*this, &RouteTimeAxisView::idle_rebuild_playlist_lanes));
+	/* store the connection so we can disconnect in the destructor — if the
+	 * view is destroyed before the idle fires, the sigc::mem_fun would call
+	 * into a dangling 'this' and crash with an access violation (0xC0000005).
+	 */
+	_playlist_lanes_idle_connection = Glib::signal_idle().connect (
+	        sigc::mem_fun (*this, &RouteTimeAxisView::idle_rebuild_playlist_lanes));
 }
 
 bool

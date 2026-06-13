@@ -1,0 +1,19 @@
+[20260613_144420] Iniciando Ardour... 
+EXE: C:\ArdourRemix\ardour\_install\lib\ardour8\ardour-8.0.0.exe 
+ 
+
+(ardour-8.0.0.exe:24716): Gtk-WARNING **: 14:44:40.993: Unable to locate theme engine in module_path: "clearlooks",
+
+(ardour-8.0.0.exe:24716): Gtk-WARNING **: 14:44:40.993: Unable to locate theme engine in module_path: "clearlooks",
+
+(ardour-8.0.0.exe:24716): Gtk-WARNING **: 14:44:40.993: Unable to locate theme engine in module_path: "clearlooks",
+
+(ardour-8.0.0.exe:24716): Gtk-WARNING **: 14:44:40.993: Unable to locate theme engine in module_path: "clearlooks",
+
+(ardour-8.0.0.exe:24716): Gtk-WARNING **: 14:44:41.040: Unable to locate theme engine in module_path: "clearlooks",
+
+(ardour-8.0.0.exe:24716): Gtk-WARNING **: 14:44:41.040: Unable to locate theme engine in module_path: "clearlooks",
+Found nothing along C:\Users\el-ba\AppData\Local\Ardour8\templates;C:\ArdourRemix\ardour\_install\share\ardour8\templates
+Set cursor set to default
+couldn't load font "ArdourMono Ultra-Light Ultra-Condensed Not-Rotated 3.415", falling back to "Sans Ultra-Light Ultra-Condensed Not-Rotated 3.415", expect ugly output.couldn't load font "Sans Ultra-Light Ultra-Condensed Not-Rotated 3.415", falling back to "Sans Not-Rotated 3.415", expect ugly output.couldn't load font "bold ArdourMono Not-Rotated 7", falling back to "Sans Not-Rotated 7", expect ugly output. 
+[FIN] Exit code: -1073741819 

@@ -307,8 +307,9 @@ protected:
 	/* playlist lanes (Pro-Tools-style "Playlists view") */
 	std::vector<std::shared_ptr<PlaylistLaneTimeAxisView> > _playlist_lanes;
 	bool     _playlist_lanes_shown;
-	bool     _playlist_lanes_rebuild_queued;
-	uint32_t _playlist_lane_height;
+	bool              _playlist_lanes_rebuild_queued;
+	uint32_t          _playlist_lane_height;
+	sigc::connection  _playlist_lanes_idle_connection; /* guards against dangling idle callback */
 	bool     playlist_lanes_click (GdkEventButton*);
 	void     rebuild_playlist_lanes ();
 	void     destroy_playlist_lanes ();

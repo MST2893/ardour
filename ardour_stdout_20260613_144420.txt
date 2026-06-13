@@ -1,0 +1,24 @@
+Ardour Debug Run 20260613_144420 
+EXE: C:\ArdourRemix\ardour\_install\lib\ardour8\ardour-8.0.0.exe 
+ 
+Ardour8.0.0 (built using fatal: No names found, cannot describe anything.)
+Ardour: [INFO]: MMCSS Initialized
+Ardour: [INFO]: Your system is configured to limit Ardour to 2048 open files
+Ardour: [INFO]: Loading system configuration file C:\ArdourRemix\ardour\_install\share\ardour8\system_config
+Ardour: [INFO]: CPU vendor: AuthenticAMD
+Ardour: [INFO]: AVX capable processor
+Ardour: [INFO]: AVX with FMA capable processor
+Ardour: [INFO]: CPU brand: AMD Ryzen 5 5600X 6-Core Processor             
+Ardour: [INFO]: No H/W specific optimizations in use
+Ardour: [INFO]: Set Clip Library directory to 'C:\Users\el-ba\AppData\Local\Clip Library'
+Ardour: [WARNING]: VST scanner app (ardour-vst-scanner) not found in path C:\ArdourRemix\ardour\_install\lib\ardour8\fst;C:\ArdourRemix\ardour\_install\bin
+Ardour: [WARNING]: VST3 scanner app (ardour-vst3-scanner) not found in path C:\ArdourRemix\ardour\_install\lib\ardour8\fst;C:\ArdourRemix\ardour\_install\bin
+Ardour: [INFO]: Loading plugin meta data file C:\ArdourRemix\ardour\_install\share\ardour8\plugin_metadata\plugin_tags
+Ardour: [INFO]: Loading 470 MIDI patches from C:\ArdourRemix\ardour\_install\share\ardour8\patchfiles
+Ardour: [INFO]: Loading default ui configuration file C:\ArdourRemix\ardour\_install\share\ardour8\default_ui_config
+Ardour: [INFO]: Loading color file C:\ArdourRemix\ardour\_install\share\ardour8\themes\dark-ardour.colors
+Ardour: [INFO]: Loading ui configuration file C:\ArdourRemix\ardour\_install\share\ardour8\clearlooks.rc
+Ardour: [INFO]: Loading bindings from C:\ArdourRemix\ardour\_install\share\ardour8\ardour.keys
+Loading ui configuration file C:\ArdourRemix\ardour\_install\share\ardour8\clearlooks.rc
+Ardour: [INFO]: Detecting Audio/MIDI Devices
+Announcement is: Version 9.7 has been released. Update at https://ardour.org/download
