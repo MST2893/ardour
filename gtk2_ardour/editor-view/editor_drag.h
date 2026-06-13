@@ -1302,6 +1302,8 @@ private:
 	uint32_t _max_x;
 	bool _elastic_audio;
 	samplepos_t _elastic_audio_source;
+	XMLNode* _elastic_before_state; ///< region state at grab, owned until handed to undo
+	int64_t _last_elastic_preview;  ///< monotonic usecs of last live preview update
 };
 
 /** Dragging of a rubberband rectangle for selecting things */

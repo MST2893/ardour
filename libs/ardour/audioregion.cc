@@ -26,10 +26,15 @@
 #include <cfloat>
 #include <climits>
 #include <cmath>
+#include <map>
 #include <memory>
 #include <set>
+#include <sstream>
+
+#include <rubberband/RubberBandStretcher.h>
 
 #include <glibmm/fileutils.h>
+#include <glibmm/timer.h>
 
 #include "pbd/gstdio_compat.h"
 #include "pbd/basename.h"
@@ -350,6 +355,9 @@ AudioRegion::AudioRegion (std::shared_ptr<const AudioRegion> other)
 	_fx_block_size = 0;
 	_fx_latent_read = false;
 
+	_elastic_mode = other->_elastic_mode;
+	_elastic_anchors = other->_elastic_anchors;
+
 	copy_plugin_state (other);
 
 	assert(_type == DataType::AUDIO);
@@ -378,6 +386,9 @@ AudioRegion::AudioRegion (std::shared_ptr<const AudioRegion> other, timecnt_t co
 	_cache_tail = 0;
 	_fx_block_size = 0;
 	_fx_latent_read = false;
+
+	_elastic_mode = other->_elastic_mode;
+	_elastic_anchors = other->_elastic_anchors;
 
 	copy_plugin_state (other);
 
@@ -536,19 +547,274 @@ AudioRegion::tail () const
 	}
 }
 
+static const char*
+elastic_audio_mode_to_string (ElasticAudioMode mode)
+{
+	switch (mode) {
+		case ElasticAudioVarispeed:
+			return "varispeed";
+		case ElasticAudioPolyphonic:
+			return "polyphonic";
+		default:
+			return "disabled";
+	}
+}
+
+static ElasticAudioMode
+elastic_audio_mode_from_string (std::string const& str)
+{
+	if (str == "varispeed") {
+		return ElasticAudioVarispeed;
+	} else if (str == "polyphonic") {
+		return ElasticAudioPolyphonic;
+	}
+	return ElasticAudioDisabled;
+}
+
+ElasticAudioMode
+AudioRegion::elastic_audio_mode () const
+{
+	PBD::Mutex::Lock lm (_elastic_lock);
+	return _elastic_mode;
+}
+
+void
+AudioRegion::set_elastic_audio_mode (ElasticAudioMode mode)
+{
+	{
+		PBD::Mutex::Lock lm (_elastic_lock);
+		if (_elastic_mode == mode) {
+			return;
+		}
+		_elastic_mode = mode;
+	}
+
+	elastic_audio_changed ();
+}
+
 bool
 AudioRegion::elastic_audio_active () const
 {
-	std::vector<ElasticAudioAnchor> anchors;
-	get_elastic_audio_anchors (anchors);
+	PBD::Mutex::Lock lm (_elastic_lock);
 
-	for (std::vector<ElasticAudioAnchor>::const_iterator i = anchors.begin (); i != anchors.end (); ++i) {
+	if (_elastic_mode == ElasticAudioDisabled) {
+		return false;
+	}
+
+	for (std::vector<ElasticAudioAnchor>::const_iterator i = _elastic_anchors.begin (); i != _elastic_anchors.end (); ++i) {
 		if (i->source != i->target) {
 			return true;
 		}
 	}
 
 	return false;
+}
+
+/** @return anchors converted to absolute timeline samples, restricted to the
+ * currently visible extent of the region.
+ */
+std::vector<AudioRegion::ElasticAudioAnchor>
+AudioRegion::elastic_anchors_timeline () const
+{
+	std::vector<ElasticAudioAnchor> result;
+
+	const samplepos_t pos = position_sample ();
+	const samplepos_t start = start_sample ();
+	const samplecnt_t len = length_samples ();
+
+	PBD::Mutex::Lock lm (_elastic_lock);
+
+	for (std::vector<ElasticAudioAnchor>::const_iterator i = _elastic_anchors.begin (); i != _elastic_anchors.end (); ++i) {
+		ElasticAudioAnchor a;
+		a.source = pos + (i->source - start);
+		a.target = pos + (i->target - start);
+		if (a.source <= pos || a.source >= pos + len || a.target <= pos || a.target >= pos + len) {
+			continue;
+		}
+		result.push_back (a);
+	}
+
+	return result;
+}
+
+void
+AudioRegion::elastic_audio_changed ()
+{
+	bool need_render;
+	{
+		PBD::Mutex::Lock lm (_elastic_lock);
+		_elastic_preview = false;
+		need_render = (_elastic_mode == ElasticAudioPolyphonic);
+	}
+
+	if (need_render && elastic_audio_active ()) {
+		/* the previous render (if any) is kept so that only the spans
+		 * whose anchors changed get re-rendered.
+		 */
+		render_elastic_audio ();
+	} else {
+		PBD::Mutex::Lock lm (_elastic_lock);
+		_elastic_render.reset ();
+	}
+
+	_invalidated.exchange (true);
+	send_change (PropertyChange (Properties::elastic_audio));
+}
+
+void
+AudioRegion::preview_elastic_audio_anchor (samplepos_t source, samplepos_t target)
+{
+	const samplepos_t pos = position_sample ();
+	const samplepos_t start = start_sample ();
+	const samplepos_t src = start + (source - pos);
+	const samplepos_t tgt = start + (target - pos);
+
+	{
+		PBD::Mutex::Lock lm (_elastic_lock);
+
+		bool found = false;
+		for (std::vector<ElasticAudioAnchor>::iterator i = _elastic_anchors.begin (); i != _elastic_anchors.end (); ++i) {
+			if (i->source == src) {
+				if (i->target == tgt && _elastic_preview) {
+					return;
+				}
+				i->target = tgt;
+				found = true;
+				break;
+			}
+		}
+
+		if (!found) {
+			ElasticAudioAnchor a;
+			a.source = src;
+			a.target = tgt;
+			_elastic_anchors.push_back (a);
+			sort (_elastic_anchors.begin (), _elastic_anchors.end (), [] (ElasticAudioAnchor const& x, ElasticAudioAnchor const& y) {
+				return x.source < y.source;
+			});
+		}
+
+		/* play back via the (cheap) varispeed path while dragging; the
+		 * pre-drag polyphonic render is kept as the base for the
+		 * incremental re-render on commit.
+		 */
+		_elastic_preview = true;
+	}
+
+	_invalidated.exchange (true);
+	send_change (PropertyChange (Properties::elastic_audio));
+}
+
+static bool
+elastic_anchor_sets_equal (std::vector<AudioRegion::ElasticAudioAnchor> const& a, std::vector<AudioRegion::ElasticAudioAnchor> const& b)
+{
+	if (a.size () != b.size ()) {
+		return false;
+	}
+	for (size_t n = 0; n < a.size (); ++n) {
+		if (a[n].source != b[n].source || a[n].target != b[n].target) {
+			return false;
+		}
+	}
+	return true;
+}
+
+void
+AudioRegion::ensure_elastic_audio_render ()
+{
+	{
+		PBD::Mutex::Lock lm (_elastic_lock);
+		if (_elastic_mode != ElasticAudioPolyphonic) {
+			return;
+		}
+		if (_elastic_preview) {
+			/* mid-drag: stay on the varispeed path, render on commit */
+			return;
+		}
+		if (_elastic_render && _elastic_render->start == start_sample () && _elastic_render->length == length_samples ()
+		    && elastic_anchor_sets_equal (_elastic_render->anchors, _elastic_anchors)) {
+			return;
+		}
+	}
+
+	if (!elastic_audio_active ()) {
+		return;
+	}
+
+	render_elastic_audio ();
+	_invalidated.exchange (true);
+	send_change (PropertyChange (Properties::elastic_audio));
+}
+
+/** map an un-warped source position (timeline domain) to the warped position
+ * where it currently plays. Inverse of elastic_audio_source_position().
+ */
+double
+AudioRegion::elastic_audio_target_position (std::vector<ElasticAudioAnchor> const& anchors, double source) const
+{
+	struct ElasticPoint {
+		ElasticPoint (double s, double t)
+			: source (s)
+			, target (t)
+		{}
+
+		double source;
+		double target;
+	};
+
+	const double region_start = position_sample ();
+	const double region_end = position_sample () + length_samples ();
+
+	std::vector<ElasticPoint> points;
+	points.push_back (ElasticPoint (region_start, region_start));
+
+	for (std::vector<ElasticAudioAnchor>::const_iterator i = anchors.begin (); i != anchors.end (); ++i) {
+		if (i->source <= region_start || i->source >= region_end || i->target <= region_start || i->target >= region_end) {
+			continue;
+		}
+		points.push_back (ElasticPoint (i->source, i->target));
+	}
+
+	points.push_back (ElasticPoint (region_end, region_end));
+
+	sort (points.begin (), points.end (), [] (ElasticPoint const& a, ElasticPoint const& b) {
+		return a.source < b.source;
+	});
+
+	if (source <= points.front ().source) {
+		return points.front ().target;
+	}
+
+	for (size_t n = 1; n != points.size (); ++n) {
+		if (source <= points[n].source) {
+			const double source_span = points[n].source - points[n - 1].source;
+			if (source_span == 0.0) {
+				return points[n].target;
+			}
+			const double position = (source - points[n - 1].source) / source_span;
+			return points[n - 1].target + ((points[n].target - points[n - 1].target) * position);
+		}
+	}
+
+	return points.back ().target;
+}
+
+samplepos_t
+AudioRegion::elastic_audio_warp_position (samplepos_t pos) const
+{
+	if (!elastic_audio_active ()) {
+		return pos;
+	}
+	return (samplepos_t) llrint (elastic_audio_target_position (elastic_anchors_timeline (), pos));
+}
+
+samplepos_t
+AudioRegion::elastic_audio_unwarp_position (samplepos_t pos) const
+{
+	if (!elastic_audio_active ()) {
+		return pos;
+	}
+	return (samplepos_t) llrint (elastic_audio_source_position (elastic_anchors_timeline (), pos));
 }
 
 double
@@ -602,26 +868,63 @@ AudioRegion::elastic_audio_source_position (std::vector<ElasticAudioAnchor> cons
 }
 
 samplecnt_t
+AudioRegion::read_from_elastic_render (ElasticAudioRender const& render, Sample* buf, samplepos_t pos, samplecnt_t cnt, uint32_t chan_n) const
+{
+	sampleoffset_t const internal_offset = pos - position_sample ();
+
+	if (internal_offset < 0 || internal_offset >= render.length) {
+		return 0;
+	}
+
+	samplecnt_t const to_read = min (cnt, render.length - internal_offset);
+	if (to_read == 0) {
+		return 0;
+	}
+
+	uint32_t const nch = render.channels.size ();
+
+	if (chan_n < nch) {
+		memcpy (buf, render.channels[chan_n].get () + internal_offset, sizeof (Sample) * to_read);
+	} else if (nch > 0 && Config->get_replicate_missing_region_channels ()) {
+		memcpy (buf, render.channels[chan_n % nch].get () + internal_offset, sizeof (Sample) * to_read);
+	} else {
+		memset (buf, 0, sizeof (Sample) * to_read);
+	}
+
+	return to_read;
+}
+
+samplecnt_t
 AudioRegion::read_elastic_from_sources (SourceList const& srcs, samplecnt_t limit, Sample* buf, samplepos_t pos, samplecnt_t cnt, uint32_t chan_n) const
 {
 	if (cnt <= 0) {
 		return 0;
 	}
 
-	std::vector<ElasticAudioAnchor> anchors;
-	get_elastic_audio_anchors (anchors);
-
-	bool changed = false;
-	for (std::vector<ElasticAudioAnchor>::const_iterator i = anchors.begin (); i != anchors.end (); ++i) {
-		if (i->source != i->target) {
-			changed = true;
-			break;
-		}
-	}
-
-	if (!changed) {
+	if (!elastic_audio_active ()) {
 		return read_from_sources (srcs, limit, buf, pos, cnt, chan_n);
 	}
+
+	ElasticAudioMode mode;
+	bool preview;
+	std::shared_ptr<ElasticAudioRender> render;
+	{
+		PBD::Mutex::Lock lm (_elastic_lock);
+		mode = _elastic_mode;
+		preview = _elastic_preview;
+		render = _elastic_render;
+	}
+
+	if (mode == ElasticAudioPolyphonic && render && !preview && &srcs == &_sources
+	    && render->start == start_sample () && render->length == limit) {
+		return read_from_elastic_render (*render, buf, pos, cnt, chan_n);
+	}
+
+	/* varispeed: resample between anchors (pitch follows speed). Also the
+	 * fallback when the polyphonic render cache is missing or stale.
+	 */
+
+	std::vector<ElasticAudioAnchor> anchors = elastic_anchors_timeline ();
 
 	std::unique_ptr<double[]> source_positions (new double[cnt]);
 	double min_source = DBL_MAX;
@@ -667,6 +970,303 @@ AudioRegion::read_elastic_from_sources (SourceList const& srcs, samplecnt_t limi
 	return cnt;
 }
 
+/** normalize anchors to span-relative offsets: in-bounds, sorted, and
+ * monotonic in both domains.
+ */
+static std::vector<AudioRegion::ElasticAudioAnchor>
+normalize_elastic_anchors (std::vector<AudioRegion::ElasticAudioAnchor> const& anchors, samplepos_t start, samplecnt_t len)
+{
+	std::vector<AudioRegion::ElasticAudioAnchor> norm;
+
+	for (std::vector<AudioRegion::ElasticAudioAnchor>::const_iterator i = anchors.begin (); i != anchors.end (); ++i) {
+		AudioRegion::ElasticAudioAnchor a;
+		a.source = i->source - start;
+		a.target = i->target - start;
+		if (a.source <= 0 || a.source >= len || a.target <= 0 || a.target >= len) {
+			continue;
+		}
+		norm.push_back (a);
+	}
+
+	sort (norm.begin (), norm.end (), [] (AudioRegion::ElasticAudioAnchor const& x, AudioRegion::ElasticAudioAnchor const& y) {
+		return x.source < y.source;
+	});
+
+	std::vector<AudioRegion::ElasticAudioAnchor> result;
+	samplepos_t last_target = 0;
+	for (std::vector<AudioRegion::ElasticAudioAnchor>::const_iterator i = norm.begin (); i != norm.end (); ++i) {
+		if (i->target <= last_target) {
+			continue;
+		}
+		result.push_back (*i);
+		last_target = i->target;
+	}
+
+	return result;
+}
+
+/** Render the warp map between anchors with RubberBand (pitch preserved).
+ * Only the span whose anchors changed since the previous render is
+ * re-rendered; untouched audio is copied over. Runs synchronously; call from
+ * the GUI thread when anchors or the elastic mode change.
+ */
+void
+AudioRegion::render_elastic_audio ()
+{
+	std::vector<ElasticAudioAnchor> anchors;
+	std::shared_ptr<ElasticAudioRender> prev;
+	{
+		PBD::Mutex::Lock lm (_elastic_lock);
+		if (_elastic_mode != ElasticAudioPolyphonic) {
+			return;
+		}
+		anchors = _elastic_anchors;
+		prev = _elastic_render;
+	}
+
+	const samplepos_t start = start_sample ();
+	const samplecnt_t len = length_samples ();
+	const uint32_t nch = n_channels ();
+
+	if (len <= 0 || nch == 0) {
+		return;
+	}
+
+	std::vector<ElasticAudioAnchor> norm = normalize_elastic_anchors (anchors, start, len);
+
+	/* limit the re-render to the span between the last unchanged anchor
+	 * before the first change and the first unchanged anchor after the
+	 * last change. The warp map outside that window is pinned by
+	 * identical anchors, so the previously rendered audio stays valid.
+	 */
+
+	samplepos_t src_lo = 0, src_hi = len;
+	samplepos_t tgt_lo = 0, tgt_hi = len;
+	bool incremental = false;
+
+	if (prev && prev->start == start && prev->length == len && prev->channels.size () == nch) {
+
+		if (elastic_anchor_sets_equal (prev->anchors, anchors)) {
+			return; /* current render is already valid */
+		}
+
+		std::vector<ElasticAudioAnchor> prev_norm = normalize_elastic_anchors (prev->anchors, start, len);
+
+		size_t p = 0;
+		while (p < norm.size () && p < prev_norm.size ()
+		       && norm[p].source == prev_norm[p].source && norm[p].target == prev_norm[p].target) {
+			++p;
+		}
+
+		size_t qa = norm.size ();
+		size_t qb = prev_norm.size ();
+		while (qa > p && qb > p
+		       && norm[qa - 1].source == prev_norm[qb - 1].source && norm[qa - 1].target == prev_norm[qb - 1].target) {
+			--qa;
+			--qb;
+		}
+
+		if (p > 0) {
+			src_lo = norm[p - 1].source;
+			tgt_lo = norm[p - 1].target;
+		}
+		if (qa < norm.size ()) {
+			src_hi = norm[qa].source;
+			tgt_hi = norm[qa].target;
+		}
+
+		incremental = true;
+	}
+
+	std::shared_ptr<ElasticAudioRender> render (new ElasticAudioRender);
+	render->start = start;
+	render->length = len;
+	render->anchors = anchors;
+	render->channels.resize (nch);
+	for (uint32_t c = 0; c < nch; ++c) {
+		render->channels[c].reset (new Sample[len]);
+		if (incremental) {
+			memcpy (render->channels[c].get (), prev->channels[c].get (), sizeof (Sample) * len);
+		} else {
+			memset (render->channels[c].get (), 0, sizeof (Sample) * len);
+		}
+	}
+
+	if (!render_elastic_audio_span (*render, norm, src_lo, src_hi, tgt_lo, tgt_hi)) {
+		return;
+	}
+
+	{
+		PBD::Mutex::Lock lm (_elastic_lock);
+		_elastic_render = render;
+	}
+}
+
+/** render source span [src_lo, src_hi) into target span [tgt_lo, tgt_hi) of
+ * the given cache. Offsets are relative to the region start; anchors must be
+ * normalized (see normalize_elastic_anchors).
+ */
+bool
+AudioRegion::render_elastic_audio_span (ElasticAudioRender& render, std::vector<ElasticAudioAnchor> const& anchors,
+                                        samplepos_t src_lo, samplepos_t src_hi,
+                                        samplepos_t tgt_lo, samplepos_t tgt_hi) const
+{
+	const uint32_t nch = render.channels.size ();
+	const samplecnt_t in_len = src_hi - src_lo;
+	const samplecnt_t out_len = tgt_hi - tgt_lo;
+
+	if (in_len <= 0 || out_len <= 0 || nch == 0) {
+		return false;
+	}
+
+	/* segment boundaries: the span edges plus every anchor inside it.
+	 * Each segment is rendered with its own stretcher at an exact ratio:
+	 * this keeps every anchor sample-accurate (RubberBand's key-frame
+	 * maps are only approximate and can come up short on strong
+	 * compression, leaving silent tails).
+	 */
+	std::vector<ElasticAudioAnchor> bounds;
+	{
+		ElasticAudioAnchor b;
+		b.source = src_lo;
+		b.target = tgt_lo;
+		bounds.push_back (b);
+		for (std::vector<ElasticAudioAnchor>::const_iterator i = anchors.begin (); i != anchors.end (); ++i) {
+			if (i->source > src_lo && i->source < src_hi && i->target > tgt_lo && i->target < tgt_hi) {
+				bounds.push_back (*i);
+			}
+		}
+		b.source = src_hi;
+		b.target = tgt_hi;
+		bounds.push_back (b);
+	}
+
+	/* read the un-warped source audio for the whole span */
+
+	std::vector<std::unique_ptr<Sample[]>> input (nch);
+	for (uint32_t c = 0; c < nch; ++c) {
+		input[c].reset (new Sample[in_len]);
+		if (read_from_sources (_sources, length_samples (), input[c].get (), position_sample () + src_lo, in_len, c) != in_len) {
+			error << string_compose (_("elastic audio: failed to read source audio for %1"), name ()) << endmsg;
+			return false;
+		}
+	}
+
+	try {
+		using namespace RubberBand;
+
+		const samplecnt_t bufsize = 16384;
+		std::vector<Sample*> ptrs (nch);
+		std::vector<Sample*> outptrs (nch);
+		std::vector<std::unique_ptr<Sample[]>> discard (nch);
+		for (uint32_t c = 0; c < nch; ++c) {
+			discard[c].reset (new Sample[bufsize]);
+		}
+
+		for (size_t seg = 0; seg + 1 < bounds.size (); ++seg) {
+
+			const samplepos_t seg_in_off = bounds[seg].source - src_lo; /* into input[] */
+			const samplecnt_t seg_in = bounds[seg + 1].source - bounds[seg].source;
+			const samplepos_t seg_out_off = bounds[seg].target;         /* into render.channels[] */
+			const samplecnt_t seg_out = bounds[seg + 1].target - bounds[seg].target;
+
+			if (seg_in <= 0 || seg_out <= 0) {
+				continue;
+			}
+
+			if (seg_in == seg_out) {
+				/* unstretched: straight copy */
+				for (uint32_t c = 0; c < nch; ++c) {
+					memcpy (render.channels[c].get () + seg_out_off, input[c].get () + seg_in_off, sizeof (Sample) * seg_in);
+				}
+				continue;
+			}
+
+			RubberBandStretcher stretcher (session ().sample_rate (), nch,
+			                               RubberBandStretcher::OptionProcessOffline |
+			                               RubberBandStretcher::OptionStretchPrecise |
+			                               RubberBandStretcher::OptionThreadingNever |
+			                               RubberBandStretcher::OptionChannelsTogether,
+			                               (double) seg_out / (double) seg_in, 1.0);
+
+			stretcher.setExpectedInputDuration (seg_in);
+
+			for (samplecnt_t n = 0; n < seg_in; n += bufsize) {
+				const samplecnt_t this_time = min (bufsize, seg_in - n);
+				for (uint32_t c = 0; c < nch; ++c) {
+					ptrs[c] = input[c].get () + seg_in_off + n;
+				}
+				stretcher.study (&ptrs[0], this_time, n + this_time >= seg_in);
+			}
+
+			samplecnt_t out_pos = 0;
+
+			auto retrieve_chunk = [&](samplecnt_t avail) {
+				samplecnt_t chunk = min (avail, bufsize);
+				if (out_pos < seg_out) {
+					chunk = min (chunk, seg_out - out_pos);
+					for (uint32_t c = 0; c < nch; ++c) {
+						outptrs[c] = render.channels[c].get () + seg_out_off + out_pos;
+					}
+					out_pos += stretcher.retrieve (&outptrs[0], chunk);
+				} else {
+					for (uint32_t c = 0; c < nch; ++c) {
+						outptrs[c] = discard[c].get ();
+					}
+					stretcher.retrieve (&outptrs[0], chunk);
+				}
+			};
+
+			for (samplecnt_t n = 0; n < seg_in; n += bufsize) {
+				const samplecnt_t this_time = min (bufsize, seg_in - n);
+				for (uint32_t c = 0; c < nch; ++c) {
+					ptrs[c] = input[c].get () + seg_in_off + n;
+				}
+				stretcher.process (&ptrs[0], this_time, n + this_time >= seg_in);
+
+				int avail;
+				while ((avail = stretcher.available ()) > 0) {
+					retrieve_chunk (avail);
+				}
+			}
+
+			/* drain: available() == 0 means "not finished yet", only
+			 * -1 signals the end of the output. Stopping at 0 here
+			 * used to truncate the segment tail to silence.
+			 */
+			int avail;
+			while ((avail = stretcher.available ()) >= 0) {
+				if (avail == 0) {
+					Glib::usleep (1000);
+					continue;
+				}
+				retrieve_chunk (avail);
+			}
+
+			if (out_pos < seg_out) {
+				/* under-delivery should be a handful of samples at
+				 * most; repeat-fade the last sample instead of
+				 * cutting to silence.
+				 */
+				for (uint32_t c = 0; c < nch; ++c) {
+					Sample* base = render.channels[c].get () + seg_out_off;
+					const Sample last = (out_pos > 0) ? base[out_pos - 1] : 0.f;
+					const samplecnt_t missing = seg_out - out_pos;
+					for (samplecnt_t n = 0; n < missing; ++n) {
+						base[out_pos + n] = last * (1.f - (float) (n + 1) / (float) (missing + 1));
+					}
+				}
+			}
+		}
+
+	} catch (...) {
+		error << string_compose (_("elastic audio: RubberBand rendering failed for %1"), name ()) << endmsg;
+		return false;
+	}
+
+	return true;
+}
+
 /** @param buf Buffer to put peak data in.
  *  @param npeaks Number of peaks to read (ie the number of PeakDatas in buf)
  *  @param offset Start position, as an offset from the start of this region's source.
@@ -682,47 +1282,98 @@ AudioRegion::read_peaks (PeakData *buf, samplecnt_t npeaks, samplecnt_t offset, 
 		return 0;
 	}
 
-	std::vector<ElasticAudioAnchor> elastic_anchors;
-	get_elastic_audio_anchors (elastic_anchors);
-
-	bool elastic = false;
-	for (std::vector<ElasticAudioAnchor>::const_iterator i = elastic_anchors.begin (); i != elastic_anchors.end (); ++i) {
-		if (i->source != i->target) {
-			elastic = true;
-			break;
+	std::shared_ptr<ElasticAudioRender> render;
+	if (elastic_audio_active ()) {
+		PBD::Mutex::Lock lm (_elastic_lock);
+		if (_elastic_mode == ElasticAudioPolyphonic && !_elastic_preview) {
+			render = _elastic_render;
 		}
 	}
 
-	if (elastic) {
+	if (render && render->start == start_sample () && render->length == length_samples ()
+	    && chan_n < render->channels.size ()) {
+
+		/* compute peaks directly from the rendered (warped) audio */
+
+		const samplepos_t region_start = start_sample ();
+		Sample const* data = render->channels[chan_n].get ();
+
+		for (samplecnt_t n = 0; n != npeaks; ++n) {
+			const double warped_start = ((double) offset - region_start) + (n * samples_per_pixel);
+			samplepos_t s = std::max<samplepos_t> (0, (samplepos_t) floor (warped_start));
+			samplepos_t e = std::min<samplepos_t> (render->length, (samplepos_t) ceil (warped_start + samples_per_pixel));
+
+			if (s >= render->length || e <= s) {
+				buf[n].min = buf[n].max = 0;
+				continue;
+			}
+
+			float pmin = data[s];
+			float pmax = data[s];
+			for (samplepos_t i = s + 1; i < e; ++i) {
+				pmin = std::min (pmin, data[i]);
+				pmax = std::max (pmax, data[i]);
+			}
+			buf[n].min = pmin;
+			buf[n].max = pmax;
+		}
+	} else if (elastic_audio_active ()) {
+
+		/* varispeed (or stale render): read the un-warped source peaks
+		 * covering the whole window in ONE call, then remap each pixel
+		 * span onto them. (A peak read per pixel hits the peakfile on
+		 * disk thousands of times per redraw and is far too slow for
+		 * live anchor drags.)
+		 */
+
+		std::vector<ElasticAudioAnchor> elastic_anchors = elastic_anchors_timeline ();
+
 		const samplepos_t region_position = position_sample ();
 		const samplepos_t region_start = start_sample ();
 		const samplecnt_t source_length = audio_source (chan_n)->length ().samples ();
 
+		const double target0 = region_position + ((double) offset - region_start);
+		double s0 = elastic_audio_source_position (elastic_anchors, target0);
+		double s1 = elastic_audio_source_position (elastic_anchors, target0 + npeaks * samples_per_pixel);
+		if (s1 < s0) {
+			std::swap (s0, s1);
+		}
+
+		samplepos_t src_off0 = region_start + (samplepos_t) floor (s0 - region_position);
+		samplepos_t src_off1 = region_start + (samplepos_t) ceil (s1 - region_position) + 1;
+		src_off0 = std::max<samplepos_t> (0, std::min (src_off0, source_length - 1));
+		src_off1 = std::max<samplepos_t> (src_off0 + 1, std::min (src_off1, source_length));
+
+		const samplecnt_t src_span = src_off1 - src_off0;
+
+		/* bound the temp buffer on heavy compression */
+		samplecnt_t nsrc = (samplecnt_t) ceil ((double) src_span / samples_per_pixel);
+		nsrc = std::max<samplecnt_t> (1, std::min (nsrc, npeaks * 32 + 64));
+		const double src_spp = (double) src_span / (double) nsrc;
+
+		std::unique_ptr<PeakData[]> src_peaks (new PeakData[nsrc]);
+		if (audio_source (chan_n)->read_peaks (src_peaks.get (), nsrc, src_off0, src_span, src_spp)) {
+			return 0;
+		}
+
 		for (samplecnt_t n = 0; n != npeaks; ++n) {
-			const double target_start = region_position + ((double) offset - region_start) + (n * samples_per_pixel);
-			const double target_end = target_start + samples_per_pixel;
-			const double source_start = elastic_audio_source_position (elastic_anchors, target_start);
-			const double source_end = elastic_audio_source_position (elastic_anchors, target_end);
-			const double source_min = std::min (source_start, source_end);
-			const double source_max = std::max (source_start, source_end);
-			samplepos_t source_offset = region_start + (samplepos_t) floor (source_min - region_position);
-			samplecnt_t source_cnt = std::max<samplecnt_t> (1, (samplecnt_t) ceil (source_max - source_min));
+			const double a = elastic_audio_source_position (elastic_anchors, target0 + n * samples_per_pixel);
+			const double b = elastic_audio_source_position (elastic_anchors, target0 + (n + 1) * samples_per_pixel);
 
-			if (source_offset < 0) {
-				source_cnt = std::max<samplecnt_t> (1, source_cnt + source_offset);
-				source_offset = 0;
-			}
+			const double src_a = region_start + (std::min (a, b) - region_position);
+			const double src_b = region_start + (std::max (a, b) - region_position);
 
-			if (source_offset >= source_length) {
-				source_offset = std::max<samplepos_t> (0, source_length - 1);
-				source_cnt = 1;
-			} else if (source_offset + source_cnt > source_length) {
-				source_cnt = std::max<samplecnt_t> (1, source_length - source_offset);
-			}
+			samplecnt_t lo = (samplecnt_t) floor ((src_a - src_off0) / src_spp);
+			samplecnt_t hi = (samplecnt_t) ceil ((src_b - src_off0) / src_spp);
+			lo = std::max<samplecnt_t> (0, std::min (lo, nsrc - 1));
+			hi = std::max<samplecnt_t> (lo + 1, std::min (hi, nsrc));
 
-			if (audio_source (chan_n)->read_peaks (&buf[n], 1, source_offset, source_cnt, source_cnt)) {
-				return 0;
+			PeakData p = src_peaks[lo];
+			for (samplecnt_t k = lo + 1; k < hi; ++k) {
+				p.min = std::min (p.min, src_peaks[k].min);
+				p.max = std::max (p.max, src_peaks[k].max);
 			}
+			buf[n] = p;
 		}
 	} else {
 		if (audio_source(chan_n)->read_peaks (buf, npeaks, offset, cnt, samples_per_pixel)) {
@@ -1387,7 +2038,131 @@ AudioRegion::state () const
 		child->add_child_nocopy (_inverse_fade_out->get_state ());
 	}
 
+	{
+		PBD::Mutex::Lock lm (_elastic_lock);
+
+		if (_elastic_mode != ElasticAudioDisabled || !_elastic_anchors.empty ()) {
+			child = node.add_child (X_("ElasticAudio"));
+			child->set_property ("mode", elastic_audio_mode_to_string (_elastic_mode));
+			/* anchors are stored in the source domain; legacy nodes
+			 * (under <Extra>) used absolute timeline samples.
+			 */
+			child->set_property ("domain", "source");
+
+			for (std::vector<ElasticAudioAnchor>::const_iterator i = _elastic_anchors.begin (); i != _elastic_anchors.end (); ++i) {
+				XMLNode* anchor = child->add_child (X_("Anchor"));
+				anchor->set_property (X_("source"), i->source);
+				anchor->set_property (X_("target"), i->target);
+			}
+
+			/* persist transient analysis results so that re-opening
+			 * the session does not have to re-run the (slow)
+			 * detection.
+			 */
+			if (!_transients.empty () && _transient_analysis_start != _transient_analysis_end) {
+				XMLNode* tnode = child->add_child (X_("Transients"));
+				/* bump when the detection algorithm changes, so stale
+				 * results get re-analysed instead of reused */
+				tnode->set_property (X_("detector"), 2);
+				tnode->set_property (X_("analysis-start"), _transient_analysis_start);
+				tnode->set_property (X_("analysis-end"), _transient_analysis_end);
+				std::stringstream ss;
+				for (AnalysisFeatureList::const_iterator i = _transients.begin (); i != _transients.end (); ++i) {
+					ss << *i << ' ';
+				}
+				tnode->add_content (ss.str ());
+			}
+		}
+	}
+
 	return node;
+}
+
+void
+AudioRegion::set_elastic_audio_state (XMLNode const& node, PBD::PropertyChange& what_changed)
+{
+	ElasticAudioMode mode = ElasticAudioDisabled;
+	std::string str;
+	if (node.get_property ("mode", str)) {
+		mode = elastic_audio_mode_from_string (str);
+	}
+
+	/* new-format nodes carry domain="source"; legacy ones stored absolute
+	 * timeline samples (and predate the mode attribute).
+	 */
+	const bool legacy_timeline = !node.get_property ("domain", str);
+
+	const samplepos_t pos = position_sample ();
+	const samplepos_t start = start_sample ();
+
+	std::vector<ElasticAudioAnchor> anchors;
+
+	XMLNodeList const& children = node.children (X_("Anchor"));
+	for (XMLNodeConstIterator i = children.begin (); i != children.end (); ++i) {
+		ElasticAudioAnchor anchor;
+		if (!(*i)->get_property (X_("source"), anchor.source)) {
+			continue;
+		}
+		if (!(*i)->get_property (X_("target"), anchor.target)) {
+			anchor.target = anchor.source;
+		}
+		if (legacy_timeline) {
+			anchor.source = start + (anchor.source - pos);
+			anchor.target = start + (anchor.target - pos);
+		}
+		anchors.push_back (anchor);
+	}
+
+	if (legacy_timeline && !anchors.empty () && mode == ElasticAudioDisabled) {
+		/* legacy behaviour was resampling */
+		mode = ElasticAudioVarispeed;
+	}
+
+	sort (anchors.begin (), anchors.end (), [] (ElasticAudioAnchor const& a, ElasticAudioAnchor const& b) {
+		return a.source < b.source;
+	});
+
+	/* restore persisted transient analysis (avoids re-running detection
+	 * when a session with elastic audio enabled is re-opened)
+	 */
+	XMLNode const* tnode = node.child (X_("Transients"));
+	if (tnode) {
+		samplepos_t a_start = 0;
+		samplepos_t a_end = 0;
+		int detector = 0;
+		tnode->get_property (X_("detector"), detector);
+		if (detector >= 2 && tnode->get_property (X_("analysis-start"), a_start) && tnode->get_property (X_("analysis-end"), a_end) && a_start != a_end) {
+			AnalysisFeatureList t;
+			std::stringstream ss (tnode->child_content ());
+			samplepos_t v;
+			while (ss >> v) {
+				t.push_back (v);
+			}
+			if (!t.empty ()) {
+				_transients = t;
+				_transient_analysis_start = a_start;
+				_transient_analysis_end = a_end;
+			}
+		}
+	}
+
+	{
+		PBD::Mutex::Lock lm (_elastic_lock);
+		if (_elastic_mode == mode && _elastic_anchors.size () == anchors.size ()
+		    && std::equal (anchors.begin (), anchors.end (), _elastic_anchors.begin (),
+		                   [] (ElasticAudioAnchor const& a, ElasticAudioAnchor const& b) {
+		                           return a.source == b.source && a.target == b.target;
+		                   })) {
+			return;
+		}
+		_elastic_mode = mode;
+		_elastic_anchors = anchors;
+		_elastic_render.reset ();
+		_elastic_preview = false;
+	}
+
+	_invalidated.exchange (true);
+	what_changed.add (Properties::elastic_audio);
 }
 
 int
@@ -1420,6 +2195,8 @@ AudioRegion::_set_state (const XMLNode& node, int version, PropertyChange& what_
 	/* Now find envelope description and other related child items */
 
 	_envelope->freeze ();
+
+	bool elastic_state_found = false;
 
 	for (XMLNodeConstIterator niter = nlist.begin(); niter != nlist.end(); ++niter) {
 		XMLNode *child;
@@ -1486,6 +2263,19 @@ AudioRegion::_set_state (const XMLNode& node, int version, PropertyChange& what_
 			if (grandchild) {
 				_inverse_fade_out->set_state (*grandchild, version);
 			}
+		} else if (child->name() == X_("ElasticAudio")) {
+			set_elastic_audio_state (*child, what_changed);
+			elastic_state_found = true;
+		}
+	}
+
+	if (!elastic_state_found) {
+		/* legacy sessions stored elastic audio anchors under <Extra>,
+		 * in absolute timeline samples.
+		 */
+		XMLNode* legacy = extra_xml (X_("ElasticAudio"));
+		if (legacy) {
+			set_elastic_audio_state (*legacy, what_changed);
 		}
 	}
 
@@ -2317,35 +3107,13 @@ AudioRegion::set_onsets (AnalysisFeatureList& results)
 void
 AudioRegion::get_elastic_audio_anchors (std::vector<ElasticAudioAnchor>& anchors) const
 {
-	anchors.clear ();
-
-	XMLNode* node = const_cast<AudioRegion*> (this)->extra_xml (X_("ElasticAudio"));
-	if (!node) {
-		return;
-	}
-
-	XMLNodeList const& children = node->children (X_("Anchor"));
-	for (XMLNodeConstIterator i = children.begin (); i != children.end (); ++i) {
-		ElasticAudioAnchor anchor;
-		if (!(*i)->get_property (X_("source"), anchor.source)) {
-			continue;
-		}
-		if (!(*i)->get_property (X_("target"), anchor.target)) {
-			anchor.target = anchor.source;
-		}
-		anchors.push_back (anchor);
-	}
-
-	sort (anchors.begin (), anchors.end (), [] (ElasticAudioAnchor const& a, ElasticAudioAnchor const& b) {
-		return a.source < b.source;
-	});
+	anchors = elastic_anchors_timeline ();
 }
 
 bool
 AudioRegion::has_elastic_audio_anchor (samplepos_t source, samplecnt_t tolerance) const
 {
-	std::vector<ElasticAudioAnchor> anchors;
-	get_elastic_audio_anchors (anchors);
+	std::vector<ElasticAudioAnchor> anchors = elastic_anchors_timeline ();
 
 	for (std::vector<ElasticAudioAnchor>::const_iterator i = anchors.begin (); i != anchors.end (); ++i) {
 		if (llabs (i->source - source) <= tolerance) {
@@ -2359,79 +3127,84 @@ AudioRegion::has_elastic_audio_anchor (samplepos_t source, samplecnt_t tolerance
 void
 AudioRegion::add_elastic_audio_anchor (samplepos_t source, samplepos_t target)
 {
-	if (has_elastic_audio_anchor (source)) {
-		update_elastic_audio_anchor (source, target);
-		return;
+	const samplepos_t pos = position_sample ();
+	const samplepos_t start = start_sample ();
+	const samplepos_t src = start + (source - pos);
+	const samplepos_t tgt = start + (target - pos);
+
+	{
+		PBD::Mutex::Lock lm (_elastic_lock);
+
+		bool found = false;
+		for (std::vector<ElasticAudioAnchor>::iterator i = _elastic_anchors.begin (); i != _elastic_anchors.end (); ++i) {
+			if (i->source == src) {
+				if (i->target == tgt && !_elastic_preview) {
+					/* nothing to do, and no preview pending commit */
+					return;
+				}
+				i->target = tgt;
+				found = true;
+				break;
+			}
+		}
+
+		if (!found) {
+			ElasticAudioAnchor a;
+			a.source = src;
+			a.target = tgt;
+			_elastic_anchors.push_back (a);
+			sort (_elastic_anchors.begin (), _elastic_anchors.end (), [] (ElasticAudioAnchor const& x, ElasticAudioAnchor const& y) {
+				return x.source < y.source;
+			});
+		}
 	}
 
-	XMLNode* node = extra_xml (X_("ElasticAudio"), true);
-	XMLNode* anchor = new XMLNode (X_("Anchor"));
-	anchor->set_property (X_("source"), source);
-	anchor->set_property (X_("target"), target);
-	node->add_child_nocopy (*anchor);
-
-	_invalidated.exchange (true);
-	send_change (PropertyChange (Properties::elastic_audio));
+	elastic_audio_changed ();
 }
 
 void
 AudioRegion::update_elastic_audio_anchor (samplepos_t source, samplepos_t target)
 {
-	XMLNode* node = extra_xml (X_("ElasticAudio"), true);
-	XMLNodeList const& children = node->children (X_("Anchor"));
-
-	for (XMLNodeConstIterator i = children.begin (); i != children.end (); ++i) {
-		samplepos_t old_source = 0;
-		if ((*i)->get_property (X_("source"), old_source) && old_source == source) {
-			(*i)->set_property (X_("target"), target);
-			_invalidated.exchange (true);
-			send_change (PropertyChange (Properties::elastic_audio));
-			return;
-		}
-	}
-
 	add_elastic_audio_anchor (source, target);
 }
 
 void
 AudioRegion::remove_elastic_audio_anchor (samplepos_t source, samplecnt_t tolerance)
 {
-	XMLNode* node = extra_xml (X_("ElasticAudio"));
-	if (!node) {
-		return;
-	}
+	const samplepos_t pos = position_sample ();
+	const samplepos_t start = start_sample ();
+	const samplepos_t src = start + (source - pos);
 
-	std::vector<ElasticAudioAnchor> anchors;
-	get_elastic_audio_anchors (anchors);
-
-	node->remove_nodes_and_delete (X_("Anchor"));
-
-	for (std::vector<ElasticAudioAnchor>::const_iterator i = anchors.begin (); i != anchors.end (); ++i) {
-		if (llabs (i->source - source) <= tolerance) {
-			continue;
+	bool changed = false;
+	{
+		PBD::Mutex::Lock lm (_elastic_lock);
+		for (std::vector<ElasticAudioAnchor>::iterator i = _elastic_anchors.begin (); i != _elastic_anchors.end ();) {
+			if (llabs (i->source - src) <= tolerance) {
+				i = _elastic_anchors.erase (i);
+				changed = true;
+			} else {
+				++i;
+			}
 		}
-		XMLNode* anchor = new XMLNode (X_("Anchor"));
-		anchor->set_property (X_("source"), i->source);
-		anchor->set_property (X_("target"), i->target);
-		node->add_child_nocopy (*anchor);
 	}
 
-	_invalidated.exchange (true);
-	send_change (PropertyChange (Properties::elastic_audio));
+	if (changed) {
+		elastic_audio_changed ();
+	}
 }
 
 void
 AudioRegion::clear_elastic_audio_anchors ()
 {
-	XMLNode* node = extra_xml (X_("ElasticAudio"));
-	if (!node || node->children (X_("Anchor")).empty ()) {
-		return;
+	{
+		PBD::Mutex::Lock lm (_elastic_lock);
+		if (_elastic_anchors.empty ()) {
+			return;
+		}
+		_elastic_anchors.clear ();
 	}
 
-	node->remove_nodes_and_delete (X_("Anchor"));
-
-	_invalidated.exchange (true);
-	send_change (PropertyChange (Properties::elastic_audio));
+	elastic_audio_changed ();
 }
 
 void
@@ -2481,18 +3254,15 @@ AudioRegion::build_transients ()
 			(*x) -= start_sample();
 		}
 
-		_transient_analysis_start = start_sample();
-		_transient_analysis_end = start_sample() + length_samples();
-		return;
-	}
+	} else {
 
-	/* no existing/complete transient info */
+		/* no existing/complete transient info */
 
-	static bool analyse_dialog_shown = false; /* global per instance of Ardour */
+		static bool analyse_dialog_shown = false; /* global per instance of Ardour */
 
-	if (!Config->get_auto_analyse_audio()) {
-		if (!analyse_dialog_shown) {
-			pl->session().Dialog (string_compose (_("\
+		if (!Config->get_auto_analyse_audio()) {
+			if (!analyse_dialog_shown) {
+				pl->session().Dialog (string_compose (_("\
 You have requested an operation that requires audio analysis.\n\n\
 You currently have \"auto-analyse-audio\" disabled, which means \
 that transient data must be generated every time it is required.\n\n\
@@ -2502,35 +3272,171 @@ in Preferences > Metering, then quit %1 and restart.\n\n\
 This dialog will not display again.  But you may notice a slight delay \
 in this and future transient-detection operations.\n\
 "), PROGRAM_NAME));
-			analyse_dialog_shown = true;
+				analyse_dialog_shown = true;
+			}
 		}
+
+		try {
+			TransientDetector t (pl->session().sample_rate());
+			for (uint32_t i = 0; i < n_channels(); ++i) {
+
+				AnalysisFeatureList these_results;
+
+				t.reset ();
+
+				/* this produces analysis result relative to current position
+				 * ::read() sample 0 is at _position */
+				if (t.run ("", this, i, these_results)) {
+					_transients.clear ();
+					break;
+				}
+
+				/* merge */
+				_transients.insert (_transients.end(), these_results.begin(), these_results.end());
+			}
+		} catch (...) {
+			error << string_compose(_("Transient Analysis failed for %1."), _("Audio Region")) << endmsg;
+			_transients.clear ();
+		}
+
+		TransientDetector::cleanup_transients (_transients, pl->session().sample_rate(), 3.0);
 	}
 
-	try {
-		TransientDetector t (pl->session().sample_rate());
-		for (uint32_t i = 0; i < n_channels(); ++i) {
+	if (_transients.empty ()) {
+		/* the Vamp-based detector failed (plugin missing?) or found
+		 * nothing; fall back to a simple built-in energy-based onset
+		 * detector so that elastic audio always has candidates.
+		 */
+		build_transients_energy ();
+		TransientDetector::cleanup_transients (_transients, pl->session().sample_rate(), 3.0);
+	}
 
-			AnalysisFeatureList these_results;
+	_transient_analysis_start = start_sample();
+	_transient_analysis_end = start_sample() + length_samples();
+}
 
-			t.reset ();
+/** Lightweight onset detection: per-hop peak envelope, positive novelty,
+ * adaptive threshold, local-maximum picking. Results are relative to the
+ * start of the region, like the other analysis paths.
+ */
+void
+AudioRegion::build_transients_energy ()
+{
+	const samplecnt_t len = length_samples ();
+	const uint32_t nch = n_channels ();
 
-			/* this produces analysis result relative to current position
-			 * ::read() sample 0 is at _position */
-			if (t.run ("", this, i, these_results)) {
-				return;
-			}
-
-			/* merge */
-			_transients.insert (_transients.end(), these_results.begin(), these_results.end());
-		}
-	} catch (...) {
-		error << string_compose(_("Transient Analysis failed for %1."), _("Audio Region")) << endmsg;
+	if (len <= 0 || nch == 0) {
 		return;
 	}
 
-	TransientDetector::cleanup_transients (_transients, pl->session().sample_rate(), 3.0);
-	_transient_analysis_start = start_sample();
-	_transient_analysis_end = start_sample() + length_samples();
+	const samplecnt_t hop = 256;
+	const size_t nhops = (size_t) (len / hop);
+
+	if (nhops < 8) {
+		return;
+	}
+
+	std::vector<float> env (nhops, 0.f);
+
+	const samplecnt_t blocksize = 65536;
+	std::unique_ptr<Sample[]> buf (new Sample[blocksize]);
+
+	float global_max = 0.f;
+
+	for (uint32_t c = 0; c < nch; ++c) {
+		for (samplepos_t pos = 0; pos < (samplepos_t) (nhops * hop); pos += blocksize) {
+			const samplecnt_t this_time = min (blocksize, (samplecnt_t) (nhops * hop) - pos);
+			if (read (buf.get (), pos, this_time, c) != this_time) {
+				return;
+			}
+			for (samplecnt_t n = 0; n < this_time; ++n) {
+				const size_t h = (size_t) ((pos + n) / hop);
+				const float a = fabsf (buf[n]);
+				if (a > env[h]) {
+					env[h] = a;
+				}
+				if (a > global_max) {
+					global_max = a;
+				}
+			}
+		}
+	}
+
+	if (global_max <= 0.f) {
+		return;
+	}
+
+	/* lightly smooth the envelope to suppress single-hop jitter that
+	 * otherwise triggers false detections on sustained material.
+	 */
+	std::vector<float> senv (nhops, 0.f);
+	for (size_t h = 0; h < nhops; ++h) {
+		const float a = env[(h > 0) ? h - 1 : 0];
+		const float b = env[h];
+		const float c = env[std::min (nhops - 1, h + 1)];
+		senv[h] = (a + b + c) / 3.f;
+	}
+
+	/* positive changes of the smoothed envelope */
+	std::vector<float> novelty (nhops, 0.f);
+	for (size_t h = 1; h < nhops; ++h) {
+		novelty[h] = std::max (0.f, senv[h] - senv[h - 1]);
+	}
+
+	/* adaptive threshold: local mean over ~0.25s, plus an absolute floor */
+	const size_t win = std::max<size_t> (8, (size_t) (12000 / hop));
+	const float floor_thr = 0.03f * global_max;
+	const float sr = (float) playlist ()->session ().sample_rate ();
+	const samplecnt_t min_gap = (samplecnt_t) (0.08f * sr); /* 80 ms */
+
+	std::vector<double> prefix (nhops + 1, 0.0);
+	for (size_t h = 0; h < nhops; ++h) {
+		prefix[h + 1] = prefix[h] + novelty[h];
+	}
+
+	samplepos_t last_onset = -min_gap;
+
+	for (size_t h = 2; h + 1 < nhops; ++h) {
+
+		const size_t wlo = (h > win) ? h - win : 0;
+		const size_t whi = std::min (nhops, h + win);
+		const float local_mean = (float) ((prefix[whi] - prefix[wlo]) / (double) (whi - wlo));
+
+		const float thr = std::max (floor_thr, 3.0f * local_mean);
+
+		if (novelty[h] < thr) {
+			continue;
+		}
+
+		/* require a clear relative jump over the immediately preceding
+		 * level: this rejects level wobble in already-loud passages.
+		 */
+		if (senv[h] < 1.4f * senv[h - 2]) {
+			continue;
+		}
+
+		/* local maximum within +/- 3 hops */
+		bool is_max = true;
+		const size_t lo = (h >= 3) ? h - 3 : 0;
+		const size_t hi = std::min (nhops - 1, h + 3);
+		for (size_t k = lo; k <= hi; ++k) {
+			if (novelty[k] > novelty[h]) {
+				is_max = false;
+				break;
+			}
+		}
+		if (!is_max) {
+			continue;
+		}
+
+		const samplepos_t onset = (samplepos_t) ((h - 1) * hop);
+		if (onset - last_onset < min_gap) {
+			continue;
+		}
+
+		_transients.push_back (onset);
+		last_onset = onset;
+	}
 }
 
 /* Transient analysis uses ::read() which is relative to _start,

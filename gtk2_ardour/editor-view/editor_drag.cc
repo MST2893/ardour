@@ -5094,6 +5094,8 @@ FeatureLineDrag::FeatureLineDrag (Editor& e, ArdourCanvas::Item* i, bool elastic
 	, _max_x (0)
 	, _elastic_audio (elastic_audio)
 	, _elastic_audio_source (-1)
+	, _elastic_before_state (0)
+	, _last_elastic_preview (0)
 {
 	DEBUG_TRACE (DEBUG::Drags, "New FeatureLineDrag\n");
 }
@@ -5121,6 +5123,12 @@ FeatureLineDrag::start_grab (GdkEvent* event, Gdk::Cursor* /*cursor*/)
 	_arv = reinterpret_cast<AudioRegionView*> (_item->get_data ("regionview"));
 	if (_elastic_audio) {
 		_elastic_audio_source = _arv->elastic_audio_anchor_source_at (_before);
+		if (_elastic_audio_source >= 0) {
+			/* capture the pre-drag state for undo before the live
+			 * preview starts modifying the region.
+			 */
+			_elastic_before_state = &_arv->audio_region ()->get_state ();
+		}
 	}
 
 	_max_x = editing_context.duration_to_pixels (_arv->get_duration ());
@@ -5153,6 +5161,17 @@ FeatureLineDrag::motion (GdkEvent*, bool)
 	_line->set_data ("position", pos);
 
 	_before = cx;
+
+	if (_elastic_audio && _elastic_audio_source >= 0) {
+		/* live-update the stretch (cheap varispeed preview), at most
+		 * ~30 Hz so waveform redraws don't flood the GUI.
+		 */
+		const int64_t now = g_get_monotonic_time ();
+		if (now - _last_elastic_preview >= 33000) {
+			_last_elastic_preview = now;
+			_arv->drag_elastic_audio_anchor (_elastic_audio_source, cx);
+		}
+	}
 }
 
 void
@@ -5160,7 +5179,8 @@ FeatureLineDrag::finished (GdkEvent*, bool)
 {
 	_arv = reinterpret_cast<AudioRegionView*> (_item->get_data ("regionview"));
 	if (_elastic_audio) {
-		_arv->update_elastic_audio_anchor (_elastic_audio_source, _before);
+		_arv->update_elastic_audio_anchor (_elastic_audio_source, _before, _elastic_before_state);
+		_elastic_before_state = 0;
 	} else {
 		_arv->update_transient (_before, _before);
 	}
@@ -5169,6 +5189,14 @@ FeatureLineDrag::finished (GdkEvent*, bool)
 void
 FeatureLineDrag::aborted (bool)
 {
+	if (_elastic_audio && _elastic_before_state) {
+		/* roll the region back to its pre-drag state */
+		if (_arv) {
+			_arv->audio_region ()->set_state (*_elastic_before_state, PBD::Stateful::current_state_version);
+		}
+		delete _elastic_before_state;
+		_elastic_before_state = 0;
+	}
 	//_line->reset ();
 }
 

@@ -51,6 +51,7 @@
 namespace ARDOUR {
 	class Session;
 	class Region;
+	class AudioRegion;
 	class RouteGroup;
 	class IOProcessor;
 	class Processor;
@@ -96,8 +97,9 @@ public:
 	void set_height (uint32_t h, TrackHeightMode m = OnlySelf, bool from_idle = false);
 	void show_timestretch (Temporal::timepos_t const & start, Temporal::timepos_t const & end, int layers, int layer);
 	void hide_timestretch ();
-	bool elastic_audio_editing () const { return _elastic_audio_editing; }
-	void set_elastic_audio_editing (bool, bool detect_transients = true);
+	bool elastic_audio_editing () const { return _elastic_audio_mode != ARDOUR::ElasticAudioDisabled; }
+	ARDOUR::ElasticAudioMode elastic_audio_mode () const { return _elastic_audio_mode; }
+	void set_elastic_audio_mode (ARDOUR::ElasticAudioMode, bool apply_to_regions = true);
 	void selection_click (GdkEventButton*);
 	void set_selected_points (PointSelection&);
 	void set_selected_regionviews (RegionSelection&);
@@ -233,6 +235,7 @@ protected:
 	bool         playlist_click (GdkEventButton *);
 	void         playlist_changed ();
 	bool         elastic_audio_edit_button_press (GdkEventButton *);
+	void         elastic_audio_mode_menu_toggled (Gtk::RadioMenuItem*, ARDOUR::ElasticAudioMode);
 
 	bool         automation_click (GdkEventButton *);
 
@@ -262,6 +265,7 @@ protected:
 	Gtk::EventBox route_color_side_bar;
 
 	Gtk::Menu           subplugin_menu;
+	Gtk::Menu*          elastic_audio_menu;
 	Gtk::Menu*          automation_action_menu;
 	Gtk::MenuItem*      plugins_submenu_item;
 	RouteGroupMenu*     route_group_menu;
@@ -287,7 +291,11 @@ protected:
 	GainMeterBase gm;
 
 	bool _ignore_set_layer_display;
-	bool _elastic_audio_editing;
+	ARDOUR::ElasticAudioMode _elastic_audio_mode;
+	void build_elastic_audio_menu ();
+	void clear_elastic_audio_anchors ();
+	std::vector<std::shared_ptr<ARDOUR::AudioRegion> > track_audio_regions () const;
+	bool remove_track_elastic_audio (bool also_disable_mode);
 	void layer_display_menu_change (Gtk::MenuItem* item);
 	void edit_scale ();
 

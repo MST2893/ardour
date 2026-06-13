@@ -45,13 +45,17 @@
 #include "pbd/error.h"
 #include "pbd/whitespace.h"
 #include "pbd/enumwriter.h"
+#include "pbd/memento_command.h"
 #include "pbd/stateful_diff_command.h"
 
 #include "evoral/Parameter.h"
 
 #include "ardour/amp.h"
+#include "ardour/audioregion.h"
 #include "ardour/meter.h"
 #include "ardour/midi_track.h"
+#include "ardour/playlist.h"
+#include "ardour/session_playlists.h"
 #include "ardour/pan_controllable.h"
 #include "ardour/pannable.h"
 #include "ardour/panner.h"
@@ -73,6 +77,7 @@
 #include "widgets/prompter.h"
 #include "widgets/tooltips.h"
 
+#include "app-core/ardour_message.h"
 #include "app-core/ardour_ui.h"
 #include "editor-view/audio_streamview.h"
 #include "platform-support/debug.h"
@@ -160,15 +165,6 @@ refresh_elastic_audio_region_view (RegionView* rv, bool detect_transients)
 	}
 }
 
-void
-clear_elastic_audio_region_view (RegionView* rv)
-{
-	AudioRegionView* arv = dynamic_cast<AudioRegionView*> (rv);
-	if (arv) {
-		arv->clear_elastic_audio ();
-	}
-}
-
 } /* namespace */
 
 RouteTimeAxisView::RouteTimeAxisView (PublicEditor& ed, Session* sess, ArdourCanvas::Canvas& canvas)
@@ -180,6 +176,7 @@ RouteTimeAxisView::RouteTimeAxisView (PublicEditor& ed, Session* sess, ArdourCan
 	, playlist_button (S_("RTAV|P"))
 	, automation_button (S_("RTAV|A"))
 	, elastic_audio_button (S_("Elastic|E"), ArdourButton::default_elements, true)
+	, elastic_audio_menu (0)
 	, automation_action_menu (0)
 	, plugins_submenu_item (0)
 	, route_group_menu (0)
@@ -187,7 +184,7 @@ RouteTimeAxisView::RouteTimeAxisView (PublicEditor& ed, Session* sess, ArdourCan
 	, stacked_menu_item (0)
 	, gm (sess, true, 75, 14)
 	, _ignore_set_layer_display (false)
-	, _elastic_audio_editing (false)
+	, _elastic_audio_mode (ARDOUR::ElasticAudioDisabled)
 	, pan_automation_item(NULL)
 {
 	subplugin_menu.set_name ("ArdourContextMenu");
@@ -362,11 +359,33 @@ RouteTimeAxisView::set_route (std::shared_ptr<Route> rt)
 	} else {
 		set_tooltip(automation_button, _("Automation"));
 	}
-	set_tooltip (elastic_audio_button, _("Elastic audio editing: double-click transient lines or the waveform to create stretch anchors, drag active anchors, Alt-click active anchors to remove them."));
+	set_tooltip (elastic_audio_button, _("Elastic Audio: click to choose a stretch mode. When enabled, double-click transient lines or the waveform to create stretch anchors, drag active anchors, Alt-click active anchors to remove them."));
 
-	bool elastic_audio_enabled = false;
-	get_gui_property (X_("elastic-audio-editing"), elastic_audio_enabled);
-	set_elastic_audio_editing (elastic_audio_enabled, false);
+	/* restore the elastic audio mode from the regions themselves: their
+	 * mode is serialized in the session (region <ElasticAudio> nodes) and
+	 * is the source of truth. The track GUI property is only a fallback
+	 * for tracks that have no regions yet.
+	 */
+	ARDOUR::ElasticAudioMode elastic_mode = ARDOUR::ElasticAudioDisabled;
+	{
+		std::vector<std::shared_ptr<ARDOUR::AudioRegion> > regions = track_audio_regions ();
+		for (std::vector<std::shared_ptr<ARDOUR::AudioRegion> >::const_iterator i = regions.begin (); i != regions.end (); ++i) {
+			if ((*i)->elastic_audio_mode () != ARDOUR::ElasticAudioDisabled) {
+				elastic_mode = (*i)->elastic_audio_mode ();
+				break;
+			}
+		}
+	}
+
+	if (elastic_mode == ARDOUR::ElasticAudioDisabled) {
+		int elastic_mode_int = 0;
+		if (get_gui_property (X_("elastic-audio-mode"), elastic_mode_int)) {
+			elastic_mode = (ARDOUR::ElasticAudioMode) elastic_mode_int;
+		}
+	}
+
+	/* don't touch region state on load: regions carry their own mode */
+	set_elastic_audio_mode (elastic_mode, false);
 
 	update_track_number_visibility();
 	route_active_changed();
@@ -437,6 +456,7 @@ RouteTimeAxisView::~RouteTimeAxisView ()
 	}
 
 	delete automation_action_menu;
+	delete elastic_audio_menu;
 
 	_automation_tracks.clear ();
 
@@ -1115,28 +1135,196 @@ RouteTimeAxisView::hide_timestretch ()
 	}
 }
 
-void
-RouteTimeAxisView::set_elastic_audio_editing (bool yn, bool detect_transients)
+/** @return all audio regions on all of this track's playlists */
+std::vector<std::shared_ptr<ARDOUR::AudioRegion> >
+RouteTimeAxisView::track_audio_regions () const
 {
-	if (_elastic_audio_editing == yn) {
-		elastic_audio_button.set_active_state (yn ? Gtkmm2ext::ExplicitActive : Gtkmm2ext::Off);
-		if (yn && _view) {
-			_view->foreach_regionview (sigc::bind (sigc::ptr_fun (&refresh_elastic_audio_region_view), detect_transients));
+	std::vector<std::shared_ptr<ARDOUR::AudioRegion> > regions;
+
+	std::shared_ptr<ARDOUR::Track> trk = track ();
+	if (!trk || !_session) {
+		return regions;
+	}
+
+	std::vector<std::shared_ptr<ARDOUR::Playlist> > pls = _session->playlists()->playlists_for_track (trk);
+
+	for (std::vector<std::shared_ptr<ARDOUR::Playlist> >::const_iterator p = pls.begin (); p != pls.end (); ++p) {
+		(*p)->foreach_region ([&regions] (std::shared_ptr<ARDOUR::Region> r) {
+			std::shared_ptr<ARDOUR::AudioRegion> ar = std::dynamic_pointer_cast<ARDOUR::AudioRegion> (r);
+			if (ar) {
+				regions.push_back (ar);
+			}
+		});
+	}
+
+	return regions;
+}
+
+/** remove all elastic audio anchors from the track (all playlists), asking
+ * for confirmation when warped audio would be reverted.
+ * @param also_disable_mode when true, also set every region's mode to Disabled.
+ * @return false if the user cancelled.
+ */
+bool
+RouteTimeAxisView::remove_track_elastic_audio (bool also_disable_mode)
+{
+	using namespace ARDOUR;
+
+	std::vector<std::shared_ptr<AudioRegion> > regions = track_audio_regions ();
+
+	std::vector<std::shared_ptr<AudioRegion> > affected;
+	bool any_warp = false;
+
+	for (std::vector<std::shared_ptr<AudioRegion> >::const_iterator i = regions.begin (); i != regions.end (); ++i) {
+		std::vector<AudioRegion::ElasticAudioAnchor> anchors;
+		(*i)->get_elastic_audio_anchors (anchors);
+
+		const bool has_mode = (*i)->elastic_audio_mode () != ElasticAudioDisabled;
+
+		if ((*i)->elastic_audio_active ()) {
+			any_warp = true;
 		}
+
+		if (!anchors.empty () || (also_disable_mode && has_mode)) {
+			affected.push_back (*i);
+		}
+	}
+
+	if (any_warp) {
+		ArdourMessageDialog msg (_("This clip contains elastic audio modifications. Are you sure you want to remove them?"),
+		                         false, Gtk::MESSAGE_QUESTION, Gtk::BUTTONS_OK_CANCEL, true);
+		msg.set_title (_("Elastic Audio"));
+		if (msg.run () != Gtk::RESPONSE_OK) {
+			return false;
+		}
+	}
+
+	if (affected.empty ()) {
+		return true;
+	}
+
+	_editor.begin_reversible_command (_("remove elastic audio"));
+
+	for (std::vector<std::shared_ptr<AudioRegion> >::const_iterator i = affected.begin (); i != affected.end (); ++i) {
+		XMLNode& before = (*i)->get_state ();
+		(*i)->clear_elastic_audio_anchors ();
+		if (also_disable_mode) {
+			(*i)->set_elastic_audio_mode (ElasticAudioDisabled);
+		}
+		XMLNode& after = (*i)->get_state ();
+		_session->add_command (new MementoCommand<AudioRegion> (*(*i).get (), &before, &after));
+	}
+
+	_editor.commit_reversible_command ();
+	_session->set_dirty ();
+
+	return true;
+}
+
+void
+RouteTimeAxisView::set_elastic_audio_mode (ARDOUR::ElasticAudioMode mode, bool apply_to_regions)
+{
+	const bool was_editing = elastic_audio_editing ();
+
+	if (apply_to_regions && mode == ARDOUR::ElasticAudioDisabled && is_audio_track ()) {
+		/* disabling removes all anchors (after confirmation) */
+		if (!remove_track_elastic_audio (true)) {
+			return; /* user cancelled; keep current mode */
+		}
+	}
+
+	_elastic_audio_mode = mode;
+	set_gui_property (X_("elastic-audio-mode"), (int) mode);
+
+	elastic_audio_button.set_active_state (mode != ARDOUR::ElasticAudioDisabled ? Gtkmm2ext::ExplicitActive : Gtkmm2ext::Off);
+
+	switch (mode) {
+	case ARDOUR::ElasticAudioVarispeed:
+		elastic_audio_button.set_text (S_("ElasticVarispeed|V"));
+		break;
+	case ARDOUR::ElasticAudioPolyphonic:
+		elastic_audio_button.set_text (S_("ElasticPolyphonic|P"));
+		break;
+	default:
+		elastic_audio_button.set_text (S_("Elastic|E"));
+		break;
+	}
+
+	if (apply_to_regions && mode != ARDOUR::ElasticAudioDisabled) {
+		std::vector<std::shared_ptr<ARDOUR::AudioRegion> > regions = track_audio_regions ();
+		for (std::vector<std::shared_ptr<ARDOUR::AudioRegion> >::const_iterator i = regions.begin (); i != regions.end (); ++i) {
+			(*i)->set_elastic_audio_mode (mode);
+		}
+	}
+
+	if (!_view) {
 		return;
 	}
 
-	_elastic_audio_editing = yn;
-	set_gui_property (X_("elastic-audio-editing"), yn);
-	elastic_audio_button.set_active_state (yn ? Gtkmm2ext::ExplicitActive : Gtkmm2ext::Off);
+	if (mode != ARDOUR::ElasticAudioDisabled) {
+		/* always (re)run transient detection on enable; regions whose
+		 * analysis is already cached (or restored from the session
+		 * file) skip the actual analysis pass.
+		 */
+		_view->foreach_regionview (sigc::bind (sigc::ptr_fun (&refresh_elastic_audio_region_view), true));
+	} else if (was_editing) {
+		_view->foreach_regionview (sigc::bind (sigc::ptr_fun (&refresh_elastic_audio_region_view), false));
+	}
+}
+
+void
+RouteTimeAxisView::elastic_audio_mode_menu_toggled (Gtk::RadioMenuItem* item, ARDOUR::ElasticAudioMode mode)
+{
+	if (item->get_active () && _elastic_audio_mode != mode) {
+		set_elastic_audio_mode (mode);
+	}
+}
+
+void
+RouteTimeAxisView::clear_elastic_audio_anchors ()
+{
+	if (!remove_track_elastic_audio (false)) {
+		return;
+	}
 
 	if (_view) {
-		if (yn) {
-			_view->foreach_regionview (sigc::bind (sigc::ptr_fun (&refresh_elastic_audio_region_view), detect_transients));
-		} else {
-			_view->foreach_regionview (sigc::ptr_fun (&clear_elastic_audio_region_view));
-		}
+		_view->foreach_regionview (sigc::bind (sigc::ptr_fun (&refresh_elastic_audio_region_view), elastic_audio_editing ()));
 	}
+}
+
+void
+RouteTimeAxisView::build_elastic_audio_menu ()
+{
+	using namespace Gtk::Menu_Helpers;
+
+	delete elastic_audio_menu;
+	elastic_audio_menu = new Gtk::Menu;
+	elastic_audio_menu->set_name ("ArdourContextMenu");
+
+	MenuList& items = elastic_audio_menu->items ();
+
+	Gtk::RadioMenuItem::Group mode_group;
+
+	struct {
+		const char* label;
+		ARDOUR::ElasticAudioMode mode;
+	} const modes[] = {
+		{ _("Disabled"),   ARDOUR::ElasticAudioDisabled   },
+		{ _("Varispeed"),  ARDOUR::ElasticAudioVarispeed  },
+		{ _("Polyphonic"), ARDOUR::ElasticAudioPolyphonic },
+	};
+
+	for (size_t n = 0; n < sizeof (modes) / sizeof (modes[0]); ++n) {
+		items.push_back (RadioMenuElem (mode_group, modes[n].label));
+		Gtk::RadioMenuItem* item = static_cast<Gtk::RadioMenuItem*> (&items.back ());
+		if (_elastic_audio_mode == modes[n].mode) {
+			item->set_active (true);
+		}
+		item->signal_toggled ().connect (sigc::bind (sigc::mem_fun (*this, &RouteTimeAxisView::elastic_audio_mode_menu_toggled), item, modes[n].mode));
+	}
+
+	items.push_back (SeparatorElem ());
+	items.push_back (MenuElem (_("Clear Stretch Anchors"), sigc::mem_fun (*this, &RouteTimeAxisView::clear_elastic_audio_anchors)));
 }
 
 bool
@@ -1146,7 +1334,8 @@ RouteTimeAxisView::elastic_audio_edit_button_press (GdkEventButton* ev)
 		return false;
 	}
 
-	set_elastic_audio_editing (!_elastic_audio_editing);
+	build_elastic_audio_menu ();
+	elastic_audio_menu->popup (ev->button, ev->time);
 	return true;
 }
 
@@ -2041,6 +2230,12 @@ RouteTimeAxisView::region_view_added (RegionView* rv)
 			atv->add_ghost(rv);
 		}
 	}
+
+	/* make sure elastic audio state (anchor lines, polyphonic render
+	 * cache) is reflected on region views created after this track view,
+	 * e.g. when a session is loaded.
+	 */
+	refresh_elastic_audio_region_view (rv, elastic_audio_editing ());
 }
 
 RouteTimeAxisView::ProcessorAutomationInfo::~ProcessorAutomationInfo ()

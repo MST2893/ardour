@@ -126,7 +126,10 @@ public:
 	samplepos_t elastic_audio_anchor_source_at (float pos) const;
 	void activate_elastic_audio_anchor (float pos);
 	void create_elastic_audio_anchor (samplepos_t where);
-	void update_elastic_audio_anchor (samplepos_t source, float new_pos);
+	/** live (mid-drag) anchor move: cheap preview, no undo */
+	void drag_elastic_audio_anchor (samplepos_t source, float new_pos);
+	/** commit an anchor move; before_state (from before the drag) is owned by the undo command */
+	void update_elastic_audio_anchor (samplepos_t source, float new_pos, XMLNode* before_state);
 	void remove_elastic_audio_anchor (float pos);
 	void redisplay_transient_features (bool detect_transients);
 	void clear_elastic_audio ();
@@ -181,6 +184,8 @@ protected:
 	std::vector<ArdourWaveView::WaveView *> tmp_waves; ///< see \ref create_waves()
 
 	std::list<std::pair<samplepos_t, ArdourCanvas::Line*> > feature_lines;
+	/** top/bottom triangles drawn on active elastic anchors */
+	std::vector<std::pair<ArdourCanvas::Polygon*, ArdourCanvas::Polygon*> > feature_anchor_marks;
 
 	ArdourCanvas::Rectangle*        fade_in_handle; ///< fade in handle, or 0
 	ArdourCanvas::Rectangle*        fade_out_handle; ///< fade out handle, or 0

@@ -807,6 +807,12 @@ enum FadeShape {
 	FadeSymmetric,
 };
 
+enum ElasticAudioMode {
+	ElasticAudioDisabled = 0,
+	ElasticAudioVarispeed,   /* resample between anchors; pitch follows speed */
+	ElasticAudioPolyphonic,  /* RubberBand time-stretch between anchors; pitch preserved */
+};
+
 enum TransportState {
 	/* these values happen to match the constants used by JACK but
 	   this equality cannot be assumed.

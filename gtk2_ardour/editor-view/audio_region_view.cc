@@ -345,6 +345,11 @@ AudioRegionView::region_changed (const PropertyChange& what_changed)
 		transients_changed ();
 	}
 	if (what_changed.contains (ARDOUR::Properties::elastic_audio)) {
+		/* re-render the polyphonic cache if it went stale (e.g. after
+		 * undo/redo); no-op when it is current. The nested change
+		 * signal this may emit finds a current cache and terminates.
+		 */
+		audio_region ()->ensure_elastic_audio_render ();
 		invalidate_waveform ();
 		transients_changed ();
 	}
@@ -1824,6 +1829,13 @@ AudioRegionView::transients_changed ()
 					break;
 				}
 			}
+
+			if (!active_elastic_anchor) {
+				/* show the candidate where the (possibly warped)
+				 * audio it marks currently plays.
+				 */
+				display_sample = audio_region ()->elastic_audio_warp_position (*i);
+			}
 		}
 
 		feature_display.push_back (FeatureDisplay (*i, display_sample, active_elastic_anchor, true));
@@ -1872,10 +1884,29 @@ AudioRegionView::transients_changed ()
 		delete line;
 	}
 
+	while (feature_anchor_marks.size () < feature_display.size ()) {
+		ArdourCanvas::Polygon* top = new ArdourCanvas::Polygon (group);
+		ArdourCanvas::Polygon* bottom = new ArdourCanvas::Polygon (group);
+		CANVAS_DEBUG_NAME (top, string_compose ("elastic anchor mark for %1", region()->name()));
+		CANVAS_DEBUG_NAME (bottom, string_compose ("elastic anchor mark for %1", region()->name()));
+		top->set_ignore_events (true);
+		bottom->set_ignore_events (true);
+		top->hide ();
+		bottom->hide ();
+		feature_anchor_marks.push_back (std::make_pair (top, bottom));
+	}
+
+	while (feature_anchor_marks.size () > feature_display.size ()) {
+		delete feature_anchor_marks.back ().first;
+		delete feature_anchor_marks.back ().second;
+		feature_anchor_marks.pop_back ();
+	}
+
 	std::vector<FeatureDisplay>::const_iterator i;
 	list<std::pair<samplepos_t, ArdourCanvas::Line*> >::iterator l;
+	size_t idx;
 
-	for (i = feature_display.begin(), l = feature_lines.begin(); i != feature_display.end() && l != feature_lines.end(); ++i, ++l) {
+	for (i = feature_display.begin(), l = feature_lines.begin(), idx = 0; i != feature_display.end() && l != feature_lines.end(); ++i, ++l, ++idx) {
 		float *pos = new float;
 		*pos = trackview.editor().sample_to_pixel (i->display - position);
 
@@ -1896,10 +1927,42 @@ AudioRegionView::transients_changed ()
 			(*l).second->set_outline_width (1.0);
 		}
 
-		if (i->display < first || i->display >= last) {
-			l->second->hide();
-		} else {
+		const bool line_visible = !(i->display < first || i->display >= last);
+
+		if (line_visible) {
 			l->second->show();
+		} else {
+			l->second->hide();
+		}
+
+		/* Pro Tools-style triangles on active anchors */
+
+		ArdourCanvas::Polygon* top = feature_anchor_marks[idx].first;
+		ArdourCanvas::Polygon* bottom = feature_anchor_marks[idx].second;
+
+		if (elastic && i->active && line_visible) {
+			ArdourCanvas::Points tp;
+			tp.push_back (ArdourCanvas::Duple (*pos - 4.5, 2.0));
+			tp.push_back (ArdourCanvas::Duple (*pos + 4.5, 2.0));
+			tp.push_back (ArdourCanvas::Duple (*pos, 10.0));
+			top->set (tp);
+
+			ArdourCanvas::Points bp;
+			bp.push_back (ArdourCanvas::Duple (*pos - 4.5, y1));
+			bp.push_back (ArdourCanvas::Duple (*pos + 4.5, y1));
+			bp.push_back (ArdourCanvas::Duple (*pos, y1 - 8.0));
+			bottom->set (bp);
+
+			for (ArdourCanvas::Polygon* tri : { top, bottom }) {
+				tri->set_fill (true);
+				tri->set_fill_color (0xff9f2aff);
+				tri->set_outline_color (0xff9f2aff);
+				tri->raise_to_top ();
+				tri->show ();
+			}
+		} else {
+			top->hide ();
+			bottom->hide ();
 		}
 	}
 }
@@ -1996,9 +2059,10 @@ AudioRegionView::activate_elastic_audio_anchor (float pos)
 		const samplepos_t target = trackview.editor().pixel_to_sample (pos) + _region->position_sample ();
 
 		trackview.editor().begin_reversible_command (_("activate elastic audio anchor"));
-		ar->clear_changes ();
+		XMLNode& before = ar->get_state ();
 		ar->add_elastic_audio_anchor (l->first, target);
-		trackview.session()->add_command (new StatefulDiffCommand (ar));
+		XMLNode& after = ar->get_state ();
+		trackview.session()->add_command (new MementoCommand<ARDOUR::AudioRegion> (*ar.get(), &before, &after));
 		trackview.editor().commit_reversible_command ();
 		trackview.session()->set_dirty ();
 		return;
@@ -2013,20 +2077,30 @@ AudioRegionView::create_elastic_audio_anchor (samplepos_t where)
 	}
 
 	std::shared_ptr<AudioRegion> ar = audio_region ();
-	if (ar->has_elastic_audio_anchor (where)) {
+
+	/* `where` is a position on the (possibly already warped) audio as
+	 * displayed. The anchor must pin the audio that currently plays
+	 * there: its natural (un-warped) position is the anchor source and
+	 * `where` is the target. This keeps the existing stretch unchanged
+	 * when a new anchor is added.
+	 */
+	const samplepos_t source = ar->elastic_audio_unwarp_position (where);
+
+	if (source <= _region->first_sample () || source >= _region->last_sample () || ar->has_elastic_audio_anchor (source)) {
 		return;
 	}
 
 	trackview.editor().begin_reversible_command (_("create elastic audio anchor"));
-	ar->clear_changes ();
-	ar->add_elastic_audio_anchor (where, where);
-	trackview.session()->add_command (new StatefulDiffCommand (ar));
+	XMLNode& before = ar->get_state ();
+	ar->add_elastic_audio_anchor (source, where);
+	XMLNode& after = ar->get_state ();
+	trackview.session()->add_command (new MementoCommand<ARDOUR::AudioRegion> (*ar.get(), &before, &after));
 	trackview.editor().commit_reversible_command ();
 	trackview.session()->set_dirty ();
 }
 
 void
-AudioRegionView::update_elastic_audio_anchor (samplepos_t source, float new_pos)
+AudioRegionView::drag_elastic_audio_anchor (samplepos_t source, float new_pos)
 {
 	if (!elastic_audio_editing () || source < 0 || _region->last_sample () <= _region->first_sample ()) {
 		return;
@@ -2040,10 +2114,31 @@ AudioRegionView::update_elastic_audio_anchor (samplepos_t source, float new_pos)
 	samplepos_t target = trackview.editor().pixel_to_sample (new_pos) + _region->position_sample ();
 	target = std::max (_region->first_sample (), std::min (_region->last_sample () - 1, target));
 
+	ar->preview_elastic_audio_anchor (source, target);
+}
+
+void
+AudioRegionView::update_elastic_audio_anchor (samplepos_t source, float new_pos, XMLNode* before_state)
+{
+	if (!elastic_audio_editing () || source < 0 || _region->last_sample () <= _region->first_sample ()) {
+		delete before_state;
+		return;
+	}
+
+	std::shared_ptr<AudioRegion> ar = audio_region ();
+	if (!ar->has_elastic_audio_anchor (source)) {
+		delete before_state;
+		return;
+	}
+
+	samplepos_t target = trackview.editor().pixel_to_sample (new_pos) + _region->position_sample ();
+	target = std::max (_region->first_sample (), std::min (_region->last_sample () - 1, target));
+
 	trackview.editor().begin_reversible_command (_("move elastic audio anchor"));
-	ar->clear_changes ();
+	XMLNode& before = before_state ? *before_state : ar->get_state ();
 	ar->update_elastic_audio_anchor (source, target);
-	trackview.session()->add_command (new StatefulDiffCommand (ar));
+	XMLNode& after = ar->get_state ();
+	trackview.session()->add_command (new MementoCommand<ARDOUR::AudioRegion> (*ar.get(), &before, &after));
 	trackview.editor().commit_reversible_command ();
 	trackview.session()->set_dirty ();
 }
@@ -2067,9 +2162,10 @@ AudioRegionView::remove_elastic_audio_anchor (float pos)
 		}
 
 		trackview.editor().begin_reversible_command (_("remove elastic audio anchor"));
-		ar->clear_changes ();
+		XMLNode& before = ar->get_state ();
 		ar->remove_elastic_audio_anchor (l->first);
-		trackview.session()->add_command (new StatefulDiffCommand (ar));
+		XMLNode& after = ar->get_state ();
+		trackview.session()->add_command (new MementoCommand<ARDOUR::AudioRegion> (*ar.get(), &before, &after));
 		trackview.editor().commit_reversible_command ();
 		trackview.session()->set_dirty ();
 		return;
@@ -2080,13 +2176,14 @@ void
 AudioRegionView::redisplay_transient_features (bool detect_transients)
 {
 	_elastic_audio_show_transient_candidates = detect_transients;
+	audio_region ()->ensure_elastic_audio_render ();
 	transients_changed ();
 }
 
 void
 AudioRegionView::clear_elastic_audio ()
 {
-	_elastic_audio_show_transient_candidates = false;
+	_elastic_audio_show_transient_candidates = elastic_audio_editing ();
 
 	std::shared_ptr<AudioRegion> ar = audio_region ();
 	std::vector<AudioRegion::ElasticAudioAnchor> anchors;
@@ -2094,9 +2191,10 @@ AudioRegionView::clear_elastic_audio ()
 
 	if (!anchors.empty ()) {
 		trackview.editor().begin_reversible_command (_("clear elastic audio"));
-		ar->clear_changes ();
+		XMLNode& before = ar->get_state ();
 		ar->clear_elastic_audio_anchors ();
-		trackview.session()->add_command (new StatefulDiffCommand (ar));
+		XMLNode& after = ar->get_state ();
+		trackview.session()->add_command (new MementoCommand<ARDOUR::AudioRegion> (*ar.get(), &before, &after));
 		trackview.editor().commit_reversible_command ();
 		trackview.session()->set_dirty ();
 	} else {
@@ -2108,7 +2206,10 @@ AudioRegionView::clear_elastic_audio ()
 void
 AudioRegionView::invalidate_waveform ()
 {
-	ArdourWaveView::WaveView::clear_cache ();
+	/* invalidate_image() detaches each wave from its per-source image
+	 * cache group, so a global WaveView::clear_cache() (which would force
+	 * every visible waveform in the session to re-render) is not needed.
+	 */
 	for (uint32_t n = 0; n < waves.size(); ++n) {
 		waves[n]->invalidate_image ();
 	}

@@ -1,11 +1,162 @@
-Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
 Git version: fatal: No names found, cannot describe anything.
 
-Writing revision info to libs/ardour/revision.cc using fatal: No names found, cannot describe anything., 2026-06-02
+Writing revision info to libs/ardour/revision.cc using fatal: No names found, cannot describe anything., 2026-06-12
 *** WARNING: MSVC does not allow symbols to be visible/exported by default while building clearlooks-newer
 *** WARNING: MSVC does not allow symbols to be visible/exported by default while building libardourvampplugins
 *** WARNING: MSVC does not allow symbols to be visible/exported by default while building libardourvamppyin
 *** WARNING: MSVC does not allow symbols to be visible/exported by default while building liblua
-[1831/1831] Processing ardour.keys: gtk2_ardour\ardour.keys.in gtk2_ardour\mixer.bindings gtk2_ardour\processor_box.bindings gtk2_ardour\step_editing.bindings gtk2_ardour\monitor.bindings gtk2_ardour\trigger.bindings gtk2_ardour\regionfx_box.bindings gtk2_ardour\automation.bindings -> build\gtk2_ardour\ardour.keys
+Build commands will be stored in build\compile_commands.json
+Waf: Entering directory `C:\ARDOURCUSTOM\ardour\build'
+Git version: fatal: No names found, cannot describe anything.
+
+Writing revision info to libs/ardour/revision.cc using fatal: No names found, cannot describe anything., 2026-06-12
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building clearlooks-newer
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building libardourvampplugins
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building libardourvamppyin
+*** WARNING: MSVC does not allow symbols to be visible/exported by default while building liblua
+[  76/1844] Linking build\libs\pbd\pbd.dll
+libs\pbd\windows_special_dirs.cc.1.o : warning LNK4042: objeto especificado más de una vez; omitidos los sobrantes
+libs\pbd\windows_timer_utils.cc.1.o : warning LNK4042: objeto especificado más de una vez; omitidos los sobrantes
+libs\pbd\windows_mmcss.cc.1.o : warning LNK4042: objeto especificado más de una vez; omitidos los sobrantes
+   Creando biblioteca libs\pbd\pbd.lib y objeto libs\pbd\pbd.exp
+
+[1762/1844] Compiling gtk2_ardour\editor-view\route_time_axis.cc
+[1773/1844] Linking build\libs\fst\ardour-vst3-scanner.exe
+[1799/1844] Processing ardour.keys: gtk2_ardour\ardour.keys.in gtk2_ardour\mixer.bindings gtk2_ardour\processor_box.bindings gtk2_ardour\step_editing.bindings gtk2_ardour\monitor.bindings gtk2_ardour\trigger.bindings gtk2_ardour\regionfx_box.bindings gtk2_ardour\automation.bindings -> build\gtk2_ardour\ardour.keys
+[1800/1844] Linking build\libs\temporal\temporal.dll
+   Creando biblioteca C:\ARDOURCUSTOM\ardour\build\libs\fst\ardour-vst3-scanner.lib y objeto C:\ARDOURCUSTOM\ardour\build\libs\fst\ardour-vst3-scanner.exp
+
+   Creando biblioteca libs\temporal\temporal.lib y objeto libs\temporal\temporal.exp
+
+[1801/1844] Linking build\libs\ptformat\ptformat.dll
+[1802/1844] Linking build\libs\audiographer\audiographer.dll
+   Creando biblioteca libs\ptformat\ptformat.lib y objeto libs\ptformat\ptformat.exp
+
+[1803/1844] Linking build\libs\gtkmm2ext\gtkmm2ext.dll
+   Creando biblioteca libs\audiographer\audiographer.lib y objeto libs\audiographer\audiographer.exp
+
+[1804/1844] Linking build\libs\evoral\smf.lib
+   Creando biblioteca libs\gtkmm2ext\gtkmm2ext.lib y objeto libs\gtkmm2ext\gtkmm2ext.exp
+
+[1805/1844] Linking build\libs\evoral\evoral.dll
+[1806/1844] Linking build\libs\canvas\canvas.dll
+[1807/1844] Linking build\libs\widgets\widgets.dll
+   Creando biblioteca libs\evoral\evoral.lib y objeto libs\evoral\evoral.exp
+
+[1808/1844] Linking build\libs\midi++2\midipp.dll
+   Creando biblioteca libs\widgets\widgets.lib y objeto libs\widgets\widgets.exp
+
+   Creando biblioteca libs\canvas\canvas.lib y objeto libs\canvas\canvas.exp
+
+   Creando biblioteca libs\midi++2\midipp.lib y objeto libs\midi++2\midipp.exp
+
+[1809/1844] Linking build\libs\fst\ardour-vst-scanner.exe
+[1810/1844] Linking build\libs\ardour\luabindings.lib
+   Creando biblioteca C:\ARDOURCUSTOM\ardour\build\libs\fst\ardour-vst-scanner.lib y objeto C:\ARDOURCUSTOM\ardour\build\libs\fst\ardour-vst-scanner.exp
+LINK : warning LNK4217: "fst_load" importa el símbolo "vstwin.c.3.o" definido en "vst2-scanner.cc.2.o" en la función ""bool __cdecl discover_vst2(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,enum ARDOUR::PluginType,class std::vector<struct ARDOUR::VST2Info,class std::allocator<struct ARDOUR::VST2Info> > &,bool)" (?discover_vst2@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@W4PluginType@ARDOUR@@AEAV?$vector@UVST2Info@ARDOUR@@V?$allocator@UVST2Info@ARDOUR@@@std@@@2@_N@Z)"
+LINK : warning LNK4217: "fst_unload" importa el símbolo "vstwin.c.3.o" definido en "vst2-scanner.cc.2.o" en la función ""bool __cdecl discover_vst2(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,enum ARDOUR::PluginType,class std::vector<struct ARDOUR::VST2Info,class std::allocator<struct ARDOUR::VST2Info> > &,bool)" (?discover_vst2@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@W4PluginType@ARDOUR@@AEAV?$vector@UVST2Info@ARDOUR@@V?$allocator@UVST2Info@ARDOUR@@@std@@@2@_N@Z)"
+LINK : warning LNK4217: "fst_instantiate" importa el símbolo "vstwin.c.3.o" definido en "vst2-scanner.cc.2.o" en la función ""bool __cdecl discover_vst2(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,enum ARDOUR::PluginType,class std::vector<struct ARDOUR::VST2Info,class std::allocator<struct ARDOUR::VST2Info> > &,bool)" (?discover_vst2@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@W4PluginType@ARDOUR@@AEAV?$vector@UVST2Info@ARDOUR@@V?$allocator@UVST2Info@ARDOUR@@@std@@@2@_N@Z)"
+LINK : warning LNK4217: "fst_close" importa el símbolo "vstwin.c.3.o" definido en "vst2-scanner.cc.2.o" en la función ""void __cdecl vstfx_info_from_plugin(struct _VSTHandle *,struct _VSTState *,class std::vector<struct ARDOUR::VST2Info,class std::allocator<struct ARDOUR::VST2Info> > &,enum ARDOUR::PluginType,bool)" (?vstfx_info_from_plugin@@YAXPEAU_VSTHandle@@PEAU_VSTState@@AEAV?$vector@UVST2Info@ARDOUR@@V?$allocator@UVST2Info@ARDOUR@@@std@@@std@@W4PluginType@ARDOUR@@_N@Z)"
+LINK : warning LNK4217: "vststate_init" importa el símbolo "vst2-scanner.cc.2.o" definido en "vstwin.c.3.o" en la función "fst_instantiate"
+LINK : warning LNK4217: "vststate_maybe_set_program" importa el símbolo "vst2-scanner.cc.2.o" definido en "vstwin.c.3.o" en la función "idle_hands"
+
+[1811/1844] Linking build\libs\ardour\ardour.dll
+   Creando biblioteca libs\\ardour\\ardour.lib y objeto libs\\ardour\\ardour.exp
+LINK : warning LNK4217: "vststate_init" importa el símbolo "vst_state.cc.1.o" definido en "vstwin.c.3.o" en la función "fst_instantiate"
+LINK : warning LNK4217: "vststate_maybe_set_program" importa el símbolo "vst_state.cc.1.o" definido en "vstwin.c.3.o" en la función "idle_hands"
+
+[1812/1844] Linking build\libs\ctrl-interface\control_protocol\ardourcp.dll
+[1813/1844] Linking build\libs\waveview\waveview.dll
+[1814/1844] Linking build\libs\backends\dummy\dummy_audiobackend.dll
+   Creando biblioteca libs\backends\dummy\dummy_audiobackend.lib y objeto libs\backends\dummy\dummy_audiobackend.exp
+
+   Creando biblioteca libs\ctrl-interface\control_protocol\ardourcp.lib y objeto libs\ctrl-interface\control_protocol\ardourcp.exp
+
+   Creando biblioteca libs\waveview\waveview.lib y objeto libs\waveview\waveview.exp
+
+[1815/1844] Linking build\libs\backends\jack\jack_audiobackend.dll
+[1816/1844] Linking build\libs\backends\portaudio\portaudio_callback_backend.dll
+[1817/1844] Linking build\libs\ctrl-interface\midi_surface\ardour_midisurface.dll
+   Creando biblioteca libs\backends\portaudio\portaudio_callback_backend.lib y objeto libs\backends\portaudio\portaudio_callback_backend.exp
+
+   Creando biblioteca libs\ctrl-interface\midi_surface\ardour_midisurface.lib y objeto libs\ctrl-interface\midi_surface\ardour_midisurface.exp
+
+   Creando biblioteca libs\backends\jack\jack_audiobackend.lib y objeto libs\backends\jack\jack_audiobackend.exp
+
+[1818/1844] Linking build\libs\surfaces\generic_midi\ardour_generic_midi.dll
+[1819/1844] Linking build\libs\surfaces\faderport8\ardour_faderport8.dll
+[1820/1844] Linking build\libs\surfaces\faderport8\ardour_faderport16.dll
+   Creando biblioteca libs\surfaces\generic_midi\ardour_generic_midi.lib y objeto libs\surfaces\generic_midi\ardour_generic_midi.exp
+
+   Creando biblioteca libs\surfaces\faderport8\ardour_faderport8.lib y objeto libs\surfaces\faderport8\ardour_faderport8.exp
+
+   Creando biblioteca libs\surfaces\faderport8\ardour_faderport16.lib y objeto libs\surfaces\faderport8\ardour_faderport16.exp
+
+[1821/1844] Linking build\libs\surfaces\faderport\ardour_faderport.dll
+[1822/1844] Linking build\libs\surfaces\faderport8\ardour_faderport2.dll
+[1823/1844] Linking build\libs\surfaces\cc121\ardour_cc121.dll
+   Creando biblioteca libs\surfaces\faderport\ardour_faderport.lib y objeto libs\surfaces\faderport\ardour_faderport.exp
+
+   Creando biblioteca libs\surfaces\faderport8\ardour_faderport2.lib y objeto libs\surfaces\faderport8\ardour_faderport2.exp
+
+[1824/1844] Linking build\libs\surfaces\mackie\ardour_mcp.dll
+[1825/1844] Linking build\libs\surfaces\mackie\ardour_ssl_uf8.dll
+   Creando biblioteca libs\surfaces\cc121\ardour_cc121.lib y objeto libs\surfaces\cc121\ardour_cc121.exp
+
+[1826/1844] Linking build\libs\surfaces\us2400\ardour_us2400.dll
+   Creando biblioteca libs\surfaces\mackie\ardour_mcp.lib y objeto libs\surfaces\mackie\ardour_mcp.exp
+
+   Creando biblioteca libs\surfaces\mackie\ardour_ssl_uf8.lib y objeto libs\surfaces\mackie\ardour_ssl_uf8.exp
+
+[1827/1844] Linking build\libs\surfaces\launch_control_xl\ardour_launch_control_xl.dll
+[1828/1844] Linking build\libs\surfaces\osc\ardour_osc.dll
+   Creando biblioteca libs\surfaces\us2400\ardour_us2400.lib y objeto libs\surfaces\us2400\ardour_us2400.exp
+
+[1829/1844] Linking build\libs\surfaces\console1\ardour_console1.dll
+   Creando biblioteca libs\surfaces\launch_control_xl\ardour_launch_control_xl.lib y objeto libs\surfaces\launch_control_xl\ardour_launch_control_xl.exp
+
+   Creando biblioteca libs\surfaces\osc\ardour_osc.lib y objeto libs\surfaces\osc\ardour_osc.exp
+
+[1830/1844] Linking build\libs\surfaces\launchpad_pro\ardour_launchpad_pro.dll
+[1831/1844] Linking build\libs\surfaces\launchpad_x\ardour_launchpad_mini.dll
+   Creando biblioteca libs\surfaces\console1\ardour_console1.lib y objeto libs\surfaces\console1\ardour_console1.exp
+
+[1832/1844] Linking build\libs\surfaces\launchpad_x\ardour_launchpad_x.dll
+   Creando biblioteca libs\surfaces\launchpad_pro\ardour_launchpad_pro.lib y objeto libs\surfaces\launchpad_pro\ardour_launchpad_pro.exp
+
+   Creando biblioteca libs\surfaces\launchpad_x\ardour_launchpad_mini.lib y objeto libs\surfaces\launchpad_x\ardour_launchpad_mini.exp
+
+[1833/1844] Linking build\libs\surfaces\launchkey_4\ardour_launchkey_4.dll
+   Creando biblioteca libs\surfaces\launchpad_x\ardour_launchpad_x.lib y objeto libs\surfaces\launchpad_x\ardour_launchpad_x.exp
+
+[1834/1844] Linking build\libs\surfaces\push2\ardour_push2.dll
+[1835/1844] Linking build\libs\surfaces\contourdesign\ardour_contourdesign.dll
+   Creando biblioteca libs\surfaces\launchkey_4\ardour_launchkey_4.lib y objeto libs\surfaces\launchkey_4\ardour_launchkey_4.exp
+
+[1836/1844] Linking build\libs\panners\2in2out\pan2in2out.dll
+   Creando biblioteca libs\surfaces\contourdesign\ardour_contourdesign.lib y objeto libs\surfaces\contourdesign\ardour_contourdesign.exp
+
+   Creando biblioteca libs\surfaces\push2\ardour_push2.lib y objeto libs\surfaces\push2\ardour_push2.exp
+
+[1837/1844] Linking build\libs\panners\1in2out\pan1in2out.dll
+   Creando biblioteca libs\panners\2in2out\pan2in2out.lib y objeto libs\panners\2in2out\pan2in2out.exp
+
+[1838/1844] Linking build\libs\panners\vbap\panvbap.dll
+[1839/1844] Linking build\libs\panners\stereobalance\panbalance.dll
+   Creando biblioteca libs\panners\1in2out\pan1in2out.lib y objeto libs\panners\1in2out\pan1in2out.exp
+
+   Creando biblioteca libs\panners\vbap\panvbap.lib y objeto libs\panners\vbap\panvbap.exp
+
+[1840/1844] Linking build\headless\hardour-8.0.0.exe
+   Creando biblioteca libs\panners\stereobalance\panbalance.lib y objeto libs\panners\stereobalance\panbalance.exp
+
+[1841/1844] Linking build\session_utils\ardour8-export.exe
+[1842/1844] Linking build\session_utils\ardour8-new_empty_session.exe
+[1843/1844] Linking build\session_utils\ardour8-new_session.exe
+route_time_axis.cc
+
+[1844/1844] Linking build\gtk2_ardour\ardour-8.0.0.exe
+   Creando biblioteca C:\\ARDOURCUSTOM\\ardour\\build\\gtk2_ardour\\ardour-8.0.0.lib y objeto C:\\ARDOURCUSTOM\\ardour\\build\\gtk2_ardour\\ardour-8.0.0.exp
+
 Waf: Leaving directory `C:\ARDOURCUSTOM\ardour\build'
-'build' finished successfully (10.023s)
+'build' finished successfully (20.961s)

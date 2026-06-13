@@ -23,6 +23,7 @@
 #pragma once
 
 #include <atomic>
+#include <memory>
 #include <vector>
 #include <list>
 
@@ -68,9 +69,15 @@ class PlugInsertBase;
 class LIBARDOUR_API AudioRegion : public Region, public AudioReadable
 {
   public:
+	/** A warp point for elastic audio. Positions are expressed in the
+	 * source domain (same domain as _start, i.e. offsets into the
+	 * region's audio source) so that anchors stay attached to the audio
+	 * when the region is moved or trimmed. The public anchor API below
+	 * converts to/from absolute timeline samples for the GUI.
+	 */
 	struct ElasticAudioAnchor {
-		samplepos_t source;
-		samplepos_t target;
+		samplepos_t source; ///< natural (un-warped) position
+		samplepos_t target; ///< warped playback position
 	};
 
 	static void make_property_quarks ();
@@ -210,12 +217,29 @@ class LIBARDOUR_API AudioRegion : public Region, public AudioReadable
 	void get_transients (AnalysisFeatureList&);
 	void update_transient (samplepos_t old_position, samplepos_t new_position);
 
+	/* Elastic audio. Anchor positions in this API are absolute timeline
+	 * samples (GUI domain); they are stored internally in the source
+	 * domain.
+	 */
+	ElasticAudioMode elastic_audio_mode () const;
+	void set_elastic_audio_mode (ElasticAudioMode);
+	/** @return true when the mode is enabled and at least one anchor warps audio */
+	bool elastic_audio_active () const;
 	void get_elastic_audio_anchors (std::vector<ElasticAudioAnchor>&) const;
 	bool has_elastic_audio_anchor (samplepos_t source, samplecnt_t tolerance = 0) const;
 	void add_elastic_audio_anchor (samplepos_t source, samplepos_t target);
 	void update_elastic_audio_anchor (samplepos_t source, samplepos_t target);
+	/** live (mid-drag) anchor update: no polyphonic render, playback
+	 * falls back to varispeed until the next committing edit */
+	void preview_elastic_audio_anchor (samplepos_t source, samplepos_t target);
 	void remove_elastic_audio_anchor (samplepos_t source, samplecnt_t tolerance = 0);
 	void clear_elastic_audio_anchors ();
+	/** map an un-warped (natural) timeline position to where it currently plays */
+	samplepos_t elastic_audio_warp_position (samplepos_t) const;
+	/** map a warped (playback) timeline position back to the natural position */
+	samplepos_t elastic_audio_unwarp_position (samplepos_t) const;
+	/** render the polyphonic stretch cache if it is needed and missing (GUI thread) */
+	void ensure_elastic_audio_render ();
 
 	AudioIntervalResult find_silence (Sample, samplecnt_t, samplecnt_t, InterThreadInfo&) const;
 
@@ -234,9 +258,29 @@ class LIBARDOUR_API AudioRegion : public Region, public AudioReadable
 	friend class ::PlaylistReadTest;
 
 	void build_transients ();
-	bool elastic_audio_active () const;
+	void build_transients_energy ();
+
+	/** rendered (pitch-preserving) elastic audio, indexed by offset from
+	 * the region position in the warped (playback) domain.
+	 */
+	struct ElasticAudioRender {
+		std::vector<std::unique_ptr<Sample[]>> channels;
+		samplepos_t start;  ///< _start (source offset) at render time
+		samplecnt_t length; ///< valid samples per channel
+		std::vector<ElasticAudioAnchor> anchors; ///< source-domain snapshot used for this render
+	};
+
+	std::vector<ElasticAudioAnchor> elastic_anchors_timeline () const;
+	void elastic_audio_changed ();
+	void set_elastic_audio_state (XMLNode const&, PBD::PropertyChange&);
+	void render_elastic_audio ();
+	bool render_elastic_audio_span (ElasticAudioRender&, std::vector<ElasticAudioAnchor> const& anchors,
+	                                samplepos_t src_lo, samplepos_t src_hi,
+	                                samplepos_t tgt_lo, samplepos_t tgt_hi) const;
 	double elastic_audio_source_position (std::vector<ElasticAudioAnchor> const&, double target) const;
+	double elastic_audio_target_position (std::vector<ElasticAudioAnchor> const&, double source) const;
 	samplecnt_t read_elastic_from_sources (SourceList const &, samplecnt_t, Sample *, samplepos_t, samplecnt_t, uint32_t) const;
+	samplecnt_t read_from_elastic_render (ElasticAudioRender const&, Sample *, samplepos_t, samplecnt_t, uint32_t) const;
 
 	PBD::Property<bool>     _envelope_active;
 	PBD::Property<bool>     _default_fade_in;
@@ -288,6 +332,12 @@ class LIBARDOUR_API AudioRegion : public Region, public AudioReadable
 	mutable samplepos_t _fx_pos;
 	pframes_t           _fx_block_size;
 	mutable bool        _fx_latent_read;
+
+	mutable PBD::Mutex                 _elastic_lock;
+	ElasticAudioMode                   _elastic_mode = ElasticAudioDisabled;
+	bool                               _elastic_preview = false; ///< mid-drag: bypass render, play varispeed
+	std::vector<ElasticAudioAnchor>    _elastic_anchors; ///< source domain, sorted by source
+	std::shared_ptr<ElasticAudioRender> _elastic_render;
 
 	mutable PBD::Mutex _read_lock;
 	mutable PBD::Mutex _cache_lock;
